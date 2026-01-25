@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>START NEON - Aprenda Neon LED do Zero</title>
+  <meta name="description" content="Aprenda a criar letreiros de Neon LED profissionais e comece a lucrar. Método comprovado por +950 alunos.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Hero */
+    .hero { background: #e6f5ef; padding: 60px 20px; text-align: center; }
+    .badge { display: inline-block; background: #d1fae5; color: #047857; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+    .hero h1 span { color: #10b981; text-decoration: underline; text-decoration-color: rgba(16,185,129,0.3); text-underline-offset: 4px; }
+    .subtitle { font-size: 20px; font-weight: 700; color: #f87171; margin-bottom: 24px; }
+    .proof { display: inline-block; background: #fff; border: 1px solid rgba(16,185,129,0.3); padding: 8px 16px; border-radius: 50px; font-size: 14px; margin-bottom: 32px; }
+    
+    /* Video */
+    .video-container { position: relative; max-width: 768px; margin: 0 auto 32px; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); cursor: pointer; }
+    .video-container img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .video-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
+    .play-btn { width: 80px; height: 80px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: transform 0.3s; }
+    .play-btn:hover { transform: scale(1.1); }
+    .play-icon { width: 0; height: 0; border-top: 15px solid transparent; border-left: 25px solid #10b981; border-bottom: 15px solid transparent; margin-left: 5px; }
+    .video-label { position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.9); padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; }
+    
+    .hero-text { font-size: 18px; color: #64748b; max-width: 768px; margin: 0 auto 32px; }
+    .hero-text strong { color: #1a1a2e; }
+    
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 32px; }
+    .tags span { background: #fff; padding: 8px 16px; border-radius: 50px; font-size: 14px; }
+    
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #10b981; color: #fff; padding: 16px 32px; border-radius: 50px; font-size: 18px; font-weight: 700; transition: all 0.3s; }
+    .btn-primary:hover { background: #059669; transform: translateY(-2px); }
+    
+    /* Testimonials */
+    .testimonials { padding: 48px 20px; background: #fff; }
+    .section-label { text-align: center; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #10b981; }
+    .section-title { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin: 8px 0 32px; }
+    .section-title span { color: #10b981; }
+    
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .testimonial-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .testimonial-card img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .testimonial-badge { position: absolute; bottom: 12px; left: 12px; background: #10b981; color: #fff; padding: 4px 12px; border-radius: 50px; font-size: 12px; font-weight: 600; }
+    .testimonial-content { padding: 16px; }
+    .testimonial-content h4 { font-weight: 700; margin-bottom: 4px; }
+    .testimonial-content p { font-size: 14px; color: #64748b; }
+    
+    /* Pain Points */
+    .pain-points { padding: 60px 20px; background: #e6f5ef; }
+    .pain-intro { text-align: center; max-width: 800px; margin: 0 auto 48px; }
+    .pain-intro p:first-child { color: #10b981; font-size: 18px; margin-bottom: 16px; }
+    .pain-intro p:last-child { font-size: 18px; }
+    .pain-intro strong { color: #1a1a2e; }
+    
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto 32px; }
+    .pain-card { background: #fff; padding: 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .pain-card h3 { color: #f87171; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .pain-card p { color: #64748b; }
+    .pain-cta { text-align: center; color: #f87171; font-weight: 700; }
+    
+    /* Solution */
+    .solution { padding: 60px 20px; background: #fff; text-align: center; }
+    .solution h2 { color: #10b981; font-size: clamp(28px, 5vw, 40px); font-weight: 800; margin: 8px 0 16px; }
+    .solution > p { color: #64748b; max-width: 600px; margin: 0 auto 48px; font-size: 18px; }
+    .solution strong { color: #1a1a2e; }
+    
+    .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .solution-item { padding: 24px; }
+    .solution-icon { width: 48px; height: 48px; background: #d1fae5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px; }
+    .solution-item h3 { font-weight: 700; margin-bottom: 8px; }
+    .solution-item p { font-size: 14px; color: #64748b; }
+    
+    /* Curriculum */
+    .curriculum { padding: 60px 20px; background: #e6f5ef; }
+    .curriculum-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .curriculum-item { background: #fff; padding: 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; }
+    .curriculum-icon { width: 48px; height: 48px; background: #d1fae5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px; }
+    .curriculum-item h3 { font-weight: 700; margin-bottom: 8px; }
+    .curriculum-item p { font-size: 14px; color: #64748b; }
+    
+    /* Bonus */
+    .bonus { padding: 60px 20px; background: #fff; }
+    .bonus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .bonus-item { background: #d1fae5; padding: 24px; border-radius: 16px; text-align: center; }
+    .bonus-item .icon { font-size: 32px; margin-bottom: 8px; }
+    .bonus-item h3 { font-weight: 700; margin-bottom: 4px; }
+    .bonus-item p { font-size: 14px; color: #047857; }
+    
+    /* Pricing */
+    .pricing { padding: 60px 20px; background: #e6f5ef; text-align: center; }
+    .pricing > p { color: #64748b; margin-bottom: 32px; }
+    .pricing-card { background: #fff; border: 2px solid #10b981; border-radius: 24px; padding: 32px; max-width: 400px; margin: 0 auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+    .pricing-label { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #10b981; }
+    .pricing-title { font-size: 24px; font-weight: 800; color: #10b981; margin: 8px 0 24px; }
+    .pricing-list { text-align: left; margin-bottom: 24px; }
+    .pricing-list li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .pricing-list li::before { content: "✓"; color: #10b981; font-weight: 700; }
+    .price-old { font-size: 14px; color: #64748b; }
+    .price-old span { font-size: 20px; text-decoration: line-through; color: #94a3b8; }
+    .price-new { font-size: 14px; color: #64748b; margin-top: 8px; }
+    .price-new span { font-size: 48px; font-weight: 800; color: #10b981; }
+    .price-installment { font-size: 14px; color: #64748b; margin: 8px 0 24px; }
+    .pricing-btn { display: block; width: 100%; background: #10b981; color: #fff; padding: 16px; border-radius: 50px; font-size: 18px; font-weight: 700; text-align: center; transition: all 0.3s; }
+    .pricing-btn:hover { background: #059669; }
+    .pricing-trust { display: flex; justify-content: center; gap: 16px; margin-top: 16px; font-size: 12px; color: #64748b; }
+    
+    /* Instructor */
+    .instructor { padding: 60px 20px; background: #fff; }
+    .instructor-content { display: flex; flex-direction: column; align-items: center; gap: 32px; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 768px) { .instructor-content { flex-direction: row; } }
+    .instructor-img { width: 250px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .instructor-info .stars { color: #fbbf24; margin-bottom: 8px; }
+    .instructor-info h3 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+    .instructor-info .handle { color: #10b981; margin-bottom: 16px; }
+    .instructor-info p { color: #64748b; margin-bottom: 24px; }
+    .instructor-info strong { color: #1a1a2e; }
+    .instructor-stats { display: flex; gap: 32px; }
+    .instructor-stats div p:first-child { font-size: 24px; font-weight: 700; color: #10b981; }
+    .instructor-stats div p:last-child { font-size: 14px; color: #64748b; }
+    
+    /* Guarantee */
+    .guarantee { padding: 60px 20px; background: #e6f5ef; }
+    .guarantee-box { background: linear-gradient(135deg, #d1fae5, #a7f3d0); border: 2px solid rgba(16,185,129,0.3); border-radius: 24px; padding: 32px; max-width: 700px; margin: 0 auto; text-align: center; }
+    .guarantee-box h2 { font-size: clamp(20px, 4vw, 28px); font-weight: 700; color: #047857; margin-bottom: 16px; }
+    .guarantee-box > p { color: #047857; margin-bottom: 24px; }
+    .guarantee-box strong { color: #065f46; }
+    .guarantee-features { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; font-size: 14px; color: #047857; flex-wrap: wrap; }
+    
+    /* FAQ */
+    .faq { padding: 60px 20px; background: #fff; }
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid #e2e8f0; }
+    .faq-question { width: 100%; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; text-align: left; font-weight: 600; background: none; border: none; cursor: pointer; font-size: 16px; }
+    .faq-question span { color: #10b981; font-size: 24px; transition: transform 0.3s; }
+    .faq-question.active span { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-answer.active { max-height: 200px; }
+    .faq-answer p { padding-bottom: 20px; color: #64748b; }
+    
+    /* Footer */
+    footer { background: #1a1a2e; padding: 32px 20px; text-align: center; }
+    footer p { color: #94a3b8; font-size: 14px; }
+    
+    /* YouTube Embed */
+    .youtube-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .youtube-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="badge">🚀 Menor investimento • Maior retorno 💰</span>
+    
+    <h1>Comece a <span>Lucrar</span> com Neon LED Hoje!</h1>
+    
+    <p class="subtitle">Sem máquinas caras e sem investimento alto.</p>
+    
+    <span class="proof">✓ Método comprovado por +950 alunos</span>
+    
+    <div class="video-container" id="videoContainer" onclick="playVideo()">
+      <img src="https://letracaixadozero.com.br/images/hero-neon-workshop.webp" alt="Workshop de Neon LED" id="videoThumb">
+      <div class="video-overlay" id="videoOverlay">
+        <div class="play-btn">
+          <div class="play-icon"></div>
+        </div>
+      </div>
+      <div class="video-label">Assista o vídeo ↑</div>
+    </div>
+    
+    <p class="hero-text">Com apenas <strong>furadeira, ferro de solda e criatividade</strong> você já consegue produzir peças incríveis e ter lucro.</p>
+    
+    <div class="tags">
+      <span>🔧 Ferramentas que você já tem</span>
+      <span>💰 Investimento baixo pra iniciar</span>
+      <span>⚡ Comece hoje mesmo</span>
+    </div>
+    
+    <a href="https://pay.hotmart.com/O97266798R" class="btn-primary">Quero começar agora por R$97 ↓</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label">Resultados Reais</p>
+  <h2 class="section-title">Veja o que nossos <span>alunos</span> estão criando</h2>
+  
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div style="position:relative">
+        <img src="https://letracaixadozero.com.br/images/depoimento-pablo.webp" alt="Pablo Moura">
+        <span class="testimonial-badge">Número 2 em Neon LED</span>
+      </div>
+      <div class="testimonial-content">
+        <h4>Pablo Moura</h4>
+        <p>"Só para te dar um feedback sobre o curso"</p>
+      </div>
+    </div>
+    
+    <div class="testimonial-card">
+      <div style="position:relative">
+        <img src="https://letracaixadozero.com.br/images/depoimento-sidney.webp" alt="Sidney Rodrigues">
+        <span class="testimonial-badge">Primeira peça produzida</span>
+      </div>
+      <div class="testimonial-content">
+        <h4>Sidney Rodrigues</h4>
+        <p>"Os olhos chegam a lacrimejar de tanta felicidade 🙏"</p>
+      </div>
+    </div>
+    
+    <div class="testimonial-card">
+      <div style="position:relative">
+        <img src="https://letracaixadozero.com.br/images/depoimento-andre.webp" alt="André Leal">
+        <span class="testimonial-badge">Letreiro You + Me</span>
+      </div>
+      <div class="testimonial-content">
+        <h4>André Leal</h4>
+        <p>"Quero agradecer por todo o apoio prestado 👍"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain-points">
+  <div class="container">
+    <div class="pain-intro">
+      <p>💡 A verdade que ninguém te conta:</p>
+      <p>Você <strong>não precisa de CNC ou máquinas caras</strong> para começar no mercado de Neon LED. As técnicas manuais produzem peças tão bonitas quanto as automatizadas — <strong>e custam 10x menos para começar.</strong></p>
+    </div>
+    
+    <h2 class="section-title">Você se identifica com algum desses problemas?</h2>
+    
+    <div class="pain-grid">
+      <div class="pain-card">
+        <h3>Acha que precisa de uma CNC cara?</h3>
+        <p>Muita gente desiste antes de começar pensando que precisa investir R$10.000+ em equipamentos.</p>
+      </div>
+      <div class="pain-card">
+        <h3>Medo de não ter retorno?</h3>
+        <p>Investir alto sem garantia de vendas é arriscado. E se não der certo?</p>
+      </div>
+      <div class="pain-card">
+        <h3>Não sabe por onde começar?</h3>
+        <p>Tutoriais no YouTube são fragmentados. Você perde tempo tentando juntar as peças.</p>
+      </div>
+      <div class="pain-card">
+        <h3>Acha que demora muito?</h3>
+        <p>Pensa que vai levar meses até conseguir produzir algo vendável?</p>
+      </div>
+    </div>
+    
+    <p class="pain-cta">❌ Você não precisa passar por isso.</p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="container">
+    <p class="section-label">A Solução</p>
+    <h2>START NEON</h2>
+    <p>Um treinamento direto ao ponto para quem quer <strong>começar a lucrar sem gastar uma fortuna</strong>.</p>
+    
+    <div class="solution-grid">
+      <div class="solution-item">
+        <div class="solution-icon">🔧</div>
+        <h3>Ferramentas Simples</h3>
+        <p>Furadeira, ferro de solda e materiais básicos. Investimento inicial menor que R$200.</p>
+      </div>
+      <div class="solution-item">
+        <div class="solution-icon">✋</div>
+        <h3>Técnicas Manuais</h3>
+        <p>Aprenda a moldar, soldar e montar Neon LED sem depender de máquinas caras.</p>
+      </div>
+      <div class="solution-item">
+        <div class="solution-icon">🎨</div>
+        <h3>Criatividade = Dinheiro</h3>
+        <p>Com técnica correta, suas peças ficam tão profissionais quanto as feitas em CNC.</p>
+      </div>
+      <div class="solution-item">
+        <div class="solution-icon">💰</div>
+        <h3>Lucro Imediato</h3>
+        <p>Comece a vender na primeira semana. ROI garantido no primeiro trabalho.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum">
+  <div class="container">
+    <h2 class="section-title">O que você vai aprender 📚</h2>
+    
+    <div class="curriculum-grid">
+      <div class="curriculum-item">
+        <div class="curriculum-icon">🎯</div>
+        <h3>Introdução ao Neon LED</h3>
+        <p>Entenda o mercado e prepare-se para lucrar</p>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-icon">🛒</div>
+        <h3>Materiais e Fornecedores</h3>
+        <p>Onde comprar e quanto investir</p>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-icon">🔧</div>
+        <h3>Técnicas de Moldagem</h3>
+        <p>O coração do treinamento</p>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-icon">⚡</div>
+        <h3>Soldagem e Elétrica</h3>
+        <p>Conexões seguras e profissionais</p>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-icon">🎨</div>
+        <h3>Montagem e Acabamento</h3>
+        <p>Da peça bruta ao produto final</p>
+      </div>
+      <div class="curriculum-item">
+        <div class="curriculum-icon">💰</div>
+        <h3>Vendas e Precificação</h3>
+        <p>Transforme em negócio lucrativo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="bonus">
+  <div class="container">
+    <h2 class="section-title">🎁 Bônus Inclusos</h2>
+    
+    <div class="bonus-grid">
+      <div class="bonus-item">
+        <div class="icon">💬</div>
+        <h3>Suporte via WhatsApp</h3>
+        <p>Tire dúvidas diretamente comigo</p>
+      </div>
+      <div class="bonus-item">
+        <div class="icon">📋</div>
+        <h3>Lista de Fornecedores</h3>
+        <p>Onde comprar mais barato</p>
+      </div>
+      <div class="bonus-item">
+        <div class="icon">🔄</div>
+        <h3>Atualizações Gratuitas</h3>
+        <p>Acesso vitalício ao conteúdo</p>
+      </div>
+      <div class="bonus-item">
+        <div class="icon">👥</div>
+        <h3>Comunidade de Alunos</h3>
+        <p>Troque experiências e dicas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="container">
+    <h2 class="section-title">Investimento</h2>
+    <p>Menor que o custo de um jantar 🍽️</p>
+    
+    <div class="pricing-card">
+      <p class="pricing-label">Treinamento Completo</p>
+      <h3 class="pricing-title">START NEON</h3>
+      
+      <ul class="pricing-list">
+        <li>6 módulos completos de formação</li>
+        <li>Técnicas manuais detalhadas</li>
+        <li>Lista de materiais e fornecedores</li>
+        <li>Módulo de vendas e precificação</li>
+        <li>Suporte via WhatsApp</li>
+        <li>Acesso vitalício</li>
+        <li>Atualizações gratuitas</li>
+      </ul>
+      
+      <p class="price-old">Valor real: <span>R$ 297,00</span></p>
+      <p class="price-new">Oferta especial: <span>R$97</span></p>
+      <p class="price-installment">ou 12x de R$9,68</p>
+      
+      <a href="https://pay.hotmart.com/O97266798R" class="pricing-btn">Quero começar agora por R$97</a>
+      
+      <div class="pricing-trust">
+        <span>🔒 Compra segura</span>
+        <span>⚡ Acesso imediato</span>
+        <span>✓ Garantia 7 dias</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="instructor">
+  <div class="container">
+    <h2 class="section-title">Seu Instrutor</h2>
+    
+    <div class="instructor-content">
+      <img src="https://letracaixadozero.com.br/images/matheus-instrutor.webp" alt="Matheus Pivatti" class="instructor-img">
+      
+      <div class="instructor-info">
+        <div class="stars">★★★★★</div>
+        <h3>Matheus Pivatti</h3>
+        <p class="handle">@letracaixadozero</p>
+        <p>Proprietário da <strong>@steel.letras</strong> com <strong>15 anos de experiência</strong> no mercado de letreiros. Há 3 anos compartilha seu conhecimento através da <strong>@letracaixadozero</strong>, já tendo formado <strong>mais de 3.000 alunos</strong> em todo o Brasil.</p>
+        
+        <div class="instructor-stats">
+          <div>
+            <p>+122 mil</p>
+            <p>seguidores</p>
+          </div>
+          <div>
+            <p>+3.000</p>
+            <p>alunos formados</p>
+          </div>
+          <div>
+            <p>+5.000</p>
+            <p>letreiros entregues</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="container">
+    <div class="guarantee-box">
+      <h2>Garantia Incondicional de 7 Dias</h2>
+      <p>Se você não gostar do treinamento, ou achar que não é para você, basta enviar um email que devolvo <strong>100% do seu investimento</strong>. Sem perguntas, sem burocracia.</p>
+      
+      <div class="guarantee-features">
+        <span>✓ Reembolso total</span>
+        <span>✉️ Basta um email</span>
+        <span>⏰ Até 7 dias</span>
+      </div>
+      
+      <a href="https://pay.hotmart.com/O97266798R" class="btn-primary">Quero começar sem risco</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title">Perguntas Frequentes 🤔</h2>
+    
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Preciso de uma máquina CNC para fazer Neon LED?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Não! O START NEON ensina técnicas 100% manuais. Você só precisa de furadeira, ferro de solda e materiais básicos.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          É difícil aprender? Nunca mexi com eletrônica.
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>O curso foi feito para iniciantes. Explico tudo passo a passo, desde o básico até técnicas avançadas.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Quanto tempo até eu começar a vender?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Muitos alunos fazem sua primeira peça vendável na primeira semana. Depende da sua dedicação.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Qual a diferença do START NEON para o PRO NEON?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>O START NEON é focado em técnicas manuais com baixo investimento. O PRO NEON é para quem quer escalar com CNC e automação.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Por quanto tempo tenho acesso ao curso?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Acesso vitalício! Você pode assistir quantas vezes quiser, para sempre.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Posso pagar no boleto ou PIX?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sim! Na página de checkout você pode escolher cartão, boleto ou PIX.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          E se eu não gostar?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Você tem 7 dias de garantia incondicional. Se não gostar, devolvo 100% do seu dinheiro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 Letra Caixa do Zero. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// Play Video
+function playVideo() {
+  const container = document.getElementById('videoContainer');
+  container.innerHTML = '<div class="youtube-embed"><iframe src="https://www.youtube.com/embed/Q6SNCFjVfb4?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+}
+
+// FAQ Toggle
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isActive = btn.classList.contains('active');
+  
+  // Close all
+  document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+  
+  // Open clicked if wasn't active
+  if (!isActive) {
+    btn.classList.add('active');
+    answer.classList.add('active');
+  }
+}
+
+// UTM Tracking
+(function() {
+  const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'sck'];
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmValues = {};
+
+  utmParams.forEach(param => {
+    if (urlParams.has(param)) {
+      utmValues[param] = urlParams.get(param);
+    }
+  });
+
+  if (Object.keys(utmValues).length > 0) {
+    document.querySelectorAll('a[href*="pay"]').forEach(link => {
+      const linkUrl = new URL(link.href);
+      utmParams.forEach(param => {
+        if (utmValues[param]) {
+          linkUrl.searchParams.set(param, utmValues[param]);
+        }
+      });
+      link.href = linkUrl.toString();
+    });
+  }
+})();
+
+// GTM - Load after 5 seconds
+setTimeout(function() {
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://load.stape.letracaixadozero.com/iebjqtlcp.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','x=GQdRMyUnTy42LTszJV9aQwZeXlpATAYLTQ8JAAMLAQQZGw0QHhAHFx9NDxsc');
+}, 5000);
+</script>
+
+</body>
+</html>

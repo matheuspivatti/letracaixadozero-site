@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LETRAS CHINESAS 4.0 - Aprenda o Método Chinês de Letra Caixa</title>
+  <meta name="description" content="Aprenda a produzir letras caixa de acrílico com o método chinês. Técnicas profissionais com Router CNC para lucrar alto.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Hero */
+    .hero { background: #f0f7ff; padding: 60px 20px; text-align: center; }
+    .badge { display: inline-block; background: #fff; border: 2px solid #2563eb; color: #1a1a2e; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+    .hero h1 span { color: #2563eb; }
+    .subtitle { font-size: 20px; color: #64748b; margin-bottom: 24px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .subtitle strong { color: #1a1a2e; }
+    
+    /* Video */
+    .video-container { position: relative; max-width: 768px; margin: 0 auto 32px; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); cursor: pointer; background: #1a1a2e; }
+    .video-container img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .video-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
+    .play-btn { width: 80px; height: 80px; background: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37,99,235,0.4); transition: transform 0.3s; }
+    .play-btn:hover { transform: scale(1.1); }
+    .play-icon { width: 0; height: 0; border-top: 15px solid transparent; border-left: 25px solid #fff; border-bottom: 15px solid transparent; margin-left: 5px; }
+    
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 16px 32px; border-radius: 50px; font-size: 18px; font-weight: 700; transition: all 0.3s; }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+    .btn-yellow { background: #fbbf24; color: #1a1a2e; }
+    .btn-yellow:hover { background: #f59e0b; }
+    
+    /* Sections */
+    .section { padding: 60px 20px; }
+    .section-light { background: #fff; }
+    .section-blue { background: #f0f7ff; }
+    .section-label { text-align: center; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #2563eb; }
+    .section-title { text-align: center; font-size: clamp(24px, 4vw, 36px); font-weight: 700; margin: 8px 0 32px; }
+    .section-title span { color: #2563eb; }
+    
+    /* Modules */
+    .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .module-card { background: #fff; padding: 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-left: 4px solid #2563eb; }
+    .module-icon { font-size: 32px; margin-bottom: 12px; }
+    .module-card h3 { font-weight: 700; margin-bottom: 8px; color: #2563eb; }
+    .module-card p { font-size: 14px; color: #64748b; }
+    
+    /* Benefits */
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .benefit-item { text-align: center; padding: 24px; }
+    .benefit-icon { width: 64px; height: 64px; background: #dbeafe; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px; }
+    .benefit-item h3 { font-weight: 700; margin-bottom: 8px; }
+    .benefit-item p { font-size: 14px; color: #64748b; }
+    
+    /* Pricing */
+    .pricing { padding: 60px 20px; background: #f0f7ff; text-align: center; }
+    .pricing-card { background: #fff; border: 3px solid #2563eb; border-radius: 24px; padding: 32px; max-width: 420px; margin: 0 auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+    .pricing-badge { display: inline-block; background: #2563eb; color: #fff; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+    .pricing-title { font-size: 24px; font-weight: 800; color: #2563eb; margin-bottom: 24px; }
+    .pricing-list { text-align: left; margin-bottom: 24px; }
+    .pricing-list li { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .pricing-list li::before { content: "✓"; color: #2563eb; font-weight: 700; }
+    .price-old { font-size: 14px; color: #64748b; }
+    .price-old span { font-size: 20px; text-decoration: line-through; color: #94a3b8; }
+    .price-new { font-size: 14px; color: #64748b; margin-top: 8px; }
+    .price-new span { font-size: 48px; font-weight: 800; color: #2563eb; }
+    .price-installment { font-size: 14px; color: #64748b; margin: 8px 0 24px; }
+    .pricing-btn { display: block; width: 100%; background: #fbbf24; color: #1a1a2e; padding: 16px; border-radius: 50px; font-size: 18px; font-weight: 700; text-align: center; transition: all 0.3s; }
+    .pricing-btn:hover { background: #f59e0b; }
+    
+    /* FAQ */
+    .faq { padding: 60px 20px; background: #fff; }
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid #e2e8f0; }
+    .faq-question { width: 100%; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; text-align: left; font-weight: 600; background: none; border: none; cursor: pointer; font-size: 16px; }
+    .faq-question span { color: #2563eb; font-size: 24px; transition: transform 0.3s; }
+    .faq-question.active span { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-answer.active { max-height: 200px; }
+    .faq-answer p { padding-bottom: 20px; color: #64748b; }
+    
+    /* Guarantee */
+    .guarantee { padding: 60px 20px; background: #f0f7ff; }
+    .guarantee-box { background: linear-gradient(135deg, #dbeafe, #bfdbfe); border: 2px solid rgba(37,99,235,0.3); border-radius: 24px; padding: 32px; max-width: 700px; margin: 0 auto; text-align: center; }
+    .guarantee-box h2 { font-size: clamp(20px, 4vw, 28px); font-weight: 700; color: #1e40af; margin-bottom: 16px; }
+    .guarantee-box p { color: #1e40af; }
+    
+    /* Footer */
+    footer { background: #1a1a2e; padding: 32px 20px; text-align: center; }
+    footer p { color: #94a3b8; font-size: 14px; }
+    
+    /* YouTube Embed */
+    .youtube-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .youtube-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">🇨🇳 China → Brasil 🇧🇷</span>
+      
+      <h1>Domine o <span>Método Chinês</span> de Letra Caixa</h1>
+      <p class="subtitle">Aprenda a produzir <strong>letras caixa de acrílico</strong> com qualidade internacional usando sua <strong>Router CNC</strong></p>
+      
+      <div class="video-container" id="videoContainer" onclick="playVideo()">
+        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800" alt="Letras Caixa de Acrílico" id="videoThumb">
+        <div class="video-overlay" id="videoOverlay">
+          <div class="play-btn">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="https://pay.hotmart.com/B88498495J?checkoutMode=10" class="btn-primary btn-yellow">
+        🚀 QUERO APRENDER AGORA
+      </a>
+    </div>
+  </section>
+
+  <!-- MÓDULOS -->
+  <section class="section section-light">
+    <div class="container">
+      <p class="section-label">Conteúdo do Treinamento</p>
+      <h2 class="section-title">O que você vai <span>aprender</span></h2>
+      
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="module-icon">🎯</div>
+          <h3>Módulo 1: Introdução</h3>
+          <p>Visão geral do método chinês e preparação inicial</p>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">⚙️</div>
+          <h3>Módulo 2: Configuração CNC</h3>
+          <p>Ajustes e calibração da sua Router CNC</p>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">✂️</div>
+          <h3>Módulo 3: Corte e Usinagem</h3>
+          <p>Técnicas de corte perfeito em acrílico</p>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">🔧</div>
+          <h3>Módulo 4: Montagem</h3>
+          <p>Processo de montagem das letras caixa</p>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">💡</div>
+          <h3>Módulo 5: Iluminação</h3>
+          <p>Instalação de LED e acabamento</p>
+        </div>
+        <div class="module-card">
+          <div class="module-icon">💰</div>
+          <h3>Módulo 6: Vendas</h3>
+          <p>Como precificar e vender suas peças</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="section section-blue">
+    <div class="container">
+      <p class="section-label">Por que escolher este método</p>
+      <h2 class="section-title">Vantagens do <span>Método Chinês</span></h2>
+      
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">⚡</div>
+          <h3>Produção Rápida</h3>
+          <p>Produza peças em metade do tempo dos métodos tradicionais</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💎</div>
+          <h3>Acabamento Premium</h3>
+          <p>Qualidade de exportação que impressiona clientes</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📈</div>
+          <h3>Alta Margem</h3>
+          <p>Margem de 300% a 500% em cada peça vendida</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🔄</div>
+          <h3>Escalável</h3>
+          <p>Método que permite escalar sua produção</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing">
+    <div class="container">
+      <p class="section-label">Investimento</p>
+      <h2 class="section-title">Comece <span>hoje mesmo</span></h2>
+      
+      <div class="pricing-card">
+        <span class="pricing-badge">Oferta Especial</span>
+        <h3 class="pricing-title">LETRAS CHINESAS 4.0</h3>
+        
+        <ul class="pricing-list">
+          <li>Acesso vitalício ao treinamento completo</li>
+          <li>6 módulos com aulas práticas</li>
+          <li>Arquivos e templates prontos</li>
+          <li>Suporte via grupo exclusivo</li>
+          <li>Atualizações gratuitas</li>
+          <li>Certificado de conclusão</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+        
+        <p class="price-old">De <span>R$ 497</span></p>
+        <p class="price-new">Por apenas <span>R$ 297</span></p>
+        <p class="price-installment">ou 12x de R$ 29,21</p>
+        
+        <a href="https://pay.hotmart.com/B88498495J?checkoutMode=10" class="pricing-btn">
+          QUERO GARANTIR MINHA VAGA →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIA -->
+  <section class="guarantee">
+    <div class="container">
+      <div class="guarantee-box">
+        <h2>🛡️ Garantia Incondicional de 7 Dias</h2>
+        <p>Se por qualquer motivo você não ficar satisfeito, basta solicitar o reembolso em até 7 dias e devolvemos 100% do seu investimento. Sem perguntas, sem burocracia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <p class="section-label">Dúvidas Frequentes</p>
+      <h2 class="section-title">Perguntas <span>Respondidas</span></h2>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Funciona com qualquer Router CNC?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! O método funciona com qualquer Router CNC, desde modelos básicos até máquinas industriais. Você só precisa de uma área útil mínima de 60x60cm.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Preciso ter experiência com CNC?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Não necessariamente. O curso ensina desde o básico. Se você já sabe operar sua CNC, vai acelerar ainda mais o aprendizado.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Qual o investimento em materiais?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>O investimento inicial em materiais para as primeiras peças fica em torno de R$200 a R$500, dependendo do tamanho dos projetos.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quanto tempo leva para aprender?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>A maioria dos alunos consegue produzir a primeira peça vendável em 1-2 semanas de estudo e prática.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Qual a margem de lucro real?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>A margem varia de 300% a 500% dependendo do projeto. Uma letra que custa R$50 para produzir pode ser vendida por R$200 a R$300.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            E se eu não gostar?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você tem 7 dias de garantia incondicional. Se não gostar, devolvo 100% do seu dinheiro sem perguntas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section section-blue" style="text-align: center;">
+    <div class="container">
+      <h2 class="section-title">Pronto para <span>dominar</span> o método chinês?</h2>
+      <a href="https://pay.hotmart.com/B88498495J?checkoutMode=10" class="btn-primary btn-yellow">
+        🚀 QUERO COMEÇAR AGORA
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Letra Caixa do Zero. Todos os direitos reservados.</p>
+  </footer>
+
+<script>
+// Play Video
+function playVideo() {
+  const container = document.getElementById('videoContainer');
+  container.innerHTML = '<div class="youtube-embed"><iframe src="https://www.youtube.com/embed/VIDEO_ID_AQUI?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+}
+
+// FAQ Toggle
+function toggleFaq(btn) {
+  const isActive = btn.classList.contains('active');
+  document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+  if (!isActive) {
+    btn.classList.add('active');
+    btn.nextElementSibling.classList.add('active');
+  }
+}
+
+// UTM Tracking
+(function() {
+  const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'sck'];
+  const urlParams = new URLSearchParams(window.location.search);
+  let utmValues = {};
+  utmParams.forEach(param => {
+    if (urlParams.has(param)) utmValues[param] = urlParams.get(param);
+  });
+  if (Object.keys(utmValues).length > 0) {
+    document.querySelectorAll('a[href*="pay"]').forEach(link => {
+      const linkUrl = new URL(link.href);
+      utmParams.forEach(param => {
+        if (utmValues[param]) linkUrl.searchParams.set(param, utmValues[param]);
+      });
+      link.href = linkUrl.toString();
+    });
+  }
+})();
+
+// GTM - carregado após 5 segundos
+setTimeout(function() {
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://load.stape.letracaixadozero.com/iebjqtlcp.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','x=GQdRMyUnTy42LTszJV9aQwZeXlpATAYLTQ8JAAMLAQQZGw0QHhAHFx9NDxsc');
+}, 5000);
+</script>
+</body>
+</html>
