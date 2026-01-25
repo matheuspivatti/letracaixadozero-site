@@ -3,139 +3,435 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Letra Caixa do Zero - Treinamentos de Comunicação Visual</title>
-  <meta name="description" content="Aprenda a criar letreiros profissionais de Neon LED, Letras Caixa de Acrílico e Letras de Aço. Treinamentos completos para você lucrar.">
+  <title>Letras Caixa - Aprenda a Fabricar Letras Caixa Profissionais | Guia Completo</title>
+  <meta name="description" content="O maior portal sobre letras caixa do Brasil. Aprenda todos os processos de fabricação, materiais e técnicas para criar letras caixa profissionais.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; background: #f8fafc; }
+    body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; color: #f8fafc; background: #0f172a; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
     
     /* Header */
-    header { background: #fff; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    .logo { font-size: 24px; font-weight: 800; color: #10b981; }
+    header { background: #0f172a; padding: 16px 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 18px; font-weight: 800; letter-spacing: 1px; }
+    .logo span { color: #fbbf24; }
+    nav { display: flex; gap: 32px; }
+    nav a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.7); transition: color 0.3s; }
+    nav a:hover { color: #fff; }
+    @media (max-width: 700px) { nav { display: none; } }
     
     /* Hero */
-    .hero { padding: 80px 20px; text-align: center; background: linear-gradient(135deg, #f0fdf4, #ecfeff); }
-    .hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 800; margin-bottom: 24px; line-height: 1.2; }
-    .hero h1 span { color: #10b981; }
-    .hero p { font-size: 20px; color: #64748b; max-width: 700px; margin: 0 auto 48px; }
+    .hero { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); padding: 80px 20px 100px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; top: 50%; left: 50%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%); transform: translate(-50%, -50%); }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 50px; font-size: 13px; margin-bottom: 24px; }
+    .hero-badge::before { content: "✨"; }
+    .hero h1 { font-size: clamp(32px, 6vw, 56px); font-weight: 800; margin-bottom: 20px; line-height: 1.1; text-transform: uppercase; }
+    .hero h1 span { color: #fbbf24; }
+    .hero-desc { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 700px; margin: 0 auto 32px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; text-transform: uppercase; transition: all 0.3s; cursor: pointer; border: 2px dashed transparent; }
+    .btn-outline { background: transparent; border: 2px dashed #fbbf24; color: #fff; }
+    .btn-outline:hover { background: rgba(251,191,36,0.1); }
+    .btn-primary { background: #fbbf24; color: #0f172a; }
+    .btn-primary:hover { background: #f59e0b; }
     
-    /* Courses Grid */
-    .courses { padding: 80px 20px; }
-    .courses h2 { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 48px; }
-    .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; max-width: 1000px; margin: 0 auto; }
-    .course-card { background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-    .course-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-    .course-img { height: 200px; background-size: cover; background-position: center; }
-    .course-content { padding: 24px; }
-    .course-badge { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; }
-    .course-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-    .course-card p { font-size: 14px; color: #64748b; margin-bottom: 16px; }
-    .course-btn { display: block; width: 100%; padding: 12px; border-radius: 50px; font-weight: 700; text-align: center; transition: all 0.3s; }
-    .course-btn:hover { transform: translateY(-2px); }
+    /* Live Event */
+    .live-section { background: #1e293b; padding: 60px 20px; }
+    .live-card { background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%); border-radius: 16px; padding: 40px; max-width: 800px; margin: 0 auto; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+    .live-tags { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .live-tag { background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; font-size: 12px; display: flex; align-items: center; gap: 6px; }
+    .live-tag.green { background: rgba(34,197,94,0.2); color: #22c55e; }
+    .live-card h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .live-card h2 span { color: #22c55e; }
+    .live-card p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .live-info { display: flex; justify-content: center; gap: 32px; margin-bottom: 24px; flex-wrap: wrap; }
+    .live-info-item { display: flex; align-items: center; gap: 8px; }
+    .live-info-item span { color: rgba(255,255,255,0.7); font-size: 14px; }
+    .btn-green { background: #22c55e; color: #fff; }
+    .btn-green:hover { background: #16a34a; }
     
-    /* Colors */
-    .green { background: #d1fae5; color: #047857; }
-    .blue { background: #dbeafe; color: #1d4ed8; }
-    .orange { background: #ffedd5; color: #c2410c; }
-    .purple { background: #f3e8ff; color: #7c3aed; }
-    .red { background: #fee2e2; color: #dc2626; }
+    /* Manuais Section */
+    .manuais-section { background: #fff; padding: 80px 20px; color: #1a1a2e; }
+    .section-title { text-align: center; font-size: clamp(28px, 5vw, 40px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; color: #1a1a2e; }
+    .section-desc { text-align: center; color: #64748b; margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto; }
     
-    .btn-green { background: #10b981; color: #fff; }
-    .btn-green:hover { background: #059669; }
-    .btn-blue { background: #2563eb; color: #fff; }
-    .btn-blue:hover { background: #1d4ed8; }
-    .btn-orange { background: #f97316; color: #fff; }
-    .btn-orange:hover { background: #ea580c; }
-    .btn-purple { background: #8b5cf6; color: #fff; }
-    .btn-purple:hover { background: #7c3aed; }
-    .btn-red { background: #ef4444; color: #fff; }
-    .btn-red:hover { background: #dc2626; }
+    .manuais-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 48px; }
+    @media (max-width: 600px) { .manuais-gallery { grid-template-columns: repeat(2, 1fr); } }
+    .manuais-gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; }
+    
+    .manuais-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 800px) { .manuais-grid { grid-template-columns: 1fr; } }
+    .manual-card { background: #f8fafc; border-radius: 12px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .manual-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .manual-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+    .manual-card-content { padding: 20px; }
+    .manual-card-meta { display: flex; gap: 12px; margin-bottom: 12px; }
+    .manual-card-meta span { font-size: 12px; padding: 4px 10px; border-radius: 4px; background: #e2e8f0; color: #64748b; }
+    .manual-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; text-transform: uppercase; }
+    .manual-card p { font-size: 14px; color: #64748b; line-height: 1.5; }
+    .manual-card-author { display: flex; align-items: center; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #2563eb; }
+    
+    /* Treinamentos Section */
+    .treinamentos-section { background: #fbbf24; padding: 80px 20px; color: #1a1a2e; }
+    .treinamentos-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.1); padding: 8px 20px; border-radius: 50px; font-size: 13px; margin-bottom: 16px; }
+    .treinamentos-section .section-title { color: #1a1a2e; }
+    .treinamentos-section .section-desc { color: rgba(0,0,0,0.7); }
+    
+    .treinamentos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 800px; margin: 0 auto 32px; }
+    @media (max-width: 600px) { .treinamentos-grid { grid-template-columns: 1fr; } }
+    .treinamento-card { background: #fffbeb; border: 2px dashed rgba(0,0,0,0.2); border-radius: 12px; padding: 24px; }
+    .treinamento-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .treinamento-icon { width: 48px; height: 48px; background: #fef3c7; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .treinamento-card-header div small { font-size: 11px; text-transform: uppercase; color: #64748b; }
+    .treinamento-card-header div h3 { font-size: 16px; font-weight: 700; text-transform: uppercase; }
+    .treinamento-card p { font-size: 14px; color: #64748b; }
+    
+    .btn-dark { background: #1a1a2e; color: #fff; }
+    .btn-dark:hover { background: #0f172a; }
+    
+    /* Newsletter Section */
+    .newsletter-section { background: #1e293b; padding: 80px 20px; text-align: center; }
+    .newsletter-section h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .newsletter-section p { color: rgba(255,255,255,0.7); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .newsletter-form { display: flex; gap: 12px; max-width: 450px; margin: 0 auto; }
+    @media (max-width: 500px) { .newsletter-form { flex-direction: column; } }
+    .newsletter-form input { flex: 1; padding: 14px 20px; border: 2px dashed #fbbf24; border-radius: 8px; background: transparent; color: #fff; font-size: 14px; }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
+    .newsletter-form button { background: #fbbf24; color: #0f172a; padding: 14px 24px; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; }
     
     /* Footer */
-    footer { background: #1a1a2e; padding: 40px 20px; text-align: center; }
-    footer p { color: #94a3b8; font-size: 14px; }
+    footer { background: #0f172a; padding: 60px 20px 30px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    @media (max-width: 700px) { .footer-content { grid-template-columns: 1fr; text-align: center; } }
+    .footer-logo { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+    .footer-logo span { color: #fbbf24; }
+    .footer-desc { color: rgba(255,255,255,0.6); font-size: 14px; }
+    .footer-title { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { color: rgba(255,255,255,0.6); font-size: 14px; transition: color 0.3s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-social { display: flex; gap: 16px; }
+    @media (max-width: 700px) { .footer-social { justify-content: center; } }
+    .footer-social a { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); transition: all 0.3s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 13px; }
+    
+    /* Chatbot */
+    .chatbot-btn { position: fixed; bottom: 24px; right: 24px; background: #2563eb; color: #fff; padding: 14px 20px; border-radius: 12px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 30px rgba(37,99,235,0.4); z-index: 1000; border: none; transition: transform 0.3s; }
+    .chatbot-btn:hover { transform: scale(1.05); }
+    .chatbot-btn svg { width: 20px; height: 20px; }
+    
+    .chatbot-window { position: fixed; bottom: 90px; right: 24px; width: 380px; max-width: calc(100vw - 48px); background: #fff; border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.25); z-index: 1001; display: none; overflow: hidden; }
+    .chatbot-window.active { display: block; animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .chatbot-header { background: #2563eb; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+    .chatbot-avatar { width: 40px; height: 40px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #2563eb; font-size: 12px; }
+    .chatbot-header-info h4 { color: #fff; font-size: 14px; font-weight: 700; }
+    .chatbot-header-info p { color: rgba(255,255,255,0.8); font-size: 12px; }
+    .chatbot-close { margin-left: auto; background: none; border: none; color: #fff; cursor: pointer; font-size: 20px; }
+    .chatbot-messages { padding: 20px; height: 300px; overflow-y: auto; background: #f8fafc; }
+    .chatbot-message { background: #fff; padding: 12px 16px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .chatbot-message.bot { border-left: 3px solid #2563eb; }
+    .chatbot-message.user { border-left: 3px solid #22c55e; margin-left: 20px; }
+    .chatbot-message p { color: #1a1a2e; font-size: 14px; line-height: 1.5; }
+    .chatbot-input { padding: 16px 20px; border-top: 1px solid #e2e8f0; display: flex; gap: 12px; }
+    .chatbot-input input { flex: 1; padding: 12px 16px; border: 2px dashed #fbbf24; border-radius: 8px; font-size: 14px; }
+    .chatbot-input button { background: #2563eb; color: #fff; border: none; padding: 12px 16px; border-radius: 8px; cursor: pointer; }
+    
+    .typing-indicator { display: flex; gap: 4px; padding: 8px 0; }
+    .typing-indicator span { width: 8px; height: 8px; background: #94a3b8; border-radius: 50%; animation: typing 1.4s infinite; }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container">
-      <div class="logo">Letra Caixa do Zero</div>
+      <div class="header-content">
+        <a href="/" class="logo">LETRA CAIXA <span>DO ZERO</span></a>
+        <nav>
+          <a href="/">Início</a>
+          <a href="/manuais/">Manuais</a>
+          <a href="/treinamentos/">Treinamentos</a>
+          <a href="/sobre/">Sobre</a>
+        </nav>
+      </div>
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Transforme sua <span>criatividade</span> em lucro</h1>
-      <p>Treinamentos completos para você dominar a arte da comunicação visual e construir um negócio lucrativo.</p>
-    </div>
-  </section>
-
-  <section class="courses">
-    <div class="container">
-      <h2>Nossos Treinamentos</h2>
-      
-      <div class="courses-grid">
-        <!-- START NEON -->
-        <div class="course-card">
-          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1563906267088-b029e7101114?w=600');"></div>
-          <div class="course-content">
-            <span class="course-badge green">Mais Vendido</span>
-            <h3>START NEON</h3>
-            <p>Aprenda a criar letreiros de Neon LED do zero, sem máquinas caras. Ideal para iniciantes.</p>
-            <a href="/treinamento-start-neon/" class="course-btn btn-green">Saiba Mais →</a>
-          </div>
-        </div>
-        
-        <!-- PRO NEON -->
-        <div class="course-card">
-          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600');"></div>
-          <div class="course-content">
-            <span class="course-badge purple">Avançado</span>
-            <h3>PRO NEON</h3>
-            <p>Escale sua produção de Neon LED com CNC e automação. Para quem quer crescer.</p>
-            <a href="/treinamento-pro-neon/" class="course-btn btn-purple">Saiba Mais →</a>
-          </div>
-        </div>
-        
-        <!-- LETRAS CHINESAS -->
-        <div class="course-card">
-          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600');"></div>
-          <div class="course-content">
-            <span class="course-badge blue">CNC</span>
-            <h3>LETRAS CHINESAS 4.0</h3>
-            <p>Domine o método chinês de letra caixa de acrílico com sua Router CNC.</p>
-            <a href="/letras-de-acrilico-chinesas/" class="course-btn btn-blue">Saiba Mais →</a>
-          </div>
-        </div>
-        
-        <!-- LETRAS DE AÇO -->
-        <div class="course-card">
-          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600');"></div>
-          <div class="course-content">
-            <span class="course-badge orange">Industrial</span>
-            <h3>LETRAS DE AÇO</h3>
-            <p>Aprenda a produzir letras caixa de aço inox e galvanizado com acabamento premium.</p>
-            <a href="/treinamento-lcz-letras-de-aco/" class="course-btn btn-orange">Saiba Mais →</a>
-          </div>
-        </div>
-        
-        <!-- PINTURA AUTOMOTIVA -->
-        <div class="course-card">
-          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600');"></div>
-          <div class="course-content">
-            <span class="course-badge red">Novo</span>
-            <h3>PINTURA AUTOMOTIVA</h3>
-            <p>Técnicas profissionais de pintura automotiva para acabamentos perfeitos.</p>
-            <a href="/pintura-automotiva/" class="course-btn btn-red">Saiba Mais →</a>
-          </div>
-        </div>
+      <span class="hero-badge">O maior portal sobre letras caixa do Brasil</span>
+      <h1>Domine a arte das <span>Letras Caixa</span></h1>
+      <p class="hero-desc">Aprenda todos os processos de fabricação, materiais e técnicas para criar letras caixa profissionais. Do básico ao avançado, com conteúdo exclusivo do maior influenciador do segmento.</p>
+      <div class="hero-buttons">
+        <a href="/manuais/" class="btn btn-outline">Manuais Gratuitos →</a>
+        <a href="/treinamentos/" class="btn btn-primary">Conheça nossos treinamentos →</a>
       </div>
     </div>
   </section>
 
+  <!-- Live Event -->
+  <section class="live-section">
+    <div class="container">
+      <div class="live-card">
+        <div class="live-tags">
+          <span class="live-tag">📅 Aula ao vivo</span>
+          <span class="live-tag green">🎉 100% gratuito</span>
+          <span class="live-tag">✨ Vagas limitadas</span>
+        </div>
+        <h2>Aulão ao Vivo: <span>Iluminação Moderna para Letreiros</span></h2>
+        <p>Descubra o que realmente funciona hoje — do RGB ao LED branco. Aprenda a escolher e instalar a iluminação certa para cada projeto.</p>
+        <div class="live-info">
+          <div class="live-info-item">
+            <span>📅 Data</span>
+            <strong>10 de Fevereiro</strong>
+          </div>
+          <div class="live-info-item">
+            <span>🕐 Horário</span>
+            <strong>19h (Brasília)</strong>
+          </div>
+        </div>
+        <a href="#" class="btn btn-green">QUERO PARTICIPAR GRATUITAMENTE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manuais Section -->
+  <section class="manuais-section">
+    <div class="container">
+      <h2 class="section-title">Manuais em Destaque</h2>
+      <p class="section-desc">Conteúdo exclusivo e detalhado sobre fabricação de letras caixa. Aprenda com quem mais entende do assunto.</p>
+      
+      <div class="manuais-gallery">
+        <img src="letras-de-acrilico-chinesas/galeria-1.jpg" alt="Letras Caixa" loading="lazy">
+        <img src="letras-de-acrilico-chinesas/galeria-2.jpg" alt="Letras Caixa" loading="lazy">
+        <img src="letras-de-acrilico-chinesas/galeria-3.jpg" alt="Letras Caixa" loading="lazy">
+        <img src="letras-de-acrilico-chinesas/galeria-4.jpg" alt="Letras Caixa" loading="lazy">
+        <img src="letras-de-acrilico-chinesas/galeria-5.jpg" alt="Letras Caixa" loading="lazy">
+        <img src="letras-de-acrilico-chinesas/galeria-6.jpg" alt="Letras Caixa" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=300&h=300&fit=crop" alt="Letras Caixa" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=300&fit=crop" alt="Letras Caixa" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=300&fit=crop" alt="Letras Caixa" loading="lazy">
+      </div>
+      
+      <div class="manuais-grid">
+        <a href="/manuais/tipos-letras-caixa/" class="manual-card">
+          <img src="letras-de-acrilico-chinesas/galeria-1.jpg" alt="Tipos de Letras Caixa">
+          <div class="manual-card-content">
+            <div class="manual-card-meta">
+              <span>Geral</span>
+              <span>⏱ 20 min</span>
+            </div>
+            <h3>Tipos de Letras Caixa: Guia Completo dos Materiais e Técnicas</h3>
+            <p>Guia completo com todos os tipos de letras caixa disponíveis no mercado: Aço, ACM, Acrílico Moldado, Acrílico Chinesas, PVC, Neon LED e Impressão 3D.</p>
+            <div class="manual-card-author">📷 @letracaixadozero</div>
+          </div>
+        </a>
+        
+        <a href="/manuais/letras-aco/" class="manual-card">
+          <img src="letras-de-acrilico-chinesas/galeria-4.jpg" alt="Letras Caixa de Aço">
+          <div class="manual-card-content">
+            <div class="manual-card-meta">
+              <span>Aço</span>
+              <span>⏱ 25 min</span>
+            </div>
+            <h3>Como Fazer Letras Caixa de Aço com Soldagem</h3>
+            <p>Aprenda todo o processo de fabricação de letras caixa em aço usando soldagem, de um jeito prático e didático. Guia completo com materiais e ferramentas.</p>
+            <div class="manual-card-author">📷 @letracaixadozero</div>
+          </div>
+        </a>
+        
+        <a href="/manuais/letras-acm/" class="manual-card">
+          <img src="letras-de-acrilico-chinesas/galeria-3.jpg" alt="Letras Caixa em ACM">
+          <div class="manual-card-content">
+            <div class="manual-card-meta">
+              <span>ACM</span>
+              <span>⏱ 20 min</span>
+            </div>
+            <h3>Guia Completo: Como Fazer Letras Caixa em ACM</h3>
+            <p>Domine a fabricação de letras caixa em ACM com a técnica do canal V. Guia completo com materiais, ferramentas e passo a passo detalhado.</p>
+            <div class="manual-card-author">📷 @letracaixadozero</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treinamentos Section -->
+  <section class="treinamentos-section">
+    <div class="container" style="text-align: center;">
+      <span class="treinamentos-badge">🏆 O maior centro de treinamento em letras caixa do Brasil</span>
+      <h2 class="section-title">Nossos Treinamentos</h2>
+      <p class="section-desc">Transforme sua carreira com os cursos mais completos do mercado. Mais de 1.500 alunos já dominam a arte das letras caixa.</p>
+      
+      <div class="treinamentos-grid">
+        <div class="treinamento-card">
+          <div class="treinamento-card-header">
+            <div class="treinamento-icon">💻</div>
+            <div>
+              <small>Comece agora</small>
+              <h3>Treinamentos Online</h3>
+            </div>
+          </div>
+          <p>Aprenda no seu ritmo, de qualquer lugar. Aulas gravadas com suporte e atualizações constantes.</p>
+        </div>
+        
+        <div class="treinamento-card">
+          <div class="treinamento-card-header">
+            <div class="treinamento-icon">🔧</div>
+            <div>
+              <small>Mão na massa</small>
+              <h3>Treinamento Presencial</h3>
+            </div>
+          </div>
+          <p>Experiência imersiva no nosso CT. Aprenda na prática com acompanhamento direto.</p>
+        </div>
+      </div>
+      
+      <a href="/treinamentos/" class="btn btn-dark">Ver todos os treinamentos →</a>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="container">
+      <h2>Fique por dentro</h2>
+      <p>Receba dicas exclusivas, novos artigos e atualizações sobre o mundo das letras caixa diretamente no seu e-mail.</p>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="email" placeholder="Seu melhor e-mail" required>
+        <button type="submit">✈️ INSCREVER</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2026 Letra Caixa do Zero. Todos os direitos reservados.</p>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">LETRA CAIXA <span>DO ZERO</span></div>
+          <p class="footer-desc">O maior portal de conteúdo sobre fabricação de letras caixa do Brasil.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Navegação</h4>
+          <div class="footer-links">
+            <a href="/manuais/">Manuais</a>
+            <a href="/treinamentos/">Treinamentos</a>
+            <a href="/sobre/">Sobre</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Redes Sociais</h4>
+          <div class="footer-social">
+            <a href="https://instagram.com/letracaixadozero" target="_blank" title="Instagram">📷</a>
+            <a href="https://youtube.com/@letracaixadozero" target="_blank" title="YouTube">▶️</a>
+            <a href="mailto:contato@letracaixadozero.com" title="E-mail">✉️</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Letra Caixa do Zero. Todos os direitos reservados.
+      </div>
+    </div>
   </footer>
+
+  <!-- Chatbot Button -->
+  <button class="chatbot-btn" onclick="toggleChat()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    Pergunte para IA
+  </button>
+
+  <!-- Chatbot Window -->
+  <div class="chatbot-window" id="chatWindow">
+    <div class="chatbot-header">
+      <div class="chatbot-avatar">LCZ</div>
+      <div class="chatbot-header-info">
+        <h4>LETRA CAIXA DO ZERO</h4>
+        <p>Especialista em Letreiros</p>
+      </div>
+      <button class="chatbot-close" onclick="toggleChat()">×</button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+      <div class="chatbot-message bot">
+        <p>Olá! Sou o Matheus Virtual 👋</p>
+      </div>
+      <div class="chatbot-message bot">
+        <p>Tire suas dúvidas sobre letras caixa, materiais, fabricação e muito mais!</p>
+      </div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Digite sua dúvida..." onkeypress="handleKeyPress(event)">
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
+<script>
+// Chatbot Functions
+function toggleChat() {
+  const chatWindow = document.getElementById('chatWindow');
+  chatWindow.classList.toggle('active');
+}
+
+function handleKeyPress(e) {
+  if (e.key === 'Enter') sendMessage();
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const message = input.value.trim();
+  if (!message) return;
+  
+  const messagesDiv = document.getElementById('chatMessages');
+  
+  // Add user message
+  messagesDiv.innerHTML += '<div class="chatbot-message user"><p>' + message + '</p></div>';
+  input.value = '';
+  
+  // Add typing indicator
+  messagesDiv.innerHTML += '<div class="chatbot-message bot" id="typing"><div class="typing-indicator"><span></span><span></span><span></span></div></div>';
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  
+  // Simulate AI response
+  setTimeout(function() {
+    document.getElementById('typing').remove();
+    var response = getAIResponse(message);
+    messagesDiv.innerHTML += '<div class="chatbot-message bot"><p>' + response + '</p></div>';
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }, 1500);
+}
+
+function getAIResponse(message) {
+  var msg = message.toLowerCase();
+  
+  if (msg.indexOf('preço') >= 0 || msg.indexOf('valor') >= 0 || msg.indexOf('quanto custa') >= 0) {
+    return 'Os preços variam de acordo com o treinamento. O START NEON está por R$ 497 e o Letras Chinesas 4.0 por R$ 297. Ambos com garantia de 7 dias! Quer saber mais sobre algum específico?';
+  }
+  if (msg.indexOf('cnc') >= 0 || msg.indexOf('router') >= 0) {
+    return 'Qualquer Router CNC com área útil mínima de 60x60cm serve para produzir letras chinesas. A maioria dos alunos usa routers de entrada como a 6090 ou similares. Não precisa de máquina cara!';
+  }
+  if (msg.indexOf('material') >= 0 || msg.indexOf('acrílico') >= 0 || msg.indexOf('acm') >= 0 || msg.indexOf('aço') >= 0) {
+    return 'Trabalhamos com diversos materiais: Acrílico (chinesas e moldado), ACM, Aço, PVC e Neon LED. Cada um tem suas vantagens. Nos manuais gratuitos você encontra guias completos sobre cada tipo!';
+  }
+  if (msg.indexOf('treinamento') >= 0 || msg.indexOf('curso') >= 0) {
+    return 'Temos dois treinamentos principais: START NEON (letras de neon LED) e Letras Chinesas 4.0 (letras acrílicas com CNC). Ambos são online, com acesso vitalício e suporte no WhatsApp. Qual te interessa mais?';
+  }
+  if (msg.indexOf('garantia') >= 0) {
+    return 'Todos os nossos treinamentos têm garantia incondicional de 7 dias. Se não gostar, devolvemos 100% do seu dinheiro, sem perguntas!';
+  }
+  if (msg.indexOf('suporte') >= 0 || msg.indexOf('dúvida') >= 0 || msg.indexOf('ajuda') >= 0) {
+    return 'Oferecemos suporte via WhatsApp direto com o Matheus, além de uma IA exclusiva disponível 24h para tirar suas dúvidas sobre o conteúdo do treinamento!';
+  }
+  
+  return 'Interessante sua pergunta! Para informações mais detalhadas, recomendo conferir nossos manuais gratuitos ou entrar em contato pelo WhatsApp. Posso ajudar com algo mais específico sobre letras caixa, materiais ou treinamentos?';
+}
+</script>
 </body>
 </html>

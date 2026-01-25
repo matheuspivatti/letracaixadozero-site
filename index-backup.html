@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letra Caixa do Zero - Treinamentos de Comunicação Visual</title>
+  <meta name="description" content="Aprenda a criar letreiros profissionais de Neon LED, Letras Caixa de Acrílico e Letras de Aço. Treinamentos completos para você lucrar.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; background: #f8fafc; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Header */
+    header { background: #fff; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .logo { font-size: 24px; font-weight: 800; color: #10b981; }
+    
+    /* Hero */
+    .hero { padding: 80px 20px; text-align: center; background: linear-gradient(135deg, #f0fdf4, #ecfeff); }
+    .hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 800; margin-bottom: 24px; line-height: 1.2; }
+    .hero h1 span { color: #10b981; }
+    .hero p { font-size: 20px; color: #64748b; max-width: 700px; margin: 0 auto 48px; }
+    
+    /* Courses Grid */
+    .courses { padding: 80px 20px; }
+    .courses h2 { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 48px; }
+    .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; max-width: 1000px; margin: 0 auto; }
+    .course-card { background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+    .course-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+    .course-img { height: 200px; background-size: cover; background-position: center; }
+    .course-content { padding: 24px; }
+    .course-badge { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; }
+    .course-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .course-card p { font-size: 14px; color: #64748b; margin-bottom: 16px; }
+    .course-btn { display: block; width: 100%; padding: 12px; border-radius: 50px; font-weight: 700; text-align: center; transition: all 0.3s; }
+    .course-btn:hover { transform: translateY(-2px); }
+    
+    /* Colors */
+    .green { background: #d1fae5; color: #047857; }
+    .blue { background: #dbeafe; color: #1d4ed8; }
+    .orange { background: #ffedd5; color: #c2410c; }
+    .purple { background: #f3e8ff; color: #7c3aed; }
+    .red { background: #fee2e2; color: #dc2626; }
+    
+    .btn-green { background: #10b981; color: #fff; }
+    .btn-green:hover { background: #059669; }
+    .btn-blue { background: #2563eb; color: #fff; }
+    .btn-blue:hover { background: #1d4ed8; }
+    .btn-orange { background: #f97316; color: #fff; }
+    .btn-orange:hover { background: #ea580c; }
+    .btn-purple { background: #8b5cf6; color: #fff; }
+    .btn-purple:hover { background: #7c3aed; }
+    .btn-red { background: #ef4444; color: #fff; }
+    .btn-red:hover { background: #dc2626; }
+    
+    /* Footer */
+    footer { background: #1a1a2e; padding: 40px 20px; text-align: center; }
+    footer p { color: #94a3b8; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">Letra Caixa do Zero</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Transforme sua <span>criatividade</span> em lucro</h1>
+      <p>Treinamentos completos para você dominar a arte da comunicação visual e construir um negócio lucrativo.</p>
+    </div>
+  </section>
+
+  <section class="courses">
+    <div class="container">
+      <h2>Nossos Treinamentos</h2>
+      
+      <div class="courses-grid">
+        <!-- START NEON -->
+        <div class="course-card">
+          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1563906267088-b029e7101114?w=600');"></div>
+          <div class="course-content">
+            <span class="course-badge green">Mais Vendido</span>
+            <h3>START NEON</h3>
+            <p>Aprenda a criar letreiros de Neon LED do zero, sem máquinas caras. Ideal para iniciantes.</p>
+            <a href="/treinamento-start-neon/" class="course-btn btn-green">Saiba Mais →</a>
+          </div>
+        </div>
+        
+        <!-- PRO NEON -->
+        <div class="course-card">
+          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600');"></div>
+          <div class="course-content">
+            <span class="course-badge purple">Avançado</span>
+            <h3>PRO NEON</h3>
+            <p>Escale sua produção de Neon LED com CNC e automação. Para quem quer crescer.</p>
+            <a href="/treinamento-pro-neon/" class="course-btn btn-purple">Saiba Mais →</a>
+          </div>
+        </div>
+        
+        <!-- LETRAS CHINESAS -->
+        <div class="course-card">
+          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600');"></div>
+          <div class="course-content">
+            <span class="course-badge blue">CNC</span>
+            <h3>LETRAS CHINESAS 4.0</h3>
+            <p>Domine o método chinês de letra caixa de acrílico com sua Router CNC.</p>
+            <a href="/letras-de-acrilico-chinesas/" class="course-btn btn-blue">Saiba Mais →</a>
+          </div>
+        </div>
+        
+        <!-- LETRAS DE AÇO -->
+        <div class="course-card">
+          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600');"></div>
+          <div class="course-content">
+            <span class="course-badge orange">Industrial</span>
+            <h3>LETRAS DE AÇO</h3>
+            <p>Aprenda a produzir letras caixa de aço inox e galvanizado com acabamento premium.</p>
+            <a href="/treinamento-lcz-letras-de-aco/" class="course-btn btn-orange">Saiba Mais →</a>
+          </div>
+        </div>
+        
+        <!-- PINTURA AUTOMOTIVA -->
+        <div class="course-card">
+          <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600');"></div>
+          <div class="course-content">
+            <span class="course-badge red">Novo</span>
+            <h3>PINTURA AUTOMOTIVA</h3>
+            <p>Técnicas profissionais de pintura automotiva para acabamentos perfeitos.</p>
+            <a href="/pintura-automotiva/" class="course-btn btn-red">Saiba Mais →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Letra Caixa do Zero. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
