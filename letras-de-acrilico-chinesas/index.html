@@ -46,11 +46,12 @@
     .section-title span { color: #2563eb; }
     
     /* Pain Points */
-    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
-    .pain-card { background: #fff; padding: 24px; border-radius: 16px; border-left: 4px solid #ef4444; }
-    .pain-icon { width: 48px; height: 48px; background: #fee2e2; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 12px; }
-    .pain-card h3 { color: #ef4444; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-    .pain-card p { color: #64748b; font-size: 14px; }
+    .pain-grid { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 600px) { .pain-grid { grid-template-columns: repeat(2, 1fr); } }
+    .pain-card { background: #fff; padding: 20px; border-radius: 12px; border-left: 4px solid #ef4444; }
+    .pain-icon { width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 10px; }
+    .pain-card h3 { color: #ef4444; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .pain-card p { color: #64748b; font-size: 13px; line-height: 1.5; }
     .pain-cta { text-align: center; margin-top: 32px; font-weight: 700; font-size: 18px; color: #2563eb; }
     
     /* Solution */
