@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aulão ao Vivo: Iluminação Moderna para Letreiros | Letra Caixa do Zero</title>
+  <meta name="description" content="Aprenda o que realmente funciona hoje em iluminação para letreiros — do RGB ao LED branco. Aula ao vivo gratuita.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; color: #f8fafc; background: #0a0a1a; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Hero Section */
+    .hero { background: linear-gradient(180deg, #0a0a1a 0%, #111827 100%); padding: 60px 20px 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ef4444, #8b5cf6, #3b82f6); }
+    .hero::after { content: ""; position: absolute; top: 50%; left: 50%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 60%); transform: translate(-50%, -50%); }
+    
+    .hero-tags { display: flex; justify-content: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; position: relative; z-index: 1; }
+    .hero-tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 50px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+    .hero-tag.purple { color: #c4b5fd; }
+    .hero-tag.blue { color: #93c5fd; }
+    .hero-tag.cyan { color: #67e8f9; }
+    
+    .hero h1 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; margin-bottom: 16px; line-height: 1.1; text-transform: uppercase; position: relative; z-index: 1; }
+    .hero h1 span { background: linear-gradient(90deg, #c084fc, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 32px; position: relative; z-index: 1; }
+    
+    .hero-info { display: inline-flex; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 32px; gap: 32px; margin-bottom: 32px; position: relative; z-index: 1; }
+    .hero-info-item { display: flex; align-items: center; gap: 12px; }
+    .hero-info-item .icon { width: 40px; height: 40px; background: rgba(59,130,246,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #60a5fa; }
+    .hero-info-item div small { font-size: 12px; color: rgba(255,255,255,0.5); display: block; }
+    .hero-info-item div strong { font-size: 16px; }
+    
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 8px; font-size: 14px; font-weight: 700; text-transform: uppercase; transition: all 0.3s; cursor: pointer; border: 2px dashed transparent; text-decoration: none; }
+    .btn-gradient { background: linear-gradient(90deg, #22c55e, #16a34a); color: #fff; border: 2px dashed #fbbf24; }
+    .btn-gradient:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(34,197,94,0.3); }
+    .btn-purple { background: linear-gradient(90deg, #8b5cf6, #7c3aed); color: #fff; border: 2px dashed #fbbf24; }
+    .btn-purple:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(139,92,246,0.3); }
+    
+    .hero-note { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 16px; position: relative; z-index: 1; }
+    
+    /* Problem Section */
+    .problem-section { background: #111827; padding: 80px 20px; }
+    .section-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; padding: 8px 16px; border-radius: 50px; font-size: 13px; margin-bottom: 24px; }
+    .section-title { font-size: clamp(28px, 5vw, 40px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; text-align: center; }
+    .section-desc { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    
+    .problems-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    @media (max-width: 700px) { .problems-grid { grid-template-columns: 1fr; } }
+    .problem-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; transition: all 0.3s; }
+    .problem-card:hover { border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
+    .problem-card-header { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .problem-icon { width: 48px; height: 48px; background: rgba(239,68,68,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #f87171; font-size: 20px; }
+    .problem-card h3 { font-size: 16px; font-weight: 700; text-transform: uppercase; }
+    .problem-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    
+    /* Learn Section */
+    .learn-section { background: #0a0a1a; padding: 80px 20px; }
+    .learn-badge { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #86efac; }
+    
+    .learn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    @media (max-width: 700px) { .learn-grid { grid-template-columns: 1fr; } }
+    .learn-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px; transition: all 0.3s; }
+    .learn-card:hover { border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.05); }
+    .learn-card-header { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .learn-icon { width: 48px; height: 48px; background: rgba(251,191,36,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fbbf24; font-size: 20px; }
+    .learn-card h3 { font-size: 16px; font-weight: 700; text-transform: uppercase; }
+    .learn-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    
+    /* CTA Section */
+    .cta-section { background: #111827; padding: 80px 20px; }
+    .cta-container { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    @media (max-width: 800px) { .cta-container { grid-template-columns: 1fr; } }
+    
+    .cta-left .cta-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; padding: 8px 16px; border-radius: 50px; font-size: 13px; margin-bottom: 24px; }
+    .cta-left h2 { font-size: clamp(28px, 4vw, 36px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .cta-left h2 span { color: #22c55e; }
+    .cta-left > p { color: rgba(255,255,255,0.6); margin-bottom: 32px; }
+    
+    .cta-features { display: flex; flex-direction: column; gap: 16px; }
+    .cta-feature { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; }
+    .cta-feature-icon { width: 40px; height: 40px; background: rgba(59,130,246,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #60a5fa; }
+    .cta-feature h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; }
+    .cta-feature p { font-size: 13px; color: rgba(255,255,255,0.5); }
+    
+    /* Form */
+    .cta-form { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 32px; }
+    .form-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #86efac; padding: 8px 16px; border-radius: 50px; font-size: 13px; margin-bottom: 16px; }
+    .cta-form h3 { font-size: 20px; font-weight: 700; text-transform: uppercase; margin-bottom: 24px; text-align: center; }
+    
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: rgba(255,255,255,0.8); }
+    .form-group input { width: 100%; padding: 14px 16px; background: rgba(255,255,255,0.05); border: 2px dashed #fbbf24; border-radius: 8px; color: #fff; font-size: 14px; transition: all 0.3s; }
+    .form-group input::placeholder { color: rgba(255,255,255,0.4); }
+    .form-group input:focus { outline: none; border-color: #22c55e; background: rgba(34,197,94,0.05); }
+    
+    .form-submit { width: 100%; padding: 16px; background: linear-gradient(90deg, #2563eb, #1d4ed8); color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 700; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s; }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,99,235,0.3); }
+    
+    .form-note { text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 16px; }
+    
+    /* Footer */
+    footer { background: #0a0a1a; padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+    footer p { color: rgba(255,255,255,0.4); font-size: 13px; margin-bottom: 8px; }
+    footer small { color: rgba(255,255,255,0.3); font-size: 11px; }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tags">
+        <span class="hero-tag purple">📅 Aula ao vivo exclusiva</span>
+        <span class="hero-tag blue">🎯 Conteúdo atualizado</span>
+        <span class="hero-tag cyan">✨ Técnicas atuais de iluminação</span>
+      </div>
+      
+      <h1>Aulão ao Vivo: <span>Iluminação Moderna para Letreiros</span></h1>
+      <p class="hero-subtitle">O que realmente funciona hoje — do RGB ao LED branco</p>
+      
+      <div class="hero-info">
+        <div class="hero-info-item">
+          <div class="icon">📅</div>
+          <div>
+            <small>Data</small>
+            <strong>10 de Fevereiro</strong>
+          </div>
+        </div>
+        <div class="hero-info-item">
+          <div class="icon">🕐</div>
+          <div>
+            <small>Horário</small>
+            <strong>19h (Brasília)</strong>
+          </div>
+        </div>
+      </div>
+      
+      <a href="#cadastro" class="btn btn-gradient">QUERO PARTICIPAR GRATUITAMENTE ⚡</a>
+      <p class="hero-note">🔒 Vagas limitadas • 100% online e gratuito</p>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="problem-section">
+    <div class="container" style="text-align: center;">
+      <span class="section-badge">⚠️ O problema</span>
+      <h2 class="section-title">Você já passou por isso?</h2>
+      <p class="section-desc">A maioria dos profissionais enfrenta esses problemas por falta de conhecimento técnico em iluminação</p>
+      
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-card-header">
+            <div class="problem-icon">⚠️</div>
+            <h3>LED queimando rápido</h3>
+          </div>
+          <p>Você instala e em poucos meses a iluminação começa a falhar, gerando reclamação e retrabalho</p>
+        </div>
+        
+        <div class="problem-card">
+          <div class="problem-card-header">
+            <div class="problem-icon">💡</div>
+            <h3>Iluminação irregular</h3>
+          </div>
+          <p>Pontos de luz desiguais, manchas e áreas escuras que deixam o letreiro com visual amador</p>
+        </div>
+        
+        <div class="problem-card">
+          <div class="problem-card-header">
+            <div class="problem-icon">🎨</div>
+            <h3>RGB vs LED branco</h3>
+          </div>
+          <p>Sem saber qual usar em cada situação, você perde vendas ou entrega resultados abaixo do esperado</p>
+        </div>
+        
+        <div class="problem-card">
+          <div class="problem-card-header">
+            <div class="problem-icon">💰</div>
+            <h3>Investimento errado</h3>
+          </div>
+          <p>Compra materiais caros demais ou baratos demais, prejudicando margem ou qualidade</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learn Section -->
+  <section class="learn-section">
+    <div class="container" style="text-align: center;">
+      <span class="section-badge learn-badge">✅ O que você vai aprender</span>
+      <h2 class="section-title">Nessa aula você vai descobrir</h2>
+      <p class="section-desc">Conteúdo prático e direto ao ponto sobre iluminação moderna para letreiros</p>
+      
+      <div class="learn-grid">
+        <div class="learn-card">
+          <div class="learn-card-header">
+            <div class="learn-icon">💡</div>
+            <h3>Quando usar RGB</h3>
+          </div>
+          <p>Casos específicos onde o LED RGB faz sentido e como configurar corretamente</p>
+        </div>
+        
+        <div class="learn-card">
+          <div class="learn-card-header">
+            <div class="learn-icon">⚪</div>
+            <h3>Quando usar LED branco</h3>
+          </div>
+          <p>A escolha certa para 90% dos projetos e como garantir iluminação uniforme</p>
+        </div>
+        
+        <div class="learn-card">
+          <div class="learn-card-header">
+            <div class="learn-icon">📏</div>
+            <h3>Espaçamento correto</h3>
+          </div>
+          <p>A fórmula exata para nunca mais ter pontos de luz desiguais</p>
+        </div>
+        
+        <div class="learn-card">
+          <div class="learn-card-header">
+            <div class="learn-icon">🛒</div>
+            <h3>Materiais certos</h3>
+          </div>
+          <p>Quais LEDs comprar para cada tipo de projeto sem desperdiçar dinheiro</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 48px;">
+        <a href="#cadastro" class="btn btn-purple">QUERO APRENDER ISSO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="cadastro">
+    <div class="container">
+      <div class="cta-container">
+        <div class="cta-left">
+          <span class="cta-badge">📺 Aulão ao vivo dia 10/02 às 19h</span>
+          <h2>Garanta sua vaga <span>gratuitamente</span></h2>
+          <p>Cadastre-se agora e receba o link de acesso direto no seu WhatsApp.</p>
+          
+          <div class="cta-features">
+            <div class="cta-feature">
+              <div class="cta-feature-icon">🎨</div>
+              <div>
+                <h4>RGB vs LED Branco</h4>
+                <p>Descubra qual tipo de iluminação usar em cada projeto</p>
+              </div>
+            </div>
+            
+            <div class="cta-feature">
+              <div class="cta-feature-icon">⚠️</div>
+              <div>
+                <h4>Erros mais comuns</h4>
+                <p>Evite os problemas que fazem clientes reclamarem</p>
+              </div>
+            </div>
+            
+            <div class="cta-feature">
+              <div class="cta-feature-icon">✅</div>
+              <div>
+                <h4>Técnicas atualizadas</h4>
+                <p>O que os melhores profissionais estão usando hoje</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="cta-form">
+          <div style="text-align: center;">
+            <span class="form-badge">✅ 100% gratuito</span>
+          </div>
+          <h3>Preencha para participar</h3>
+          
+          <form id="leadForm">
+            <div class="form-group">
+              <label for="name">Seu nome</label>
+              <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Seu melhor e-mail</label>
+              <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Seu WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+            </div>
+            
+            <button type="submit" class="form-submit">GARANTIR MINHA VAGA ➤</button>
+          </form>
+          
+          <p class="form-note">🔒 Seus dados estão seguros e não serão compartilhados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Letra Caixa do Zero. Todos os direitos reservados.</p>
+    <small>Este site não faz parte do Google, Facebook ou WhatsApp. Google, Facebook e WhatsApp são marcas registradas de seus respectivos proprietários.</small>
+  </footer>
+
+  <script>
+    // Form submission
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      
+      // Show success message
+      alert('Parabéns, ' + name.split(' ')[0] + '! Sua vaga está garantida. Você receberá o link de acesso no WhatsApp informado.');
+      
+      // Reset form
+      this.reset();
+    });
+    
+    // Phone mask
+    document.getElementById('phone').addEventListener('input', function(e) {
+      var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+      e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+    });
+  </script>
+</body>
+</html>
