@@ -316,10 +316,13 @@
       var phone = document.getElementById('phone').value;
       
       // Show success message
-      alert('Parabéns, ' + name.split(' ')[0] + '! Sua vaga está garantida. Você receberá o link de acesso no WhatsApp informado.');
+      alert('Parabéns, ' + name.split(' ')[0] + '! Sua vaga está garantida. Agora você será direcionado para o grupo do WhatsApp!');
       
       // Reset form
       this.reset();
+      
+      // Redirect to WhatsApp group
+      window.location.href = 'https://chat.whatsapp.com/Elhz9ucLUuPC9wQ3XHbZyP';
     });
     
     // Phone mask
