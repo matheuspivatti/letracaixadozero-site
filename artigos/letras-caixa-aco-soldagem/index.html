@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Fazer Letras Caixa de Aço com Soldagem - Guia Completo 2024 | Letra Caixa do Zero</title>
+  <meta name="description" content="Aprenda todo o processo de fabricação de letras caixa em aço usando soldagem. Guia completo com materiais, ferramentas e passo a passo detalhado.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.8; color: #1f2937; background: #fff; }
+    
+    /* Header */
+    header { background: #0f172a; padding: 16px 20px; position: sticky; top: 0; z-index: 100; }
+    .header-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 18px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -0.5px; }
+    .logo span { color: #fbbf24; }
+    nav { display: flex; gap: 24px; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #fbbf24; }
+    
+    /* Breadcrumb */
+    .breadcrumb { background: #f8fafc; padding: 12px 20px; border-bottom: 1px solid #e2e8f0; }
+    .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 13px; }
+    .breadcrumb a { color: #64748b; text-decoration: none; }
+    .breadcrumb a:hover { color: #2563eb; }
+    .breadcrumb span { color: #94a3b8; }
+    .breadcrumb-current { color: #1f2937; font-weight: 500; }
+    
+    /* Main Layout */
+    .main-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 220px 1fr 280px; gap: 40px; }
+    @media (max-width: 1024px) { .main-container { grid-template-columns: 1fr; } .sidebar-left, .sidebar-right { display: none; } }
+    
+    /* Sidebar Left - Index */
+    .sidebar-left { position: sticky; top: 100px; height: fit-content; }
+    .index-title { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 16px; letter-spacing: 0.5px; }
+    .index-list { list-style: none; }
+    .index-list li { margin-bottom: 8px; }
+    .index-list a { color: #64748b; text-decoration: none; font-size: 14px; display: block; padding: 8px 12px; border-left: 2px solid transparent; transition: all 0.3s; }
+    .index-list a:hover, .index-list a.active { color: #1f2937; border-left-color: #fbbf24; background: #fefce8; }
+    
+    /* Article Content */
+    .article { max-width: 720px; }
+    .article-badge { display: inline-block; background: #fef3c7; color: #92400e; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
+    .article h1 { font-size: 36px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; color: #0f172a; }
+    .article-description { font-size: 18px; color: #64748b; margin-bottom: 24px; line-height: 1.6; }
+    
+    .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+    .author { display: flex; align-items: center; gap: 8px; }
+    .author-avatar { width: 40px; height: 40px; background: #fbbf24; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #0f172a; }
+    .author-info { font-size: 14px; }
+    .author-name { font-weight: 600; color: #1f2937; }
+    .author-handle { color: #64748b; }
+    .meta-item { font-size: 13px; color: #64748b; display: flex; align-items: center; gap: 4px; }
+    
+    .share-buttons { display: flex; gap: 8px; margin-bottom: 32px; }
+    .share-btn { width: 36px; height: 36px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+    .share-btn:hover { background: #f8fafc; border-color: #cbd5e1; }
+    
+    .article-hero { width: 100%; border-radius: 12px; margin-bottom: 40px; }
+    
+    .article h2 { font-size: 24px; font-weight: 700; margin: 48px 0 16px; color: #0f172a; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+    .article h2:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+    .article h3 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; color: #1f2937; }
+    .article p { margin-bottom: 16px; color: #374151; }
+    .article ul, .article ol { margin: 16px 0; padding-left: 24px; }
+    .article li { margin-bottom: 8px; color: #374151; }
+    .article strong { color: #1f2937; }
+    
+    .tip-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .tip-box strong { color: #92400e; }
+    .tip-box p { margin: 0; color: #78350f; }
+    
+    .warning-box { background: #fef2f2; border-left: 4px solid #ef4444; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .warning-box strong { color: #991b1b; }
+    .warning-box p { margin: 0; color: #7f1d1d; }
+    
+    /* CTA Box */
+    .cta-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; padding: 32px; margin: 48px 0; text-align: center; }
+    .cta-box h3 { color: #fff; font-size: 24px; margin-bottom: 12px; }
+    .cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 24px; }
+    .cta-btn { display: inline-block; background: #fbbf24; color: #0f172a; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; text-transform: uppercase; transition: all 0.3s; }
+    .cta-btn:hover { background: #f59e0b; transform: translateY(-2px); }
+    
+    /* Sidebar Right */
+    .sidebar-right { position: sticky; top: 100px; height: fit-content; }
+    .related-title { font-size: 14px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 16px; letter-spacing: 0.5px; }
+    .related-card { background: #f8fafc; border-radius: 12px; padding: 16px; margin-bottom: 16px; text-decoration: none; display: block; transition: all 0.3s; }
+    .related-card:hover { background: #f1f5f9; transform: translateY(-2px); }
+    .related-badge { font-size: 11px; font-weight: 600; color: #64748b; text-transform: uppercase; margin-bottom: 8px; }
+    .related-card h4 { font-size: 14px; font-weight: 600; color: #1f2937; line-height: 1.4; margin-bottom: 8px; }
+    .related-card p { font-size: 12px; color: #64748b; line-height: 1.5; }
+    
+    /* Footer */
+    footer { background: #0f172a; padding: 40px 20px; margin-top: 60px; }
+    .footer-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+    .footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 16px; }
+    .footer-logo span { color: #fbbf24; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; }
+    .footer-links a:hover { color: #fbbf24; }
+    .footer-copy { color: rgba(255,255,255,0.5); font-size: 13px; }
+    
+    /* Mobile */
+    @media (max-width: 768px) {
+      .article h1 { font-size: 28px; }
+      .article-meta { flex-direction: column; align-items: flex-start; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="/" class="logo">LETRA CAIXA <span>DO ZERO</span></a>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/#manuais">Manuais</a>
+        <a href="/treinamento-start-neon/">Treinamentos</a>
+        <a href="https://instagram.com/letracaixadozero" target="_blank">Sobre</a>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="breadcrumb">
+    <div class="breadcrumb-container">
+      <a href="/">🏠 Home</a>
+      <span>›</span>
+      <a href="/#manuais">Manuais</a>
+      <span>›</span>
+      <a href="/#manuais">Aço</a>
+      <span>›</span>
+      <span class="breadcrumb-current">Letras Caixa de Aço com Soldagem</span>
+    </div>
+  </div>
+  
+  <main class="main-container">
+    <!-- Sidebar Left - Index -->
+    <aside class="sidebar-left">
+      <p class="index-title">Índice</p>
+      <ul class="index-list">
+        <li><a href="#introducao" class="active">Introdução</a></li>
+        <li><a href="#materiais">Materiais Necessários</a></li>
+        <li><a href="#ferramentas">Ferramentas Utilizadas</a></li>
+        <li><a href="#ambiente">Ambiente de Trabalho</a></li>
+        <li><a href="#passo-a-passo">Passo a Passo</a></li>
+        <li><a href="#dicas">Dicas Práticas</a></li>
+        <li><a href="#erros">Erros Comuns</a></li>
+        <li><a href="#conclusao">Conclusão</a></li>
+      </ul>
+    </aside>
+    
+    <!-- Article Content -->
+    <article class="article">
+      <span class="article-badge">Aço</span>
+      <h1>Como Fazer Letras Caixa de Aço com Soldagem</h1>
+      <p class="article-description">Aprenda todo o processo de fabricação de letras caixa em aço usando soldagem, de um jeito prático e didático. Guia completo com materiais, ferramentas e passo a passo detalhado.</p>
+      
+      <div class="article-meta">
+        <div class="author">
+          <div class="author-avatar">MP</div>
+          <div class="author-info">
+            <div class="author-name">Matheus Pivatti</div>
+            <div class="author-handle">@letracaixadozero</div>
+          </div>
+        </div>
+        <span class="meta-item">📅 12 de dezembro de 2024</span>
+        <span class="meta-item">⏱️ 25 min de leitura</span>
+      </div>
+      
+      <div class="share-buttons">
+        <button class="share-btn" title="Compartilhar no Twitter" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title), '_blank')">
+          <svg width="16" height="16" fill="#64748b" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </button>
+        <button class="share-btn" title="Compartilhar no LinkedIn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href), '_blank')">
+          <svg width="16" height="16" fill="#64748b" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </button>
+        <button class="share-btn" title="Copiar link" onclick="navigator.clipboard.writeText(window.location.href); alert('Link copiado!')">
+          <svg width="16" height="16" fill="#64748b" viewBox="0 0 24 24"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+        </button>
+      </div>
+      
+      <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&h=400&fit=crop" alt="Letra caixa de aço finalizada pronta para instalação" class="article-hero">
+      
+      <h2 id="introducao">Introdução</h2>
+      <p>Vamos aprender como produzir letras-caixa em aço usando soldagem, de um jeito prático e didático. Neste artigo eu vou organizar tudo que costumo mostrar em vídeo, transformando num passo a passo escrito para você consultar sempre que precisar.</p>
+      
+      <p>As letras-caixa em aço são aquelas letras tridimensionais (com profundidade) usadas em fachadas de lojas, recepções e letreiros profissionais. Diferente de um adesivo plano, a letra-caixa tem volume e presença: ela dá destaque, profundidade e um ar de sofisticação à comunicação visual da empresa.</p>
+      
+      <p>Além do apelo visual, essas letras metálicas são extremamente duráveis e resistentes ao tempo. Por serem unidas por soldagem, o conjunto fica firme de verdade, não é só cola segurando peça, o que significa que dificilmente solta ou deforma com o passar dos anos. Um letreiro de aço bem feito é um investimento de longo prazo – chega a durar mais que a própria fachada onde foi instalado.</p>
+      
+      <p>Em resumo, letras-caixa de aço valorizam a marca e o espaço: passam sensação de profissionalismo, credibilidade e capricho. Elas podem ser produzidas em aço galvanizado, inox ou até latão, cada um com seu visual e características próprias.</p>
+      
+      <h2 id="materiais">Materiais Necessários</h2>
+      <p>Para começar, vou listar os principais materiais que você vai usar na fabricação de letras-caixa em aço. É importante escolher bem a matéria-prima, pois ela afeta diretamente a facilidade de trabalhar, a durabilidade e o acabamento da sua letra:</p>
+      
+      <h3>Chapa de Aço Galvanizado</h3>
+      <p>A base de muitas letras-caixa. O galvanizado é um aço carbono revestido com zinco para evitar ferrugem. É o material mais popular para iniciantes, pois oferece ótimo custo-benefício e boa maleabilidade. Aceita solda de estanho (com auxílio de fluxo/ácido) e depois da montagem pode ser pintado na cor desejada.</p>
+      
+      <div class="tip-box">
+        <p><strong>💡 Dica:</strong> Fuja de chapas galvalume (aço galvanizado com alumínio), pois elas dificultam a soldagem.</p>
+      </div>
+      
+      <h3>Chapa de Aço Inox</h3>
+      <p>O inox é o queridinho dos projetos de alto padrão. Por ser uma liga que não oxida (especialmente o inox 304, de qualidade superior), permite letras para fachadas nobres e duradouras. Vem com uma película protetora para não riscar durante o corte e manuseio. Pode ter acabamento polido tipo espelho ou escovado acetinado.</p>
+      
+      <h3>Chapa de Latão</h3>
+      <p>O latão é aquela chapa metálica dourada, com aparência de ouro. É menos comum, porém quando usado causa um impacto luxuoso, parecendo uma joia na fachada. Por ser uma liga de cobre com zinco, o latão exige cuidados semelhantes ao inox na soldagem.</p>
+      
+      <h3>Consumíveis de Solda</h3>
+      <p>Para soldar as partes da letra em aço galvanizado, usamos solda de estanho 50/50 em barra (50% estanho, 50% chumbo) e uma combinação de fluxo de solda com ácido muriático para conseguir aderência no metal galvanizado. Também será necessário álcool para limpar resíduos e água para neutralizar o ácido após o trabalho.</p>
+      
+      <h2 id="ferramentas">Ferramentas Utilizadas</h2>
+      <p>Ter as ferramentas certas faz toda diferença para ganhar produtividade e qualidade na fabricação de letras-caixa. Vou listar as principais:</p>
+      
+      <h3>Máquina de Solda MIG</h3>
+      <p>Equipamento de soldagem a arco elétrico com arame contínuo. Ideal para unir chapas de aço mais grossas ou em projetos que exigem muita resistência. No contexto de letras-caixa, a solda MIG pode ser usada principalmente em letras de chapa mais espessa ou em aço inox.</p>
+      
+      <div class="warning-box">
+        <p><strong>⚠️ Importante:</strong> Ao soldar galvanizado via MIG, use máscara de proteção e ventilação, pois a queima do zinco libera fumaça tóxica.</p>
+      </div>
+      
+      <h3>Ferro de Solda "Machadinha"</h3>
+      <p>É o coração da soldagem de letras-caixa no método com estanho. Parece um ferro de solda comum, mas é bem mais potente – em torno de 500 a 800 Watts de potência, com uma ponteira grossa de cobre. Eu recomendo modelos de ~750 W (220V) com gatilho, pois aquecem rápido e você controla quando esquentar.</p>
+      
+      <h3>Esmeril / Lixadeira Angular</h3>
+      <p>Ferramenta elétrica para lixar, desbastar e dar acabamento. Uso principalmente discos flap (lamelares) ou discos de lixa para desgastar o excesso de solda e deixar a superfície nivelada. Uma esmerilhadeira angular de 4 1/2" com controle de velocidade ajuda a evitar tirar material demais.</p>
+      
+      <h3>Guilhotina de Chapas</h3>
+      <p>Extremamente útil para cortar tiras retas de aço na largura desejada. Com a guilhotina regulo a largura e corto a chapa galvanizada inteira em tiras contínuas. O importante é ter as tiras de aço galvanizado bem cortadas e retinhas.</p>
+      
+      <h3>Alicates de Dobra</h3>
+      <p>Várias ferramentas manuais para ajudar a dobrar as tiras na forma da letra: alicate de bico chato, alicate tipo "pinguim", dobradores manuais (3 em 1, alavanca, etc).</p>
+      
+      <h2 id="ambiente">Ambiente de Trabalho Ideal</h2>
+      <p>Trabalhar com letras-caixa de aço envolve desde operações de corte mecânico até soldagem química, então o local deve ser apropriado:</p>
+      
+      <h3>Espaço e Bancada</h3>
+      <p>Tenha uma bancada ampla, plana e resistente onde caiba confortavelmente a maior letra que você pretende fazer. Uma mesa metálica ajuda se for usar imãs para fixar peças. Certifique-se de que a bancada está nivelada e firme.</p>
+      
+      <h3>Ventilação e Segurança</h3>
+      <p>O ambiente deve ser bem ventilado, pois tanto a solda MIG quanto a solda de estanho com ácido geram vapores que não queremos respirar. Se possível, tenha exaustão ou ao menos janelas abertas e ventilador. Nunca trabalhe com ácido ou solda em local fechado sem circulação de ar. Mantenha extintor de incêndio por perto.</p>
+      
+      <h3>Iluminação</h3>
+      <p>Garanta uma boa iluminação na bancada. Eu gosto de iluminar bem de frente e de lado, para enxergar todos os detalhes das juntas ao soldar e também para identificar rebarbas no acabamento.</p>
+      
+      <h2 id="passo-a-passo">Passo a Passo de Produção</h2>
+      <p>Agora vamos ao passo a passo completo de produção de uma letra-caixa em aço:</p>
+      
+      <h3>1. Projeto (Desenho e Planejamento)</h3>
+      <p>Tudo começa no desenho da letra ou logo que será fabricado. Normalmente recebemos a arte vetorial do cliente (formatos como CDR, AI, PDF ou DXF). Garanta que o arquivo esteja em tamanho real ou com medidas definidas. Nesta fase, defina as folgas se a letra for ter face de acrílico e fundo.</p>
+      
+      <h3>2. Corte das Peças</h3>
+      <p>Isso envolve geralmente: face da letra, fundo da letra (ligeiramente menor), e tiras da lateral (aba). Eu costumo cortar a face e fundo na CNC para ter precisão total. As tiras retas corto na guilhotina.</p>
+      
+      <h3>3. Dobra das Tiras (Formação da Lateral)</h3>
+      <p>Pegue a face da letra e vá posicionando a tira ao redor. Com a caneta, marque na tira onde acontecem as mudanças de direção. Use os alicates e moldes para fazer as dobras. Dobre sempre a 90º exatos em relação à face.</p>
+      
+      <h3>4. Montagem e Fixação Inicial</h3>
+      <p>Posicione a face de aço sobre a bancada. Coloque a tira em volta, encaixando exatamente no contorno. Fixe temporariamente de alguma forma (fita, imãs, cola quente temporária).</p>
+      
+      <h3>5. Soldagem (União das Partes)</h3>
+      <p>Aplique o fluxo/ácido em toda a junção onde será soldado. Comece dando pontinhos de solda espaçados. Depois dos pontos feitos, volte preenchendo os espaços entre aqueles pontos. Lembre sempre de alternar os lados durante a solda contínua.</p>
+      
+      <h3>6. Lixamento das Soldas</h3>
+      <p>Comece com a lima meia-cana 6": use o lado plano nas partes externas retas e o lado arredondado nos cantos internos ou curvas. Vá desbastando as soldas de estanho até elas ficarem niveladas com a superfície do metal.</p>
+      
+      <h3>7. Acabamento Final</h3>
+      <p>Lave a letra com água e sabão neutro. Em letras que serão pintadas, aplique primer automotivo para metais, lixe de leve com grão 400, e pinte na cor desejada. Cole ou parafuse o fundo na letra. Encaixe o acrílico frontal se houver.</p>
+      
+      <div class="cta-box">
+        <h3>🎓 Quer aprender na prática?</h3>
+        <p>Conheça nossos treinamentos completos de letras caixa em aço, com aulas em vídeo e suporte direto.</p>
+        <a href="/treinamento-start-neon/" class="cta-btn">Quero aprender na prática</a>
+      </div>
+      
+      <h2 id="dicas">Dicas Práticas de Quem Faz</h2>
+      <p>Algumas dicas práticas valiosas, aprendidas ao longo dos anos produzindo letras-caixa:</p>
+      
+      <h3>Escolha chapas de qualidade</h3>
+      <p>Prefira comprar aço galvanizado de bons fabricantes nacionais (ex: CSN), que costumam ter pureza e flexibilidade melhores. Chapa ruim racha e vinca fácil ao dobrar, além de pegar solda pior.</p>
+      
+      <h3>Mantenha tudo no esquadro</h3>
+      <p>Dobras 90° perfeitas em toda a lateral. Toda hora confira com o esquadro e ajuste na mão onde entortar. Um canto fora do ângulo vai fazer a letra "bamba".</p>
+      
+      <h3>Pequenos truques de solda de estanho</h3>
+      <p>Misture um pouco de ácido muriático com seu fluxo de solda num potinho. Faça um pincel de ácido caseiro usando a fibra de pipa. E corte sua barra de estanho em pedacinhos pequenos antes de começar.</p>
+      
+      <h3>Não tenha pressa no acabamento</h3>
+      <p>A etapa de lixar e dar acabamento às soldas é trabalhosa, mas define o visual final. Então não economize tempo aqui.</p>
+      
+      <h2 id="erros">Erros Comuns e Como Evitar</h2>
+      <p>Alguns erros comuns na produção de letras-caixa de aço e como evitá-los:</p>
+      
+      <h3>Cortar a tira do tamanho errado</h3>
+      <p>Sempre deixe uma sobra de pelo menos 5 cm na tira antes de começar a moldar. Você pode cortar o excesso depois, mas não pode esticar se faltar.</p>
+      
+      <h3>Solda não pega no metal</h3>
+      <p>Se a solda não está aderindo, provavelmente falta fluxo/ácido ou o ferro não está quente o suficiente. Aplique mais fluxo e espere o ferro esquentar bem.</p>
+      
+      <h3>Letra empenada</h3>
+      <p>Acontece quando você solda muito de um lado só. Sempre alterne os lados durante a soldagem para distribuir o calor uniformemente.</p>
+      
+      <h3>Acabamento com marcas</h3>
+      <p>Lixar demais em um ponto ou usar lixa muito grossa deixa marcas. Comece com lima, depois lixa grossa, depois lixa fina, sempre em movimentos uniformes.</p>
+      
+      <h2 id="conclusao">Conclusão</h2>
+      <p>Produzir letras-caixa em aço com soldagem é uma habilidade que se desenvolve com prática. Seguindo este guia, você tem uma base sólida para começar. Lembre-se: cada letra que você fizer vai te ensinar algo novo.</p>
+      
+      <p>O mercado de comunicação visual valoriza muito profissionais que dominam essa técnica, pois letras de aço são sinônimo de qualidade e durabilidade. Invista em bons materiais, ferramentas adequadas e, principalmente, em conhecimento.</p>
+      
+      <p>Se quiser acelerar seu aprendizado, conheça nossos treinamentos onde mostro tudo isso na prática, com aulas em vídeo detalhadas e suporte para tirar suas dúvidas.</p>
+      
+      <div class="cta-box">
+        <h3>🚀 Pronto para começar?</h3>
+        <p>Aprenda todas as técnicas de letras caixa com quem já formou mais de 3.000 alunos.</p>
+        <a href="/treinamento-start-neon/" class="cta-btn">Conhecer treinamentos</a>
+      </div>
+    </article>
+    
+    <!-- Sidebar Right - Related -->
+    <aside class="sidebar-right">
+      <p class="related-title">Artigos Relacionados</p>
+      
+      <a href="#" class="related-card">
+        <p class="related-badge">ACM • 20 min</p>
+        <h4>Guia Completo: Como Fazer Letras Caixa em ACM</h4>
+        <p>Domine a fabricação de letras caixa em ACM com a técnica do canal...</p>
+      </a>
+      
+      <a href="#" class="related-card">
+        <p class="related-badge">Iluminação • 18 min</p>
+        <h4>Iluminação LED para Letras Caixa: Guia Completo</h4>
+        <p>Guia completo sobre iluminação LED para letras caixa...</p>
+      </a>
+      
+      <a href="#" class="related-card">
+        <p class="related-badge">Neon • 15 min</p>
+        <h4>Neon LED: Como Começar do Zero</h4>
+        <p>Aprenda a produzir letreiros em Neon LED sem máquinas caras...</p>
+      </a>
+    </aside>
+  </main>
+  
+  <footer>
+    <div class="footer-container">
+      <p class="footer-logo">LETRA CAIXA <span>DO ZERO</span></p>
+      <div class="footer-links">
+        <a href="/">Início</a>
+        <a href="/#manuais">Manuais</a>
+        <a href="/treinamento-start-neon/">Treinamentos</a>
+        <a href="https://instagram.com/letracaixadozero" target="_blank">Instagram</a>
+      </div>
+      <p class="footer-copy">© 2024 Letra Caixa do Zero. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Highlight active index item on scroll
+    const sections = document.querySelectorAll('h2[id]');
+    const indexLinks = document.querySelectorAll('.index-list a');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      indexLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
