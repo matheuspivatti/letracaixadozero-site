@@ -3,296 +3,950 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aulão Letreiros do Futuro | Técnicas Atuais de Produção de Letreiros</title>
-  <meta name="description" content="Aprenda as técnicas mais atuais de produção de letreiros do mundo — do aço tradicional às inovações do mercado. Aula ao vivo gratuita dia 3 de Março.">
-  <meta property="og:title" content="Aulão Letreiros do Futuro | Letra Caixa do Zero">
-  <meta property="og:description" content="Descubra as técnicas mais modernas de produção de letreiros usadas no mundo todo. Aula ao vivo e gratuita!">
-  <meta property="og:type" content="website">
+  <title>Aulão Letreiros do Futuro | Do 3D ao Aço</title>
+  <meta name="description" content="Descubra as técnicas mais avançadas de produção de letreiros — do 3D ao Aço. Aula ao vivo gratuita dia 3 de Março às 19h.">
+  <meta property="og:title" content="Aulão Letreiros do Futuro | Do 3D ao Aço">
+  <meta property="og:description" content="As técnicas mais modernas de produção de letreiros do mundo. Aula ao vivo e gratuita!">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --purple-dark: #1a0a2e;
+      --purple-mid: #3d1a78;
+      --purple-light: #7c3aed;
+      --purple-glow: #a855f7;
+      --blue-dark: #0c1445;
+      --blue-mid: #1e40af;
+      --blue-light: #3b82f6;
+      --blue-glow: #60a5fa;
+      --cyan: #22d3ee;
+      --pink: #ec4899;
+      --white: #ffffff;
+      --gray: rgba(255,255,255,0.7);
+    }
+    
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.6; color: #f8fafc; background: #0a0a1a; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    body { 
+      font-family: 'Space Grotesk', sans-serif; 
+      line-height: 1.6; 
+      color: var(--white); 
+      background: linear-gradient(180deg, var(--purple-dark) 0%, var(--blue-dark) 100%);
+      min-height: 100vh;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Animated Background */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(124,58,237,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .bg-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-glow-1 { top: -200px; left: -200px; background: var(--purple-light); }
+    .bg-glow-2 { bottom: -200px; right: -200px; background: var(--blue-light); }
+    .bg-glow-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--purple-mid); opacity: 0.2; }
     
     /* Hero Section */
-    .hero { background: linear-gradient(180deg, #0a0a1a 0%, #0f172a 100%); padding: 60px 20px 80px; text-align: center; position: relative; overflow: hidden; min-height: 90vh; display: flex; align-items: center; }
-    .hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #fbbf24, #f59e0b, #d97706); }
-    .hero::after { content: ""; position: absolute; top: 50%; left: 50%; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(251,191,36,0.08) 0%, transparent 50%); transform: translate(-50%, -50%); pointer-events: none; }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      overflow: hidden;
+      z-index: 1;
+    }
     
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(90deg, rgba(251,191,36,0.2), rgba(245,158,11,0.2)); border: 1px solid rgba(251,191,36,0.4); padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: #fbbf24; margin-bottom: 24px; position: relative; z-index: 1; }
-    .hero-badge .live { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .hero-content { text-align: center; position: relative; z-index: 2; }
     
-    .hero-tags { display: flex; justify-content: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; position: relative; z-index: 1; }
-    .hero-tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 50px; font-size: 13px; display: flex; align-items: center; gap: 8px; transition: all 0.3s; }
-    .hero-tag:hover { background: rgba(255,255,255,0.1); }
-    .hero-tag.gold { color: #fcd34d; }
-    .hero-tag.blue { color: #93c5fd; }
-    .hero-tag.green { color: #86efac; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, rgba(124,58,237,0.3), rgba(59,130,246,0.3));
+      border: 1px solid rgba(124,58,237,0.5);
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cyan);
+      margin-bottom: 32px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-badge .live {
+      width: 12px;
+      height: 12px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 20px #22c55e;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.7; } }
     
-    .hero h1 { font-size: clamp(36px, 7vw, 64px); font-weight: 900; margin-bottom: 20px; line-height: 1.05; text-transform: uppercase; position: relative; z-index: 1; letter-spacing: -1px; }
-    .hero h1 .highlight { background: linear-gradient(90deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .hero-subtitle { font-size: 20px; color: rgba(255,255,255,0.8); margin-bottom: 40px; position: relative; z-index: 1; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .hero-pretitle {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: var(--purple-glow);
+      margin-bottom: 16px;
+    }
     
-    .hero-info { display: inline-flex; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 40px; gap: 48px; margin-bottom: 40px; position: relative; z-index: 1; flex-wrap: wrap; justify-content: center; }
-    .hero-info-item { display: flex; align-items: center; gap: 16px; }
-    .hero-info-item .icon { width: 52px; height: 52px; background: linear-gradient(135deg, rgba(251,191,36,0.2), rgba(245,158,11,0.1)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
-    .hero-info-item div small { font-size: 12px; color: rgba(255,255,255,0.5); display: block; text-transform: uppercase; letter-spacing: 1px; }
-    .hero-info-item div strong { font-size: 18px; color: #fff; }
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(40px, 8vw, 80px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+    }
+    .hero h1 .line1 { display: block; color: var(--white); }
+    .hero h1 .line2 {
+      display: block;
+      background: linear-gradient(90deg, var(--purple-glow), var(--blue-glow), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     
-    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 18px 40px; border-radius: 12px; font-size: 16px; font-weight: 700; text-transform: uppercase; transition: all 0.3s; cursor: pointer; border: none; text-decoration: none; position: relative; z-index: 10; }
-    .btn-gold { background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #0f172a; box-shadow: 0 8px 30px rgba(251,191,36,0.4); }
-    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(251,191,36,0.5); }
+    .hero-slogan {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(20px, 4vw, 32px);
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 24px;
+      letter-spacing: 4px;
+    }
+    .hero-slogan span { color: var(--pink); }
     
-    .hero-note { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 20px; position: relative; z-index: 1; }
-    .hero-note span { color: #22c55e; font-weight: 600; }
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
     
-    /* Stats Bar */
-    .stats-bar { background: linear-gradient(90deg, #fbbf24, #f59e0b); padding: 20px; }
-    .stats-container { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
-    .stat-item { text-align: center; color: #0f172a; }
-    .stat-item strong { font-size: 28px; font-weight: 800; display: block; }
-    .stat-item span { font-size: 13px; font-weight: 500; opacity: 0.8; }
+    .hero-info {
+      display: inline-flex;
+      gap: 32px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 24px 48px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero-info-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .hero-info-item .icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--purple-light), var(--blue-light));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 0 30px rgba(124,58,237,0.4);
+    }
+    .hero-info-item div small {
+      font-size: 11px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: block;
+    }
+    .hero-info-item div strong {
+      font-size: 18px;
+      font-weight: 700;
+    }
     
-    /* What Section */
-    .what-section { background: #0f172a; padding: 80px 20px; }
-    .section-badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
-    .badge-gold { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3); color: #fcd34d; }
-    .badge-red { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; }
-    .badge-green { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #86efac; }
-    .badge-blue { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 48px;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, var(--purple-light), var(--blue-light));
+      color: var(--white);
+      box-shadow: 0 10px 40px rgba(124,58,237,0.5), 0 0 80px rgba(124,58,237,0.3);
+    }
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+    .btn-primary:hover::before { left: 100%; }
+    .btn-primary:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 60px rgba(124,58,237,0.6), 0 0 100px rgba(124,58,237,0.4);
+    }
     
-    .section-title { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; text-align: center; line-height: 1.1; }
-    .section-desc { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; font-size: 18px; }
+    .hero-note {
+      font-size: 14px;
+      color: var(--gray);
+      margin-top: 24px;
+    }
+    .hero-note .highlight { color: var(--cyan); font-weight: 600; }
     
-    .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(59,130,246,0.2));
+      border: 1px solid rgba(124,58,237,0.3);
+      backdrop-filter: blur(10px);
+      animation: float 6s ease-in-out infinite;
+    }
+    .float-1 { width: 120px; height: 120px; top: 15%; left: 5%; animation-delay: 0s; }
+    .float-2 { width: 80px; height: 80px; top: 25%; right: 8%; animation-delay: 1s; }
+    .float-3 { width: 60px; height: 60px; bottom: 20%; left: 10%; animation-delay: 2s; }
+    .float-4 { width: 100px; height: 100px; bottom: 15%; right: 5%; animation-delay: 3s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      position: relative;
+      z-index: 1;
+      padding: 40px 0;
+      background: linear-gradient(90deg, rgba(124,58,237,0.1), rgba(59,130,246,0.1));
+      border-top: 1px solid rgba(124,58,237,0.2);
+      border-bottom: 1px solid rgba(59,130,246,0.2);
+    }
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
+    }
+    .stat-item { text-align: center; }
+    .stat-item strong {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--purple-glow), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+    }
+    .stat-item span {
+      font-size: 13px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    /* Content Section */
+    .content-section {
+      position: relative;
+      z-index: 1;
+      padding: 100px 0;
+    }
+    
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+    .badge-purple {
+      background: rgba(124,58,237,0.2);
+      border: 1px solid rgba(124,58,237,0.4);
+      color: var(--purple-glow);
+    }
+    .badge-blue {
+      background: rgba(59,130,246,0.2);
+      border: 1px solid rgba(59,130,246,0.4);
+      color: var(--blue-glow);
+    }
+    .badge-cyan {
+      background: rgba(34,211,238,0.2);
+      border: 1px solid rgba(34,211,238,0.4);
+      color: var(--cyan);
+    }
+    .badge-pink {
+      background: rgba(236,72,153,0.2);
+      border: 1px solid rgba(236,72,153,0.4);
+      color: var(--pink);
+    }
+    
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-title .gradient {
+      background: linear-gradient(90deg, var(--purple-glow), var(--blue-glow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-desc {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Topics Grid */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
     @media (max-width: 900px) { .topics-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 600px) { .topics-grid { grid-template-columns: 1fr; } }
     
-    .topic-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 28px; transition: all 0.3s; position: relative; overflow: hidden; }
-    .topic-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #fbbf24, #f59e0b); opacity: 0; transition: opacity 0.3s; }
-    .topic-card:hover { border-color: rgba(251,191,36,0.3); transform: translateY(-5px); }
+    .topic-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 24px;
+      padding: 32px;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .topic-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--purple-light), var(--blue-light));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .topic-card:hover {
+      border-color: rgba(124,58,237,0.5);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(124,58,237,0.2);
+    }
     .topic-card:hover::before { opacity: 1; }
-    .topic-icon { width: 56px; height: 56px; background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(245,158,11,0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 16px; }
-    .topic-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
-    .topic-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
     
-    /* Problem Section */
-    .problem-section { background: #0a0a1a; padding: 80px 20px; }
-    .problems-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .topic-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(59,130,246,0.2));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 30px rgba(124,58,237,0.2);
+    }
+    .topic-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+    .topic-card p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+    
+    /* Problems Grid */
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
     @media (max-width: 700px) { .problems-grid { grid-template-columns: 1fr; } }
-    .problem-card { background: rgba(239,68,68,0.03); border: 1px solid rgba(239,68,68,0.15); border-radius: 16px; padding: 24px; transition: all 0.3s; }
-    .problem-card:hover { border-color: rgba(239,68,68,0.4); background: rgba(239,68,68,0.08); }
-    .problem-card-header { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
-    .problem-icon { width: 48px; height: 48px; background: rgba(239,68,68,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #f87171; font-size: 22px; }
-    .problem-card h3 { font-size: 16px; font-weight: 700; text-transform: uppercase; color: #fca5a5; }
-    .problem-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
     
-    /* Learn Section */
-    .learn-section { background: #0f172a; padding: 80px 20px; }
-    .learn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .problem-card {
+      background: rgba(236,72,153,0.05);
+      border: 1px solid rgba(236,72,153,0.2);
+      border-radius: 20px;
+      padding: 28px;
+      transition: all 0.3s;
+    }
+    .problem-card:hover {
+      border-color: rgba(236,72,153,0.5);
+      background: rgba(236,72,153,0.1);
+    }
+    .problem-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .problem-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(236,72,153,0.2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .problem-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+    .problem-card p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    
+    /* Learn Grid */
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
     @media (max-width: 700px) { .learn-grid { grid-template-columns: 1fr; } }
-    .learn-card { background: rgba(34,197,94,0.03); border: 1px solid rgba(34,197,94,0.15); border-radius: 16px; padding: 24px; transition: all 0.3s; }
-    .learn-card:hover { border-color: rgba(34,197,94,0.4); background: rgba(34,197,94,0.08); }
-    .learn-card-header { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
-    .learn-icon { width: 48px; height: 48px; background: rgba(34,197,94,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #22c55e; font-size: 22px; }
-    .learn-card h3 { font-size: 16px; font-weight: 700; text-transform: uppercase; color: #86efac; }
-    .learn-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    
+    .learn-card {
+      background: rgba(34,211,238,0.05);
+      border: 1px solid rgba(34,211,238,0.2);
+      border-radius: 20px;
+      padding: 28px;
+      transition: all 0.3s;
+    }
+    .learn-card:hover {
+      border-color: rgba(34,211,238,0.5);
+      background: rgba(34,211,238,0.1);
+    }
+    .learn-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .learn-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(34,211,238,0.2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .learn-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+    .learn-card p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
     
     /* Instructor Section */
-    .instructor-section { background: #0a0a1a; padding: 80px 20px; }
-    .instructor-container { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: center; }
-    @media (max-width: 800px) { .instructor-container { grid-template-columns: 1fr; text-align: center; } }
-    .instructor-image { width: 280px; height: 280px; border-radius: 24px; object-fit: cover; border: 4px solid rgba(251,191,36,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-    @media (max-width: 800px) { .instructor-image { margin: 0 auto; } }
-    .instructor-info h3 { font-size: 14px; color: #fbbf24; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-    .instructor-info h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
-    .instructor-info p { color: rgba(255,255,255,0.7); margin-bottom: 24px; font-size: 16px; line-height: 1.8; }
-    .instructor-stats { display: flex; gap: 32px; flex-wrap: wrap; }
-    @media (max-width: 800px) { .instructor-stats { justify-content: center; } }
-    .instructor-stat { text-align: center; }
-    .instructor-stat strong { font-size: 28px; font-weight: 800; color: #fbbf24; display: block; }
-    .instructor-stat span { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; }
-    .instructor-social { display: flex; gap: 12px; margin-top: 24px; }
-    @media (max-width: 800px) { .instructor-social { justify-content: center; } }
-    .social-btn { display: flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
-    .social-btn.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
-    .social-btn.youtube { background: #ff0000; color: #fff; }
-    .social-btn:hover { transform: translateY(-2px); }
+    .instructor-section {
+      position: relative;
+      z-index: 1;
+      padding: 100px 0;
+    }
+    .instructor-container {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .instructor-container { grid-template-columns: 1fr; text-align: center; }
+    }
+    .instructor-image-wrapper {
+      position: relative;
+    }
+    .instructor-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 30px;
+      object-fit: cover;
+      border: 3px solid transparent;
+      background: linear-gradient(var(--purple-dark), var(--purple-dark)) padding-box,
+                  linear-gradient(135deg, var(--purple-light), var(--blue-light)) border-box;
+      box-shadow: 0 30px 80px rgba(124,58,237,0.4);
+    }
+    @media (max-width: 900px) { .instructor-image { margin: 0 auto; } }
+    .instructor-glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, var(--purple-light), var(--blue-light));
+      border-radius: 30px;
+      filter: blur(60px);
+      opacity: 0.4;
+      top: 20px;
+      left: 20px;
+      z-index: -1;
+    }
+    @media (max-width: 900px) { .instructor-glow { left: 50%; transform: translateX(-50%); } }
+    
+    .instructor-info h3 {
+      font-size: 13px;
+      color: var(--purple-glow);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 8px;
+    }
+    .instructor-info h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .instructor-info p {
+      color: var(--gray);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .instructor-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 900px) { .instructor-stats { justify-content: center; } }
+    .instructor-stat strong {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--purple-glow), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+    }
+    .instructor-stat span {
+      font-size: 12px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .instructor-social {
+      display: flex;
+      gap: 16px;
+    }
+    @media (max-width: 900px) { .instructor-social { justify-content: center; } }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social-btn.instagram {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: var(--white);
+    }
+    .social-btn.youtube {
+      background: #ff0000;
+      color: var(--white);
+    }
+    .social-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
     
     /* CTA Section */
-    .cta-section { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); padding: 80px 20px; }
-    .cta-container { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-    @media (max-width: 800px) { .cta-container { grid-template-columns: 1fr; } }
+    .cta-section {
+      position: relative;
+      z-index: 1;
+      padding: 100px 0;
+    }
+    .cta-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .cta-container { grid-template-columns: 1fr; } }
     
-    .cta-left h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; line-height: 1.1; }
-    .cta-left h2 .gold { color: #fbbf24; }
-    .cta-left > p { color: rgba(255,255,255,0.6); margin-bottom: 32px; font-size: 16px; }
+    .cta-left h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .cta-left h2 .gradient {
+      background: linear-gradient(90deg, var(--purple-glow), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .cta-left > p {
+      color: var(--gray);
+      font-size: 16px;
+      margin-bottom: 36px;
+    }
     
-    .cta-features { display: flex; flex-direction: column; gap: 16px; }
-    .cta-feature { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s; }
-    .cta-feature:hover { border-color: rgba(251,191,36,0.3); }
-    .cta-feature-icon { width: 44px; height: 44px; background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(245,158,11,0.05)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-    .cta-feature h4 { font-size: 15px; font-weight: 700; text-transform: uppercase; }
-    .cta-feature p { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .cta-features { display: flex; flex-direction: column; gap: 20px; }
+    .cta-feature {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+    .cta-feature:hover { border-color: rgba(124,58,237,0.5); }
+    .cta-feature-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(59,130,246,0.2));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .cta-feature h4 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .cta-feature p {
+      font-size: 13px;
+      color: var(--gray);
+    }
     
     /* Form */
-    .cta-form { background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; scroll-margin-top: 100px; }
-    .form-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #86efac; padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; margin-bottom: 16px; }
-    .cta-form h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; text-align: center; }
-    .cta-form .form-subtitle { text-align: center; color: rgba(255,255,255,0.5); margin-bottom: 28px; font-size: 14px; }
+    .cta-form {
+      background: linear-gradient(180deg, rgba(124,58,237,0.1), rgba(59,130,246,0.05));
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 32px;
+      padding: 48px;
+      scroll-margin-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple-light), var(--blue-light), var(--cyan));
+    }
+    .form-header { text-align: center; margin-bottom: 32px; }
+    .form-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34,211,238,0.2);
+      border: 1px solid rgba(34,211,238,0.4);
+      color: var(--cyan);
+      padding: 10px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .cta-form h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .cta-form .form-subtitle {
+      color: var(--gray);
+      font-size: 14px;
+    }
     
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: rgba(255,255,255,0.8); }
-    .form-group input { width: 100%; padding: 16px 18px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; color: #fff; font-size: 15px; transition: all 0.3s; }
+    .form-group { margin-bottom: 24px; }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+    .form-group input {
+      width: 100%;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 14px;
+      color: var(--white);
+      font-size: 15px;
+      font-family: 'Space Grotesk', sans-serif;
+      transition: all 0.3s;
+    }
     .form-group input::placeholder { color: rgba(255,255,255,0.4); }
-    .form-group input:focus { outline: none; border-color: #fbbf24; background: rgba(251,191,36,0.1); box-shadow: 0 0 0 4px rgba(251,191,36,0.15); }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--purple-light);
+      background: rgba(124,58,237,0.1);
+      box-shadow: 0 0 0 4px rgba(124,58,237,0.2);
+    }
     
-    .form-submit { width: 100%; padding: 18px; background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #0f172a; border: none; border-radius: 12px; font-size: 16px; font-weight: 800; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s; }
-    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(251,191,36,0.4); }
+    .form-submit {
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(90deg, var(--purple-light), var(--blue-light));
+      color: var(--white);
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.4s;
+      box-shadow: 0 10px 40px rgba(124,58,237,0.4);
+    }
+    .form-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(124,58,237,0.5);
+    }
     
-    .form-note { text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 16px; }
-    .form-note a { color: #fbbf24; text-decoration: none; }
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 20px;
+    }
+    .form-note a { color: var(--cyan); text-decoration: none; }
     
     /* Footer */
-    footer { background: #0a0a1a; padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
-    footer p { color: rgba(255,255,255,0.4); font-size: 13px; margin-bottom: 8px; }
-    footer a { color: #fbbf24; text-decoration: none; }
-    footer small { color: rgba(255,255,255,0.3); font-size: 11px; display: block; margin-top: 16px; }
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 48px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(124,58,237,0.2);
+    }
+    footer p { color: var(--gray); font-size: 14px; margin-bottom: 8px; }
+    footer a { color: var(--purple-glow); text-decoration: none; transition: color 0.3s; }
+    footer a:hover { color: var(--cyan); }
+    footer small { color: rgba(255,255,255,0.4); font-size: 12px; display: block; margin-top: 20px; }
   </style>
 </head>
 <body>
+  <!-- Background Effects -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+  
   <!-- Hero Section -->
   <section class="hero">
+    <div class="floating-element float-1"></div>
+    <div class="floating-element float-2"></div>
+    <div class="floating-element float-3"></div>
+    <div class="floating-element float-4"></div>
+    
     <div class="container">
-      <div class="hero-badge">
-        <span class="live"></span>
-        AULA AO VIVO E GRATUITA
-      </div>
-      
-      <div class="hero-tags">
-        <span class="hero-tag gold">🚀 Técnicas do Futuro</span>
-        <span class="hero-tag blue">🔧 Do Aço ao High-Tech</span>
-        <span class="hero-tag green">💰 Aumente seus Lucros</span>
-      </div>
-      
-      <h1>Aulão <span class="highlight">Letreiros do Futuro</span></h1>
-      <p class="hero-subtitle">Descubra as técnicas mais atuais de produção de letreiros do mundo — do aço tradicional às inovações que estão dominando o mercado</p>
-      
-      <div class="hero-info">
-        <div class="hero-info-item">
-          <div class="icon">📅</div>
-          <div>
-            <small>Data</small>
-            <strong>3 de Março</strong>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="live"></span>
+          AULA AO VIVO E GRATUITA
+        </div>
+        
+        <p class="hero-pretitle">Evento Online Exclusivo</p>
+        
+        <h1>
+          <span class="line1">Aulão</span>
+          <span class="line2">Letreiros do Futuro</span>
+        </h1>
+        
+        <p class="hero-slogan">DO <span>3D</span> AO AÇO</p>
+        
+        <p class="hero-subtitle">Descubra as técnicas mais avançadas de produção de letreiros do mundo — das impressões 3D revolucionárias às clássicas letras de aço que nunca saem de moda</p>
+        
+        <div class="hero-info">
+          <div class="hero-info-item">
+            <div class="icon">📅</div>
+            <div>
+              <small>Data</small>
+              <strong>3 de Março</strong>
+            </div>
+          </div>
+          <div class="hero-info-item">
+            <div class="icon">🕐</div>
+            <div>
+              <small>Horário</small>
+              <strong>19h (Brasília)</strong>
+            </div>
+          </div>
+          <div class="hero-info-item">
+            <div class="icon">🌐</div>
+            <div>
+              <small>Formato</small>
+              <strong>100% Online</strong>
+            </div>
           </div>
         </div>
-        <div class="hero-info-item">
-          <div class="icon">🕐</div>
-          <div>
-            <small>Horário</small>
-            <strong>19h (Brasília)</strong>
-          </div>
-        </div>
-        <div class="hero-info-item">
-          <div class="icon">📍</div>
-          <div>
-            <small>Formato</small>
-            <strong>100% Online</strong>
-          </div>
-        </div>
+        
+        <a href="#formulario" class="btn btn-primary">GARANTIR MINHA VAGA 🚀</a>
+        
+        <p class="hero-note">🔒 <span class="highlight">Vagas limitadas</span> • Inscrição 100% gratuita</p>
       </div>
-      
-      <a href="#formulario" class="btn btn-gold">QUERO PARTICIPAR GRATUITAMENTE 🚀</a>
-      <p class="hero-note">🔒 <span>Vagas limitadas</span> • Inscrição gratuita</p>
     </div>
   </section>
   
-  <!-- Stats Bar -->
-  <div class="stats-bar">
-    <div class="stats-container">
-      <div class="stat-item">
-        <strong>122K+</strong>
-        <span>Seguidores</span>
-      </div>
-      <div class="stat-item">
-        <strong>3.000+</strong>
-        <span>Alunos</span>
-      </div>
-      <div class="stat-item">
-        <strong>5.000+</strong>
-        <span>Letreiros</span>
-      </div>
-      <div class="stat-item">
-        <strong>15</strong>
-        <span>Anos de Experiência</span>
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <strong>122K+</strong>
+          <span>Seguidores</span>
+        </div>
+        <div class="stat-item">
+          <strong>3.000+</strong>
+          <span>Alunos</span>
+        </div>
+        <div class="stat-item">
+          <strong>5.000+</strong>
+          <span>Letreiros</span>
+        </div>
+        <div class="stat-item">
+          <strong>15</strong>
+          <span>Anos</span>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- What Section -->
-  <section class="what-section">
-    <div class="container" style="text-align: center;">
-      <span class="section-badge badge-gold">🎯 O que você vai descobrir</span>
-      <h2 class="section-title">Conteúdo Exclusivo do Aulão</h2>
-      <p class="section-desc">Vou revelar as técnicas que estão transformando o mercado de letreiros no Brasil e no mundo</p>
+  </section>
+  
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-purple">🎯 Conteúdo Exclusivo</span>
+        <h2 class="section-title">O que você vai <span class="gradient">descobrir</span></h2>
+        <p class="section-desc">As técnicas que estão transformando o mercado de letreiros no Brasil e no mundo</p>
+      </div>
       
       <div class="topics-grid">
         <div class="topic-card">
-          <div class="topic-icon">🔩</div>
-          <h3>Letras de Aço</h3>
-          <p>Técnicas de soldagem, acabamento e precificação para letras de aço que ainda têm alta demanda no mercado</p>
+          <div class="topic-icon">🖨️</div>
+          <h3>Impressão 3D</h3>
+          <p>A revolução que está chegando: como usar impressoras 3D para criar letras únicas e personalizadas</p>
         </div>
         
         <div class="topic-card">
-          <div class="topic-icon">💡</div>
-          <h3>Iluminação Moderna</h3>
-          <p>LED, RGB, backlight, frontlight — quando usar cada tipo e como calcular corretamente</p>
+          <div class="topic-icon">🔩</div>
+          <h3>Letras de Aço</h3>
+          <p>Técnicas clássicas de soldagem e acabamento que continuam tendo alta demanda no mercado</p>
         </div>
         
         <div class="topic-card">
           <div class="topic-icon">🇨🇳</div>
-          <h3>Técnica Chinesa</h3>
-          <p>O método que está revolucionando a produção de letras acrílicas com alta margem de lucro</p>
+          <h3>Método Chinês</h3>
+          <p>A técnica que revolucionou a produção de letras acrílicas com margens de lucro impressionantes</p>
         </div>
         
         <div class="topic-card">
-          <div class="topic-icon">🎨</div>
-          <h3>ACM Premium</h3>
-          <p>Como produzir letras caixa em ACM com acabamento profissional e diferenciado</p>
+          <div class="topic-icon">💡</div>
+          <h3>Iluminação LED</h3>
+          <p>Backlight, frontlight, RGB — quando usar cada tipo e como calcular corretamente</p>
         </div>
         
         <div class="topic-card">
           <div class="topic-icon">✨</div>
           <h3>Neon LED</h3>
-          <p>A técnica mais lucrativa do momento — como começar sem máquinas caras</p>
+          <p>A técnica mais lucrativa do momento — como começar sem investir em máquinas caras</p>
         </div>
         
         <div class="topic-card">
           <div class="topic-icon">📈</div>
           <h3>Tendências 2025</h3>
-          <p>O que está vindo de novo no mercado e como se preparar para surfar essa onda</p>
+          <p>O que está vindo de novo e como se preparar para dominar o mercado</p>
         </div>
       </div>
     </div>
   </section>
-
+  
   <!-- Problem Section -->
-  <section class="problem-section">
-    <div class="container" style="text-align: center;">
-      <span class="section-badge badge-red">⚠️ O problema</span>
-      <h2 class="section-title">Você está ficando para trás?</h2>
-      <p class="section-desc">O mercado de letreiros está evoluindo rápido. Quem não se atualiza, perde espaço.</p>
+  <section class="content-section" style="padding-top: 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-pink">⚠️ O Problema</span>
+        <h2 class="section-title">Você está ficando <span class="gradient">para trás?</span></h2>
+        <p class="section-desc">O mercado evolui rápido. Quem não se atualiza, perde espaço.</p>
+      </div>
       
       <div class="problems-grid">
         <div class="problem-card">
           <div class="problem-card-header">
             <div class="problem-icon">📉</div>
-            <h3>Concorrência aumentando</h3>
+            <h3>Concorrência crescendo</h3>
           </div>
-          <p>Cada vez mais pessoas entrando no mercado, muitas usando técnicas que você ainda não conhece</p>
+          <p>Cada vez mais pessoas entrando no mercado usando técnicas que você ainda não conhece</p>
         </div>
         
         <div class="problem-card">
@@ -300,7 +954,7 @@
             <div class="problem-icon">💸</div>
             <h3>Margens apertadas</h3>
           </div>
-          <p>Trabalhando muito mas o lucro não compensa? Provavelmente você está usando técnicas ultrapassadas</p>
+          <p>Trabalhando muito mas o lucro não compensa? Técnicas ultrapassadas são o problema</p>
         </div>
         
         <div class="problem-card">
@@ -308,7 +962,7 @@
             <div class="problem-icon">🔧</div>
             <h3>Técnicas limitadas</h3>
           </div>
-          <p>Só sabe fazer um tipo de letra? Você está perdendo vendas para quem oferece mais opções</p>
+          <p>Só sabe fazer um tipo de letra? Você perde vendas para quem oferece mais opções</p>
         </div>
         
         <div class="problem-card">
@@ -316,18 +970,20 @@
             <div class="problem-icon">❓</div>
             <h3>Sem direção clara</h3>
           </div>
-          <p>Não sabe por onde começar ou qual técnica aprender primeiro para escalar seu negócio</p>
+          <p>Não sabe por onde começar ou qual técnica aprender primeiro para escalar</p>
         </div>
       </div>
     </div>
   </section>
-
+  
   <!-- Learn Section -->
-  <section class="learn-section">
-    <div class="container" style="text-align: center;">
-      <span class="section-badge badge-green">✅ A solução</span>
-      <h2 class="section-title">O que você vai aprender</h2>
-      <p class="section-desc">Nesse aulão vou te mostrar o caminho completo para dominar o mercado de letreiros</p>
+  <section class="content-section" style="padding-top: 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-cyan">✅ A Solução</span>
+        <h2 class="section-title">O que você vai <span class="gradient">aprender</span></h2>
+        <p class="section-desc">O caminho completo para dominar o mercado de letreiros</p>
+      </div>
       
       <div class="learn-grid">
         <div class="learn-card">
@@ -343,7 +999,7 @@
             <div class="learn-icon">🎯</div>
             <h3>Técnicas certas</h3>
           </div>
-          <p>Descubra quais técnicas aprender primeiro para ter o maior retorno no menor tempo</p>
+          <p>Descubra quais técnicas aprender primeiro para ter o maior retorno</p>
         </div>
         
         <div class="learn-card">
@@ -351,25 +1007,28 @@
             <div class="learn-icon">💰</div>
             <h3>Precificação</h3>
           </div>
-          <p>Como calcular seus preços corretamente para ter margens saudáveis em cada projeto</p>
+          <p>Como calcular seus preços para ter margens saudáveis em cada projeto</p>
         </div>
         
         <div class="learn-card">
           <div class="learn-card-header">
             <div class="learn-icon">🚀</div>
-            <h3>Próximos passos</h3>
+            <h3>Plano de ação</h3>
           </div>
-          <p>Um plano claro de ação para você implementar imediatamente após o aulão</p>
+          <p>Um plano claro para implementar imediatamente após o aulão</p>
         </div>
       </div>
     </div>
   </section>
-
+  
   <!-- Instructor Section -->
   <section class="instructor-section">
     <div class="container">
       <div class="instructor-container">
-        <img src="/images/matheus-pivatti.png" alt="Matheus Pivatti" class="instructor-image" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face'">
+        <div class="instructor-image-wrapper">
+          <div class="instructor-glow"></div>
+          <img src="/images/matheus-pivatti.png" alt="Matheus Pivatti" class="instructor-image" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face'">
+        </div>
         <div class="instructor-info">
           <h3>Seu Instrutor</h3>
           <h2>Matheus Pivatti</h2>
@@ -389,26 +1048,22 @@
             </div>
           </div>
           <div class="instructor-social">
-            <a href="https://www.instagram.com/letracaixadozero/" target="_blank" class="social-btn instagram">
-              📸 Instagram
-            </a>
-            <a href="https://www.youtube.com/@letracaixadozero" target="_blank" class="social-btn youtube">
-              ▶️ YouTube
-            </a>
+            <a href="https://www.instagram.com/letracaixadozero/" target="_blank" class="social-btn instagram">📸 Instagram</a>
+            <a href="https://www.youtube.com/@letracaixadozero" target="_blank" class="social-btn youtube">▶️ YouTube</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-
+  
   <!-- CTA Section -->
   <section class="cta-section" id="cadastro">
     <div class="container">
       <div class="cta-container">
         <div class="cta-left">
           <span class="section-badge badge-blue">🎁 Garanta sua vaga</span>
-          <h2>Não perca essa <span class="gold">oportunidade única</span></h2>
-          <p>Esse aulão é gratuito mas as vagas são limitadas. Garanta a sua agora e dê o primeiro passo para dominar o mercado de letreiros.</p>
+          <h2>Não perca essa <span class="gradient">oportunidade</span></h2>
+          <p>Esse aulão é gratuito mas as vagas são limitadas. Garanta a sua agora e dê o primeiro passo para dominar o mercado de letreiros do futuro.</p>
           
           <div class="cta-features">
             <div class="cta-feature">
@@ -436,11 +1091,11 @@
         </div>
         
         <form class="cta-form" id="formulario" onsubmit="handleSubmit(event)">
-          <div style="text-align: center;">
+          <div class="form-header">
             <span class="form-badge">🔥 Vagas limitadas</span>
+            <h3>Inscreva-se Grátis</h3>
+            <p class="form-subtitle">Preencha seus dados para garantir sua vaga</p>
           </div>
-          <h3>Inscreva-se Gratuitamente</h3>
-          <p class="form-subtitle">Preencha seus dados para garantir sua vaga</p>
           
           <div class="form-group">
             <label for="nome">Seu nome</label>
@@ -457,21 +1112,19 @@
             <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
           </div>
           
-          <button type="submit" class="form-submit">
-            GARANTIR MINHA VAGA 🚀
-          </button>
+          <button type="submit" class="form-submit">GARANTIR MINHA VAGA 🚀</button>
           
-          <p class="form-note">🔒 Seus dados estão seguros. Ao se inscrever você será adicionado ao grupo exclusivo do WhatsApp.</p>
+          <p class="form-note">🔒 Seus dados estão seguros. Ao se inscrever você será adicionado ao <a href="#">grupo exclusivo do WhatsApp</a>.</p>
         </form>
       </div>
     </div>
   </section>
-
+  
   <!-- Footer -->
   <footer>
     <p>Aulão Letreiros do Futuro — <a href="https://letracaixadozero.com">letracaixadozero.com</a></p>
     <p>Siga: <a href="https://www.instagram.com/letracaixadozero/" target="_blank">@letracaixadozero</a> | <a href="https://www.youtube.com/@letracaixadozero" target="_blank">YouTube</a></p>
-    <small>Este evento é gratuito e online. Ao se inscrever, você concorda em receber comunicações sobre o evento e conteúdos relacionados.</small>
+    <small>Este evento é gratuito e online. Ao se inscrever, você concorda em receber comunicações sobre o evento.</small>
   </footer>
 
   <script>
@@ -493,13 +1146,9 @@
     function handleSubmit(e) {
       e.preventDefault();
       const nome = document.getElementById('nome').value;
-      const email = document.getElementById('email').value;
-      const whatsapp = document.getElementById('whatsapp').value;
       
-      // Mostrar mensagem de sucesso
       alert('Parabéns, ' + nome.split(' ')[0] + '! 🎉\n\nSua vaga no Aulão Letreiros do Futuro está garantida!\n\nAgora você será direcionado para o grupo exclusivo do WhatsApp.');
       
-      // Redirecionar para o grupo do WhatsApp
       window.location.href = 'https://chat.whatsapp.com/Elhz9ucLUuPC9wQ3XHbZyP';
     }
   </script>
