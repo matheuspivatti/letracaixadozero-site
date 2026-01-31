@@ -18,6 +18,8 @@
     .badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #fbbf24; color: #1a1a2e; padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(251,191,36,0.2); }
     .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; line-height: 1.15; text-transform: uppercase; letter-spacing: -0.5px; }
     .hero h1 span { color: #f59e0b; text-decoration: underline; text-decoration-color: rgba(245,158,11,0.3); text-underline-offset: 6px; }
+    .neon-glow { color: #00d4ff !important; text-decoration: none !important; text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #0099cc, 0 0 80px #0099cc; animation: neon-pulse 2s ease-in-out infinite alternate; }
+    @keyframes neon-pulse { from { text-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #0099cc; } to { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff, 0 0 50px #0099cc, 0 0 100px #0099cc; } }
     .subtitle { font-size: 18px; color: #64748b; margin-bottom: 24px; }
     
     /* Tags */
@@ -241,7 +243,7 @@
     <div class="container">
       <span class="badge">💡 Neon LED 2ª Geração 🔥</span>
       
-      <h1>Você já tem uma Router CNC — mas ainda <span>não ganha dinheiro</span> com Neon LED?</h1>
+      <h1>Você já tem uma Router CNC — mas ainda <span>não ganha dinheiro</span> com <span class="neon-glow">Neon LED</span>?</h1>
       <p class="subtitle">Aprenda a fabricar Neon LED de 2ª geração e transforme sua CNC em uma máquina de lucro.</p>
       
       <div class="tags">
