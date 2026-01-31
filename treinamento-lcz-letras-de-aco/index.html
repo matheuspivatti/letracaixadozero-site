@@ -3,23 +3,783 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LETRAS DE AÇO - Treinamento de Letras Caixa em Aço</title>
-  <meta name="description" content="Aprenda a produzir letras caixa de aço inox e galvanizado com acabamento premium.">
+  <title>LCZ Letras de Aço | Treinamento Completo de Soldagem e Fabricação</title>
+  <meta name="description" content="Aprenda a fabricar letras caixa de aço do zero. Soldagem com estanho, pintura automotiva e iluminação LED. +1200 alunos formados.">
+  <link rel="preconnect" href="https://img.youtube.com">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ffedd5, #fef3c7); }
-    .container { text-align: center; padding: 40px; }
-    h1 { font-size: 48px; font-weight: 800; color: #c2410c; margin-bottom: 16px; }
-    p { font-size: 20px; color: #64748b; margin-bottom: 32px; }
-    .btn { display: inline-block; background: #f97316; color: #fff; padding: 16px 32px; border-radius: 50px; font-weight: 700; text-decoration: none; }
-    .btn:hover { background: #ea580c; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; background: #f8fafc; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(180deg, #fff 0%, #fef3c7 100%); padding: 40px 20px 60px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #f59e0b; color: #1a1a2e; padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(245,158,11,0.2); }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; line-height: 1.15; text-transform: uppercase; letter-spacing: -0.5px; }
+    .hero h1 span { color: #f59e0b; text-decoration: underline; text-decoration-color: rgba(245,158,11,0.3); text-underline-offset: 6px; }
+    .subtitle { font-size: 18px; color: #64748b; margin-bottom: 24px; }
+    
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 24px; }
+    .tags span { background: #fff; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 8px; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+    .tags span::before { content: "✓"; color: #f59e0b; font-weight: 700; }
+    
+    /* Video */
+    .video-container { position: relative; max-width: 700px; margin: 0 auto 24px; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); cursor: pointer; background: #1a1a2e; }
+    .video-container img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .video-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
+    .play-btn { width: 72px; height: 72px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(239,68,68,0.4); transition: transform 0.3s; }
+    .play-btn:hover { transform: scale(1.1); }
+    .play-icon { width: 0; height: 0; border-top: 14px solid transparent; border-left: 22px solid #fff; border-bottom: 14px solid transparent; margin-left: 4px; }
+    
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #22c55e; color: #fff; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(34,197,94,0.4); }
+    .btn-primary:hover { background: #16a34a; transform: translateY(-2px); }
+    
+    .hero-info { font-size: 13px; color: #64748b; margin-top: 12px; }
+    .hero-proof { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 14px; }
+    .hero-proof strong { color: #f59e0b; }
+    
+    .payment-methods { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+    .payment-methods span { background: #fff; border: 1px solid #e2e8f0; padding: 6px 14px; border-radius: 6px; font-size: 13px; color: #64748b; }
+    
+    /* Pain Points Section */
+    .pain-section { padding: 60px 20px; background: #f8fafc; }
+    .pain-intro { text-align: center; margin-bottom: 32px; }
+    .pain-intro p { color: #1a1a2e; font-size: 18px; }
+    .pain-intro strong { font-weight: 700; }
+    .pain-arrow { color: #f59e0b; font-size: 24px; margin-top: 8px; }
+    
+    .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; margin: 0 auto 32px; }
+    @media (max-width: 600px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .pain-card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+    .pain-icon { width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+    .pain-card h3 { color: #ef4444; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px; }
+    .pain-card h3::before { content: "×"; font-size: 16px; }
+    .pain-card p { color: #64748b; font-size: 14px; line-height: 1.5; }
+    
+    .pain-cta { text-align: center; font-size: 16px; color: #1a1a2e; }
+    .pain-cta strong { color: #f59e0b; }
+    
+    /* Solution Section */
+    .solution-section { padding: 60px 20px; background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%); text-align: center; }
+    .section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #f59e0b; margin-bottom: 8px; }
+    .solution-arrow { color: #f59e0b; font-size: 24px; margin-bottom: 16px; }
+    .solution-section h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .solution-section h2 span { color: #f59e0b; }
+    .solution-desc { color: #64748b; max-width: 600px; margin: 0 auto 40px; }
+    .solution-desc strong { color: #1a1a2e; }
+    
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 700px) { .benefits-grid { grid-template-columns: 1fr; } }
+    .benefit-card { background: #fff; padding: 24px 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 2px dashed #fbbf24; }
+    .benefit-card h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; color: #1a1a2e; }
+    .benefit-card p { font-size: 14px; color: #64748b; line-height: 1.5; }
+    
+    /* Curriculum Section */
+    .curriculum-section { padding: 60px 20px; background: #fff; }
+    .curriculum-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .curriculum-section h2 span { color: #f59e0b; }
+    .curriculum-subtitle { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .modules-list { display: flex; flex-direction: column; gap: 12px; max-width: 700px; margin: 0 auto; }
+    .module-item { border: 2px dashed #fbbf24; border-radius: 12px; overflow: hidden; background: #fff; }
+    .module-header { padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; }
+    .module-icon { width: 36px; height: 36px; background: #fef3c7; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+    .module-info { flex: 1; }
+    .module-info h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; color: #1a1a2e; margin-bottom: 2px; }
+    .module-info p { font-size: 12px; color: #64748b; text-transform: uppercase; }
+    .module-arrow { color: #64748b; font-size: 12px; transition: transform 0.3s; }
+    .module-item.active .module-arrow { transform: rotate(180deg); }
+    .module-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .module-item.active .module-content { max-height: 150px; }
+    .module-content-inner { padding: 0 16px 16px; color: #64748b; font-size: 14px; }
+    
+    .curriculum-extra { margin-top: 24px; padding: 16px; border: 2px dashed #f59e0b; border-radius: 12px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .curriculum-extra p { font-size: 14px; color: #1a1a2e; }
+    .curriculum-extra span { color: #f59e0b; font-weight: 600; }
+    
+    .curriculum-bonus { margin-top: 24px; background: #fef3c7; border-radius: 12px; padding: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .curriculum-bonus h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; color: #1a1a2e; }
+    .bonus-items { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 500px) { .bonus-items { grid-template-columns: 1fr; } }
+    .bonus-item { display: flex; align-items: center; gap: 10px; background: #fff; padding: 12px; border-radius: 8px; }
+    .bonus-item-icon { width: 32px; height: 32px; background: #d1fae5; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .bonus-item h5 { font-size: 13px; font-weight: 600; color: #1a1a2e; }
+    .bonus-item p { font-size: 11px; color: #64748b; }
+    
+    /* Gallery Section */
+    .gallery-section { padding: 60px 20px; background: linear-gradient(180deg, #f8fafc 0%, #fef3c7 100%); }
+    .gallery-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .gallery-section h2 span { color: #f59e0b; }
+    .gallery-desc { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; margin: 0 auto 24px; }
+    @media (max-width: 600px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    .gallery-item { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1; background: linear-gradient(135deg, #78716c 0%, #57534e 100%); display: flex; align-items: center; justify-content: center; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 10px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: #fff; font-size: 12px; font-weight: 600; text-align: center; }
+    
+    .gallery-cta { text-align: center; }
+    .gallery-cta p { margin-bottom: 20px; font-size: 15px; color: #1a1a2e; }
+    .gallery-cta span { color: #f59e0b; font-weight: 600; }
+    
+    /* Pricing Section */
+    .pricing-section { padding: 60px 20px; background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%); }
+    .pricing-card { background: #fff; border-radius: 16px; padding: 32px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .pricing-title { text-align: center; font-size: 18px; font-weight: 700; text-transform: uppercase; color: #f59e0b; margin-bottom: 24px; }
+    
+    .pricing-list { margin-bottom: 24px; }
+    .pricing-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
+    .pricing-item:last-child { border-bottom: none; }
+    .pricing-item-left { display: flex; align-items: center; gap: 8px; }
+    .pricing-item-left::before { content: "✓"; color: #f59e0b; font-weight: 700; }
+    .pricing-item-right { text-decoration: line-through; color: #94a3b8; font-size: 14px; }
+    
+    .pricing-total { text-align: center; padding: 20px 0; border-top: 2px dashed #e2e8f0; margin-top: 16px; }
+    .pricing-old { font-size: 14px; color: #64748b; }
+    .pricing-old span { text-decoration: line-through; color: #94a3b8; }
+    .pricing-new { margin-top: 8px; display: flex; flex-direction: column; align-items: center; }
+    .pricing-new small { font-size: 14px; color: #64748b; display: block; margin-bottom: 4px; }
+    .pricing-new span { font-size: clamp(36px, 10vw, 48px); font-weight: 800; color: #f59e0b; white-space: nowrap; }
+    .pricing-vista { font-size: 14px; color: #64748b; margin-top: 4px; }
+    .pricing-economia { font-size: 13px; color: #22c55e; font-weight: 600; margin-top: 4px; }
+    
+    .pricing-btn { display: block; width: 100%; background: #22c55e; color: #fff; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; text-align: center; text-transform: uppercase; transition: all 0.3s; margin-top: 20px; border: 2px dashed #fbbf24; }
+    .pricing-btn:hover { background: #16a34a; }
+    
+    .pricing-trust { display: flex; justify-content: center; gap: 16px; margin-top: 16px; font-size: 12px; color: #64748b; flex-wrap: wrap; }
+    .pricing-trust span { display: flex; align-items: center; gap: 4px; }
+    
+    .pricing-footer { text-align: center; margin-top: 16px; font-size: 11px; color: #94a3b8; }
+    
+    .pricing-social { display: flex; justify-content: center; gap: 24px; margin-top: 24px; padding-top: 24px; border-top: 1px solid #f1f5f9; }
+    .pricing-social-item { text-align: center; }
+    .pricing-social-item p:first-child { font-size: 14px; font-weight: 600; color: #1a1a2e; }
+    .pricing-social-item p:last-child { font-size: 11px; color: #64748b; }
+    
+    /* Instructor Section */
+    .instructor-section { padding: 60px 20px; background: #fff; }
+    .instructor-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    .instructor-section h2 span { color: #f59e0b; }
+    
+    .instructor-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; align-items: center; }
+    @media (max-width: 700px) { .instructor-content { grid-template-columns: 1fr; } }
+    
+    .instructor-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .instructor-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; background: #fef3c7; }
+    .instructor-name h3 { font-size: 20px; font-weight: 700; }
+    .instructor-name a { color: #f59e0b; font-size: 14px; }
+    .instructor-stars { color: #fbbf24; font-size: 14px; margin-top: 4px; }
+    
+    .instructor-bio { color: #64748b; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+    .instructor-bio strong { color: #1a1a2e; }
+    
+    .instructor-stats { display: flex; gap: 16px; margin-bottom: 20px; }
+    .instructor-stat { background: #f8fafc; border: 1px dashed #f59e0b; border-radius: 8px; padding: 12px 16px; text-align: center; flex: 1; }
+    .instructor-stat p:first-child { font-size: 16px; font-weight: 700; color: #f59e0b; }
+    .instructor-stat p:last-child { font-size: 11px; color: #64748b; }
+    
+    .instructor-follow { display: inline-flex; align-items: center; gap: 8px; border: 1px dashed #22c55e; color: #22c55e; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; }
+    
+    .instructor-quote { background: #f8fafc; border-radius: 12px; padding: 24px; font-style: italic; color: #64748b; line-height: 1.7; }
+    .instructor-quote-author { margin-top: 16px; font-style: normal; font-weight: 600; color: #1a1a2e; }
+    
+    /* Guarantee Section */
+    .guarantee-section { padding: 60px 20px; background: #d1fae5; }
+    .guarantee-box { background: #fff; border-radius: 16px; padding: 40px 32px; max-width: 600px; margin: 0 auto; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+    .guarantee-icon { width: 64px; height: 64px; background: #d1fae5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 28px; }
+    .guarantee-box h2 { font-size: clamp(22px, 4vw, 28px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .guarantee-box h2 span { color: #22c55e; }
+    .guarantee-subtitle { color: #22c55e; font-weight: 600; text-transform: uppercase; font-size: 14px; margin-bottom: 16px; }
+    .guarantee-box > p { color: #64748b; margin-bottom: 20px; line-height: 1.7; }
+    .guarantee-box strong { color: #1a1a2e; }
+    .guarantee-note { background: #f8fafc; padding: 12px 20px; border-radius: 8px; font-size: 14px; color: #64748b; margin-bottom: 24px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .guarantee-btn { display: inline-flex; align-items: center; gap: 8px; background: #22c55e; color: #fff; padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 700; text-transform: uppercase; border: 2px dashed #fbbf24; }
+    
+    /* FAQ Section */
+    .faq-section { padding: 60px 20px; background: #fef9c3; }
+    .faq-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .faq-desc { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: #fff; border: 2px dashed #fbbf24; border-radius: 12px; overflow: hidden; }
+    .faq-question { width: 100%; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; text-align: left; font-weight: 600; background: none; border: none; cursor: pointer; font-size: 14px; color: #1a1a2e; text-transform: uppercase; }
+    .faq-question span { color: #64748b; font-size: 12px; transition: transform 0.3s; }
+    .faq-question.active span { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+    .faq-answer.active { max-height: 200px; }
+    .faq-answer p { padding: 0 20px 16px; color: #64748b; font-size: 14px; line-height: 1.6; }
+    
+    .faq-cta { text-align: center; margin-top: 32px; }
+    .faq-cta p { font-size: 14px; font-weight: 600; color: #1a1a2e; text-transform: uppercase; margin-bottom: 8px; }
+    .faq-cta small { display: block; color: #64748b; font-size: 13px; margin-bottom: 16px; }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: #22c55e; color: #fff; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; text-transform: uppercase; }
+    
+    /* Footer */
+    footer { background: #78716c; padding: 32px 20px; text-align: center; }
+    footer p { color: rgba(255,255,255,0.7); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* YouTube Embed */
+    .youtube-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .youtube-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🔩 LETRAS DE AÇO</h1>
-    <p>Landing page em construção.<br>Em breve você poderá acessar o treinamento de letras caixa em aço.</p>
-    <a href="/" class="btn">← Voltar para Home</a>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">🔥 ↗ Maior Treinamento de Letras de Aço do Brasil ⚒️</span>
+      
+      <h1>Cansado de sofrer com a produção ou <span>ficar na mão de terceiros</span>?</h1>
+      <p class="subtitle">Saiba que você pode ter <strong>muito mais lucro</strong> fazendo a produção completa de letras caixa de aço.</p>
+      
+      <div class="tags">
+        <span>Aço galvanizado, Inox e Latão</span>
+        <span>Soldagem com estanho</span>
+        <span>Pintura automotiva profissional</span>
+      </div>
+      
+      <div class="video-container" id="videoContainer" onclick="playVideo()">
+        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="LCZ Letras de Aço - Apresentação" id="videoThumb">
+        <div class="video-overlay" id="videoOverlay">
+          <div class="play-btn">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="https://pay.hotmart.com/CHECKOUT_ID?checkoutMode=10" class="btn-primary">
+        QUERO DOMINAR LETRAS DE AÇO
+      </a>
+      <p class="hero-info">Acesso imediato • Garantia 7 dias • Até 12x</p>
+      
+      <p class="hero-proof">⚡ <strong>+1200 alunos</strong> já dominam essa técnica</p>
+      
+      <div class="payment-methods">
+        <span>Pagamento:</span>
+        <span>PIX</span>
+        <span>Cartão</span>
+        <span>Boleto</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="pain-intro">
+        <p>Se você ainda <strong>não fabrica suas próprias letras de aço</strong>...</p>
+        <div class="pain-arrow">↓</div>
+      </div>
+      
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">💰</div>
+            <div>
+              <h3>Depende de terceiros para produzir</h3>
+              <p>Cada vez que precisa de letras de aço, tem que terceirizar e perder margem de lucro</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">⏰</div>
+            <div>
+              <h3>Prazos estourados</h3>
+              <p>Terceiros atrasam e você perde credibilidade com o cliente</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">👥</div>
+            <div>
+              <h3>Qualidade fora do seu controle</h3>
+              <p>Recebe trabalhos mal feitos e precisa refazer ou assumir o prejuízo</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">⚠️</div>
+            <div>
+              <h3>Margem de lucro apertada</h3>
+              <p>O intermediário leva boa parte do seu lucro, e você fica com a menor fatia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="pain-cta">Existe uma solução que <strong>coloca você no controle total da produção</strong>...</p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution-section">
+    <div class="container">
+      <p class="section-label">A SOLUÇÃO:</p>
+      <div class="solution-arrow">↓</div>
+      <h2>Letra Caixa do Zero: <span>Letras de Aço</span></h2>
+      <p class="solution-desc">O treinamento mais completo do Brasil para fabricar letras caixa de aço com qualidade profissional. <strong>Do projeto à instalação, você domina tudo!</strong></p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>🎯 Produza você mesmo, do zero</h3>
+          <p>Aprenda soldagem com estanho, corte e montagem. Você não depende mais de ninguém.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <h3>📈 Lucro integral é seu</h3>
+          <p>Sem intermediários, toda a margem fica com você. Ganhe o que merece pelo seu trabalho.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <h3>⭐ Qualidade profissional garantida</h3>
+          <p>Domine pintura automotiva, iluminação LED e acabamento de primeira linha.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="curriculum-section">
+    <div class="container">
+      <p class="section-label">O QUE VOCÊ VAI APRENDER:</p>
+      <h2>Grade Completa <span>do Zero ao Profissional</span></h2>
+      <p class="curriculum-subtitle">8 módulos com tudo que você precisa para fabricar letras de aço com excelência.</p>
+      
+      <div class="modules-list">
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">📚</div>
+            <div class="module-info">
+              <h3>Módulo 1 - Preparação</h3>
+              <p>Fundamentos e materiais necessários</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">Tudo que você precisa saber sobre equipamentos, materiais e preparação do ambiente de trabalho para começar a produzir letras de aço.</div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">🎨</div>
+            <div class="module-info">
+              <h3>Módulo 2 - Fazendo o Projeto</h3>
+              <p>Domine o CorelDRAW para projetar suas letras</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">Aprenda a criar projetos profissionais no CorelDRAW específicos para produção de letras de aço.</div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">✂️</div>
+            <div class="module-info">
+              <h3>Módulo 3 - Cortando as Peças</h3>
+              <p>Técnicas de corte CNC e manual</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">Domine as técnicas de corte para produzir peças perfeitas, seja com CNC ou manualmente.</div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">🔧</div>
+            <div class="module-info">
+              <h3>Módulo 4 - Soldando as Letras</h3>
+              <p>Soldagem profissional com estanho</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">O coração do treinamento: aprenda todo o processo de soldagem com estanho para criar letras perfeitas.</div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">✨</div>
+            <div class="module-info">
+              <h3>Módulo 5 - Acabamento Inox e Latão</h3>
+              <p>Polimento e acabamento premium</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">Técnicas de polimento e acabamento para entregar um produto premium aos seus clientes.</div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">💡</div>
+            <div class="module-info">
+              <h3>Módulo 6 - Iluminação</h3>
+              <p>LED frontal e retroverso</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">Aprenda a instalar iluminação LED frontal e retroverso para criar letreiros impactantes.</div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">🔌</div>
+            <div class="module-info">
+              <h3>Módulo 7 - Instalação</h3>
+              <p>Técnicas profissionais de instalação</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">Aprenda as melhores técnicas de instalação para entregar um trabalho impecável ao cliente.</div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">💰</div>
+            <div class="module-info">
+              <h3>Módulo 8 - Precificação e Vendas</h3>
+              <p>Transforme seu trabalho em lucro</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">Aprenda a precificar corretamente e vender seus produtos com alta margem de lucro.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="curriculum-extra">
+        <p>📹 Aulas práticas em <span>Full HD</span> para você assistir de onde quiser!</p>
+      </div>
+      
+      <div class="curriculum-bonus">
+        <h4>🎁 E para garantir seu sucesso completo, você também recebe:</h4>
+        <div class="bonus-items">
+          <div class="bonus-item">
+            <div class="bonus-item-icon">💬</div>
+            <div>
+              <h5>Suporte Completo</h5>
+              <p>Equipe monitorando comentários e dúvidas</p>
+            </div>
+          </div>
+          <div class="bonus-item">
+            <div class="bonus-item-icon">📅</div>
+            <div>
+              <h5>1 Ano de Acesso</h5>
+              <p>Assista quantas vezes quiser + download offline</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section">
+    <div class="container">
+      <p class="section-label">RESULTADOS REAIS</p>
+      <h2><span>+1200 alunos</span> já passaram por este treinamento</h2>
+      <p class="gallery-desc">E já estão transformando seus resultados. Veja o que eles estão dizendo:</p>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div style="color: #fff; font-size: 14px; text-align: center; padding: 20px;">Relato de aluno</div>
+          <span class="gallery-label">Aluno Turma 1</span>
+        </div>
+        <div class="gallery-item">
+          <div style="color: #fff; font-size: 14px; text-align: center; padding: 20px;">Relato de aluno</div>
+          <span class="gallery-label">Aluno Turma 2</span>
+        </div>
+        <div class="gallery-item">
+          <div style="color: #fff; font-size: 14px; text-align: center; padding: 20px;">Relato de aluno</div>
+          <span class="gallery-label">Aluno Turma 3</span>
+        </div>
+        <div class="gallery-item">
+          <div style="color: #fff; font-size: 14px; text-align: center; padding: 20px;">Relato de aluno</div>
+          <span class="gallery-label">Aluno Turma 4</span>
+        </div>
+        <div class="gallery-item">
+          <div style="color: #fff; font-size: 14px; text-align: center; padding: 20px;">Relato de aluno</div>
+          <span class="gallery-label">Aluno Turma 5</span>
+        </div>
+        <div class="gallery-item">
+          <div style="color: #fff; font-size: 14px; text-align: center; padding: 20px;">Relato de aluno</div>
+          <span class="gallery-label">Aluno Turma 6</span>
+        </div>
+      </div>
+      
+      <div class="gallery-cta">
+        <p>💰 Cada projeto pode render <span>margens de lucro altíssimas</span> quando você domina a produção completa</p>
+        <a href="https://pay.hotmart.com/CHECKOUT_ID?checkoutMode=10" class="btn-primary">QUERO FABRICAR LETRAS DE AÇO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-card">
+        <p class="pricing-title">SEU INVESTIMENTO:</p>
+        
+        <div class="pricing-list">
+          <div class="pricing-item">
+            <span class="pricing-item-left">Treinamento soldagem</span>
+            <span class="pricing-item-right">R$ 290,00</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Treinamento pintura</span>
+            <span class="pricing-item-right">R$ 250,00</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Treinamento iluminação</span>
+            <span class="pricing-item-right">R$ 220,00</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Treinamento precificação + vendas</span>
+            <span class="pricing-item-right">R$ 220,00</span>
+          </div>
+        </div>
+        
+        <div class="pricing-total">
+          <p class="pricing-old">Total: <span>R$ 980,00</span></p>
+          <p style="font-weight: 600; color: #1a1a2e; margin-top: 8px;">Só que nessa CONDIÇÃO ESPECIAL você leva tudo por apenas:</p>
+          <div class="pricing-new">
+            <small>12x de</small>
+            <span>R$ 29,64</span>
+          </div>
+          <p class="pricing-vista">ou R$ 297,00 à vista</p>
+          <p class="pricing-economia">Economia de R$ 683,00</p>
+        </div>
+        
+        <a href="https://pay.hotmart.com/CHECKOUT_ID?checkoutMode=10" class="pricing-btn">QUERO FABRICAR LETRAS DE AÇO</a>
+        
+        <div class="pricing-trust">
+          <span>🔒 Compra 100% segura</span>
+          <span>⚡ Acesso imediato</span>
+          <span>✓ Garantia de 7 dias</span>
+        </div>
+        
+        <p class="pricing-footer">Pagamento processado pela Hotmart com criptografia de dados</p>
+        
+        <div class="pricing-social">
+          <div class="pricing-social-item">
+            <p>+1200</p>
+            <p>alunos formados</p>
+          </div>
+          <div class="pricing-social-item">
+            <p>4.9/5</p>
+            <p>de avaliação</p>
+          </div>
+          <div class="pricing-social-item">
+            <p>10</p>
+            <p>pessoas vendo agora</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR -->
+  <section class="instructor-section">
+    <div class="container">
+      <p class="section-label">SEU INSTRUTOR</p>
+      <h2>Aprenda com quem <span>realmente faz</span></h2>
+      
+      <div class="instructor-content">
+        <div class="instructor-left">
+          <div class="instructor-header">
+            <img src="https://letracaixadozero.com/images/matheus-pivatti.jpg" alt="Matheus Pivatti" class="instructor-img">
+            <div class="instructor-name">
+              <h3>Matheus Pivatti</h3>
+              <a href="https://instagram.com/letracaixadozero" target="_blank">@letracaixadozero</a>
+              <div class="instructor-stars">★★★★★</div>
+            </div>
+          </div>
+          
+          <p class="instructor-bio">Proprietário da <strong>@steel.letras</strong> com <strong>15 anos de experiência</strong> no mercado de letreiros. Há 3 anos compartilha seu conhecimento através da <strong>@letracaixadozero</strong>, já tendo formado <strong>mais de 3.000 alunos</strong> em todo o Brasil.</p>
+          
+          <div class="instructor-stats">
+            <div class="instructor-stat">
+              <p>+122 mil</p>
+              <p>Seguidores</p>
+            </div>
+            <div class="instructor-stat">
+              <p>+3.000</p>
+              <p>Alunos</p>
+            </div>
+            <div class="instructor-stat">
+              <p>+5.000</p>
+              <p>Letreiros</p>
+            </div>
+          </div>
+          
+          <a href="https://instagram.com/letracaixadozero" target="_blank" class="instructor-follow">📸 Seguir no Instagram</a>
+        </div>
+        
+        <div class="instructor-quote">
+          "Eu já passei por todos os erros possíveis nesses 15 anos, muita tentativa e erros, afinal quando comecei não existia aonde buscar conhecimento, e por isso depois que aprendi, ensinei tudo nos treinamentos para que você vá pelo caminho certo direto, sem perder tempo e dinheiro tendo retrabalhos igual eu tive."
+          <p class="instructor-quote-author">— Matheus Pivatti</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="guarantee-section">
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="guarantee-icon">🛡️</div>
+        <h2>Garantia Incondicional de <span>7 Dias</span></h2>
+        <p class="guarantee-subtitle">Risco zero para você</p>
+        <p>Você tem 7 dias para testar o treinamento completo. Se por qualquer motivo achar que não é para você, basta pedir o reembolso e devolvemos <strong>100% do seu dinheiro</strong>. <strong>Sem perguntas, sem burocracia.</strong></p>
+        <div class="guarantee-note">
+          <span>✓ Risco zero</span>
+          <span>💯 Reembolso total</span>
+          <span>🤐 Sem perguntas</span>
+        </div>
+        <a href="https://pay.hotmart.com/CHECKOUT_ID?checkoutMode=10" class="guarantee-btn">INSCREVA-SE SEM RISCO AGORA MESMO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Ainda com dúvidas?</h2>
+      <p class="faq-desc">Respondemos as perguntas mais comuns dos nossos futuros alunos</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Preciso de maquinário para iniciar?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Não necessariamente! O treinamento ensina técnicas que podem ser aplicadas com ferramentas básicas. Conforme você evolui, pode investir em equipamentos melhores.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Por quanto tempo as aulas ficarão disponíveis?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você terá 1 ano de acesso ao conteúdo completo, podendo assistir quantas vezes quiser e fazer download para assistir offline.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Tenho suporte em caso de dúvidas?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Nossa equipe monitora os comentários e responde todas as dúvidas. Você também pode entrar em contato pelo WhatsApp.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Posso assistir em mais de um dispositivo?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Você pode assistir no computador, celular, tablet ou qualquer dispositivo com acesso à internet.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Como faço para assistir as aulas?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Após a compra, você receberá um email com o link de acesso à plataforma Hotmart, onde todas as aulas estarão disponíveis.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quais as formas de pagamento?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Aceitamos PIX, cartão de crédito (até 12x) e boleto bancário. Tudo processado pela Hotmart com total segurança.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            E se eu não gostar do curso?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você tem 7 dias de garantia incondicional. Se não gostar, devolvemos 100% do seu dinheiro sem perguntas.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-cta">
+        <p>Não encontrou sua pergunta?</p>
+        <small>Fale direto com nossa equipe no WhatsApp</small>
+        <a href="https://wa.me/551938917649?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20treinamentos" target="_blank" class="btn-whatsapp">💬 TIRAR DÚVIDAS NO WHATSAPP</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Letra Caixa do Zero • Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    function playVideo() {
+      const container = document.getElementById('videoContainer');
+      const thumb = document.getElementById('videoThumb');
+      const overlay = document.getElementById('videoOverlay');
+      
+      thumb.style.display = 'none';
+      overlay.style.display = 'none';
+      
+      const iframe = document.createElement('div');
+      iframe.className = 'youtube-embed';
+      iframe.innerHTML = '<iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+      container.appendChild(iframe);
+    }
+    
+    function toggleModule(element) {
+      element.classList.toggle('active');
+    }
+    
+    function toggleFaq(button) {
+      button.classList.toggle('active');
+      const answer = button.nextElementSibling;
+      answer.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
