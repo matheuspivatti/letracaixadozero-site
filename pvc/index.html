@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LETRA CAIXA DO ZERO - PVC | Comece a Lucrar com Letras em PVC</title>
+  <meta name="description" content="Aprenda a fabricar letras caixa em PVC do zero. Método 100% manual, sem máquinas caras. Ideal para iniciantes que querem começar a lucrar com comunicação visual.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; background: #f8fafc; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(180deg, #fff 0%, #fef3c7 100%); padding: 40px 20px 60px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #fbbf24; color: #92400e; padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(251,191,36,0.2); }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; line-height: 1.15; text-transform: uppercase; letter-spacing: -0.5px; }
+    .hero h1 .highlight { color: #f59e0b; background: linear-gradient(180deg, transparent 60%, #fef3c7 60%); padding: 0 8px; }
+    .subtitle { font-size: 18px; color: #1a1a2e; margin-bottom: 8px; }
+    .subtitle strong { color: #f59e0b; text-decoration: underline; text-decoration-color: rgba(245,158,11,0.3); text-underline-offset: 4px; }
+    .subtitle-desc { font-size: 16px; color: #64748b; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .subtitle-desc strong { color: #1a1a2e; }
+    
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 32px; }
+    .tags span { background: #fff; border: 1px solid #fbbf24; padding: 8px 16px; border-radius: 8px; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+    .tags span::before { content: "✓"; color: #f59e0b; font-weight: 700; }
+    
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #fff; padding: 18px 48px; border-radius: 8px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(245,158,11,0.4); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,158,11,0.5); }
+    
+    .hero-info { font-size: 13px; color: #64748b; margin-top: 12px; }
+    .hero-proof { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 14px; }
+    .hero-proof strong { color: #1a1a2e; }
+    
+    .payment-methods { display: flex; justify-content: center; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+    .payment-methods span { background: #fff; border: 1px solid #e2e8f0; padding: 6px 14px; border-radius: 6px; font-size: 13px; color: #64748b; }
+    
+    /* Pain Points Section */
+    .pain-section { padding: 60px 20px; background: #f8fafc; }
+    .pain-intro { text-align: center; margin-bottom: 32px; }
+    .pain-intro p { color: #1a1a2e; font-size: 18px; }
+    .pain-intro strong { font-weight: 700; }
+    .pain-arrow { color: #f59e0b; font-size: 24px; margin-top: 8px; }
+    
+    .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; margin: 0 auto 32px; }
+    @media (max-width: 600px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .pain-card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+    .pain-icon { width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pain-icon svg { width: 20px; height: 20px; color: #ef4444; }
+    .pain-card h3 { color: #ef4444; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px; }
+    .pain-card h3::before { content: "×"; font-size: 16px; }
+    .pain-card p { color: #64748b; font-size: 14px; line-height: 1.5; }
+    
+    .pain-cta { text-align: center; font-size: 16px; color: #1a1a2e; }
+    .pain-cta strong { color: #f59e0b; }
+    
+    /* Solution Section */
+    .solution-section { padding: 60px 20px; background: #fffbeb; text-align: center; }
+    .section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #f59e0b; margin-bottom: 8px; }
+    .solution-arrow { color: #f59e0b; font-size: 24px; margin-bottom: 16px; }
+    .solution-section h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .solution-section h2 span { color: #f59e0b; }
+    .solution-desc { color: #64748b; max-width: 600px; margin: 0 auto 40px; }
+    .solution-desc strong { color: #1a1a2e; }
+    
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 700px) { .benefits-grid { grid-template-columns: 1fr; } }
+    .benefit-card { background: #fff; padding: 24px 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .benefit-icon { width: 48px; height: 48px; background: #fef3c7; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px; }
+    .benefit-card h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; color: #1a1a2e; }
+    .benefit-card p { font-size: 14px; color: #64748b; line-height: 1.5; }
+    
+    /* Curriculum Section */
+    .curriculum-section { padding: 60px 20px; background: #fff; }
+    .curriculum-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .curriculum-section h2 span { color: #f59e0b; }
+    .curriculum-subtitle { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; margin: 0 auto 32px; }
+    @media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
+    .module-item { border: 2px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #fff; transition: border-color 0.3s; }
+    .module-item:hover { border-color: #f59e0b; }
+    .module-header { padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; }
+    .module-icon { width: 36px; height: 36px; background: #fef3c7; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+    .module-info { flex: 1; }
+    .module-info h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; color: #1a1a2e; margin-bottom: 2px; }
+    .module-info p { font-size: 12px; color: #64748b; }
+    .module-arrow { color: #64748b; font-size: 12px; transition: transform 0.3s; }
+    .module-item.active .module-arrow { transform: rotate(180deg); }
+    .module-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .module-item.active .module-content { max-height: 300px; }
+    .module-content-inner { padding: 0 16px 16px; color: #64748b; font-size: 14px; }
+    .module-content-inner ul { list-style: none; padding: 0; }
+    .module-content-inner li { padding: 6px 0; padding-left: 20px; position: relative; }
+    .module-content-inner li::before { content: "▸"; position: absolute; left: 0; color: #f59e0b; }
+    
+    .curriculum-note { text-align: center; background: #fffbeb; border: 2px dashed #f59e0b; border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; font-size: 14px; color: #1a1a2e; }
+    .curriculum-note strong { color: #f59e0b; }
+    
+    /* Bonus Section */
+    .bonus-section { padding: 60px 20px; background: #f8fafc; }
+    .bonus-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    .bonus-section h2 span { color: #f59e0b; }
+    
+    .bonus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 700px; margin: 0 auto; }
+    @media (max-width: 500px) { .bonus-grid { grid-template-columns: 1fr; } }
+    .bonus-item { display: flex; align-items: center; gap: 12px; background: #fff; padding: 16px; border-radius: 12px; border: 2px dashed #f59e0b; }
+    .bonus-item-icon { width: 40px; height: 40px; background: #fef3c7; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+    .bonus-item h5 { font-size: 14px; font-weight: 600; color: #1a1a2e; }
+    .bonus-item p { font-size: 12px; color: #64748b; }
+    
+    /* Pricing Section */
+    .pricing-section { padding: 60px 20px; background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%); }
+    .pricing-card { background: #fff; border-radius: 16px; padding: 32px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .pricing-title { text-align: center; font-size: 18px; font-weight: 700; text-transform: uppercase; color: #f59e0b; margin-bottom: 24px; }
+    
+    .pricing-list { margin-bottom: 24px; }
+    .pricing-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+    .pricing-item:last-child { border-bottom: none; }
+    .pricing-item-left { display: flex; align-items: center; gap: 8px; }
+    .pricing-item-left::before { content: "✓"; color: #f59e0b; font-weight: 700; }
+    .pricing-item-right { text-decoration: line-through; color: #94a3b8; font-size: 14px; }
+    
+    .pricing-total { text-align: center; padding: 20px 0; border-top: 2px dashed #e2e8f0; margin-top: 16px; }
+    .pricing-old { font-size: 14px; color: #64748b; }
+    .pricing-old span { text-decoration: line-through; color: #94a3b8; }
+    .pricing-new { margin-top: 8px; display: flex; flex-direction: column; align-items: center; }
+    .pricing-new small { font-size: 14px; color: #64748b; display: block; margin-bottom: 4px; }
+    .pricing-new span { font-size: clamp(36px, 10vw, 48px); font-weight: 800; color: #f59e0b; white-space: nowrap; }
+    .pricing-vista { font-size: 14px; color: #64748b; margin-top: 4px; }
+    .pricing-economia { font-size: 13px; color: #22c55e; font-weight: 600; margin-top: 4px; }
+    
+    .pricing-btn { display: block; width: 100%; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #fff; padding: 18px; border-radius: 8px; font-size: 16px; font-weight: 700; text-align: center; text-transform: uppercase; transition: all 0.3s; margin-top: 20px; }
+    .pricing-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,158,11,0.4); }
+    
+    .pricing-trust { display: flex; justify-content: center; gap: 16px; margin-top: 16px; font-size: 12px; color: #64748b; flex-wrap: wrap; }
+    .pricing-trust span { display: flex; align-items: center; gap: 4px; }
+    
+    .pricing-footer { text-align: center; margin-top: 16px; font-size: 11px; color: #94a3b8; }
+    
+    /* Instructor Section */
+    .instructor-section { padding: 60px 20px; background: #fff; }
+    .instructor-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    .instructor-section h2 span { color: #f59e0b; }
+    
+    .instructor-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; align-items: center; }
+    @media (max-width: 700px) { .instructor-content { grid-template-columns: 1fr; text-align: center; } }
+    .instructor-img { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .instructor-img img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .instructor-info h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .instructor-info h4 { font-size: 14px; color: #f59e0b; font-weight: 600; margin-bottom: 16px; }
+    .instructor-info p { color: #64748b; font-size: 15px; margin-bottom: 16px; }
+    .instructor-stats { display: flex; gap: 24px; }
+    @media (max-width: 700px) { .instructor-stats { justify-content: center; } }
+    .instructor-stat { text-align: center; }
+    .instructor-stat strong { display: block; font-size: 24px; color: #f59e0b; }
+    .instructor-stat span { font-size: 12px; color: #64748b; }
+    
+    /* Guarantee Section */
+    .guarantee-section { padding: 60px 20px; background: #f0fdf4; text-align: center; }
+    .guarantee-section h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .guarantee-section h2 span { color: #22c55e; }
+    .guarantee-badge { width: 100px; height: 100px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 10px 30px rgba(34,197,94,0.3); }
+    .guarantee-badge span { color: #fff; font-size: 28px; font-weight: 800; }
+    .guarantee-desc { color: #64748b; max-width: 600px; margin: 0 auto; }
+    .guarantee-desc strong { color: #1a1a2e; }
+    
+    /* FAQ Section */
+    .faq-section { padding: 60px 20px; background: #fff; }
+    .faq-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    .faq-section h2 span { color: #f59e0b; }
+    
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+    .faq-question { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: #fff; transition: background 0.3s; }
+    .faq-question:hover { background: #f8fafc; }
+    .faq-question h3 { font-size: 15px; font-weight: 600; color: #1a1a2e; }
+    .faq-question span { color: #f59e0b; font-size: 20px; transition: transform 0.3s; }
+    .faq-item.active .faq-question span { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.active .faq-answer { max-height: 200px; }
+    .faq-answer p { padding: 0 20px 16px; color: #64748b; font-size: 14px; line-height: 1.6; }
+    
+    /* Footer */
+    .footer { padding: 40px 20px; background: #1a1a2e; text-align: center; }
+    .footer p { color: #64748b; font-size: 13px; margin-bottom: 8px; }
+    .footer a { color: #f59e0b; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 16px; }
+    .footer-links a { color: #64748b; font-size: 13px; transition: color 0.3s; }
+    .footer-links a:hover { color: #f59e0b; }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">🎯 Ideal para Iniciantes</div>
+      <h1>Aprenda a Fabricar <span class="highlight">Letras em PVC</span> do Zero</h1>
+      <p class="subtitle">Método <strong>100% Manual</strong> - Sem Máquinas Caras!</p>
+      <p class="subtitle-desc">Comece a lucrar com comunicação visual <strong>investindo pouco</strong> e usando técnicas profissionais de corte, pintura e acabamento.</p>
+      
+      <div class="tags">
+        <span>Sem máquinas caras</span>
+        <span>100% prático</span>
+        <span>Acesso vitalício</span>
+        <span>Suporte direto</span>
+      </div>
+      
+      <a href="https://pay.hotmart.com/I97038311W" class="btn-primary">QUERO COMEÇAR AGORA →</a>
+      <p class="hero-info">Acesso imediato após a confirmação do pagamento</p>
+      
+      <div class="payment-methods">
+        <span>💳 Cartão</span>
+        <span>📱 Pix</span>
+        <span>📄 Boleto</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pain Points Section -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="pain-intro">
+        <p><strong>Você já tentou fazer letras em PVC</strong> e se deparou com esses problemas?</p>
+        <div class="pain-arrow">↓</div>
+      </div>
+      
+      <div class="pain-grid">
+        <div class="pain-card">
+          <h3>Corte irregular</h3>
+          <p>As letras ficam com bordas tortas e imperfeitas, comprometendo o acabamento final do letreiro.</p>
+        </div>
+        <div class="pain-card">
+          <h3>Pintura descascando</h3>
+          <p>A tinta não adere corretamente ao PVC e começa a descascar em poucos dias.</p>
+        </div>
+        <div class="pain-card">
+          <h3>Laterais feias</h3>
+          <p>As laterais do PVC ficam com marcas de corte e imperfeições visíveis.</p>
+        </div>
+        <div class="pain-card">
+          <h3>Sem saber precificar</h3>
+          <p>Não sabe quanto cobrar e acaba vendendo barato demais ou perdendo clientes.</p>
+        </div>
+      </div>
+      
+      <p class="pain-cta">Se você se identificou com algum desses problemas, <strong>este treinamento é para você!</strong></p>
+    </div>
+  </section>
+  
+  <!-- Solution Section -->
+  <section class="solution-section">
+    <div class="container">
+      <p class="section-label">A Solução</p>
+      <div class="solution-arrow">↓</div>
+      <h2>Domine a Fabricação de <span>Letras em PVC</span></h2>
+      <p class="solution-desc">Aprenda o <strong>método completo</strong> para criar letras caixa em PVC com acabamento profissional, usando técnicas que vão transformar seus resultados.</p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">✂️</div>
+          <h3>Corte Perfeito</h3>
+          <p>Técnicas de corte manual que garantem bordas limpas e precisas em todas as letras.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎨</div>
+          <h3>Pintura Metalizada</h3>
+          <p>Aprenda a aplicar pintura metalizada que não descasca e dá acabamento premium.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💡</div>
+          <h3>Luminoso Retroverso</h3>
+          <p>Crie letreiros com iluminação traseira que valorizam ainda mais seu trabalho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Curriculum Section -->
+  <section class="curriculum-section">
+    <div class="container">
+      <h2>O Que Você Vai <span>Aprender</span></h2>
+      <p class="curriculum-subtitle">Conteúdo completo e direto ao ponto</p>
+      
+      <div class="modules-grid">
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">👋</div>
+            <div class="module-info">
+              <h3>Módulo 1 - Boas-Vindas</h3>
+              <p>1 aula</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>Introdução e por onde começar</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">✂️</div>
+            <div class="module-info">
+              <h3>Módulo 2 - Corte</h3>
+              <p>2 aulas</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>Corte do PVC</li>
+                <li>Como produzir um luminoso retroverso</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">🎨</div>
+            <div class="module-info">
+              <h3>Módulo 3 - Pintura</h3>
+              <p>2 aulas</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>Pintura metalizada profissional</li>
+                <li>Deixando a lateral lisa (Masseamento + Primer)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">🎁</div>
+            <div class="module-info">
+              <h3>Módulo Bônus</h3>
+              <p>3 aulas</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>Letreiro de PVC com LED e gabarito do Corel</li>
+                <li>Peixinho de PVC e ACM</li>
+                <li>Como criar seu produto na Shopee</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="curriculum-note">
+        <strong>4 módulos</strong> com <strong>8 aulas</strong> práticas e diretas ao ponto!
+      </div>
+    </div>
+  </section>
+  
+  <!-- Bonus Section -->
+  <section class="bonus-section">
+    <div class="container">
+      <h2>Bônus <span>Exclusivos</span></h2>
+      
+      <div class="bonus-grid">
+        <div class="bonus-item">
+          <div class="bonus-item-icon">💡</div>
+          <div>
+            <h5>Letreiro com LED</h5>
+            <p>Aprenda a fazer letreiros iluminados</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-item-icon">🐟</div>
+          <div>
+            <h5>Peixinho Decorativo</h5>
+            <p>Técnica de PVC e ACM combinados</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-item-icon">🛒</div>
+          <div>
+            <h5>Venda na Shopee</h5>
+            <p>Como criar seu produto e vender online</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-item-icon">📐</div>
+          <div>
+            <h5>Gabarito do Corel</h5>
+            <p>Templates prontos para usar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pricing Section -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-card">
+        <h3 class="pricing-title">Oferta Especial</h3>
+        
+        <div class="pricing-list">
+          <div class="pricing-item">
+            <span class="pricing-item-left">Treinamento Completo PVC</span>
+            <span class="pricing-item-right">R$ 197</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Módulo de Pintura Metalizada</span>
+            <span class="pricing-item-right">R$ 97</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Luminoso Retroverso</span>
+            <span class="pricing-item-right">R$ 97</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Bônus: Venda na Shopee</span>
+            <span class="pricing-item-right">R$ 47</span>
+          </div>
+        </div>
+        
+        <div class="pricing-total">
+          <p class="pricing-old">De <span>R$ 438,00</span> por apenas:</p>
+          <div class="pricing-new">
+            <small>12x de</small>
+            <span>R$ 9,67</span>
+          </div>
+          <p class="pricing-vista">ou R$ 87,00 à vista</p>
+          <p class="pricing-economia">Economia de R$ 351,00!</p>
+        </div>
+        
+        <a href="https://pay.hotmart.com/I97038311W" class="pricing-btn">QUERO GARANTIR MINHA VAGA →</a>
+        
+        <div class="pricing-trust">
+          <span>🔒 Compra segura</span>
+          <span>✅ Acesso imediato</span>
+          <span>📱 Assista no celular</span>
+        </div>
+        
+        <p class="pricing-footer">Pagamento processado pela Hotmart® - Ambiente 100% seguro</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Instructor Section -->
+  <section class="instructor-section">
+    <div class="container">
+      <h2>Conheça seu <span>Instrutor</span></h2>
+      
+      <div class="instructor-content">
+        <div class="instructor-img">
+          <img src="https://letracaixadozero.com.br/images/matheus-instrutor.webp" alt="Matheus Pivatti" loading="lazy">
+        </div>
+        <div class="instructor-info">
+          <h3>Matheus Pivatti</h3>
+          <h4>Especialista em Comunicação Visual</h4>
+          <p>Com mais de 8 anos de experiência no mercado de comunicação visual, já ajudei centenas de pessoas a iniciarem seus negócios de letras caixa do zero.</p>
+          <p>Minha missão é democratizar o conhecimento e mostrar que qualquer pessoa pode aprender a fabricar letreiros profissionais, mesmo sem experiência prévia.</p>
+          <div class="instructor-stats">
+            <div class="instructor-stat">
+              <strong>950+</strong>
+              <span>Alunos</span>
+            </div>
+            <div class="instructor-stat">
+              <strong>8+</strong>
+              <span>Anos de experiência</span>
+            </div>
+            <div class="instructor-stat">
+              <strong>10+</strong>
+              <span>Treinamentos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Guarantee Section -->
+  <section class="guarantee-section">
+    <div class="container">
+      <div class="guarantee-badge">
+        <span>7</span>
+      </div>
+      <h2>Garantia de <span>7 Dias</span></h2>
+      <p class="guarantee-desc">Você tem <strong>7 dias</strong> para acessar todo o conteúdo e, se por qualquer motivo não ficar satisfeito, basta solicitar o reembolso que devolvemos <strong>100% do seu investimento</strong>. Sem burocracia, sem perguntas.</p>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Perguntas <span>Frequentes</span></h2>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Preciso ter experiência prévia?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Não! O treinamento foi desenvolvido para iniciantes. Você vai aprender tudo do zero, passo a passo, mesmo sem nunca ter trabalhado com comunicação visual.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Preciso de máquinas caras?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Não! O método é 100% manual. Você vai precisar apenas de ferramentas básicas que provavelmente já tem em casa ou pode adquirir por um baixo investimento.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Por quanto tempo tenho acesso?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>O acesso é vitalício! Você pode assistir às aulas quantas vezes quiser, no seu ritmo, para sempre.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Como funciona o suporte?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Você terá acesso a um grupo exclusivo onde pode tirar dúvidas diretamente comigo e com outros alunos. Nenhuma pergunta fica sem resposta!</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Posso assistir no celular?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Sim! O treinamento está hospedado na Hotmart e você pode assistir em qualquer dispositivo: celular, tablet ou computador.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2024 Letra Caixa do Zero. Todos os direitos reservados.</p>
+      <p>Este produto é comercializado com apoio da <a href="https://hotmart.com" target="_blank">Hotmart</a>.</p>
+      <div class="footer-links">
+        <a href="https://letracaixadozero.com" target="_blank">Site Principal</a>
+        <a href="https://instagram.com/letracaixadozero" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

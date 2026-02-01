@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LETRAS EM ACM | Domine a Fabricação de Letras em Alumínio Composto</title>
+  <meta name="description" content="Domine a fabricação de letras em ACM (Alumínio Composto) do zero ao profissional. Aprenda técnicas de corte com router e tupia, montagem de letras retas e curvas, iluminação frontlit, e estruturação para fixação.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; background: #f8fafc; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(180deg, #fff 0%, #fce7f3 100%); padding: 40px 20px 60px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #ec4899; color: #be185d; padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(236,72,153,0.2); }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; line-height: 1.15; text-transform: uppercase; letter-spacing: -0.5px; }
+    .hero h1 .highlight { color: #ec4899; background: linear-gradient(180deg, transparent 60%, #fce7f3 60%); padding: 0 8px; }
+    .subtitle { font-size: 18px; color: #1a1a2e; margin-bottom: 8px; }
+    .subtitle strong { color: #ec4899; text-decoration: underline; text-decoration-color: rgba(236,72,153,0.3); text-underline-offset: 4px; }
+    .subtitle-desc { font-size: 16px; color: #64748b; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .subtitle-desc strong { color: #1a1a2e; }
+    
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 32px; }
+    .tags span { background: #fff; border: 1px solid #ec4899; padding: 8px 16px; border-radius: 8px; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+    .tags span::before { content: "✓"; color: #ec4899; font-weight: 700; }
+    
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); color: #fff; padding: 18px 48px; border-radius: 8px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(236,72,153,0.4); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(236,72,153,0.5); }
+    
+    .hero-info { font-size: 13px; color: #64748b; margin-top: 12px; }
+    .hero-proof { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 14px; }
+    .hero-proof strong { color: #1a1a2e; }
+    
+    .payment-methods { display: flex; justify-content: center; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+    .payment-methods span { background: #fff; border: 1px solid #e2e8f0; padding: 6px 14px; border-radius: 6px; font-size: 13px; color: #64748b; }
+    
+    /* Pain Points Section */
+    .pain-section { padding: 60px 20px; background: #f8fafc; }
+    .pain-intro { text-align: center; margin-bottom: 32px; }
+    .pain-intro p { color: #1a1a2e; font-size: 18px; }
+    .pain-intro strong { font-weight: 700; }
+    .pain-arrow { color: #ec4899; font-size: 24px; margin-top: 8px; }
+    
+    .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; margin: 0 auto 32px; }
+    @media (max-width: 600px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .pain-card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+    .pain-icon { width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pain-icon svg { width: 20px; height: 20px; color: #ef4444; }
+    .pain-card h3 { color: #ef4444; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px; }
+    .pain-card h3::before { content: "×"; font-size: 16px; }
+    .pain-card p { color: #64748b; font-size: 14px; line-height: 1.5; }
+    
+    .pain-cta { text-align: center; font-size: 16px; color: #1a1a2e; }
+    .pain-cta strong { color: #ec4899; }
+    
+    /* Solution Section */
+    .solution-section { padding: 60px 20px; background: #fdf2f8; text-align: center; }
+    .section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #ec4899; margin-bottom: 8px; }
+    .solution-arrow { color: #ec4899; font-size: 24px; margin-bottom: 16px; }
+    .solution-section h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .solution-section h2 span { color: #ec4899; }
+    .solution-desc { color: #64748b; max-width: 600px; margin: 0 auto 40px; }
+    .solution-desc strong { color: #1a1a2e; }
+    
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 700px) { .benefits-grid { grid-template-columns: 1fr; } }
+    .benefit-card { background: #fff; padding: 24px 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .benefit-icon { width: 48px; height: 48px; background: #fce7f3; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px; }
+    .benefit-card h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; color: #1a1a2e; }
+    .benefit-card p { font-size: 14px; color: #64748b; line-height: 1.5; }
+    
+    /* Curriculum Section */
+    .curriculum-section { padding: 60px 20px; background: #fff; }
+    .curriculum-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .curriculum-section h2 span { color: #ec4899; }
+    .curriculum-subtitle { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; margin: 0 auto 32px; }
+    @media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
+    .module-item { border: 2px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #fff; transition: border-color 0.3s; }
+    .module-item:hover { border-color: #ec4899; }
+    .module-header { padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; }
+    .module-icon { width: 36px; height: 36px; background: #fce7f3; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+    .module-info { flex: 1; }
+    .module-info h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; color: #1a1a2e; margin-bottom: 2px; }
+    .module-info p { font-size: 12px; color: #64748b; }
+    .module-arrow { color: #64748b; font-size: 12px; transition: transform 0.3s; }
+    .module-item.active .module-arrow { transform: rotate(180deg); }
+    .module-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .module-item.active .module-content { max-height: 400px; }
+    .module-content-inner { padding: 0 16px 16px; color: #64748b; font-size: 14px; }
+    .module-content-inner ul { list-style: none; padding: 0; }
+    .module-content-inner li { padding: 6px 0; padding-left: 20px; position: relative; }
+    .module-content-inner li::before { content: "▸"; position: absolute; left: 0; color: #ec4899; }
+    
+    .curriculum-note { text-align: center; background: #fdf2f8; border: 2px dashed #ec4899; border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; font-size: 14px; color: #1a1a2e; }
+    .curriculum-note strong { color: #ec4899; }
+    
+    /* Bonus Section */
+    .bonus-section { padding: 60px 20px; background: #f8fafc; }
+    .bonus-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    .bonus-section h2 span { color: #ec4899; }
+    
+    .bonus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 700px; margin: 0 auto; }
+    @media (max-width: 500px) { .bonus-grid { grid-template-columns: 1fr; } }
+    .bonus-item { display: flex; align-items: center; gap: 12px; background: #fff; padding: 16px; border-radius: 12px; border: 2px dashed #ec4899; }
+    .bonus-item-icon { width: 40px; height: 40px; background: #fce7f3; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+    .bonus-item h5 { font-size: 14px; font-weight: 600; color: #1a1a2e; }
+    .bonus-item p { font-size: 12px; color: #64748b; }
+    
+    /* Pricing Section */
+    .pricing-section { padding: 60px 20px; background: linear-gradient(180deg, #fdf2f8 0%, #fce7f3 100%); }
+    .pricing-card { background: #fff; border-radius: 16px; padding: 32px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .pricing-title { text-align: center; font-size: 18px; font-weight: 700; text-transform: uppercase; color: #ec4899; margin-bottom: 24px; }
+    
+    .pricing-list { margin-bottom: 24px; }
+    .pricing-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+    .pricing-item:last-child { border-bottom: none; }
+    .pricing-item-left { display: flex; align-items: center; gap: 8px; }
+    .pricing-item-left::before { content: "✓"; color: #ec4899; font-weight: 700; }
+    .pricing-item-right { text-decoration: line-through; color: #94a3b8; font-size: 14px; }
+    
+    .pricing-total { text-align: center; padding: 20px 0; border-top: 2px dashed #e2e8f0; margin-top: 16px; }
+    .pricing-old { font-size: 14px; color: #64748b; }
+    .pricing-old span { text-decoration: line-through; color: #94a3b8; }
+    .pricing-new { margin-top: 8px; display: flex; flex-direction: column; align-items: center; }
+    .pricing-new small { font-size: 14px; color: #64748b; display: block; margin-bottom: 4px; }
+    .pricing-new span { font-size: clamp(36px, 10vw, 48px); font-weight: 800; color: #ec4899; white-space: nowrap; }
+    .pricing-vista { font-size: 14px; color: #64748b; margin-top: 4px; }
+    .pricing-economia { font-size: 13px; color: #22c55e; font-weight: 600; margin-top: 4px; }
+    
+    .pricing-btn { display: block; width: 100%; background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); color: #fff; padding: 18px; border-radius: 8px; font-size: 16px; font-weight: 700; text-align: center; text-transform: uppercase; transition: all 0.3s; margin-top: 20px; }
+    .pricing-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(236,72,153,0.4); }
+    
+    .pricing-trust { display: flex; justify-content: center; gap: 16px; margin-top: 16px; font-size: 12px; color: #64748b; flex-wrap: wrap; }
+    .pricing-trust span { display: flex; align-items: center; gap: 4px; }
+    
+    .pricing-footer { text-align: center; margin-top: 16px; font-size: 11px; color: #94a3b8; }
+    
+    /* Instructor Section */
+    .instructor-section { padding: 60px 20px; background: #fff; }
+    .instructor-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    .instructor-section h2 span { color: #ec4899; }
+    
+    .instructor-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; align-items: center; }
+    @media (max-width: 700px) { .instructor-content { grid-template-columns: 1fr; text-align: center; } }
+    .instructor-img { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .instructor-img img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .instructor-info h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .instructor-info h4 { font-size: 14px; color: #ec4899; font-weight: 600; margin-bottom: 16px; }
+    .instructor-info p { color: #64748b; font-size: 15px; margin-bottom: 16px; }
+    .instructor-stats { display: flex; gap: 24px; }
+    @media (max-width: 700px) { .instructor-stats { justify-content: center; } }
+    .instructor-stat { text-align: center; }
+    .instructor-stat strong { display: block; font-size: 24px; color: #ec4899; }
+    .instructor-stat span { font-size: 12px; color: #64748b; }
+    
+    /* Guarantee Section */
+    .guarantee-section { padding: 60px 20px; background: #f0fdf4; text-align: center; }
+    .guarantee-section h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .guarantee-section h2 span { color: #22c55e; }
+    .guarantee-badge { width: 100px; height: 100px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 10px 30px rgba(34,197,94,0.3); }
+    .guarantee-badge span { color: #fff; font-size: 28px; font-weight: 800; }
+    .guarantee-desc { color: #64748b; max-width: 600px; margin: 0 auto; }
+    .guarantee-desc strong { color: #1a1a2e; }
+    
+    /* FAQ Section */
+    .faq-section { padding: 60px 20px; background: #fff; }
+    .faq-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    .faq-section h2 span { color: #ec4899; }
+    
+    .faq-list { max-width: 700px; margin: 0 auto; }
+    .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+    .faq-question { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: #fff; transition: background 0.3s; }
+    .faq-question:hover { background: #f8fafc; }
+    .faq-question h3 { font-size: 15px; font-weight: 600; color: #1a1a2e; }
+    .faq-question span { color: #ec4899; font-size: 20px; transition: transform 0.3s; }
+    .faq-item.active .faq-question span { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.active .faq-answer { max-height: 200px; }
+    .faq-answer p { padding: 0 20px 16px; color: #64748b; font-size: 14px; line-height: 1.6; }
+    
+    /* Footer */
+    .footer { padding: 40px 20px; background: #1a1a2e; text-align: center; }
+    .footer p { color: #64748b; font-size: 13px; margin-bottom: 8px; }
+    .footer a { color: #ec4899; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 16px; }
+    .footer-links a { color: #64748b; font-size: 13px; transition: color 0.3s; }
+    .footer-links a:hover { color: #ec4899; }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">🏆 Treinamento Completo</div>
+      <h1>Domine a Fabricação de <span class="highlight">Letras em ACM</span></h1>
+      <p class="subtitle">Do Zero ao <strong>Profissional</strong> em Alumínio Composto</p>
+      <p class="subtitle-desc">Aprenda técnicas de corte com <strong>Router e Tupia</strong>, montagem de letras retas e curvas, iluminação frontlit, estrutura e fixação. Inclui gestão e precificação!</p>
+      
+      <div class="tags">
+        <span>Router + Tupia</span>
+        <span>18 aulas completas</span>
+        <span>Acesso vitalício</span>
+        <span>Suporte direto</span>
+      </div>
+      
+      <a href="https://pay.hotmart.com/J102152669M" class="btn-primary">QUERO COMEÇAR AGORA →</a>
+      <p class="hero-info">Acesso imediato após a confirmação do pagamento</p>
+      
+      <div class="payment-methods">
+        <span>💳 Cartão</span>
+        <span>📱 Pix</span>
+        <span>📄 Boleto</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pain Points Section -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="pain-intro">
+        <p><strong>Você já tentou trabalhar com ACM</strong> e enfrentou esses desafios?</p>
+        <div class="pain-arrow">↓</div>
+      </div>
+      
+      <div class="pain-grid">
+        <div class="pain-card">
+          <h3>Corte impreciso</h3>
+          <p>O ACM fica com bordas irregulares e rebarbas que comprometem o acabamento final.</p>
+        </div>
+        <div class="pain-card">
+          <h3>Dificuldade com curvas</h3>
+          <p>Não consegue fazer letras curvas com acabamento profissional e uniforme.</p>
+        </div>
+        <div class="pain-card">
+          <h3>Estrutura frágil</h3>
+          <p>As letras ficam sem estrutura adequada e não suportam a fixação correta.</p>
+        </div>
+        <div class="pain-card">
+          <h3>Não sabe precificar</h3>
+          <p>Cobra errado e acaba perdendo dinheiro ou clientes por falta de conhecimento.</p>
+        </div>
+      </div>
+      
+      <p class="pain-cta">Se você se identificou com algum desses problemas, <strong>este treinamento é para você!</strong></p>
+    </div>
+  </section>
+  
+  <!-- Solution Section -->
+  <section class="solution-section">
+    <div class="container">
+      <p class="section-label">A Solução Completa</p>
+      <div class="solution-arrow">↓</div>
+      <h2>Treinamento Completo em <span>Letras ACM</span></h2>
+      <p class="solution-desc">O treinamento mais completo do mercado para você dominar a fabricação de letras em ACM, desde o corte até a precificação do seu trabalho.</p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🔧</div>
+          <h3>Router + Tupia</h3>
+          <p>Aprenda técnicas profissionais de corte com router CNC e tupia manual.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💡</div>
+          <h3>Iluminação Frontlit</h3>
+          <p>Domine a técnica de iluminação frontal com face em acrílico.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Gestão e Preços</h3>
+          <p>Aprenda a precificar corretamente e gerenciar seu negócio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Curriculum Section -->
+  <section class="curriculum-section">
+    <div class="container">
+      <h2>O Que Você Vai <span>Aprender</span></h2>
+      <p class="curriculum-subtitle">6 módulos completos com 18 aulas práticas</p>
+      
+      <div class="modules-grid">
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">📚</div>
+            <div class="module-info">
+              <h3>Módulo 1 - Introdução</h3>
+              <p>3 aulas</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>O que precisa para começar (materiais e ferramentas)</li>
+                <li>Instalando e usando o programa no Corel</li>
+                <li>Preparando a tupia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">✂️</div>
+            <div class="module-info">
+              <h3>Módulo 2 - Corte e Montagem</h3>
+              <p>4 aulas</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>Fazendo com rebaixo na face [Router]</li>
+                <li>Cortando e montando letra reta [Router]</li>
+                <li>Montando letra curva - Na tupia</li>
+                <li>Fazendo letra de chão</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">💡</div>
+            <div class="module-info">
+              <h3>Módulo 3 - Acrílico e Iluminação</h3>
+              <p>2 aulas</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>Como fazer letra de face acrílico</li>
+                <li>Iluminação frontlit (face acrílico)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">🔩</div>
+            <div class="module-info">
+              <h3>Módulo 4 - Estrutura e Fixação</h3>
+              <p>3 aulas</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>Esquemas de reforço</li>
+                <li>Esquemas de fixação</li>
+                <li>Técnicas avançadas de estruturação</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">💰</div>
+            <div class="module-info">
+              <h3>Módulo 5 - Gestão e Precificação</h3>
+              <p>3 aulas</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>Como precificar corretamente</li>
+                <li>Gestão do seu negócio</li>
+                <li>Estratégias de vendas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item">
+          <div class="module-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="module-icon">🎁</div>
+            <div class="module-info">
+              <h3>Bônus Exclusivos</h3>
+              <p>3 aulas</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              <ul>
+                <li>Conteúdos bônus exclusivos</li>
+                <li>Técnicas avançadas</li>
+                <li>Dicas de profissionais</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="curriculum-note">
+        <strong>6 módulos</strong> com <strong>18 aulas</strong> práticas e completas!
+      </div>
+    </div>
+  </section>
+  
+  <!-- Bonus Section -->
+  <section class="bonus-section">
+    <div class="container">
+      <h2>Diferenciais <span>Exclusivos</span></h2>
+      
+      <div class="bonus-grid">
+        <div class="bonus-item">
+          <div class="bonus-item-icon">🔧</div>
+          <div>
+            <h5>Router CNC + Tupia</h5>
+            <p>Duas técnicas em um só treinamento</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-item-icon">🏠</div>
+          <div>
+            <h5>Letras de Chão</h5>
+            <p>Técnica exclusiva para eventos</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-item-icon">💡</div>
+          <div>
+            <h5>Face Acrílico</h5>
+            <p>Iluminação frontlit profissional</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-item-icon">💰</div>
+          <div>
+            <h5>Precificação</h5>
+            <p>Aprenda a cobrar o preço justo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pricing Section -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-card">
+        <h3 class="pricing-title">Oferta Especial</h3>
+        
+        <div class="pricing-list">
+          <div class="pricing-item">
+            <span class="pricing-item-left">Treinamento Completo ACM (18 aulas)</span>
+            <span class="pricing-item-right">R$ 497</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Técnicas Router + Tupia</span>
+            <span class="pricing-item-right">R$ 197</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Iluminação Frontlit Premium</span>
+            <span class="pricing-item-right">R$ 147</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Módulo Gestão e Precificação</span>
+            <span class="pricing-item-right">R$ 97</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Bônus Exclusivos</span>
+            <span class="pricing-item-right">R$ 97</span>
+          </div>
+        </div>
+        
+        <div class="pricing-total">
+          <p class="pricing-old">De <span>R$ 1.035,00</span> por apenas:</p>
+          <div class="pricing-new">
+            <small>12x de</small>
+            <span>R$ 16,35</span>
+          </div>
+          <p class="pricing-vista">ou R$ 147,00 à vista</p>
+          <p class="pricing-economia">Economia de R$ 888,00!</p>
+        </div>
+        
+        <a href="https://pay.hotmart.com/J102152669M" class="pricing-btn">QUERO GARANTIR MINHA VAGA →</a>
+        
+        <div class="pricing-trust">
+          <span>🔒 Compra segura</span>
+          <span>✅ Acesso imediato</span>
+          <span>📱 Assista no celular</span>
+        </div>
+        
+        <p class="pricing-footer">Pagamento processado pela Hotmart® - Ambiente 100% seguro</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Instructor Section -->
+  <section class="instructor-section">
+    <div class="container">
+      <h2>Conheça seu <span>Instrutor</span></h2>
+      
+      <div class="instructor-content">
+        <div class="instructor-img">
+          <img src="https://letracaixadozero.com.br/images/matheus-instrutor.webp" alt="Matheus Pivatti" loading="lazy">
+        </div>
+        <div class="instructor-info">
+          <h3>Matheus Pivatti</h3>
+          <h4>Especialista em Comunicação Visual</h4>
+          <p>Com mais de 8 anos de experiência no mercado de comunicação visual, já ajudei centenas de pessoas a dominarem a fabricação de letras em ACM.</p>
+          <p>Neste treinamento, compartilho todo o conhecimento que adquiri trabalhando com os melhores profissionais do mercado.</p>
+          <div class="instructor-stats">
+            <div class="instructor-stat">
+              <strong>950+</strong>
+              <span>Alunos</span>
+            </div>
+            <div class="instructor-stat">
+              <strong>8+</strong>
+              <span>Anos de experiência</span>
+            </div>
+            <div class="instructor-stat">
+              <strong>10+</strong>
+              <span>Treinamentos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Guarantee Section -->
+  <section class="guarantee-section">
+    <div class="container">
+      <div class="guarantee-badge">
+        <span>7</span>
+      </div>
+      <h2>Garantia de <span>7 Dias</span></h2>
+      <p class="guarantee-desc">Você tem <strong>7 dias</strong> para acessar todo o conteúdo e, se por qualquer motivo não ficar satisfeito, basta solicitar o reembolso que devolvemos <strong>100% do seu investimento</strong>. Sem burocracia, sem perguntas.</p>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Perguntas <span>Frequentes</span></h2>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Preciso ter router CNC para fazer o curso?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Não necessariamente! O treinamento ensina técnicas tanto com router CNC quanto com tupia manual. Você pode começar com a tupia e evoluir para o router depois.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Preciso ter experiência prévia?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Não! O treinamento foi desenvolvido para ensinar do zero. Você vai aprender todas as técnicas passo a passo, desde a preparação até a precificação.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Por quanto tempo tenho acesso?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>O acesso é vitalício! Você pode assistir às aulas quantas vezes quiser, no seu ritmo, para sempre.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Como funciona o suporte?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Você terá acesso a um grupo exclusivo onde pode tirar dúvidas diretamente comigo e com outros alunos. Nenhuma pergunta fica sem resposta!</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Posso assistir no celular?</h3>
+            <span>+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Sim! O treinamento está hospedado na Hotmart e você pode assistir em qualquer dispositivo: celular, tablet ou computador.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2024 Letra Caixa do Zero. Todos os direitos reservados.</p>
+      <p>Este produto é comercializado com apoio da <a href="https://hotmart.com" target="_blank">Hotmart</a>.</p>
+      <div class="footer-links">
+        <a href="https://letracaixadozero.com" target="_blank">Site Principal</a>
+        <a href="https://instagram.com/letracaixadozero" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
