@@ -3,23 +3,721 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PINTURA AUTOMOTIVA - Técnicas Profissionais</title>
-  <meta name="description" content="Aprenda técnicas profissionais de pintura automotiva para acabamentos perfeitos.">
+  <title>PINTURA AUTOMOTIVA para Letras Caixa | Letra Caixa do Zero</title>
+  <meta name="description" content="Domine a Pintura Automotiva para Letras Caixa como um Profissional. Do básico ao avançado, aprenda o passo a passo completo de como pintar seus letreiros de forma profissional e eliminar de vez o retrabalho.">
+  <link rel="preconnect" href="https://img.youtube.com">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fee2e2, #fecaca); }
-    .container { text-align: center; padding: 40px; }
-    h1 { font-size: 48px; font-weight: 800; color: #dc2626; margin-bottom: 16px; }
-    p { font-size: 20px; color: #64748b; margin-bottom: 32px; }
-    .btn { display: inline-block; background: #ef4444; color: #fff; padding: 16px 32px; border-radius: 50px; font-weight: 700; text-decoration: none; }
-    .btn:hover { background: #dc2626; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; background: #f8fafc; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(180deg, #fff 0%, #f0f7ff 100%); padding: 40px 20px 60px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e2e8f0; color: #1a1a2e; padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; line-height: 1.15; text-transform: uppercase; letter-spacing: -0.5px; }
+    .hero h1 .highlight { color: #ef4444; background: linear-gradient(180deg, transparent 60%, #fecaca 60%); padding: 0 8px; }
+    .subtitle { font-size: 18px; color: #1a1a2e; margin-bottom: 8px; }
+    .subtitle strong { color: #3b82f6; text-decoration: underline; text-decoration-color: rgba(59,130,246,0.3); text-underline-offset: 4px; }
+    .subtitle-desc { font-size: 16px; color: #64748b; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .subtitle-desc strong { color: #1a1a2e; }
+    
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 24px; }
+    .tags span { background: #fff; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 8px; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+    .tags span::before { content: "✓"; color: #3b82f6; font-weight: 700; }
+    
+    /* Video */
+    .video-container { position: relative; max-width: 700px; margin: 0 auto 24px; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); cursor: pointer; background: #1a1a2e; }
+    .video-container img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .video-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
+    .play-btn { width: 72px; height: 72px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(239,68,68,0.4); transition: transform 0.3s; }
+    .play-btn:hover { transform: scale(1.1); }
+    .play-icon { width: 0; height: 0; border-top: 14px solid transparent; border-left: 22px solid #fff; border-bottom: 14px solid transparent; margin-left: 4px; }
+    
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #3b82f6; color: #fff; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(59,130,246,0.4); }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+    
+    .hero-info { font-size: 13px; color: #64748b; margin-top: 12px; }
+    .hero-proof { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 14px; }
+    .hero-proof strong { color: #1a1a2e; }
+    
+    .payment-methods { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+    .payment-methods span { background: #fff; border: 1px solid #e2e8f0; padding: 6px 14px; border-radius: 6px; font-size: 13px; color: #64748b; }
+    
+    /* Pain Points Section */
+    .pain-section { padding: 60px 20px; background: #f8fafc; }
+    .pain-intro { text-align: center; margin-bottom: 32px; }
+    .pain-intro p { color: #1a1a2e; font-size: 18px; }
+    .pain-intro strong { font-weight: 700; }
+    .pain-arrow { color: #3b82f6; font-size: 24px; margin-top: 8px; }
+    
+    .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; margin: 0 auto 32px; }
+    @media (max-width: 600px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .pain-card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+    .pain-icon { width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pain-icon svg { width: 20px; height: 20px; color: #ef4444; }
+    .pain-card h3 { color: #ef4444; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px; }
+    .pain-card h3::before { content: "×"; font-size: 16px; }
+    .pain-card p { color: #64748b; font-size: 14px; line-height: 1.5; }
+    
+    .pain-cta { text-align: center; font-size: 16px; color: #1a1a2e; }
+    .pain-cta strong { color: #3b82f6; }
+    
+    /* Solution Section */
+    .solution-section { padding: 60px 20px; background: #eff6ff; text-align: center; }
+    .section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #3b82f6; margin-bottom: 8px; }
+    .solution-arrow { color: #3b82f6; font-size: 24px; margin-bottom: 16px; }
+    .solution-section h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .solution-section h2 span { color: #3b82f6; }
+    .solution-desc { color: #64748b; max-width: 600px; margin: 0 auto 40px; }
+    .solution-desc strong { color: #1a1a2e; }
+    
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 700px) { .benefits-grid { grid-template-columns: 1fr; } }
+    .benefit-card { background: #fff; padding: 24px 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .benefit-icon { width: 48px; height: 48px; background: #dbeafe; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px; }
+    .benefit-card h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; color: #1a1a2e; }
+    .benefit-card p { font-size: 14px; color: #64748b; line-height: 1.5; }
+    
+    /* Results Section */
+    .results-section { padding: 60px 20px; background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%); }
+    .results-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .results-section h2 span { color: #3b82f6; }
+    .results-desc { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .results-carousel { display: flex; gap: 16px; overflow-x: auto; padding: 0 20px 20px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; max-width: 1200px; margin: 0 auto; }
+    .results-carousel::-webkit-scrollbar { height: 8px; }
+    .results-carousel::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 4px; }
+    .results-carousel::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+    .result-item { flex: 0 0 280px; scroll-snap-align: start; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); background: #fff; }
+    .result-item img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    
+    /* Curriculum Section */
+    .curriculum-section { padding: 60px 20px; background: #fff; }
+    .curriculum-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .curriculum-section h2 span { color: #3b82f6; }
+    .curriculum-subtitle { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; margin: 0 auto 32px; }
+    @media (max-width: 600px) { .modules-grid { grid-template-columns: 1fr; } }
+    .module-item { border: 2px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #fff; transition: border-color 0.3s; }
+    .module-item:hover { border-color: #3b82f6; }
+    .module-header { padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; }
+    .module-icon { width: 36px; height: 36px; background: #dbeafe; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+    .module-info { flex: 1; }
+    .module-info h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; color: #1a1a2e; margin-bottom: 2px; }
+    .module-info p { font-size: 12px; color: #64748b; }
+    .module-arrow { color: #64748b; font-size: 12px; transition: transform 0.3s; }
+    .module-item.active .module-arrow { transform: rotate(180deg); }
+    .module-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .module-item.active .module-content { max-height: 200px; }
+    .module-content-inner { padding: 0 16px 16px; color: #64748b; font-size: 14px; }
+    
+    .curriculum-note { text-align: center; background: #eff6ff; border: 2px dashed #3b82f6; border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; font-size: 14px; color: #1a1a2e; }
+    .curriculum-note strong { color: #3b82f6; }
+    
+    /* Bonus Section */
+    .bonus-section { padding: 60px 20px; background: #f8fafc; }
+    .bonus-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    
+    .bonus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 700px; margin: 0 auto; }
+    @media (max-width: 500px) { .bonus-grid { grid-template-columns: 1fr; } }
+    .bonus-item { display: flex; align-items: center; gap: 12px; background: #fff; padding: 16px; border-radius: 12px; border: 2px dashed #3b82f6; }
+    .bonus-item-icon { width: 40px; height: 40px; background: #dbeafe; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+    .bonus-item h5 { font-size: 14px; font-weight: 600; color: #1a1a2e; }
+    .bonus-item p { font-size: 12px; color: #64748b; }
+    
+    /* Pricing Section */
+    .pricing-section { padding: 60px 20px; background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%); }
+    .pricing-card { background: #fff; border-radius: 16px; padding: 32px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .pricing-title { text-align: center; font-size: 18px; font-weight: 700; text-transform: uppercase; color: #3b82f6; margin-bottom: 24px; }
+    
+    .pricing-list { margin-bottom: 24px; }
+    .pricing-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+    .pricing-item:last-child { border-bottom: none; }
+    .pricing-item-left { display: flex; align-items: center; gap: 8px; }
+    .pricing-item-left::before { content: "✓"; color: #3b82f6; font-weight: 700; }
+    .pricing-item-right { text-decoration: line-through; color: #94a3b8; font-size: 14px; }
+    
+    .pricing-total { text-align: center; padding: 20px 0; border-top: 2px dashed #e2e8f0; margin-top: 16px; }
+    .pricing-old { font-size: 14px; color: #64748b; }
+    .pricing-old span { text-decoration: line-through; color: #94a3b8; }
+    .pricing-new { margin-top: 8px; display: flex; flex-direction: column; align-items: center; }
+    .pricing-new small { font-size: 14px; color: #64748b; display: block; margin-bottom: 4px; }
+    .pricing-new span { font-size: clamp(36px, 10vw, 48px); font-weight: 800; color: #3b82f6; white-space: nowrap; }
+    .pricing-vista { font-size: 14px; color: #64748b; margin-top: 4px; }
+    .pricing-economia { font-size: 13px; color: #22c55e; font-weight: 600; margin-top: 4px; }
+    
+    .pricing-btn { display: block; width: 100%; background: #3b82f6; color: #fff; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; text-align: center; text-transform: uppercase; transition: all 0.3s; margin-top: 20px; }
+    .pricing-btn:hover { background: #2563eb; }
+    
+    .pricing-trust { display: flex; justify-content: center; gap: 16px; margin-top: 16px; font-size: 12px; color: #64748b; flex-wrap: wrap; }
+    .pricing-trust span { display: flex; align-items: center; gap: 4px; }
+    
+    .pricing-footer { text-align: center; margin-top: 16px; font-size: 11px; color: #94a3b8; }
+    
+    /* Instructor Section */
+    .instructor-section { padding: 60px 20px; background: #fff; }
+    .instructor-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    .instructor-section h2 span { color: #3b82f6; }
+    
+    .instructor-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; align-items: center; }
+    @media (max-width: 700px) { .instructor-content { grid-template-columns: 1fr; } }
+    
+    .instructor-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .instructor-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+    .instructor-name h3 { font-size: 20px; font-weight: 700; }
+    .instructor-name a { color: #3b82f6; font-size: 14px; }
+    .instructor-stars { color: #fbbf24; font-size: 14px; margin-top: 4px; }
+    
+    .instructor-bio { color: #64748b; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+    .instructor-bio strong { color: #1a1a2e; }
+    
+    .instructor-stats { display: flex; gap: 16px; margin-bottom: 20px; }
+    .instructor-stat { background: #f8fafc; border: 1px dashed #3b82f6; border-radius: 8px; padding: 12px 16px; text-align: center; flex: 1; }
+    .instructor-stat p:first-child { font-size: 16px; font-weight: 700; color: #3b82f6; }
+    .instructor-stat p:last-child { font-size: 11px; color: #64748b; }
+    
+    .instructor-follow { display: inline-flex; align-items: center; gap: 8px; border: 1px dashed #3b82f6; color: #3b82f6; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; }
+    
+    .instructor-quote { background: #f8fafc; border-radius: 12px; padding: 24px; font-style: italic; color: #64748b; line-height: 1.7; }
+    .instructor-quote-author { margin-top: 16px; font-style: normal; font-weight: 600; color: #1a1a2e; }
+    
+    /* Guarantee Section */
+    .guarantee-section { padding: 60px 20px; background: #eff6ff; }
+    .guarantee-box { background: #fff; border-radius: 16px; padding: 40px 32px; max-width: 600px; margin: 0 auto; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+    .guarantee-icon { width: 64px; height: 64px; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 32px; }
+    .guarantee-box h2 { font-size: clamp(22px, 4vw, 28px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .guarantee-box h2 span { color: #3b82f6; }
+    .guarantee-subtitle { color: #3b82f6; font-weight: 600; text-transform: uppercase; font-size: 14px; margin-bottom: 16px; }
+    .guarantee-box > p { color: #64748b; margin-bottom: 20px; line-height: 1.7; }
+    .guarantee-box strong { color: #1a1a2e; }
+    .guarantee-note { background: #f8fafc; padding: 12px 20px; border-radius: 8px; font-size: 14px; color: #64748b; margin-bottom: 24px; }
+    .guarantee-btn { display: inline-flex; align-items: center; gap: 8px; background: #3b82f6; color: #fff; padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 700; text-transform: uppercase; }
+    
+    /* FAQ Section */
+    .faq-section { padding: 60px 20px; background: #fef9c3; }
+    .faq-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .faq-desc { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: #fff; border: 2px dashed #fbbf24; border-radius: 12px; overflow: hidden; }
+    .faq-question { width: 100%; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; text-align: left; font-weight: 600; background: none; border: none; cursor: pointer; font-size: 14px; color: #1a1a2e; text-transform: uppercase; }
+    .faq-question span { color: #64748b; font-size: 12px; transition: transform 0.3s; }
+    .faq-question.active span { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+    .faq-answer.active { max-height: 200px; }
+    .faq-answer p { padding: 0 20px 16px; color: #64748b; font-size: 14px; line-height: 1.6; }
+    
+    .faq-cta { text-align: center; margin-top: 32px; }
+    .faq-cta p { font-size: 14px; font-weight: 600; color: #1a1a2e; text-transform: uppercase; margin-bottom: 8px; }
+    .faq-cta small { display: block; color: #64748b; font-size: 13px; margin-bottom: 16px; }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: #22c55e; color: #fff; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; text-transform: uppercase; }
+    
+    /* Footer */
+    footer { background: #1e3a8a; padding: 32px 20px; text-align: center; }
+    footer p { color: rgba(255,255,255,0.7); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* YouTube Embed */
+    .youtube-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .youtube-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎨 PINTURA AUTOMOTIVA</h1>
-    <p>Landing page em construção.<br>Em breve você poderá acessar o treinamento de pintura automotiva.</p>
-    <a href="/" class="btn">← Voltar para Home</a>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">🎨 Pintura Automotiva para Letras Caixa ✨</span>
+      
+      <h1>CHEGA DE <span class="highlight">PREJUÍZO!</span></h1>
+      <p class="subtitle">Domine a <strong>Pintura Automotiva para Letras Caixa</strong> como um Profissional</p>
+      <p class="subtitle-desc">Do básico ao avançado, aprenda o passo a passo completo de como pintar seus letreiros de forma profissional e <strong>eliminar de vez o retrabalho</strong>.</p>
+      
+      <div class="tags">
+        <span>Pintura PU profissional</span>
+        <span>Metalizado e degradê</span>
+        <span>Cabine de pintura caseira</span>
+      </div>
+      
+      <div class="video-container" id="videoContainer" onclick="playVideo()">
+        <img src="https://i.imgur.com/8KqZxQm.png" alt="Pintura Automotiva - Apresentação" id="videoThumb">
+        <div class="video-overlay" id="videoOverlay">
+          <div class="play-btn">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="https://pay.hotmart.com/B87654321X?checkoutMode=10" class="btn-primary">
+        QUERO COMEÇAR AGORA
+      </a>
+      <p class="hero-info">Acesso imediato • Garantia 7 dias • Até 12x</p>
+      
+      <p class="hero-proof">⚡ Aulas <strong>práticas e mão na massa</strong>, teoria + prática aplicadas a letras caixa</p>
+      
+      <div class="payment-methods">
+        <span>Pagamento:</span>
+        <span>PIX</span>
+        <span>Cartão</span>
+        <span>Boleto</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="pain-intro">
+        <p>Se você ainda <strong>não domina a pintura automotiva</strong>...</p>
+        <div class="pain-arrow">↓</div>
+      </div>
+      
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16h16"/><path d="M4 14l4-4 4 4 8-8"/></svg>
+            </div>
+            <div>
+              <h3>Retrabalho Constante</h3>
+              <p>Pintura descascando, bolhas aparecendo, e você tendo que refazer o trabalho todo</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <h3>Prejuízo no Material</h3>
+              <p>Desperdício de tinta, primer e verniz por não saber a forma correta de aplicar</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <h3>Tempo Perdido</h3>
+              <p>Horas tentando acertar a pintura sem conseguir um acabamento profissional</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div>
+              <h3>Clientes Insatisfeitos</h3>
+              <p>Trabalhos devolvidos e reclamações por causa de acabamento ruim</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="pain-cta">Existe uma solução que <strong>elimina o retrabalho de vez</strong>...</p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution-section">
+    <div class="container">
+      <p class="section-label">A Solução:</p>
+      <div class="solution-arrow">↓</div>
+      <h2>TREINAMENTO <span>PINTURA AUTOMOTIVA</span></h2>
+      <p class="solution-desc">O treinamento completo para você dominar a pintura automotiva aplicada a letras caixa. <strong>Teoria + prática, tudo o que você precisa!</strong></p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🎨</div>
+          <h3>Acabamento Profissional</h3>
+          <p>Aprenda técnicas de pintura automotiva aplicadas às letras caixa. Resultado impecável sempre.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <h3>Zero Retrabalho</h3>
+          <p>Domine a preparação correta das superfícies e aplicação de fundos, primers e tintas.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">✨</div>
+          <h3>Efeitos Especiais</h3>
+          <p>Metalizado, degradê, fosco e brilho. Eleve o padrão dos seus trabalhos e cobre mais caro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results-section">
+    <div class="container">
+      <h2>RESULTADOS COM <span>PINTURA AUTOMOTIVA</span></h2>
+      <p class="results-desc">Veja o acabamento profissional que você vai aprender a fazer</p>
+    </div>
+    <div class="results-carousel">
+      <div class="result-item">
+        <img src="https://i.imgur.com/JKL1234.jpg" alt="Resultado pintura automotiva 1" loading="lazy">
+      </div>
+      <div class="result-item">
+        <img src="https://i.imgur.com/MNO5678.jpg" alt="Resultado pintura automotiva 2" loading="lazy">
+      </div>
+      <div class="result-item">
+        <img src="https://i.imgur.com/PQR9012.jpg" alt="Resultado pintura automotiva 3" loading="lazy">
+      </div>
+      <div class="result-item">
+        <img src="https://i.imgur.com/STU3456.jpg" alt="Resultado pintura automotiva 4" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="curriculum-section">
+    <div class="container">
+      <h2>AULAS PRÁTICAS <span>E MÃO NA MASSA</span></h2>
+      <p class="curriculum-subtitle">Teoria + prática juntas, aplicadas a letras caixa.</p>
+      
+      <div class="modules-grid">
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">📚</div>
+            <div class="module-info">
+              <h3>Módulo 1 - Introdução e Preparação</h3>
+              <p>Fundamentos e materiais necessários</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              Conheça os materiais, ferramentas e equipamentos essenciais para começar na pintura automotiva aplicada a letras caixa.
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">🔧</div>
+            <div class="module-info">
+              <h3>Módulo 2 - Fundos (Antes da Pintura)</h3>
+              <p>Preparação das superfícies para pintura</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              Aprenda a preparar corretamente as superfícies com fundos, primers e seladores para garantir aderência perfeita.
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">🎨</div>
+            <div class="module-info">
+              <h3>Módulo 3 - Pinturas Automotivas</h3>
+              <p>Técnicas profissionais de pintura</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              Domine as técnicas de aplicação de tinta PU, metalizado, degradê e efeitos especiais com acabamento profissional.
+            </div>
+          </div>
+        </div>
+        
+        <div class="module-item" onclick="toggleModule(this)">
+          <div class="module-header">
+            <div class="module-icon">⭐</div>
+            <div class="module-info">
+              <h3>Módulo 4 - Aulas Especiais</h3>
+              <p>Técnicas avançadas e casos especiais</p>
+            </div>
+            <span class="module-arrow">▼</span>
+          </div>
+          <div class="module-content">
+            <div class="module-content-inner">
+              Técnicas avançadas, resolução de problemas comuns e casos especiais para você se destacar no mercado.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="curriculum-note">
+        📱 ASSISTA ÀS AULAS DE ONDE QUISER <strong>SEJA PELO CELULAR, COMPUTADOR OU TABLET!</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- BONUS -->
+  <section class="bonus-section">
+    <div class="container">
+      <h2>E PARA GARANTIR SEU SUCESSO COMPLETO, VOCÊ TAMBÉM RECEBE:</h2>
+      
+      <div class="bonus-grid">
+        <div class="bonus-item">
+          <div class="bonus-item-icon">💬</div>
+          <div>
+            <h5>Suporte Completo</h5>
+            <p>Equipe monitorando comentários e dúvidas</p>
+          </div>
+        </div>
+        
+        <div class="bonus-item">
+          <div class="bonus-item-icon">⭐</div>
+          <div>
+            <h5>1 Ano de Acesso</h5>
+            <p>Assista quantas vezes quiser + download offline</p>
+          </div>
+        </div>
+        
+        <div class="bonus-item">
+          <div class="bonus-item-icon">📋</div>
+          <div>
+            <h5>Lista de Materiais</h5>
+            <p>Tudo que você precisa comprar com links</p>
+          </div>
+        </div>
+        
+        <div class="bonus-item">
+          <div class="bonus-item-icon">🎁</div>
+          <div>
+            <h5>Atualizações Gratuitas</h5>
+            <p>Novas aulas adicionadas sem custo extra</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-card">
+        <h3 class="pricing-title">🎨 Treinamento Pintura Automotiva</h3>
+        
+        <div class="pricing-list">
+          <div class="pricing-item">
+            <span class="pricing-item-left">Módulo 1 - Introdução e Preparação</span>
+            <span class="pricing-item-right">R$ 97</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Módulo 2 - Fundos (Antes da Pintura)</span>
+            <span class="pricing-item-right">R$ 147</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Módulo 3 - Pinturas Automotivas</span>
+            <span class="pricing-item-right">R$ 197</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Módulo 4 - Aulas Especiais</span>
+            <span class="pricing-item-right">R$ 147</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Suporte Completo</span>
+            <span class="pricing-item-right">R$ 97</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">1 Ano de Acesso</span>
+            <span class="pricing-item-right">R$ 97</span>
+          </div>
+        </div>
+        
+        <div class="pricing-total">
+          <p class="pricing-old">De <span>R$ 782</span> por apenas:</p>
+          <div class="pricing-new">
+            <small>12x de</small>
+            <span>R$ 19,70</span>
+          </div>
+          <p class="pricing-vista">ou R$ 197 à vista</p>
+          <p class="pricing-economia">Economia de R$ 585!</p>
+        </div>
+        
+        <a href="https://pay.hotmart.com/B87654321X?checkoutMode=10" class="pricing-btn">
+          QUERO COMEÇAR AGORA
+        </a>
+        
+        <div class="pricing-trust">
+          <span>🔒 Compra segura</span>
+          <span>✅ Acesso imediato</span>
+          <span>💳 Até 12x</span>
+        </div>
+        
+        <p class="pricing-footer">Pagamento processado pela Hotmart. Ambiente 100% seguro.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR -->
+  <section class="instructor-section">
+    <div class="container">
+      <h2>CONHEÇA SEU <span>INSTRUTOR</span></h2>
+      
+      <div class="instructor-content">
+        <div class="instructor-left">
+          <div class="instructor-header">
+            <img src="https://i.imgur.com/instructor.jpg" alt="Matheus Pivatti" class="instructor-img">
+            <div class="instructor-name">
+              <h3>Matheus Pivatti</h3>
+              <a href="https://instagram.com/letracaixadozero" target="_blank">@letracaixadozero</a>
+              <div class="instructor-stars">★★★★★ 4.9/5</div>
+            </div>
+          </div>
+          
+          <p class="instructor-bio">
+            <strong>+15 anos de experiência</strong> no mercado de comunicação visual. Especialista em letras caixa e técnicas de pintura automotiva aplicadas a letreiros. Já formou <strong>mais de 3.000 alunos</strong> em todo o Brasil.
+          </p>
+          
+          <div class="instructor-stats">
+            <div class="instructor-stat">
+              <p>+3.000</p>
+              <p>Alunos formados</p>
+            </div>
+            <div class="instructor-stat">
+              <p>+122K</p>
+              <p>Seguidores</p>
+            </div>
+            <div class="instructor-stat">
+              <p>15 anos</p>
+              <p>Experiência</p>
+            </div>
+          </div>
+          
+          <a href="https://instagram.com/letracaixadozero" target="_blank" class="instructor-follow">
+            📷 Seguir no Instagram
+          </a>
+        </div>
+        
+        <div class="instructor-quote">
+          "A pintura é o que diferencia um trabalho amador de um profissional. Com as técnicas certas, você elimina o retrabalho e entrega um acabamento que impressiona qualquer cliente."
+          <p class="instructor-quote-author">— Matheus Pivatti</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="guarantee-section">
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="guarantee-icon">🛡️</div>
+        <h2>GARANTIA DE <span>7 DIAS</span></h2>
+        <p class="guarantee-subtitle">100% do seu dinheiro de volta</p>
+        <p>Se dentro de 7 dias você achar que o treinamento não é para você, basta solicitar o reembolso. <strong>Sem perguntas, sem burocracia.</strong></p>
+        <div class="guarantee-note">
+          💡 Você não tem nada a perder. O risco é todo nosso!
+        </div>
+        <a href="https://pay.hotmart.com/B87654321X?checkoutMode=10" class="guarantee-btn">
+          QUERO COMEÇAR AGORA
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>PERGUNTAS FREQUENTES</h2>
+      <p class="faq-desc">Tire suas dúvidas antes de começar</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Preciso ter experiência prévia com pintura?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Não! O treinamento foi desenvolvido para iniciantes. Você vai aprender do zero, desde a preparação da superfície até técnicas avançadas de acabamento.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quanto preciso investir em equipamentos?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você pode começar com equipamentos básicos. No treinamento, ensinamos como montar uma cabine de pintura caseira e quais são os materiais essenciais para começar.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Por quanto tempo terei acesso ao curso?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você terá 1 ano de acesso completo a todo o conteúdo, incluindo atualizações. Pode assistir quantas vezes quiser, no seu ritmo.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Como funciona a garantia?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você tem 7 dias para testar o treinamento. Se não gostar, basta solicitar o reembolso pela plataforma da Hotmart. Devolvemos 100% do valor, sem perguntas.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Posso assistir pelo celular?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! O curso está disponível na plataforma Hotmart, que funciona em celular, tablet e computador. Você também pode baixar as aulas para assistir offline.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-cta">
+        <p>Não encontrou sua pergunta?</p>
+        <small>Fale diretamente conosco pelo WhatsApp</small>
+        <a href="https://wa.me/5519938917649?text=Olá! Tenho uma dúvida sobre o Treinamento de Pintura Automotiva" target="_blank" class="btn-whatsapp">
+          💬 TIRAR DÚVIDAS NO WHATSAPP
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Letra Caixa do Zero • Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    function playVideo() {
+      const container = document.getElementById('videoContainer');
+      const thumb = document.getElementById('videoThumb');
+      const overlay = document.getElementById('videoOverlay');
+      
+      // Replace with actual YouTube video ID when available
+      const videoId = 'VIDEO_ID_HERE';
+      
+      container.innerHTML = '<div class="youtube-embed"><iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+    }
+    
+    function toggleModule(el) {
+      el.classList.toggle('active');
+    }
+    
+    function toggleFaq(btn) {
+      btn.classList.toggle('active');
+      const answer = btn.nextElementSibling;
+      answer.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
