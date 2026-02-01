@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treinamento Presencial Letra Caixa + Neon LED | 30h Intensivas</title>
+  <meta name="description" content="Treinamento intensivo de Letras Caixa de Aço + Neon LED 2ª Geração. Saia fabricando do zero ao acabamento profissional em 3 dias.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; background: #0f172a; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Hero - Dark Theme */
+    .hero { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); padding: 40px 20px 60px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 24px; }
+    .badge-icon { font-size: 16px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; line-height: 1.15; text-transform: uppercase; letter-spacing: -0.5px; color: #fff; }
+    .hero h1 span { color: #f59e0b; }
+    .subtitle { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .subtitle strong { color: #f59e0b; }
+    
+    /* Stats */
+    .hero-stats { display: flex; justify-content: center; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-value { font-size: 28px; font-weight: 800; color: #fff; }
+    .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.6); text-transform: uppercase; }
+    
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 32px; }
+    .tags span { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 8px; font-size: 14px; display: flex; align-items: center; gap: 6px; color: #fff; }
+    .tags span::before { content: "✓"; color: #22c55e; font-weight: 700; }
+    
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #f59e0b; color: #0f172a; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(245,158,11,0.4); }
+    .btn-primary:hover { background: #d97706; transform: translateY(-2px); }
+    .btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 14px 32px; border-radius: 8px; font-size: 14px; font-weight: 600; transition: all 0.3s; margin-left: 12px; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    .btn-green { background: #22c55e; color: #fff; box-shadow: 0 4px 14px rgba(34,197,94,0.4); }
+    .btn-green:hover { background: #16a34a; }
+    
+    .hero-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+    .hero-info { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 12px; }
+    
+    /* Mission Section */
+    .mission-section { padding: 60px 20px; background: #1e293b; }
+    .mission-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    @media (max-width: 700px) { .mission-content { grid-template-columns: 1fr; } }
+    .section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #f59e0b; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .mission-section h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; color: #fff; }
+    .mission-section h2 span { color: #f59e0b; }
+    .mission-text { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .mission-values { display: flex; gap: 24px; margin-bottom: 24px; }
+    .mission-value { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 14px; font-weight: 600; }
+    .mission-value-icon { width: 32px; height: 32px; background: rgba(245,158,11,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .mission-quote { background: rgba(255,255,255,0.05); border-left: 4px solid #f59e0b; padding: 20px; border-radius: 0 12px 12px 0; }
+    .mission-quote p { color: rgba(255,255,255,0.8); font-style: italic; margin-bottom: 8px; }
+    .mission-quote span { color: #f59e0b; font-size: 13px; }
+    .mission-image { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    .mission-image img { width: 100%; display: block; }
+    
+    /* Pain Points Section */
+    .pain-section { padding: 60px 20px; background: #0f172a; }
+    .pain-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; color: #fff; }
+    .pain-section h2 span { color: #ef4444; }
+    .pain-desc { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+    
+    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto 32px; }
+    @media (max-width: 700px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card { background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+    .pain-icon { width: 48px; height: 48px; background: rgba(239,68,68,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 24px; }
+    .pain-card h3 { color: #ef4444; font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+    .pain-card p { color: rgba(255,255,255,0.6); font-size: 14px; }
+    
+    .pain-cta { text-align: center; font-size: 18px; color: #fff; margin-top: 32px; }
+    .pain-cta strong { color: #22c55e; }
+    
+    /* Solution Section */
+    .solution-section { padding: 60px 20px; background: #1e293b; }
+    .solution-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; color: #fff; }
+    .solution-section h2 span { color: #22c55e; }
+    .solution-desc { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    
+    .benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 800px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .benefits-grid { grid-template-columns: 1fr; } }
+    .benefit-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .benefit-icon { width: 48px; height: 48px; background: rgba(34,197,94,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 24px; }
+    .benefit-card h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; color: #fff; }
+    .benefit-card p { font-size: 13px; color: rgba(255,255,255,0.6); }
+    
+    /* Curriculum Section */
+    .curriculum-section { padding: 60px 20px; background: #0f172a; }
+    .curriculum-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; color: #fff; }
+    .curriculum-section h2 span { color: #f59e0b; }
+    .curriculum-desc { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+    
+    .curriculum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 700px) { .curriculum-grid { grid-template-columns: 1fr; } }
+    
+    .curriculum-card { background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); }
+    .curriculum-card-title { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .curriculum-card-icon { width: 48px; height: 48px; background: rgba(245,158,11,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+    .curriculum-card h3 { font-size: 16px; font-weight: 700; text-transform: uppercase; color: #fff; }
+    .curriculum-card h3 span { display: block; font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 400; margin-top: 4px; }
+    
+    .curriculum-list { display: flex; flex-direction: column; gap: 12px; }
+    .curriculum-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 8px; }
+    .curriculum-item-icon { width: 28px; height: 28px; background: rgba(34,197,94,0.2); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #22c55e; font-size: 14px; }
+    .curriculum-item h4 { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+    .curriculum-item p { font-size: 12px; color: rgba(255,255,255,0.5); }
+    
+    .curriculum-stats { display: flex; justify-content: center; gap: 40px; margin-top: 40px; padding: 24px; background: rgba(245,158,11,0.1); border-radius: 12px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .curriculum-stat { text-align: center; }
+    .curriculum-stat-value { font-size: 32px; font-weight: 800; color: #f59e0b; }
+    .curriculum-stat-label { font-size: 12px; color: rgba(255,255,255,0.6); text-transform: uppercase; }
+    
+    /* Gallery Section */
+    .gallery-section { padding: 60px 20px; background: #1e293b; }
+    .gallery-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; color: #fff; }
+    .gallery-section h2 span { color: #f59e0b; }
+    .gallery-desc { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 32px; }
+    
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 700px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    .gallery-item { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    
+    /* Pricing Section */
+    .pricing-section { padding: 60px 20px; background: #0f172a; }
+    .pricing-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; color: #fff; }
+    .pricing-section h2 span { color: #f59e0b; }
+    .pricing-desc { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+    
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 0 auto; }
+    @media (max-width: 700px) { .pricing-grid { grid-template-columns: 1fr; } }
+    
+    .pricing-card { background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden; }
+    .pricing-card.sold-out { opacity: 0.6; }
+    .pricing-card.featured { border: 2px solid #f59e0b; }
+    .pricing-badge { position: absolute; top: 16px; right: -32px; background: #ef4444; color: #fff; padding: 4px 40px; font-size: 11px; font-weight: 700; text-transform: uppercase; transform: rotate(45deg); }
+    .pricing-badge.open { background: #22c55e; }
+    
+    .pricing-card-header { margin-bottom: 20px; }
+    .pricing-location { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 4px; }
+    .pricing-card h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .pricing-dates { font-size: 20px; font-weight: 800; color: #f59e0b; }
+    .pricing-status { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 8px; }
+    
+    .pricing-info { display: flex; gap: 16px; margin-bottom: 20px; }
+    .pricing-info-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.7); }
+    
+    .pricing-features { margin-bottom: 24px; }
+    .pricing-feature { display: flex; align-items: center; gap: 8px; padding: 8px 0; font-size: 13px; color: rgba(255,255,255,0.8); }
+    .pricing-feature::before { content: "✓"; color: #22c55e; font-weight: 700; }
+    
+    .pricing-card .btn-primary { width: 100%; justify-content: center; }
+    .pricing-card .btn-disabled { background: #64748b; cursor: not-allowed; box-shadow: none; }
+    .pricing-card .btn-disabled:hover { transform: none; }
+    
+    .pricing-urgency { text-align: center; margin-top: 24px; padding: 12px; background: rgba(245,158,11,0.1); border-radius: 8px; }
+    .pricing-urgency p { font-size: 14px; color: #f59e0b; }
+    
+    /* FAQ Section */
+    .faq-section { padding: 60px 20px; background: #1e293b; }
+    .faq-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; color: #fff; }
+    .faq-section h2 span { color: #f59e0b; }
+    .faq-desc { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
+    
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
+    .faq-question { padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .faq-question h3 { font-size: 15px; font-weight: 600; color: #fff; }
+    .faq-arrow { color: #f59e0b; font-size: 14px; transition: transform 0.3s; }
+    .faq-item.active .faq-arrow { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.active .faq-answer { max-height: 200px; }
+    .faq-answer-inner { padding: 0 20px 20px; color: rgba(255,255,255,0.7); font-size: 14px; }
+    
+    .faq-cta { text-align: center; margin-top: 32px; }
+    .faq-cta p { color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    
+    /* Footer */
+    .footer { padding: 40px 20px; background: #0f172a; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer p { color: rgba(255,255,255,0.5); font-size: 13px; }
+    
+    /* WhatsApp Float */
+    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 1000; transition: transform 0.3s; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .whatsapp-float svg { width: 32px; height: 32px; fill: #fff; }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">
+        <span class="badge-icon">📍</span>
+        Treinamento 100% Presencial
+      </div>
+      
+      <h1>Domine a Arte de <span>Fabricar Letreiros</span> em 3 Dias</h1>
+      
+      <p class="subtitle">Treinamento intensivo de <strong>Letras Caixa de Aço</strong> + <strong>Neon LED 2ª Geração</strong>. Saia fabricando do zero ao acabamento profissional.</p>
+      
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">30h</div>
+          <div class="hero-stat-label">De Imersão</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">6</div>
+          <div class="hero-stat-label">Alunos por Turma</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">14+</div>
+          <div class="hero-stat-label">Turmas Formadas</div>
+        </div>
+      </div>
+      
+      <div class="hero-buttons">
+        <a href="https://wa.me/551938917649?text=Ol%C3%A1!%20Quero%20garantir%20minha%20vaga%20no%20treinamento%20presencial" class="btn-primary">Garantir Minha Vaga</a>
+        <a href="#turmas" class="btn-secondary">Ver Próximas Turmas</a>
+      </div>
+      
+      <div class="tags">
+        <span>Turmas reduzidas para máximo aprendizado</span>
+        <span>Certificado de conclusão</span>
+        <span>Material incluso</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- MISSION -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-content">
+        <div class="mission-left">
+          <p class="section-label">❤️ Nossa Missão</p>
+          <h2>Transformar vidas através do <span>conhecimento profissional</span></h2>
+          <p class="mission-text">Acreditamos que todos merecem acesso a conhecimento de qualidade. Nossa missão é levar conhecimento profissional e, consequentemente, oportunidades de trabalho a todos — sempre entregando o nosso melhor em tudo que fazemos.</p>
+          
+          <div class="mission-values">
+            <div class="mission-value">
+              <div class="mission-value-icon">⭐</div>
+              <span>Excelência</span>
+            </div>
+            <div class="mission-value">
+              <div class="mission-value-icon">👥</div>
+              <span>Comunidade</span>
+            </div>
+          </div>
+          
+          <div class="mission-quote">
+            <p>"Vocês são diferentes. Peço que Deus abençoe a vida de vocês e que vocês nunca percam essa essência."</p>
+            <span>— Feedback de um aluno</span>
+          </div>
+        </div>
+        
+        <div class="mission-image">
+          <img src="/images/presencial-turma.jpg" alt="Turma do treinamento presencial" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PAIN POINTS -->
+  <section class="pain-section">
+    <div class="container">
+      <p class="section-label" style="text-align:center; justify-content:center;">⚠️ O Problema</p>
+      <h2>Você Está <span>Travado</span> em Algum Desses Pontos?</h2>
+      <p class="pain-desc">A maioria dos profissionais enfrenta essas barreiras que impedem o crescimento do negócio</p>
+      
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-icon">📉</div>
+          <h3>Terceirizando Produção</h3>
+          <p>Dependendo de fornecedores externos que comem sua margem de lucro e atrasam suas entregas.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">⏰</div>
+          <h3>Aprendizado Fragmentado</h3>
+          <p>Gastando meses tentando aprender por conta própria com vídeos soltos e informações incompletas.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">😰</div>
+          <h3>Medo de Investir Errado</h3>
+          <p>Inseguro sobre quais equipamentos comprar e como estruturar sua produção do jeito certo.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">💸</div>
+          <h3>Erros Custosos</h3>
+          <p>Perdendo material e dinheiro por falta de conhecimento técnico que só a prática ensina.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">📊</div>
+          <h3>Lucros Limitados</h3>
+          <p>Não consegue cobrar o que realmente vale porque não domina o processo completo.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">🤷</div>
+          <h3>Sem Mentoria Real</h3>
+          <p>Ninguém para tirar suas dúvidas ao vivo e corrigir seus erros na hora.</p>
+        </div>
+      </div>
+      
+      <p class="pain-cta">E se você pudesse <strong>resolver tudo isso em apenas 3 dias</strong>?</p>
+    </div>
+  </section>
+  
+  <!-- SOLUTION -->
+  <section class="solution-section">
+    <div class="container">
+      <p class="section-label" style="text-align:center; justify-content:center;">✅ A Solução</p>
+      <h2>O Treinamento Mais <span>Completo</span> do Brasil</h2>
+      <p class="solution-desc">Em 30 horas intensivas, você vai dominar todo o processo de fabricação de letreiros profissionais</p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🔧</div>
+          <h3>Mão na Massa Real</h3>
+          <p>Você fabrica seus próprios letreiros durante o treinamento, não apenas assiste.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎨</div>
+          <h3>Pintura Automotiva</h3>
+          <p>Aprenda todo o processo de pintura profissional com pistola e cabine.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3>Elétrica sem Mistério</h3>
+          <p>Domine as ligações elétricas e instalação de LED com segurança.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Precificação Lucrativa</h3>
+          <p>Saiba exatamente quanto cobrar para ter lucros reais em cada projeto.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">👥</div>
+          <h3>Turmas Reduzidas</h3>
+          <p>Apenas 6 alunos por turma para atenção individual e máximo aprendizado.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏆</div>
+          <h3>14+ Turmas de Sucesso</h3>
+          <p>Método comprovado com dezenas de alunos já faturando alto no mercado.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💡</div>
+          <h3>Neon LED 2ª Geração</h3>
+          <p>Técnica mais moderna do mercado inclusa no mesmo treinamento.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎯</div>
+          <h3>Suporte Vitalício</h3>
+          <p>Grupo exclusivo para tirar dúvidas mesmo depois do treinamento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CURRICULUM -->
+  <section class="curriculum-section">
+    <div class="container">
+      <p class="section-label" style="text-align:center; justify-content:center;">📚 Conteúdo Completo</p>
+      <h2>O Que Você Vai <span>Aprender</span></h2>
+      <p class="curriculum-desc">Dois treinamentos completos em uma única imersão de 3 dias</p>
+      
+      <div class="curriculum-grid">
+        <div class="curriculum-card">
+          <div class="curriculum-card-title">
+            <div class="curriculum-card-icon">🔩</div>
+            <h3>Letras Caixa de Aço<span>Do projeto à instalação</span></h3>
+          </div>
+          <div class="curriculum-list">
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Projeto e Planejamento</h4>
+                <p>Dimensionamento, escolha de materiais e orçamento completo</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Corte Profissional</h4>
+                <p>Técnicas de corte precisas para letras caixa perfeitas</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Soldagem Especializada</h4>
+                <p>Soldagem com estanho e técnicas para acabamento impecável</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Pintura Automotiva</h4>
+                <p>Processo completo com pistola, primer e acabamento profissional</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Elétrica e LED</h4>
+                <p>Instalação de módulos LED e ligações elétricas seguras</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Montagem e Instalação</h4>
+                <p>Finalização da peça e técnicas de instalação em fachadas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="curriculum-card">
+          <div class="curriculum-card-title">
+            <div class="curriculum-card-icon">💡</div>
+            <h3>Neon LED 2ª Geração<span>Técnica mais moderna</span></h3>
+          </div>
+          <div class="curriculum-list">
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Projeto de Neon LED</h4>
+                <p>Criação e dimensionamento de letreiros em neon</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Corte do Neon</h4>
+                <p>Técnicas específicas para corte limpo do neon flexível</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Montagem do Neon</h4>
+                <p>Dobras, curvas e fixação profissional</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Ligação Elétrica</h4>
+                <p>Conexões, drivers e teste de funcionamento</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Instalação</h4>
+                <p>Fixação em bases e instalação na parede</p>
+              </div>
+            </div>
+            <div class="curriculum-item">
+              <div class="curriculum-item-icon">✓</div>
+              <div>
+                <h4>Precificação</h4>
+                <p>Quanto cobrar para ter lucro real em cada projeto</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="curriculum-stats">
+        <div class="curriculum-stat">
+          <div class="curriculum-stat-value">3</div>
+          <div class="curriculum-stat-label">Dias</div>
+        </div>
+        <div class="curriculum-stat">
+          <div class="curriculum-stat-value">30h</div>
+          <div class="curriculum-stat-label">De Imersão</div>
+        </div>
+        <div class="curriculum-stat">
+          <div class="curriculum-stat-value">10h</div>
+          <div class="curriculum-stat-label">Por Dia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- PRICING -->
+  <section class="pricing-section" id="turmas">
+    <div class="container">
+      <p class="section-label" style="text-align:center; justify-content:center;">📅 Próximas Turmas</p>
+      <h2>Garanta Sua <span>Vaga</span></h2>
+      <p class="pricing-desc">Turmas reduzidas com apenas 6 vagas para garantir máximo aprendizado</p>
+      
+      <p style="text-align:center; color: rgba(255,255,255,0.6); margin-bottom: 24px; font-size: 14px;">📍 Mogi Guaçu - SP</p>
+      
+      <div class="pricing-grid">
+        <div class="pricing-card sold-out">
+          <div class="pricing-badge">Esgotado</div>
+          <div class="pricing-card-header">
+            <p class="pricing-location">Turma de Janeiro</p>
+            <p class="pricing-dates">24, 25 e 26 de Janeiro</p>
+            <p class="pricing-status">Todas as vagas preenchidas</p>
+          </div>
+          <div class="pricing-info">
+            <div class="pricing-info-item">🕐 30 horas</div>
+            <div class="pricing-info-item">👥 6 alunos</div>
+          </div>
+          <a href="#" class="btn-primary btn-disabled">Vagas Esgotadas</a>
+        </div>
+        
+        <div class="pricing-card featured">
+          <div class="pricing-badge open">Vagas Abertas</div>
+          <div class="pricing-card-header">
+            <p class="pricing-location">Turma de Fevereiro</p>
+            <p class="pricing-dates">26, 27 e 28 de Fevereiro</p>
+            <p class="pricing-status">Últimas vagas disponíveis</p>
+          </div>
+          <div class="pricing-info">
+            <div class="pricing-info-item">🕐 30 horas</div>
+            <div class="pricing-info-item">👥 6 alunos</div>
+          </div>
+          <div class="pricing-features">
+            <div class="pricing-feature">30 horas de treinamento intensivo</div>
+            <div class="pricing-feature">Material prático incluso</div>
+            <div class="pricing-feature">Certificado de conclusão</div>
+            <div class="pricing-feature">Acesso ao grupo VIP de alunos</div>
+            <div class="pricing-feature">Suporte vitalício para dúvidas</div>
+            <div class="pricing-feature">Coffee break incluso</div>
+          </div>
+          <a href="https://wa.me/551938917649?text=Ol%C3%A1!%20Quero%20garantir%20minha%20vaga%20na%20turma%20de%20Fevereiro%20do%20treinamento%20presencial" class="btn-primary btn-green">Garantir Minha Vaga</a>
+          <p style="text-align:center; font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 12px;">Clique para falar diretamente no WhatsApp</p>
+        </div>
+      </div>
+      
+      <div class="pricing-urgency">
+        <p>⚡ Turmas reduzidas se esgotam rapidamente. <strong>Garanta sua vaga agora!</strong></p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <p class="section-label" style="text-align:center; justify-content:center;">❓ Dúvidas Frequentes</p>
+      <h2>Perguntas <span>Frequentes</span></h2>
+      <p class="faq-desc">Tire suas dúvidas sobre o treinamento presencial</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Preciso ter experiência prévia para participar?</h3>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Não! O treinamento foi desenvolvido para atender tanto iniciantes quanto profissionais que desejam aprimorar suas técnicas. Começamos do básico e avançamos gradualmente.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Qual a duração e horário do treinamento?</h3>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">O treinamento tem duração de 3 dias (30 horas no total), com aproximadamente 10 horas por dia. Os horários são das 8h às 18h, com intervalos para almoço e coffee break.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Por que as turmas são limitadas a 6 pessoas?</h3>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Para garantir atenção individual e máximo aprendizado. Com turmas reduzidas, conseguimos acompanhar de perto cada aluno, corrigir erros em tempo real e garantir que todos saiam dominando as técnicas.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>O que está incluso no treinamento?</h3>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Todo o material prático para você fabricar seus próprios letreiros, certificado de conclusão, acesso ao grupo VIP de alunos, suporte vitalício para dúvidas e coffee break durante os 3 dias.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Aprendo os dois tipos de letreiro no mesmo treinamento?</h3>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Sim! Você aprende tanto Letras Caixa de Aço quanto Neon LED 2ª Geração no mesmo treinamento, com conteúdo completo de ambas as técnicas.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>E se eu não conseguir acompanhar?</h3>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Com turmas de apenas 6 alunos, conseguimos dar atenção individual para cada um. Além disso, você terá acesso ao grupo VIP com suporte vitalício para tirar dúvidas mesmo após o treinamento.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Onde é realizado o treinamento?</h3>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">O treinamento é realizado em Mogi Guaçu - SP, em nossa estrutura completa com todos os equipamentos necessários para a prática.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <h3>Como faço para garantir minha vaga?</h3>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Basta clicar no botão "Garantir Minha Vaga" e você será direcionado para o WhatsApp, onde nossa equipe irá te atender e passar todas as informações sobre pagamento e reserva.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-cta">
+        <p>Ainda tem dúvidas?</p>
+        <a href="https://wa.me/551938917649?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20treinamento%20presencial" class="btn-primary btn-green">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Letra Caixa do Zero. Todos os direitos reservados.</p>
+      <p style="margin-top: 8px;">Treinamento presencial de fabricação de letreiros profissionais.</p>
+    </div>
+  </footer>
+  
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/551938917649?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20treinamento%20presencial" class="whatsapp-float" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</body>
+</html>
