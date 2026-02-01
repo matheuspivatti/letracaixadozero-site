@@ -214,6 +214,21 @@
     .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
     .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
     @keyframes typing { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
+    
+    /* Chat Suggestions */
+    .chat-suggestions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chat-suggestions button { background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.3); color: #2563eb; padding: 8px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+    .chat-suggestions button:hover { background: #2563eb; color: #fff; transform: translateY(-1px); }
+    
+    /* Chat Message Formatting */
+    .chatbot-message ul { margin: 8px 0; padding-left: 20px; }
+    .chatbot-message li { margin: 4px 0; }
+    .chatbot-message strong { font-weight: 600; }
+    .chatbot-message a { color: #2563eb; text-decoration: underline; }
+    .chatbot-message.user a { color: #fff; }
+    
+    /* AI Badge */
+    .chatbot-header-info p::after { content: ' ✨ IA'; font-size: 10px; background: rgba(255,255,255,0.2); padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
   </style>
 </head>
 <body>
@@ -636,7 +651,13 @@
     </div>
     <div class="chatbot-messages" id="chatMessages">
       <div class="chatbot-message bot">
-        <p>Olá! 👋 Sou o assistente virtual do Letra Caixa do Zero. Como posso te ajudar hoje?</p>
+        <p>Olá! 👋 Sou o <strong>Matheus Virtual</strong>, assistente IA do Letra Caixa do Zero. Posso te ajudar com dúvidas sobre:</p>
+        <div class="chat-suggestions">
+          <button onclick="askSuggestion('Qual curso é ideal para iniciantes?')">Curso para iniciantes</button>
+          <button onclick="askSuggestion('Preciso de CNC para começar?')">Preciso de CNC?</button>
+          <button onclick="askSuggestion('Quanto custa para começar com Neon LED?')">Investimento inicial</button>
+          <button onclick="askSuggestion('Como precificar meus letreiros?')">Precificação</button>
+        </div>
       </div>
     </div>
     <div class="chatbot-input">
@@ -646,45 +667,82 @@
   </div>
 
   <script>
+    // Chatbot IA - Letra Caixa do Zero
+    let chatHistory = [];
+    
     function toggleChat() {
-      document.getElementById('chatWindow').classList.toggle('active');
+      const chatWindow = document.getElementById('chatWindow');
+      chatWindow.classList.toggle('active');
+      if (chatWindow.classList.contains('active')) {
+        document.getElementById('chatInput').focus();
+      }
     }
 
-    const responses = {
-      'preco': 'Os preços variam: START NEON (Neon LED básico) custa R$97, e o Letras Chinesas 4.0 custa R$297. Ambos com acesso vitalício e suporte!',
-      'cnc': 'Para o START NEON você NÃO precisa de CNC! É 100% manual. Já para Letras Chinesas, uma Router CNC ajuda mas não é obrigatória no início.',
-      'material': 'Depende do tipo: ACM para fachadas comerciais, Aço para alta durabilidade, Acrílico para iluminação interna, PVC para projetos econômicos, e Neon LED para decoração.',
-      'curso': 'Temos vários treinamentos! O START NEON (R$97) é ideal para iniciantes em Neon LED. O Letras Chinesas 4.0 (R$297) ensina a técnica mais lucrativa do mercado.',
-      'garantia': 'Todos os cursos têm garantia de 7 dias. Se não gostar, devolvemos 100% do valor sem perguntas!',
-      'suporte': 'Sim! Todos os alunos têm acesso ao suporte via WhatsApp diretamente comigo (Matheus Pivatti).',
-      'default': 'Interessante! Para informações mais detalhadas, recomendo seguir o @letracaixadozero no Instagram ou acessar nossos artigos gratuitos aqui no site. Posso ajudar com algo mais específico?'
-    };
+    // Função para converter markdown básico em HTML
+    function parseMarkdown(text) {
+      return text
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/^- (.+)$/gm, '<li>$1</li>')
+        .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+        .replace(/\n/g, '<br>');
+    }
 
-    function sendMessage() {
+    async function sendMessage() {
       const input = document.getElementById('chatInput');
-      const message = input.value.trim().toLowerCase();
+      const message = input.value.trim();
       if (!message) return;
 
       const messagesDiv = document.getElementById('chatMessages');
-      messagesDiv.innerHTML += `<div class="chatbot-message user"><p>${input.value}</p></div>`;
+      
+      // Adiciona mensagem do usuário
+      messagesDiv.innerHTML += `<div class="chatbot-message user"><p>${message}</p></div>`;
+      chatHistory.push({ role: 'user', content: message });
       input.value = '';
+      input.disabled = true;
 
-      messagesDiv.innerHTML += `<div class="chatbot-message bot"><div class="typing-indicator"><span></span><span></span><span></span></div></div>`;
+      // Mostra indicador de digitação
+      messagesDiv.innerHTML += `<div class="chatbot-message bot typing"><div class="typing-indicator"><span></span><span></span><span></span></div></div>`;
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-      setTimeout(() => {
-        let response = responses.default;
-        for (const [key, value] of Object.entries(responses)) {
-          if (message.includes(key)) {
-            response = value;
-            break;
-          }
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: chatHistory })
+        });
+
+        const data = await response.json();
+        const botResponse = data.content || 'Desculpe, não consegui processar sua pergunta.';
+        
+        // Adiciona resposta ao histórico
+        chatHistory.push({ role: 'assistant', content: botResponse });
+
+        // Remove indicador de digitação e adiciona resposta
+        const typingMessage = messagesDiv.querySelector('.chatbot-message.typing');
+        if (typingMessage) {
+          typingMessage.classList.remove('typing');
+          typingMessage.innerHTML = `<p>${parseMarkdown(botResponse)}</p>`;
         }
 
-        const lastMessage = messagesDiv.querySelector('.chatbot-message:last-child');
-        lastMessage.innerHTML = `<p>${response}</p>`;
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-      }, 1200);
+      } catch (error) {
+        console.error('Erro no chat:', error);
+        const typingMessage = messagesDiv.querySelector('.chatbot-message.typing');
+        if (typingMessage) {
+          typingMessage.classList.remove('typing');
+          typingMessage.innerHTML = `<p>Desculpe, ocorreu um erro. Tente novamente ou entre em contato pelo WhatsApp: <a href="https://wa.me/5519938917649" target="_blank" style="color:#2563eb;">+55 19 3891-7649</a></p>`;
+        }
+      }
+
+      input.disabled = false;
+      input.focus();
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    // Sugestões de perguntas rápidas
+    function askSuggestion(question) {
+      document.getElementById('chatInput').value = question;
+      sendMessage();
     }
   </script>
 </body>
