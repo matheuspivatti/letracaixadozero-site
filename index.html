@@ -139,8 +139,11 @@
     .treinamentos-section { background: #0a0a0f; padding: 100px 24px; }
     .treinamentos-section .section-title { color: #fff; }
     .treinamentos-section .section-desc { color: rgba(255,255,255,0.6); }
-    .treinamentos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto 48px; }
-    @media (max-width: 700px) { .treinamentos-grid { grid-template-columns: 1fr; } }
+    .treinamentos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto 48px; }
+    @media (max-width: 900px) { .treinamentos-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .treinamentos-grid { grid-template-columns: 1fr; } }
+    .treinamento-card a { display: inline-block; margin-top: 16px; color: #fbbf24; font-weight: 600; font-size: 14px; transition: all 0.3s; }
+    .treinamento-card a:hover { color: #fff; transform: translateX(4px); }
     .treinamento-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; transition: all 0.4s; }
     .treinamento-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(251,191,36,0.3); transform: translateY(-4px); }
     .treinamento-icon { width: 56px; height: 56px; background: linear-gradient(135deg, rgba(251,191,36,0.2) 0%, rgba(251,191,36,0.1) 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
@@ -500,23 +503,53 @@
       </div>
       
       <div class="treinamentos-grid">
-        <div class="treinamento-card">
-          <div class="treinamento-icon">💻</div>
-          <small>Aprenda no seu ritmo</small>
-          <h3>Treinamentos Online</h3>
-          <p>Aulas gravadas com suporte direto via WhatsApp. Acesso vitalício e atualizações constantes. Comece hoje mesmo de qualquer lugar.</p>
-        </div>
+        <a href="/treinamento-start-neon/" class="treinamento-card">
+          <div class="treinamento-icon">💡</div>
+          <small>Neon LED 1ª Geração</small>
+          <h3>START NEON</h3>
+          <p>Comece a lucrar com Neon LED sem máquinas caras. 100% manual, ideal para iniciantes.</p>
+          <span>R$ 97,00 →</span>
+        </a>
         
-        <div class="treinamento-card">
+        <a href="/treinamento-pro-neon/" class="treinamento-card">
+          <div class="treinamento-icon">⚡</div>
+          <small>Neon LED 2ª Geração</small>
+          <h3>PRO NEON</h3>
+          <p>Neon LED com Router CNC. Margem de 400% a 600% com produto premium e diferenciado.</p>
+          <span>R$ 497,00 →</span>
+        </a>
+        
+        <a href="/letras-de-acrilico-chinesas/" class="treinamento-card">
+          <div class="treinamento-icon">🌟</div>
+          <small>Técnica Exclusiva</small>
+          <h3>Letras Chinesas 4.0</h3>
+          <p>A técnica mais lucrativa do mercado. Letras de acrílico com acabamento premium.</p>
+          <span>R$ 297,00 →</span>
+        </a>
+        
+        <a href="/treinamento-lcz-letras-de-aco/" class="treinamento-card">
+          <div class="treinamento-icon">🛠️</div>
+          <small>Alta Durabilidade</small>
+          <h3>LCZ Letras de Aço</h3>
+          <p>Fabrique letras de aço galvanizado com alta durabilidade e acabamento profissional.</p>
+          <span>R$ 297,00 →</span>
+        </a>
+        
+        <a href="/presencial/" class="treinamento-card">
           <div class="treinamento-icon">🔧</div>
-          <small>Experiência imersiva</small>
+          <small>Experiência Imersiva</small>
           <h3>Treinamento Presencial</h3>
-          <p>Aprenda na prática no nosso Centro de Treinamento. Mão na massa com acompanhamento direto do Matheus Pivatti.</p>
-        </div>
-      </div>
-      
-      <div style="text-align: center;">
-        <a href="/treinamento-start-neon/" class="btn btn-primary">Ver Treinamentos Disponíveis →</a>
+          <p>30 horas de mão na massa no nosso Centro de Treinamento em Mogi Guaçu-SP.</p>
+          <span>Próxima turma: Março →</span>
+        </a>
+        
+        <a href="/universidade-letreiros/" class="treinamento-card">
+          <div class="treinamento-icon">🎓</div>
+          <small>Gratuito</small>
+          <h3>Aulão Gratuito</h3>
+          <p>Aula completa para você conhecer o mundo das letras caixa e começar do zero.</p>
+          <span>Assistir Grátis →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -564,7 +597,10 @@
           <h4 class="footer-title">Treinamentos</h4>
           <div class="footer-links">
             <a href="/treinamento-start-neon/">START NEON</a>
+            <a href="/treinamento-pro-neon/">PRO NEON</a>
             <a href="/letras-de-acrilico-chinesas/">Letras Chinesas 4.0</a>
+            <a href="/treinamento-lcz-letras-de-aco/">LCZ Letras de Aço</a>
+            <a href="/presencial/">Presencial</a>
             <a href="/universidade-letreiros/">Aulão Gratuito</a>
           </div>
         </div>
