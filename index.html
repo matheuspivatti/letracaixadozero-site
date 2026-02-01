@@ -136,7 +136,9 @@
     .btn-youtube { background: #FF0000; color: #fff; }
     
     /* Treinamentos Section */
-    .treinamentos-section { background: #0a0a0f; padding: 100px 24px; }
+    .treinamentos-section { background: linear-gradient(180deg, #111118 0%, #0a0a0f 50%, #111118 100%); padding: 100px 24px; position: relative; }
+    .treinamentos-section::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(251,191,36,0.3) 50%, transparent 100%); }
+    .treinamentos-section::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(251,191,36,0.3) 50%, transparent 100%); }
     .treinamentos-section .section-title { color: #fff; }
     .treinamentos-section .section-desc { color: rgba(255,255,255,0.6); }
     .treinamentos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto 48px; }
@@ -290,188 +292,6 @@
           </div>
         </div>
         <a href="/universidade-letreiros/" class="btn btn-purple">QUERO PARTICIPAR GRATUITAMENTE →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Artigos Section -->
-  <section class="artigos-section" id="artigos">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">📚 Conteúdo Gratuito</span>
-        <h2 class="section-title">Guias Completos de Fabricação</h2>
-        <p class="section-desc">Artigos detalhados com tudo que você precisa saber sobre cada tipo de letra caixa. Conteúdo técnico e prático.</p>
-      </div>
-
-      <!-- Featured Article -->
-      <a href="/artigos/guia-completo-letras-caixa-acm/" class="featured-article">
-        <div class="featured-image">
-          <img src="/images/artigos/letras-acm.jpg" alt="Letras Caixa em ACM">
-          <span class="featured-badge">⭐ Mais Lido</span>
-        </div>
-        <div class="featured-content">
-          <div class="featured-meta">
-            <span>📁 ACM</span>
-            <span>⏱ 25 min de leitura</span>
-            <span>👁 12.5K visualizações</span>
-          </div>
-          <h3>Guia Completo: Como Fazer Letras Caixa em ACM</h3>
-          <p>Domine a fabricação de letras caixa em ACM com a técnica do canal V. Aprenda desde a escolha do material até o acabamento final, com dicas práticas de quem já produziu milhares de letreiros.</p>
-          <div class="featured-author">
-            <div class="featured-author-avatar">MP</div>
-            <div class="featured-author-info">
-              <strong>Matheus Pivatti</strong>
-              <span>@letracaixadozero • 15 anos de experiência</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Articles Grid -->
-      <div class="artigos-grid">
-        <a href="/artigos/letras-caixa-aco-soldagem/" class="artigo-card">
-          <div class="artigo-card-image">
-            <img src="/images/artigos/letras-aco-soldagem.jpg" alt="Letras Caixa em Aço">
-            <span class="artigo-card-tag">Aço</span>
-          </div>
-          <div class="artigo-card-content">
-            <div class="artigo-card-meta">
-              <span>⏱ 25 min</span>
-              <span>👁 8.2K</span>
-            </div>
-            <h4>Como Fazer Letras Caixa de Aço com Soldagem</h4>
-            <p>Aprenda todo o processo de fabricação de letras caixa em aço usando soldagem TIG e MIG.</p>
-            <div class="artigo-card-footer">
-              <div class="artigo-card-author">
-                <div class="artigo-card-author-avatar">MP</div>
-                <span>Matheus Pivatti</span>
-              </div>
-              <span class="artigo-card-link">Ler →</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="/artigos/iluminacao-led-letras-caixa/" class="artigo-card">
-          <div class="artigo-card-image">
-            <img src="/images/artigos/iluminacao-led.jpg" alt="Iluminação LED">
-            <span class="artigo-card-tag">LED</span>
-          </div>
-          <div class="artigo-card-content">
-            <div class="artigo-card-meta">
-              <span>⏱ 20 min</span>
-              <span>👁 9.8K</span>
-            </div>
-            <h4>Iluminação LED para Letras Caixa: Guia Definitivo</h4>
-            <p>Tudo sobre iluminação: tipos de LED, cálculos de consumo, instalação e manutenção.</p>
-            <div class="artigo-card-footer">
-              <div class="artigo-card-author">
-                <div class="artigo-card-author-avatar">MP</div>
-                <span>Matheus Pivatti</span>
-              </div>
-              <span class="artigo-card-link">Ler →</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="/artigos/neon-led-como-comecar/" class="artigo-card">
-          <div class="artigo-card-image">
-            <img src="/images/artigos/neon-led.jpg" alt="Neon LED">
-            <span class="artigo-card-tag">Neon LED</span>
-          </div>
-          <div class="artigo-card-content">
-            <div class="artigo-card-meta">
-              <span>⏱ 20 min</span>
-              <span>👁 15.3K</span>
-            </div>
-            <h4>Neon LED: Como Começar do Zero</h4>
-            <p>Guia completo para iniciantes em Neon LED. Materiais, técnicas manuais e precificação.</p>
-            <div class="artigo-card-footer">
-              <div class="artigo-card-author">
-                <div class="artigo-card-author-avatar">MP</div>
-                <span>Matheus Pivatti</span>
-              </div>
-              <span class="artigo-card-link">Ler →</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="/artigos/letras-caixa-acrilico-moldado/" class="artigo-card">
-          <div class="artigo-card-image">
-            <img src="/images/artigos/letras-acrilico-moldado.jpg" alt="Acrílico Moldado">
-            <span class="artigo-card-tag">Acrílico</span>
-          </div>
-          <div class="artigo-card-content">
-            <div class="artigo-card-meta">
-              <span>⏱ 22 min</span>
-              <span>👁 7.1K</span>
-            </div>
-            <h4>Letras Caixa em Acrílico Moldado</h4>
-            <p>Técnicas de moldagem a quente, tipos de acrílico e acabamentos profissionais.</p>
-            <div class="artigo-card-footer">
-              <div class="artigo-card-author">
-                <div class="artigo-card-author-avatar">MP</div>
-                <span>Matheus Pivatti</span>
-              </div>
-              <span class="artigo-card-link">Ler →</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="/artigos/letras-caixa-pvc-expandido/" class="artigo-card">
-          <div class="artigo-card-image">
-            <img src="/images/artigos/letras-pvc.jpg" alt="PVC Expandido">
-            <span class="artigo-card-tag">PVC</span>
-          </div>
-          <div class="artigo-card-content">
-            <div class="artigo-card-meta">
-              <span>⏱ 18 min</span>
-              <span>👁 6.4K</span>
-            </div>
-            <h4>Letras Caixa em PVC Expandido</h4>
-            <p>Ideal para iniciantes: baixo investimento, fácil de trabalhar e ótimo acabamento.</p>
-            <div class="artigo-card-footer">
-              <div class="artigo-card-author">
-                <div class="artigo-card-author-avatar">MP</div>
-                <span>Matheus Pivatti</span>
-              </div>
-              <span class="artigo-card-link">Ler →</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="/letras-de-acrilico-chinesas/" class="artigo-card">
-          <div class="artigo-card-image">
-            <img src="letras-de-acrilico-chinesas/galeria-1.jpg" alt="Letras Chinesas">
-            <span class="artigo-card-tag">Chinesas</span>
-          </div>
-          <div class="artigo-card-content">
-            <div class="artigo-card-meta">
-              <span>⏱ 30 min</span>
-              <span>👁 18.7K</span>
-            </div>
-            <h4>Letras de Acrílico Chinesas 4.0</h4>
-            <p>A técnica que revolucionou o mercado. Produção rápida, alta margem e qualidade premium.</p>
-            <div class="artigo-card-footer">
-              <div class="artigo-card-author">
-                <div class="artigo-card-author-avatar">MP</div>
-                <span>Matheus Pivatti</span>
-              </div>
-              <span class="artigo-card-link">Ver Curso →</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Siga nas Redes Sociais</h2>
-      <p>Conteúdo diário, dicas exclusivas e bastidores da produção de letreiros profissionais.</p>
-      <div class="cta-buttons">
-        <a href="https://www.instagram.com/letracaixadozero/" target="_blank" class="btn btn-instagram">📷 Seguir no Instagram</a>
-        <a href="https://www.youtube.com/@letracaixadozero" target="_blank" class="btn btn-youtube">▶️ Inscrever no YouTube</a>
       </div>
     </div>
   </section>
@@ -706,6 +526,189 @@
       </div>
     </div>
   </section>
+
+  <!-- Artigos Section -->
+  <section class="artigos-section" id="artigos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">📚 Conteúdo Gratuito</span>
+        <h2 class="section-title">Guias Completos de Fabricação</h2>
+        <p class="section-desc">Artigos detalhados com tudo que você precisa saber sobre cada tipo de letra caixa. Conteúdo técnico e prático.</p>
+      </div>
+
+      <!-- Featured Article -->
+      <a href="/artigos/guia-completo-letras-caixa-acm/" class="featured-article">
+        <div class="featured-image">
+          <img src="/images/artigos/letras-acm.jpg" alt="Letras Caixa em ACM">
+          <span class="featured-badge">⭐ Mais Lido</span>
+        </div>
+        <div class="featured-content">
+          <div class="featured-meta">
+            <span>📁 ACM</span>
+            <span>⏱ 25 min de leitura</span>
+            <span>👁 12.5K visualizações</span>
+          </div>
+          <h3>Guia Completo: Como Fazer Letras Caixa em ACM</h3>
+          <p>Domine a fabricação de letras caixa em ACM com a técnica do canal V. Aprenda desde a escolha do material até o acabamento final, com dicas práticas de quem já produziu milhares de letreiros.</p>
+          <div class="featured-author">
+            <div class="featured-author-avatar">MP</div>
+            <div class="featured-author-info">
+              <strong>Matheus Pivatti</strong>
+              <span>@letracaixadozero • 15 anos de experiência</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Articles Grid -->
+      <div class="artigos-grid">
+        <a href="/artigos/letras-caixa-aco-soldagem/" class="artigo-card">
+          <div class="artigo-card-image">
+            <img src="/images/artigos/letras-aco-soldagem.jpg" alt="Letras Caixa em Aço">
+            <span class="artigo-card-tag">Aço</span>
+          </div>
+          <div class="artigo-card-content">
+            <div class="artigo-card-meta">
+              <span>⏱ 25 min</span>
+              <span>👁 8.2K</span>
+            </div>
+            <h4>Como Fazer Letras Caixa de Aço com Soldagem</h4>
+            <p>Aprenda todo o processo de fabricação de letras caixa em aço usando soldagem TIG e MIG.</p>
+            <div class="artigo-card-footer">
+              <div class="artigo-card-author">
+                <div class="artigo-card-author-avatar">MP</div>
+                <span>Matheus Pivatti</span>
+              </div>
+              <span class="artigo-card-link">Ler →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/artigos/iluminacao-led-letras-caixa/" class="artigo-card">
+          <div class="artigo-card-image">
+            <img src="/images/artigos/iluminacao-led.jpg" alt="Iluminação LED">
+            <span class="artigo-card-tag">LED</span>
+          </div>
+          <div class="artigo-card-content">
+            <div class="artigo-card-meta">
+              <span>⏱ 20 min</span>
+              <span>👁 9.8K</span>
+            </div>
+            <h4>Iluminação LED para Letras Caixa: Guia Definitivo</h4>
+            <p>Tudo sobre iluminação: tipos de LED, cálculos de consumo, instalação e manutenção.</p>
+            <div class="artigo-card-footer">
+              <div class="artigo-card-author">
+                <div class="artigo-card-author-avatar">MP</div>
+                <span>Matheus Pivatti</span>
+              </div>
+              <span class="artigo-card-link">Ler →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/artigos/neon-led-como-comecar/" class="artigo-card">
+          <div class="artigo-card-image">
+            <img src="/images/artigos/neon-led.jpg" alt="Neon LED">
+            <span class="artigo-card-tag">Neon LED</span>
+          </div>
+          <div class="artigo-card-content">
+            <div class="artigo-card-meta">
+              <span>⏱ 20 min</span>
+              <span>👁 15.3K</span>
+            </div>
+            <h4>Neon LED: Como Começar do Zero</h4>
+            <p>Guia completo para iniciantes em Neon LED. Materiais, técnicas manuais e precificação.</p>
+            <div class="artigo-card-footer">
+              <div class="artigo-card-author">
+                <div class="artigo-card-author-avatar">MP</div>
+                <span>Matheus Pivatti</span>
+              </div>
+              <span class="artigo-card-link">Ler →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/artigos/letras-caixa-acrilico-moldado/" class="artigo-card">
+          <div class="artigo-card-image">
+            <img src="/images/artigos/letras-acrilico-moldado.jpg" alt="Acrílico Moldado">
+            <span class="artigo-card-tag">Acrílico</span>
+          </div>
+          <div class="artigo-card-content">
+            <div class="artigo-card-meta">
+              <span>⏱ 22 min</span>
+              <span>👁 7.1K</span>
+            </div>
+            <h4>Letras Caixa em Acrílico Moldado</h4>
+            <p>Técnicas de moldagem a quente, tipos de acrílico e acabamentos profissionais.</p>
+            <div class="artigo-card-footer">
+              <div class="artigo-card-author">
+                <div class="artigo-card-author-avatar">MP</div>
+                <span>Matheus Pivatti</span>
+              </div>
+              <span class="artigo-card-link">Ler →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/artigos/letras-caixa-pvc-expandido/" class="artigo-card">
+          <div class="artigo-card-image">
+            <img src="/images/artigos/letras-pvc.jpg" alt="PVC Expandido">
+            <span class="artigo-card-tag">PVC</span>
+          </div>
+          <div class="artigo-card-content">
+            <div class="artigo-card-meta">
+              <span>⏱ 18 min</span>
+              <span>👁 6.4K</span>
+            </div>
+            <h4>Letras Caixa em PVC Expandido</h4>
+            <p>Ideal para iniciantes: baixo investimento, fácil de trabalhar e ótimo acabamento.</p>
+            <div class="artigo-card-footer">
+              <div class="artigo-card-author">
+                <div class="artigo-card-author-avatar">MP</div>
+                <span>Matheus Pivatti</span>
+              </div>
+              <span class="artigo-card-link">Ler →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/letras-de-acrilico-chinesas/" class="artigo-card">
+          <div class="artigo-card-image">
+            <img src="letras-de-acrilico-chinesas/galeria-1.jpg" alt="Letras Chinesas">
+            <span class="artigo-card-tag">Chinesas</span>
+          </div>
+          <div class="artigo-card-content">
+            <div class="artigo-card-meta">
+              <span>⏱ 30 min</span>
+              <span>👁 18.7K</span>
+            </div>
+            <h4>Letras de Acrílico Chinesas 4.0</h4>
+            <p>A técnica que revolucionou o mercado. Produção rápida, alta margem e qualidade premium.</p>
+            <div class="artigo-card-footer">
+              <div class="artigo-card-author">
+                <div class="artigo-card-author-avatar">MP</div>
+                <span>Matheus Pivatti</span>
+              </div>
+              <span class="artigo-card-link">Ver Curso →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Siga nas Redes Sociais</h2>
+      <p>Conteúdo diário, dicas exclusivas e bastidores da produção de letreiros profissionais.</p>
+      <div class="cta-buttons">
+        <a href="https://www.instagram.com/letracaixadozero/" target="_blank" class="btn btn-instagram">📷 Seguir no Instagram</a>
+        <a href="https://www.youtube.com/@letracaixadozero" target="_blank" class="btn btn-youtube">▶️ Inscrever no YouTube</a>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Newsletter Section -->
   <section class="newsletter-section">
