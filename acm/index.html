@@ -650,5 +650,34 @@
       </div>
     </div>
   </footer>
+<script>
+(function () {
+    const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'sck'];
+    const urlParams = new URLSearchParams(window.location.search);
+    let utmValues = {};
+
+    utmParams.forEach(param => {
+        if (urlParams.has(param)) {
+            utmValues[param] = urlParams.get(param);
+        }
+    });
+
+    if (Object.keys(utmValues).length > 0) {
+        const checkoutLinks = document.querySelectorAll('a[href*="pay"]'); 
+
+        checkoutLinks.forEach(link => {
+            const linkUrl = new URL(link.href);
+
+            utmParams.forEach(param => {
+                if (utmValues[param]) {
+                    linkUrl.searchParams.set(param, utmValues[param]);
+                }
+            });
+
+            link.href = linkUrl.toString();
+        });
+    }
+})();
+</script>
 </body>
 </html>
