@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUPER COMBO | ACM + PVC + Acrílico Moldado - Letra Caixa do Zero</title>
+  <meta name="description" content="Domine 3 técnicas essenciais em um único combo: ACM (Alumínio Composto), Acrílico Moldado a quente e PVC Expandido. Economize e torne-se um profissional completo em comunicação visual.">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      color: #fff; 
+      background: #0a0a0a;
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Header */
+    .header { background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 20px 0; }
+    .header .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 24px; font-weight: bold; color: #f39c12; }
+    
+    /* Hero Section */
+    .hero { padding: 120px 0 60px; text-align: center; background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); }
+    .hero h1 { font-size: clamp(32px, 5vw, 48px); margin-bottom: 24px; line-height: 1.2; }
+    .hero h1 span { color: #f39c12; }
+    .hero-subtitle { font-size: 20px; color: rgba(255,255,255,0.8); margin-bottom: 32px; }
+    .badge-combo { 
+      display: inline-block; 
+      background: #f39c12; 
+      color: #000; 
+      padding: 8px 24px; 
+      border-radius: 24px; 
+      font-weight: bold; 
+      margin-bottom: 24px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Benefits Grid */
+    .benefits { padding: 60px 0; background: #111; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 32px; }
+    .benefit-card { 
+      background: rgba(255,255,255,0.05); 
+      border: 1px solid rgba(255,255,255,0.1); 
+      padding: 32px; 
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .benefit-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+    .benefit-icon { font-size: 48px; margin-bottom: 16px; }
+    .benefit-title { font-size: 20px; margin-bottom: 8px; color: #f39c12; }
+    
+    /* Courses Section */
+    .courses { padding: 60px 0; }
+    .course-card { 
+      background: rgba(255,255,255,0.03); 
+      border: 1px solid rgba(255,255,255,0.1); 
+      border-radius: 16px; 
+      padding: 40px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .course-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 72px;
+      font-weight: bold;
+      color: rgba(243,156,18,0.1);
+    }
+    .course-title { font-size: 28px; margin-bottom: 16px; color: #f39c12; }
+    .course-content { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 16px; 
+      margin-top: 24px;
+    }
+    .course-item { display: flex; align-items: start; gap: 8px; }
+    .course-item::before { content: "✓"; color: #4ec073; font-weight: bold; }
+    
+    /* Pricing Section */
+    .pricing { padding: 80px 0; background: #0f0f0f; text-align: center; }
+    .pricing-card { 
+      background: linear-gradient(135deg, rgba(243,156,18,0.1) 0%, rgba(243,156,18,0.05) 100%);
+      border: 2px solid #f39c12;
+      border-radius: 24px;
+      padding: 48px;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #e74c3c;
+      color: white;
+      padding: 8px 32px;
+      border-radius: 24px;
+      font-weight: bold;
+    }
+    .price-original { 
+      text-decoration: line-through; 
+      color: rgba(255,255,255,0.5); 
+      font-size: 24px; 
+      margin-bottom: 8px;
+    }
+    .price-current { 
+      font-size: 48px; 
+      font-weight: bold; 
+      color: #4ec073; 
+      margin-bottom: 16px;
+    }
+    .price-installment { font-size: 20px; color: rgba(255,255,255,0.8); margin-bottom: 32px; }
+    
+    /* CTA Button */
+    .btn-cta {
+      display: inline-block;
+      background: #4ec073;
+      color: #000;
+      padding: 20px 60px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(78,192,115,0.3);
+    }
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(78,192,115,0.4);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero { padding: 100px 0 40px; }
+      .pricing-card { padding: 32px 24px; }
+      .course-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">LETRA CAIXA DO ZERO</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge-combo">🔥 COMBO EXCLUSIVO - OFERTA LIMITADA</div>
+      <h1>SUPER COMBO: Domine <span>3 Técnicas Essenciais</span> por Um Preço Inacreditável</h1>
+      <p class="hero-subtitle">ACM + Acrílico Moldado + PVC Expandido = Profissional Completo</p>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="benefits">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 36px; margin-bottom: 48px;">Por Que Este <span style="color: #f39c12;">Combo</span>?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3 class="benefit-title">Economia Real</h3>
+          <p>Economize R$ 794 comprando os 3 treinamentos juntos (80% OFF!)</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🚀</div>
+          <h3 class="benefit-title">Profissional Completo</h3>
+          <p>Atenda qualquer demanda do mercado dominando as 3 técnicas</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📚</div>
+          <h3 class="benefit-title">Conhecimento Integrado</h3>
+          <p>Aprenda quando usar cada material e maximize seus lucros</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Content -->
+  <section class="courses">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 36px; margin-bottom: 48px;">O Que Você Vai <span style="color: #f39c12;">Aprender</span></h2>
+      
+      <!-- ACM -->
+      <div class="course-card">
+        <div class="course-number">01</div>
+        <h3 class="course-title">Letras em ACM (Alumínio Composto)</h3>
+        <p style="margin-bottom: 24px; color: rgba(255,255,255,0.7);">Domine a fabricação profissional de letras em ACM, o material queridinho do mercado.</p>
+        <div class="course-content">
+          <div class="course-item">Corte com router CNC e tupia manual</div>
+          <div class="course-item">Montagem de letras retas e curvas</div>
+          <div class="course-item">Iluminação Frontlit completa</div>
+          <div class="course-item">Estruturação e fixação profissional</div>
+          <div class="course-item">Acabamento e pintura</div>
+          <div class="course-item">Precificação e venda</div>
+        </div>
+      </div>
+
+      <!-- Acrílico Moldado -->
+      <div class="course-card">
+        <div class="course-number">02</div>
+        <h3 class="course-title">Acrílico Moldado a Quente</h3>
+        <p style="margin-bottom: 24px; color: rgba(255,255,255,0.7);">Técnica exclusiva para criar letras 3D impressionantes com acrílico.</p>
+        <div class="course-content">
+          <div class="course-item">Preparação e corte do acrílico</div>
+          <div class="course-item">Técnicas de aquecimento controlado</div>
+          <div class="course-item">Moldagem de letras complexas</div>
+          <div class="course-item">Acabamento cristal profissional</div>
+          <div class="course-item">Iluminação LED interna</div>
+          <div class="course-item">Instalação segura</div>
+        </div>
+      </div>
+
+      <!-- PVC Expandido -->
+      <div class="course-card">
+        <div class="course-number">03</div>
+        <h3 class="course-title">PVC Expandido</h3>
+        <p style="margin-bottom: 24px; color: rgba(255,255,255,0.7);">O material versátil para projetos internos e externos com ótimo custo-benefício.</p>
+        <div class="course-content">
+          <div class="course-item">Corte e usinagem do PVC</div>
+          <div class="course-item">Colagem e estruturação</div>
+          <div class="course-item">Pintura automotiva</div>
+          <div class="course-item">Aplicação de vinil e impressão</div>
+          <div class="course-item">Letras com relevo e 3D</div>
+          <div class="course-item">Fixação em diferentes superfícies</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <div class="container">
+      <h2 style="font-size: 36px; margin-bottom: 48px;">Investimento <span style="color: #f39c12;">Especial</span> do Combo</h2>
+      <div class="pricing-card">
+        <div class="pricing-badge">80% DE DESCONTO!</div>
+        <p class="price-original">De R$ 991,00 por apenas</p>
+        <p class="price-current">R$ 197,00</p>
+        <p class="price-installment">ou 12x de R$ 19,60</p>
+        <p style="margin-bottom: 32px; color: rgba(255,255,255,0.7);">✅ Acesso vitalício aos 3 treinamentos<br>✅ Certificados individuais<br>✅ Suporte direto comigo</p>
+        <a href="https://pay.hotmart.com/I104510922V" class="btn-cta">QUERO O SUPER COMBO</a>
+        <p style="margin-top: 16px; font-size: 14px; color: rgba(255,255,255,0.5);">🔒 Pagamento 100% seguro via Hotmart</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: 40px 0; text-align: center; background: #000;">
+    <p style="color: rgba(255,255,255,0.5);">© 2024 Letra Caixa do Zero. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
