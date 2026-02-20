@@ -152,7 +152,8 @@
     .pricing-section h2 span { color: #f59e0b; }
     .pricing-desc { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 40px; }
     
-    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 0 auto; }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 700px) { .pricing-grid { grid-template-columns: 1fr; } }
     
     .pricing-card { background: rgba(255,255,255,0.05); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden; }
@@ -570,6 +571,20 @@
           <a href="#" class="btn-primary btn-disabled">Vagas Esgotadas</a>
         </div>
         
+        <div class="pricing-card sold-out">
+          <div class="pricing-badge">Esgotado</div>
+          <div class="pricing-card-header">
+            <p class="pricing-location">Turma de Março</p>
+            <p class="pricing-dates">19, 20 e 21 de Março</p>
+            <p class="pricing-status">Todas as vagas preenchidas</p>
+          </div>
+          <div class="pricing-info">
+            <div class="pricing-info-item">🕐 30 horas</div>
+            <div class="pricing-info-item">👥 6 alunos</div>
+          </div>
+          <a href="#" class="btn-primary btn-disabled">Vagas Esgotadas</a>
+        </div>
+        
         <div class="pricing-card featured">
           <div class="pricing-badge open">Vagas Abertas</div>
           <div class="pricing-card-header">
@@ -591,7 +606,7 @@
             <div class="pricing-feature">Acesso ao grupo VIP de alunos</div>
             <div class="pricing-feature">Coffee break incluso</div>
           </div>
-          <a href="https://wa.me/551938917649?text=Ol%C3%A1!%20Quero%20garantir%20minha%20vaga%20na%20turma%20de%20Mar%C3%A7o%20do%20treinamento%20presencial" class="btn-primary btn-green">Garantir Minha Vaga</a>
+          <a href="https://wa.me/551938917649?text=Ol%C3%A1!%20Quero%20garantir%20minha%20vaga%20na%20turma%20de%20Abril%20do%20treinamento%20presencial" class="btn-primary btn-green">Garantir Minha Vaga</a>
           <p style="text-align:center; font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 12px;">Clique para falar diretamente no WhatsApp</p>
         </div>
       </div>
