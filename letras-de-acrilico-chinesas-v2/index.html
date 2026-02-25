@@ -37,8 +37,8 @@
     .vsl-gate-content { width: 90%; max-width: 900px; text-align: center; }
     .vsl-gate-header { color: #fbbf24; font-size: clamp(20px, 4vw, 28px); font-weight: 800; text-transform: uppercase; margin-bottom: 24px; letter-spacing: 1px; animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
-    .vsl-gate-video { position: relative; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 50px rgba(251,191,36,0.3); aspect-ratio: 16/9; }
-    #gatePlayer { width: 100%; height: 100%; border: none; }
+    .vsl-gate-video { position: relative; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 50px rgba(251,191,36,0.3); aspect-ratio: 16/9; min-height: 400px; }
+    #gatePlayer { width: 100%; height: 100%; border: none; background: #000; }
     .vsl-gate-footer { color: #94a3b8; font-size: 16px; margin-top: 24px; }
     .vsl-gate-footer strong { color: #fff; }
     .vsl-progress-gate { height: 6px; background: #1e293b; margin-top: 16px; border-radius: 3px; overflow: hidden; }
@@ -294,9 +294,9 @@
           id="gatePlayer"
           width="100%" 
           height="100%" 
-          src="https://www.youtube.com/embed/50RIJRBztdc?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1&playsinline=1" 
+          src="https://www.youtube.com/embed/50RIJRBztdc?autoplay=1&mute=1" 
           frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowfullscreen>
         </iframe>
       </div>
@@ -305,6 +305,11 @@
         <div class="vsl-progress-gate">
           <div class="vsl-progress-gate-bar" id="gateProgressBar"></div>
         </div>
+        <p style="margin-top: 16px; font-size: 14px;">
+          <a href="https://www.youtube.com/watch?v=50RIJRBztdc" target="_blank" style="color: #fbbf24; text-decoration: underline;">
+            Se o vídeo não carregar, clique aqui para assistir
+          </a>
+        </p>
       </div>
     </div>
   </div>
@@ -831,6 +836,19 @@ let timerInterval;
 window.addEventListener('load', () => {
   // Give 3 seconds for user to orient, then start counting
   setTimeout(startTimer, 3000);
+  
+  // Debug: check if iframe is loading
+  const iframe = document.getElementById('gatePlayer');
+  console.log('Iframe element:', iframe);
+  console.log('Iframe src:', iframe.src);
+  
+  // Force reload if needed
+  setTimeout(() => {
+    if (!iframe.contentWindow || iframe.contentWindow.length === 0) {
+      console.log('Reloading iframe...');
+      iframe.src = iframe.src;
+    }
+  }, 2000);
 });
 
 function startTimer() {
