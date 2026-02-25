@@ -130,8 +130,7 @@
     .bonus-item h5 { font-size: 14px; font-weight: 600; color: #e2e8f0; }
     .bonus-item p { font-size: 12px; color: #94a3b8; }
     
-    /* Testimonials Section */
-    .testimonials-section { padding: 60px 20px; background: #0a0a0a; }
+
     .testimonials-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
     .testimonials-section h2 span { color: #10b981; }
     .testimonials-desc { text-align: center; color: #94a3b8; margin-bottom: 32px; }
@@ -240,6 +239,16 @@
     /* YouTube Embed */
     .youtube-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
     .youtube-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    
+    /* Testimonials in Hero */
+    .testimonials-grid-hero { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 700px) { .testimonials-grid-hero { grid-template-columns: 1fr; } }
+    .hero .testimonial-card { background: #1e293b; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.2); border: 1px solid #334155; }
+    .hero .testimonial-card img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .hero .testimonial-badge { position: absolute; top: 8px; left: 8px; background: #10b981; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .hero .testimonial-content { padding: 16px; }
+    .hero .testimonial-content h4 { font-size: 14px; font-weight: 600; color: #f8fafc; margin-bottom: 4px; }
+    .hero .testimonial-content p { font-size: 13px; color: #94a3b8; }
   </style>
 </head>
 <body>
@@ -278,6 +287,45 @@
         <span>PIX</span>
         <span>Cartão</span>
         <span>Boleto</span>
+      </div>
+      
+      <!-- TESTIMONIALS IN HERO -->
+      <div style="margin-top: 48px;">
+        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; color: #10b981;">Resultados Reais dos Alunos</h3>
+        <div class="testimonials-grid-hero">
+          <div class="testimonial-card">
+            <div style="position:relative">
+              <img src="https://letracaixadozero.com.br/images/depoimento-pablo.webp" alt="Pablo Moura" loading="lazy">
+              <span class="testimonial-badge">Número 2 em Neon LED</span>
+            </div>
+            <div class="testimonial-content">
+              <h4>Pablo Moura</h4>
+              <p>"Só para te dar um feedback sobre o curso"</p>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div style="position:relative">
+              <img src="https://letracaixadozero.com.br/images/depoimento-sidney.webp" alt="Sidney Rodrigues" loading="lazy">
+              <span class="testimonial-badge">Primeira peça produzida</span>
+            </div>
+            <div class="testimonial-content">
+              <h4>Sidney Rodrigues</h4>
+              <p>"Os olhos chegam a lacrimejar de tanta felicidade 🙏"</p>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div style="position:relative">
+              <img src="https://letracaixadozero.com.br/images/depoimento-andre.webp" alt="André Leal" loading="lazy">
+              <span class="testimonial-badge">Letreiro You + Me</span>
+            </div>
+            <div class="testimonial-content">
+              <h4>André Leal</h4>
+              <p>"Quero agradecer por todo o apoio prestado 👍"</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -509,48 +557,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials-section">
-    <div class="container">
-      <h2>Resultados <span>Reais</span></h2>
-      <p class="testimonials-desc">Veja o que nossos alunos estão criando</p>
-      
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div style="position:relative">
-            <img src="https://letracaixadozero.com.br/images/depoimento-pablo.webp" alt="Pablo Moura" loading="lazy">
-            <span class="testimonial-badge">Número 2 em Neon LED</span>
-          </div>
-          <div class="testimonial-content">
-            <h4>Pablo Moura</h4>
-            <p>"Só para te dar um feedback sobre o curso"</p>
-          </div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div style="position:relative">
-            <img src="https://letracaixadozero.com.br/images/depoimento-sidney.webp" alt="Sidney Rodrigues" loading="lazy">
-            <span class="testimonial-badge">Primeira peça produzida</span>
-          </div>
-          <div class="testimonial-content">
-            <h4>Sidney Rodrigues</h4>
-            <p>"Os olhos chegam a lacrimejar de tanta felicidade 🙏"</p>
-          </div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div style="position:relative">
-            <img src="https://letracaixadozero.com.br/images/depoimento-andre.webp" alt="André Leal" loading="lazy">
-            <span class="testimonial-badge">Letreiro You + Me</span>
-          </div>
-          <div class="testimonial-content">
-            <h4>André Leal</h4>
-            <p>"Quero agradecer por todo o apoio prestado 👍"</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- PRICING -->
   <section class="pricing-section">
