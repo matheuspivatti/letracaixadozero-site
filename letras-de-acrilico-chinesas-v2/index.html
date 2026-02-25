@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager (Lazy Load - carrega após interação) -->
+  <script>
+  (function(){
+    var gtmLoaded = false;
+    function loadGTM() {
+      if (gtmLoaded) return;
+      gtmLoaded = true;
+      var w=window,d=document,s='script',l='dataLayer',i='x=GQdRMyUnTy42LTszJV9aQwZeXlpATAYLTQ8JAAMLAQQZGw0QHhAHFx9NDxsc';
+      w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
+      j.src="https://load.stape.letracaixadozero.com/iebjqtlcp.js?"+i;f.parentNode.insertBefore(j,f);
+    }
+    ['scroll','click','mousemove','touchstart','keydown'].forEach(function(e){
+      window.addEventListener(e, loadGTM, {once:true,passive:true});
+    });
+    setTimeout(loadGTM, 4000);
+  })();
+  </script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letras Chinesas 4.0 | Aprenda a Fabricar Letras Caixa Premium com CNC</title>
+  <meta name="description" content="Transforme sua Router CNC em uma fábrica de Letras Caixa premium. Aprenda o método chinês onde a máquina faz quase todo o trabalho.">
+  <link rel="preconnect" href="https://img.youtube.com">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a2e; background: #f8fafc; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Hero */
+    .hero { background: linear-gradient(180deg, #fff 0%, #f0f7ff 100%); padding: 40px 20px 60px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e2e8f0; color: #1a1a2e; padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; line-height: 1.15; text-transform: uppercase; letter-spacing: -0.5px; }
+    .hero h1 span { color: #2563eb; text-decoration: underline; text-decoration-color: rgba(37,99,235,0.3); text-underline-offset: 6px; }
+    .subtitle { font-size: 18px; color: #64748b; margin-bottom: 24px; }
+    
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 24px; }
+    .tags span { background: #fff; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 8px; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+    .tags span::before { content: "✓"; color: #2563eb; font-weight: 700; }
+    
+    /* Video */
+    .video-container { position: relative; max-width: 700px; margin: 0 auto 24px; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); cursor: pointer; background: #1a1a2e; }
+    .video-container img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .video-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
+    .play-btn { width: 72px; height: 72px; background: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(239,68,68,0.4); transition: transform 0.3s; }
+    .play-btn:hover { transform: scale(1.1); }
+    .play-icon { width: 0; height: 0; border-top: 14px solid transparent; border-left: 22px solid #fff; border-bottom: 14px solid transparent; margin-left: 4px; }
+    
+    .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #2563eb; color: #fff; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 4px 14px rgba(37,99,235,0.4); }
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+    .btn-green { background: #22c55e; box-shadow: 0 4px 14px rgba(34,197,94,0.4); }
+    .btn-green:hover { background: #16a34a; }
+    
+    .hero-info { font-size: 13px; color: #64748b; margin-top: 12px; }
+    .hero-proof { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 14px; }
+    .hero-proof strong { color: #1a1a2e; }
+    
+    .payment-methods { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+    .payment-methods span { background: #fff; border: 1px solid #e2e8f0; padding: 6px 14px; border-radius: 6px; font-size: 13px; color: #64748b; }
+    
+    /* Pain Points Section */
+    .pain-section { padding: 60px 20px; background: #f8fafc; }
+    .pain-intro { text-align: center; margin-bottom: 32px; }
+    .pain-intro p { color: #1a1a2e; font-size: 18px; }
+    .pain-intro strong { font-weight: 700; }
+    .pain-arrow { color: #2563eb; font-size: 24px; margin-top: 8px; }
+    
+    .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; margin: 0 auto 32px; }
+    @media (max-width: 600px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .pain-card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+    .pain-icon { width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .pain-icon svg { width: 20px; height: 20px; color: #ef4444; }
+    .pain-card h3 { color: #ef4444; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px; }
+    .pain-card h3::before { content: "×"; font-size: 16px; }
+    .pain-card p { color: #64748b; font-size: 14px; line-height: 1.5; }
+    
+    .pain-cta { text-align: center; font-size: 16px; color: #1a1a2e; }
+    .pain-cta strong { color: #1a1a2e; }
+    
+    /* Solution Section */
+    .solution-section { padding: 60px 20px; background: #f0f7ff; text-align: center; }
+    .section-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #2563eb; margin-bottom: 8px; }
+    .solution-arrow { color: #2563eb; font-size: 24px; margin-bottom: 16px; }
+    .solution-section h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 16px; text-transform: uppercase; }
+    .solution-section h2 span { color: #2563eb; }
+    .solution-desc { color: #64748b; max-width: 600px; margin: 0 auto 40px; }
+    .solution-desc strong { color: #1a1a2e; }
+    
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 700px) { .benefits-grid { grid-template-columns: 1fr; } }
+    .benefit-card { background: #fff; padding: 24px 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .benefit-card h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; color: #1a1a2e; }
+    .benefit-card p { font-size: 14px; color: #64748b; line-height: 1.5; }
+    
+    /* Curriculum Section */
+    .curriculum-section { padding: 60px 20px; background: #fff; }
+    .curriculum-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .curriculum-section h2 span { color: #2563eb; }
+    
+    .curriculum-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 32px auto 0; align-items: start; }
+    @media (max-width: 700px) { .curriculum-content { grid-template-columns: 1fr; } }
+    .curriculum-image { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+    .curriculum-image img { width: 100%; display: block; }
+    .curriculum-desc { font-size: 15px; color: #64748b; margin-bottom: 24px; }
+    
+    .modules-list { display: flex; flex-direction: column; gap: 12px; }
+    .module-item { border: 2px dashed #fbbf24; border-radius: 12px; overflow: hidden; background: #fff; }
+    .module-header { padding: 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; }
+    .module-icon { width: 36px; height: 36px; background: #dbeafe; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .module-icon svg { width: 18px; height: 18px; color: #2563eb; }
+    .module-info { flex: 1; }
+    .module-info h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; color: #1a1a2e; margin-bottom: 2px; }
+    .module-info p { font-size: 12px; color: #64748b; text-transform: uppercase; }
+    .module-arrow { color: #64748b; font-size: 12px; transition: transform 0.3s; }
+    .module-item.active .module-arrow { transform: rotate(180deg); }
+    .module-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .module-item.active .module-content { max-height: 150px; }
+    .module-content-inner { padding: 0 16px 16px; color: #64748b; font-size: 14px; }
+    
+    .curriculum-extra { margin-top: 24px; padding: 16px; border: 2px dashed #2563eb; border-radius: 12px; text-align: center; }
+    .curriculum-extra p { font-size: 14px; color: #1a1a2e; }
+    .curriculum-extra span { color: #2563eb; font-weight: 600; }
+    
+    .curriculum-bonus { margin-top: 24px; background: #f0f7ff; border-radius: 12px; padding: 20px; }
+    .curriculum-bonus h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; color: #1a1a2e; }
+    .bonus-items { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 500px) { .bonus-items { grid-template-columns: 1fr; } }
+    .bonus-item { display: flex; align-items: center; gap: 10px; background: #fff; padding: 12px; border-radius: 8px; }
+    .bonus-item-icon { width: 32px; height: 32px; background: #d1fae5; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .bonus-item h5 { font-size: 13px; font-weight: 600; color: #1a1a2e; }
+    .bonus-item p { font-size: 11px; color: #64748b; }
+    
+    /* Gallery Section */
+    .gallery-section { padding: 60px 20px; background: linear-gradient(180deg, #f8fafc 0%, #f0f7ff 100%); }
+    .gallery-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .gallery-section h2 span { color: #2563eb; }
+    .gallery-desc { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; margin: 0 auto 24px; }
+    @media (max-width: 600px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    .gallery-item { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px 10px; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: #fff; font-size: 12px; font-weight: 600; text-align: center; }
+    
+    .gallery-cta { text-align: center; }
+    .gallery-cta p { margin-bottom: 20px; font-size: 15px; color: #1a1a2e; }
+    .gallery-cta span { color: #2563eb; font-weight: 600; }
+    
+    /* Pricing Section */
+    .pricing-section { padding: 60px 20px; background: linear-gradient(180deg, #e0f2fe 0%, #dbeafe 100%); }
+    .pricing-card { background: #fff; border-radius: 16px; padding: 32px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .pricing-title { text-align: center; font-size: 18px; font-weight: 700; text-transform: uppercase; color: #2563eb; margin-bottom: 24px; }
+    
+    .pricing-list { margin-bottom: 24px; }
+    .pricing-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
+    .pricing-item:last-child { border-bottom: none; }
+    .pricing-item-left { display: flex; align-items: center; gap: 8px; }
+    .pricing-item-left::before { content: "✓"; color: #2563eb; font-weight: 700; }
+    .pricing-item-right { text-decoration: line-through; color: #94a3b8; font-size: 14px; }
+    
+    .pricing-total { text-align: center; padding: 20px 0; border-top: 2px dashed #e2e8f0; margin-top: 16px; }
+    .pricing-old { font-size: 14px; color: #64748b; }
+    .pricing-old span { text-decoration: line-through; color: #94a3b8; }
+    .pricing-new { margin-top: 8px; display: flex; flex-direction: column; align-items: center; }
+    .pricing-new small { font-size: 14px; color: #64748b; display: block; margin-bottom: 4px; }
+    .pricing-new span { font-size: clamp(36px, 10vw, 48px); font-weight: 800; color: #2563eb; white-space: nowrap; }
+    .pricing-vista { font-size: 14px; color: #64748b; margin-top: 4px; }
+    .pricing-economia { font-size: 13px; color: #22c55e; font-weight: 600; margin-top: 4px; }
+    
+    .pricing-btn { display: block; width: 100%; background: #2563eb; color: #fff; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: 700; text-align: center; text-transform: uppercase; transition: all 0.3s; margin-top: 20px; border: 2px dashed #fbbf24; }
+    .pricing-btn:hover { background: #1d4ed8; }
+    
+    .pricing-trust { display: flex; justify-content: center; gap: 16px; margin-top: 16px; font-size: 12px; color: #64748b; flex-wrap: wrap; }
+    .pricing-trust span { display: flex; align-items: center; gap: 4px; }
+    
+    .pricing-footer { text-align: center; margin-top: 16px; font-size: 11px; color: #94a3b8; }
+    
+    .pricing-social { display: flex; justify-content: center; gap: 24px; margin-top: 24px; padding-top: 24px; border-top: 1px solid #f1f5f9; }
+    .pricing-social-item { text-align: center; }
+    .pricing-social-item p:first-child { font-size: 14px; font-weight: 600; color: #1a1a2e; }
+    .pricing-social-item p:last-child { font-size: 11px; color: #64748b; }
+    
+    /* Instructor Section */
+    .instructor-section { padding: 60px 20px; background: #fff; }
+    .instructor-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 32px; text-transform: uppercase; }
+    .instructor-section h2 span { color: #2563eb; }
+    
+    .instructor-content { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; align-items: center; }
+    @media (max-width: 700px) { .instructor-content { grid-template-columns: 1fr; } }
+    
+    .instructor-left { }
+    .instructor-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+    .instructor-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+    .instructor-name h3 { font-size: 20px; font-weight: 700; }
+    .instructor-name a { color: #2563eb; font-size: 14px; }
+    .instructor-stars { color: #fbbf24; font-size: 14px; margin-top: 4px; }
+    
+    .instructor-bio { color: #64748b; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+    .instructor-bio strong { color: #1a1a2e; }
+    
+    .instructor-stats { display: flex; gap: 16px; margin-bottom: 20px; }
+    .instructor-stat { background: #f8fafc; border: 1px dashed #2563eb; border-radius: 8px; padding: 12px 16px; text-align: center; flex: 1; }
+    .instructor-stat p:first-child { font-size: 16px; font-weight: 700; color: #2563eb; }
+    .instructor-stat p:last-child { font-size: 11px; color: #64748b; }
+    
+    .instructor-follow { display: inline-flex; align-items: center; gap: 8px; border: 1px dashed #22c55e; color: #22c55e; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; }
+    
+    .instructor-quote { background: #f8fafc; border-radius: 12px; padding: 24px; font-style: italic; color: #64748b; line-height: 1.7; }
+    .instructor-quote-author { margin-top: 16px; font-style: normal; font-weight: 600; color: #1a1a2e; }
+    
+    /* Guarantee Section */
+    .guarantee-section { padding: 60px 20px; background: #f0f7ff; }
+    .guarantee-box { background: #fff; border-radius: 16px; padding: 40px 32px; max-width: 600px; margin: 0 auto; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+    .guarantee-icon { width: 64px; height: 64px; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .guarantee-icon svg { width: 32px; height: 32px; color: #2563eb; }
+    .guarantee-box h2 { font-size: clamp(22px, 4vw, 28px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .guarantee-box h2 span { color: #2563eb; }
+    .guarantee-subtitle { color: #2563eb; font-weight: 600; text-transform: uppercase; font-size: 14px; margin-bottom: 16px; }
+    .guarantee-box > p { color: #64748b; margin-bottom: 20px; line-height: 1.7; }
+    .guarantee-box strong { color: #1a1a2e; }
+    .guarantee-note { background: #f8fafc; padding: 12px 20px; border-radius: 8px; font-size: 14px; color: #64748b; margin-bottom: 24px; }
+    .guarantee-btn { display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 700; text-transform: uppercase; border: 2px dashed #fbbf24; }
+    
+    /* FAQ Section */
+    .faq-section { padding: 60px 20px; background: #fef9c3; }
+    .faq-section h2 { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 8px; text-transform: uppercase; }
+    .faq-desc { text-align: center; color: #64748b; margin-bottom: 32px; }
+    
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: #fff; border: 2px dashed #fbbf24; border-radius: 12px; overflow: hidden; }
+    .faq-question { width: 100%; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; text-align: left; font-weight: 600; background: none; border: none; cursor: pointer; font-size: 14px; color: #1a1a2e; text-transform: uppercase; }
+    .faq-question span { color: #64748b; font-size: 12px; transition: transform 0.3s; }
+    .faq-question.active span { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+    .faq-answer.active { max-height: 200px; }
+    .faq-answer p { padding: 0 20px 16px; color: #64748b; font-size: 14px; line-height: 1.6; }
+    
+    .faq-cta { text-align: center; margin-top: 32px; }
+    .faq-cta p { font-size: 14px; font-weight: 600; color: #1a1a2e; text-transform: uppercase; margin-bottom: 8px; }
+    .faq-cta small { display: block; color: #64748b; font-size: 13px; margin-bottom: 16px; }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: #22c55e; color: #fff; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; text-transform: uppercase; }
+    
+    /* Footer */
+    footer { background: #1e3a8a; padding: 32px 20px; text-align: center; }
+    footer p { color: rgba(255,255,255,0.7); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* YouTube Embed */
+    .youtube-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .youtube-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">🇨🇳 China → Brasil 🇧🇷</span>
+      
+      <h1>Transforme sua Router CNC em uma <span>fábrica de Letras Caixa</span> premium</h1>
+      <p class="subtitle">Aprenda o método chinês onde a máquina faz quase todo o trabalho.</p>
+      
+      <div class="tags">
+        <span>Funciona com qualquer Router CNC</span>
+        <span>Margem de lucro de 300% a 500%</span>
+        <span>Produção rápida e escalável</span>
+      </div>
+      
+      <div class="video-container" id="videoContainer" onclick="playVideo()">
+        <img src="https://img.youtube.com/vi/50RIJRBztdc/maxresdefault.jpg" alt="Letras Chinesas 4.0 - Apresentação" id="videoThumb">
+        <div class="video-overlay" id="videoOverlay">
+          <div class="play-btn">
+            <div class="play-icon"></div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="https://pay.hotmart.com/Y97038614C?checkoutMode=10" class="btn-primary">
+        QUERO APRENDER AGORA!
+      </a>
+      <p class="hero-info">Acesso imediato • Garantia 7 dias • Até 12x</p>
+      
+      <p class="hero-proof">⚡ <strong>+500 alunos</strong> já transformaram suas routers</p>
+      
+      <div class="payment-methods">
+        <span>Pagamento:</span>
+        <span>PIX</span>
+        <span>Cartão</span>
+        <span>Boleto</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="pain-intro">
+        <p>A maioria das empresas <strong>enfrenta os mesmos problemas</strong></p>
+        <div class="pain-arrow">↓</div>
+      </div>
+      
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <h3>Mão de obra cara e escassa</h3>
+              <p>Funcionários qualificados são difíceis de encontrar e ainda levam boa parte do seu lucro</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h3>Produção lenta e trabalhosa</h3>
+              <p>Cada letreiro demora horas de trabalho manual e você não consegue escalar</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <h3>Margens de lucro apertadas</h3>
+              <p>Depois de pagar materiais, funcionários e impostos, sobra pouco no bolso</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pain-card">
+          <div class="pain-card-header">
+            <div class="pain-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div>
+              <h3>Concorrência nivelando preços</h3>
+              <p>Clientes sempre querem pagar menos porque todo mundo faz igual</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="pain-cta">Mas existe um modelo de produção que <strong>elimina tudo isso</strong>...</p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="solution-section">
+    <div class="container">
+      <p class="section-label">A SOLUÇÃO:</p>
+      <div class="solution-arrow">↓</div>
+      <h2>Letras Acrílicas Chinesas: <span>A tendência que veio para ficar</span></h2>
+      <p class="solution-desc">Na China, esse modelo já domina o mercado porque os empresários perceberam: <strong>menos mão de obra = mais lucro</strong>. Agora essa onda chegou no Brasil e você pode surfar ela.</p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>Sua Router CNC faz 90% do trabalho</h3>
+          <p>Qualquer router que você já tem serve. A máquina corta, você só monta. Sem funcionários, sem dor de cabeça.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Margem de lucro de 300% a 500%</h3>
+          <p>Produção rápida + pouca mão de obra = lucro muito maior que letras tradicionais.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Produto premium, preço alto</h3>
+          <p>Letras acrílicas iluminadas são percebidas como produto de alto valor. Clientes pagam mais, naturalmente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="curriculum-section">
+    <div class="container">
+      <p class="section-label">O QUE VOCÊ VAI APRENDER:</p>
+      <h2>Conteúdo completo <span>do zero ao avançado</span></h2>
+      
+      <div class="curriculum-content">
+        <div class="curriculum-image">
+          <img src="conteudo-curso.png" alt="Conteúdo do Treinamento - Matheus Pivatti">
+        </div>
+        
+        <div>
+          <p class="curriculum-desc">Método aprendido em 3 viagens à China, adaptado para produzir Letras Caixa premium com Router CNC no Brasil.</p>
+          
+          <div class="modules-list">
+            <div class="module-item" onclick="toggleModule(this)">
+              <div class="module-header">
+                <div class="module-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
+                </div>
+                <div class="module-info">
+                  <h3>Módulo 1 - Bem-Vindo ao Treinamento</h3>
+                  <p>Entenda o método e prepare-se para começar</p>
+                </div>
+                <span class="module-arrow">▼</span>
+              </div>
+              <div class="module-content">
+                <div class="module-content-inner">Visão geral do método chinês, materiais necessários e configuração inicial da sua Router CNC.</div>
+              </div>
+            </div>
+            
+            <div class="module-item" onclick="toggleModule(this)">
+              <div class="module-header">
+                <div class="module-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="module-info">
+                  <h3>Módulo 2 - Letras com Borda Iluminada (Backside Light)</h3>
+                  <p>O modelo que mais vende - aprenda do projeto à instalação</p>
+                </div>
+                <span class="module-arrow">▼</span>
+              </div>
+              <div class="module-content">
+                <div class="module-content-inner">Técnica completa para criar letras com iluminação traseira, o modelo mais procurado pelos clientes.</div>
+              </div>
+            </div>
+            
+            <div class="module-item" onclick="toggleModule(this)">
+              <div class="module-header">
+                <div class="module-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="module-info">
+                  <h3>Módulo 3 - Letras com Face Iluminada (Frontside Light)</h3>
+                  <p>Técnica avançada para projetos premium</p>
+                </div>
+                <span class="module-arrow">▼</span>
+              </div>
+              <div class="module-content">
+                <div class="module-content-inner">Aprenda a criar letras com iluminação frontal para projetos de alto valor agregado.</div>
+              </div>
+            </div>
+            
+            <div class="module-item" onclick="toggleModule(this)">
+              <div class="module-header">
+                <div class="module-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div class="module-info">
+                  <h3>BÔNUS - Precificação e Vendas</h3>
+                  <p>Transforme suas letras em lucro de verdade</p>
+                </div>
+                <span class="module-arrow">▼</span>
+              </div>
+              <div class="module-content">
+                <div class="module-content-inner">Como precificar seus trabalhos e conquistar clientes que pagam bem.</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="curriculum-extra">
+            <p>Total de <span>+15h aulas práticas em Full HD</span> para você assistir de onde quiser!</p>
+          </div>
+          
+          <div class="curriculum-bonus">
+            <h4>E para garantir seu sucesso completo, você também recebe:</h4>
+            <div class="bonus-items">
+              <div class="bonus-item">
+                <div class="bonus-item-icon">💬</div>
+                <div>
+                  <h5>Suporte no WhatsApp</h5>
+                  <p>Tire suas dúvidas direto comigo</p>
+                </div>
+              </div>
+              <div class="bonus-item">
+                <div class="bonus-item-icon">🤖</div>
+                <div>
+                  <h5>IA Exclusiva</h5>
+                  <p>Especialista no treinamento 24h</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section">
+    <div class="container">
+      <p class="section-label">RESULTADOS REAIS</p>
+      <h2>Veja o que você será capaz de <span>produzir</span></h2>
+      <p class="gallery-desc">Trabalhos feitos com a técnica que você vai aprender no treinamento</p>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="galeria-1.jpg" alt="Letras Douradas" loading="lazy">
+          <div class="gallery-label">Letras Douradas</div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeria-2.jpg" alt="Letras com Borda" loading="lazy">
+          <div class="gallery-label">Letras com Borda</div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeria-3.jpg" alt="Fachada Premium" loading="lazy">
+          <div class="gallery-label">Fachada Premium</div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeria-4.jpg" alt="Backside Light" loading="lazy">
+          <div class="gallery-label">Backside Light</div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeria-5.jpg" alt="Frontside Light" loading="lazy">
+          <div class="gallery-label">Frontside Light</div>
+        </div>
+        <div class="gallery-item">
+          <img src="galeria-6.jpg" alt="Projeto Comercial" loading="lazy">
+          <div class="gallery-label">Projeto Comercial</div>
+        </div>
+      </div>
+      
+      <div class="gallery-cta">
+        <p>Cada um desses trabalhos pode render de <span>300 a 500% de lucro</span>, pois tem custo baixo e resultado premium</p>
+        <a href="https://pay.hotmart.com/Y97038614C?checkoutMode=10" class="btn-primary">
+          QUERO APRENDER A FAZER ISSO!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-card">
+        <h3 class="pricing-title">INVESTIMENTO NECESSÁRIO:</h3>
+        
+        <div class="pricing-list">
+          <div class="pricing-item">
+            <span class="pricing-item-left">Treinamento Completo de Projetos</span>
+            <span class="pricing-item-right">R$ 87,00</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Módulo de Elétrica e LED</span>
+            <span class="pricing-item-right">R$ 97,00</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Técnicas de Montagem Profissional</span>
+            <span class="pricing-item-right">R$ 147,00</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Instalação e Acabamento</span>
+            <span class="pricing-item-right">R$ 47,00</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">BÔNUS: Precificação e Vendas</span>
+            <span class="pricing-item-right">R$ 97,00</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">Suporte personalizado</span>
+            <span class="pricing-item-right">R$ 100,00</span>
+          </div>
+          <div class="pricing-item">
+            <span class="pricing-item-left">IA exclusiva especialista no treinamento 24/7</span>
+            <span class="pricing-item-right">R$ 200,00</span>
+          </div>
+        </div>
+        
+        <div class="pricing-total">
+          <p class="pricing-old">De: <span>R$ 775,00</span></p>
+          <p class="pricing-new"><small>Por apenas 12x de</small> <span>R$ 19,60</span></p>
+          <p class="pricing-vista">ou R$ 197,00 à vista</p>
+          <p class="pricing-economia">Economia de R$ 578,00</p>
+        </div>
+        
+        <a href="https://pay.hotmart.com/Y97038614C?checkoutMode=10" class="pricing-btn">
+          QUERO GARANTIR MINHA VAGA!
+        </a>
+        
+        <div class="pricing-trust">
+          <span>🔒 Compra 100% segura</span>
+          <span>⚡ Acesso imediato</span>
+          <span>✓ Garantia de 7 dias</span>
+        </div>
+        
+        <p class="pricing-footer">Pagamento processado pela Hotmart com criptografia de dados</p>
+        
+        <div class="pricing-social">
+          <div class="pricing-social-item">
+            <p>+500 alunos formados</p>
+          </div>
+          <div class="pricing-social-item">
+            <p>⭐ 4.9/5 de avaliação</p>
+          </div>
+          <div class="pricing-social-item">
+            <p>👁 34 pessoas vendo agora</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR -->
+  <section class="instructor-section">
+    <div class="container">
+      <p class="section-label">SEU INSTRUTOR</p>
+      <h2>Aprenda com quem <span>realmente faz</span></h2>
+      
+      <div class="instructor-content">
+        <div class="instructor-left">
+          <div class="instructor-header">
+            <img src="/images/matheus-instrutor.webp" alt="Matheus Pivatti" class="instructor-img" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop'">
+            <div class="instructor-name">
+              <h3>Matheus Pivatti</h3>
+              <a href="https://instagram.com/letracaixadozero" target="_blank">@letracaixadozero</a>
+              <div class="instructor-stars">⭐⭐⭐⭐⭐</div>
+            </div>
+          </div>
+          
+          <p class="instructor-bio">Proprietário da <strong>@steel.letras</strong> com <strong>15 anos de experiência</strong> no mercado de letreiros.<br><br>Há 3 anos compartilha seu conhecimento através da <strong>@letracaixadozero</strong>, já tendo formado <strong>mais de 3.000 alunos</strong> em todo o Brasil.</p>
+          
+          <div class="instructor-stats">
+            <div class="instructor-stat">
+              <p>+122 mil</p>
+              <p>seguidores</p>
+            </div>
+            <div class="instructor-stat">
+              <p>+3.000</p>
+              <p>alunos formados</p>
+            </div>
+            <div class="instructor-stat">
+              <p>+5.000</p>
+              <p>letreiros entregues</p>
+            </div>
+          </div>
+          
+          <a href="https://instagram.com/letracaixadozero" target="_blank" class="instructor-follow">
+            📷 Seguir no Instagram
+          </a>
+        </div>
+        
+        <div class="instructor-quote">
+          "Eu já passei por todos os erros possíveis nesses 15 anos, muita tentativa e erros, afinal quando comecei não existia aonde buscar conhecimento, e por isso depois que aprendi, ensinei tudo nos treinamentos para que você vá pelo caminho certo direto, sem perder tempo e dinheiro tendo retrabalhos igual eu tive."
+          <p class="instructor-quote-author">— Matheus Pivatti</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="guarantee-section">
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="guarantee-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h2>Garantia Incondicional de <span>7 Dias</span></h2>
+        <p class="guarantee-subtitle">RISCO ZERO PARA VOCÊ</p>
+        <p>Acesse o treinamento, assista às aulas, baixe os materiais. Se dentro de 7 dias você achar que não é pra você, basta clicar no botão de reembolso e devolvemos <strong>100% do seu dinheiro</strong> na hora.</p>
+        <p class="guarantee-note">Sem perguntas. Sem burocracia. Sem letras miúdas.</p>
+        <a href="https://pay.hotmart.com/Y97038614C?checkoutMode=10" class="guarantee-btn">
+          QUERO COMEÇAR SEM RISCO! →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <h2>Ainda com dúvidas?</h2>
+      <p class="faq-desc">Respondemos as perguntas mais comuns dos nossos futuros alunos</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Qual Router CNC eu preciso ter?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Qualquer Router CNC com área útil mínima de 60x60cm serve. A maioria dos alunos usa routers de entrada como a 6090 ou similares.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Preciso ter experiência prévia com letreiros?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Não! O treinamento foi feito para iniciantes. Ensinamos tudo do zero, desde a configuração da máquina até a instalação final.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Em quanto tempo consigo começar a produzir?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>A maioria dos alunos consegue produzir a primeira peça vendável em 1-2 semanas de estudo e prática.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Vocês emitem certificado?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Ao concluir o treinamento você recebe um certificado de conclusão digital.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Por quanto tempo tenho acesso ao curso?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Acesso vitalício! Você pode assistir quantas vezes quiser, para sempre, incluindo todas as atualizações futuras.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quais as formas de pagamento?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Aceitamos PIX (com desconto), cartão de crédito em até 12x, e boleto bancário.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            E se eu não gostar do curso?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você tem 7 dias de garantia incondicional. Se não gostar, devolvo 100% do seu dinheiro sem perguntas.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Terei suporte se tiver dúvidas?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Você terá acesso ao suporte via WhatsApp direto comigo e também à nossa IA exclusiva disponível 24h.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-cta">
+        <p>Não encontrou sua pergunta?</p>
+        <small>Fale direto com nossa equipe no WhatsApp</small>
+        <a href="https://wa.me/551938917649?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20treinamentos" target="_blank" class="btn-whatsapp">
+          💬 TIRAR DÚVIDAS NO WHATSAPP
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Letras de Acrílico Chinesas 4.0</p>
+  </footer>
+
+<script>
+// Play Video
+function playVideo() {
+  const container = document.getElementById('videoContainer');
+  container.innerHTML = '<div class="youtube-embed"><iframe src="https://www.youtube.com/embed/50RIJRBztdc?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+}
+
+// Toggle Module
+function toggleModule(el) {
+  el.classList.toggle('active');
+}
+
+// FAQ Toggle
+function toggleFaq(btn) {
+  const isActive = btn.classList.contains('active');
+  document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+  if (!isActive) {
+    btn.classList.add('active');
+    btn.nextElementSibling.classList.add('active');
+  }
+}
+
+// UTM Tracking
+(function() {
+  const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'sck'];
+  const urlParams = new URLSearchParams(window.location.search);
+  let utmValues = {};
+  utmParams.forEach(param => {
+    if (urlParams.has(param)) utmValues[param] = urlParams.get(param);
+  });
+  if (Object.keys(utmValues).length > 0) {
+    document.querySelectorAll('a[href*="pay"]').forEach(link => {
+      const linkUrl = new URL(link.href);
+      utmParams.forEach(param => {
+        if (utmValues[param]) linkUrl.searchParams.set(param, utmValues[param]);
+      });
+      link.href = linkUrl.toString();
+    });
+  }
+})();
+
+// GTM - carregado após 5 segundos para não afetar performance
+setTimeout(function() {
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="https://load.stape.letracaixadozero.com/iebjqtlcp.js?"+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','x=GQdRMyUnTy42LTszJV9aQwZeXlpATAYLTQ8JAAMLAQQZGw0QHhAHFx9NDxsc');
+}, 5000);
+</script>
+</body>
+</html>
