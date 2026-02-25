@@ -33,16 +33,26 @@
     a { text-decoration: none; color: inherit; }
     
     /* VSL Gate Overlay */
-    .vsl-gate { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; }
-    .vsl-gate-content { width: 90%; max-width: 900px; text-align: center; }
-    .vsl-gate-header { color: #fbbf24; font-size: clamp(20px, 4vw, 28px); font-weight: 800; text-transform: uppercase; margin-bottom: 24px; letter-spacing: 1px; animation: pulse 2s infinite; }
+    .vsl-gate { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+    .vsl-gate-content { width: 100%; max-width: 900px; text-align: center; }
+    .vsl-gate-header { color: #fbbf24; font-size: clamp(18px, 4vw, 28px); font-weight: 800; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px; animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
-    .vsl-gate-video { position: relative; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 50px rgba(251,191,36,0.3); aspect-ratio: 16/9; min-height: 400px; }
+    .vsl-gate-video { position: relative; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(251,191,36,0.2); aspect-ratio: 16/9; width: 100%; max-width: 100%; }
     #gatePlayer { width: 100%; height: 100%; border: none; background: #000; }
-    .vsl-gate-footer { color: #94a3b8; font-size: 16px; margin-top: 24px; }
+    .vsl-gate-footer { color: #94a3b8; font-size: clamp(14px, 3vw, 16px); margin-top: 20px; padding: 0 10px; }
     .vsl-gate-footer strong { color: #fff; }
-    .vsl-progress-gate { height: 6px; background: #1e293b; margin-top: 16px; border-radius: 3px; overflow: hidden; }
+    .vsl-progress-gate { height: 6px; background: #1e293b; margin: 16px auto 0; border-radius: 3px; overflow: hidden; max-width: 100%; }
     .vsl-progress-gate-bar { height: 100%; background: linear-gradient(90deg, #fbbf24, #f59e0b); width: 0%; transition: width 0.5s; }
+    
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .vsl-gate { align-items: flex-start; padding: 10px; }
+      .vsl-gate-content { margin-top: 40px; }
+      .vsl-gate-header { font-size: 18px; margin-bottom: 15px; }
+      .vsl-gate-video { min-height: auto; }
+      .vsl-gate-footer { font-size: 14px; margin-top: 15px; }
+      .vsl-gate-footer p { margin: 10px 0; }
+    }
     
     /* Content Initially Hidden */
     .page-content { opacity: 0; transition: opacity 1s; }
@@ -300,6 +310,9 @@
           allowfullscreen>
         </iframe>
       </div>
+      <p style="color: #fbbf24; font-size: 14px; margin-top: 10px;">
+        🔊 Clique no vídeo para ativar o som
+      </p>
       <div class="vsl-gate-footer">
         <p>🔒 <strong>O RESTANTE DA PÁGINA SERÁ LIBERADO APÓS TERMINAR DE ASSISTIR</strong></p>
         <div class="vsl-progress-gate">
