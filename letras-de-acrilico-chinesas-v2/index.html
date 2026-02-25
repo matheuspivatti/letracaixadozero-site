@@ -39,6 +39,16 @@
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
     .vsl-gate-video { position: relative; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 50px rgba(251,191,36,0.3); aspect-ratio: 16/9; }
     #gatePlayer { width: 100%; height: 100%; }
+    
+    /* Loading state */
+    .video-loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fbbf24; font-size: 18px; }
+    
+    /* Big play button overlay */
+    .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); cursor: pointer; transition: opacity 0.3s; }
+    .play-overlay.hidden { opacity: 0; pointer-events: none; }
+    .play-button-big { width: 80px; height: 80px; background: rgba(251,191,36,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+    .play-button-big:hover { transform: scale(1.1); }
+    .play-icon-big { width: 0; height: 0; border-left: 30px solid #000; border-top: 20px solid transparent; border-bottom: 20px solid transparent; margin-left: 8px; }
     .vsl-gate-footer { color: #94a3b8; font-size: 16px; margin-top: 24px; }
     .vsl-gate-footer strong { color: #fff; }
     .vsl-progress-gate { height: 6px; background: #1e293b; margin-top: 16px; border-radius: 3px; overflow: hidden; }
@@ -291,6 +301,12 @@
       <h1 class="vsl-gate-header">⚠️ MENSAGEM IMPORTANTE NO VÍDEO - PRESTE ATENÇÃO!</h1>
       <div class="vsl-gate-video">
         <div id="gatePlayer"></div>
+        <div class="video-loading" id="videoLoading">Carregando vídeo...</div>
+        <div class="play-overlay" id="playOverlay" onclick="manualPlay()">
+          <div class="play-button-big">
+            <div class="play-icon-big"></div>
+          </div>
+        </div>
       </div>
       <div class="vsl-gate-footer">
         <p>🔒 <strong>O RESTANTE DA PÁGINA SERÁ LIBERADO APÓS TERMINAR DE ASSISTIR</strong></p>
@@ -815,70 +831,131 @@
 <script>
 // VSL Gate Configuration
 const VSL_CONFIG = {
-  videoId: '50RIJRBztdc', // ID do vídeo (você pode trocar)
-  requiredWatchTime: 180, // 3 minutos em segundos
+  videoId: '50RIJRBztdc',
+  requiredWatchTime: 180, // 3 minutos
   autoplay: true,
-  skipAllowed: false // Não permite pular
+  muted: true // Importante para autoplay funcionar
 };
 
 // Variables
 let gatePlayer;
 let watchedTime = 0;
-let totalDuration = 0;
 let isWatching = false;
 let checkInterval;
+let playerReady = false;
 
-// Load YouTube API
-const tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// Initialize on page load
+window.addEventListener('load', () => {
+  loadYouTubeAPI();
+  
+  // Fallback after 5 seconds
+  setTimeout(() => {
+    if (!playerReady) {
+      console.log('API timeout, using iframe fallback');
+      useFallbackPlayer();
+    }
+  }, 5000);
+});
+
+function loadYouTubeAPI() {
+  // Check if API is already loaded
+  if (window.YT && window.YT.Player) {
+    onYouTubeIframeAPIReady();
+    return;
+  }
+  
+  // Load YouTube API
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  const firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
 
 // YouTube API Ready
 function onYouTubeIframeAPIReady() {
+  console.log('YouTube API Ready');
+  
   gatePlayer = new YT.Player('gatePlayer', {
     height: '100%',
     width: '100%',
     videoId: VSL_CONFIG.videoId,
     playerVars: {
-      'autoplay': VSL_CONFIG.autoplay ? 1 : 0,
+      'autoplay': 1,
       'controls': 1,
-      'disablekb': 1,
       'rel': 0,
       'modestbranding': 1,
-      'iv_load_policy': 3,
-      'playsinline': 1
+      'playsinline': 1,
+      'mute': VSL_CONFIG.muted ? 1 : 0, // Muted for autoplay
+      'fs': 1
     },
     events: {
       'onReady': onGatePlayerReady,
-      'onStateChange': onGatePlayerStateChange
+      'onStateChange': onGatePlayerStateChange,
+      'onError': onPlayerError
     }
   });
 }
 
 function onGatePlayerReady(event) {
-  totalDuration = gatePlayer.getDuration();
+  console.log('Player Ready');
+  playerReady = true;
   
-  // Auto-play if configured
-  if (VSL_CONFIG.autoplay) {
-    // Attempt autoplay
-    event.target.playVideo();
-  }
+  // Hide loading
+  document.getElementById('videoLoading').style.display = 'none';
+  
+  // Try autoplay with mute
+  event.target.mute();
+  event.target.playVideo();
+  
+  // Show manual play button after 2 seconds if not playing
+  setTimeout(() => {
+    const state = gatePlayer.getPlayerState();
+    if (state !== YT.PlayerState.PLAYING) {
+      showPlayButton();
+    }
+  }, 2000);
 }
 
 function onGatePlayerStateChange(event) {
+  console.log('State Change:', event.data);
+  
   if (event.data == YT.PlayerState.PLAYING) {
+    // Hide play overlay when playing
+    document.getElementById('playOverlay').classList.add('hidden');
+    
     if (!isWatching) {
       isWatching = true;
       startWatchTimer();
+      
+      // Try to unmute after starting
+      setTimeout(() => {
+        if (gatePlayer && gatePlayer.isMuted()) {
+          gatePlayer.unMute();
+        }
+      }, 1000);
     }
   } else if (event.data == YT.PlayerState.PAUSED) {
     pauseWatchTimer();
   } else if (event.data == YT.PlayerState.ENDED) {
-    // Video ended - check if watched enough
     if (watchedTime >= VSL_CONFIG.requiredWatchTime) {
       unlockContent();
     }
+  }
+}
+
+function onPlayerError(event) {
+  console.error('Player Error:', event.data);
+  showPlayButton();
+}
+
+function showPlayButton() {
+  document.getElementById('videoLoading').style.display = 'none';
+  document.getElementById('playOverlay').classList.remove('hidden');
+}
+
+function manualPlay() {
+  if (playerReady && gatePlayer) {
+    gatePlayer.playVideo();
   }
 }
 
@@ -888,7 +965,6 @@ function startWatchTimer() {
       watchedTime++;
       updateProgress();
       
-      // Check if watched enough
       if (watchedTime >= VSL_CONFIG.requiredWatchTime) {
         unlockContent();
       }
@@ -911,26 +987,42 @@ function updateProgress() {
 function unlockContent() {
   pauseWatchTimer();
   
-  // Fade out gate
   const gate = document.getElementById('vslGate');
   gate.style.transition = 'opacity 1s';
   gate.style.opacity = '0';
   
-  // Show content
   const content = document.getElementById('pageContent');
   content.classList.add('revealed');
   
-  // Remove gate after animation
   setTimeout(() => {
     gate.remove();
-    // Stop video to save resources
     if (gatePlayer && gatePlayer.stopVideo) {
       gatePlayer.stopVideo();
     }
   }, 1000);
   
-  // Auto-scroll to top of content
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Fallback player
+function useFallbackPlayer() {
+  document.getElementById('videoLoading').style.display = 'none';
+  document.getElementById('playOverlay').style.display = 'none';
+  
+  // Replace div with iframe
+  const container = document.getElementById('gatePlayer');
+  container.innerHTML = `<iframe 
+    width="100%" 
+    height="100%" 
+    src="https://www.youtube.com/embed/${VSL_CONFIG.videoId}?autoplay=1&mute=1&controls=1&playsinline=1" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>`;
+  
+  // Start manual timer since we can't track state
+  isWatching = true;
+  startWatchTimer();
 }
 
 // Toggle FAQ
