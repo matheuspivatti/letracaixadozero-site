@@ -32,6 +32,22 @@
     img { max-width: 100%; height: auto; }
     a { text-decoration: none; color: inherit; }
     
+    /* VSL Gate Overlay */
+    .vsl-gate { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; }
+    .vsl-gate-content { width: 90%; max-width: 900px; text-align: center; }
+    .vsl-gate-header { color: #fbbf24; font-size: clamp(20px, 4vw, 28px); font-weight: 800; text-transform: uppercase; margin-bottom: 24px; letter-spacing: 1px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .vsl-gate-video { position: relative; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 0 50px rgba(251,191,36,0.3); aspect-ratio: 16/9; }
+    #gatePlayer { width: 100%; height: 100%; }
+    .vsl-gate-footer { color: #94a3b8; font-size: 16px; margin-top: 24px; }
+    .vsl-gate-footer strong { color: #fff; }
+    .vsl-progress-gate { height: 6px; background: #1e293b; margin-top: 16px; border-radius: 3px; overflow: hidden; }
+    .vsl-progress-gate-bar { height: 100%; background: linear-gradient(90deg, #fbbf24, #f59e0b); width: 0%; transition: width 0.5s; }
+    
+    /* Content Initially Hidden */
+    .page-content { opacity: 0; transition: opacity 1s; }
+    .page-content.revealed { opacity: 1; }
+    
     /* Hero */
     .hero { background: linear-gradient(180deg, #fff 0%, #f0f7ff 100%); padding: 40px 20px 60px; text-align: center; }
     .badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e2e8f0; color: #1a1a2e; padding: 8px 20px; border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
@@ -269,6 +285,24 @@
   </style>
 </head>
 <body>
+  <!-- VSL GATE OVERLAY -->
+  <div class="vsl-gate" id="vslGate">
+    <div class="vsl-gate-content">
+      <h1 class="vsl-gate-header">⚠️ MENSAGEM IMPORTANTE NO VÍDEO - PRESTE ATENÇÃO!</h1>
+      <div class="vsl-gate-video">
+        <div id="gatePlayer"></div>
+      </div>
+      <div class="vsl-gate-footer">
+        <p>🔒 <strong>O RESTANTE DA PÁGINA SERÁ LIBERADO APÓS TERMINAR DE ASSISTIR</strong></p>
+        <div class="vsl-progress-gate">
+          <div class="vsl-progress-gate-bar" id="gateProgressBar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE CONTENT (Initially Hidden) -->
+  <div class="page-content" id="pageContent">
   <!-- HERO -->
   <section class="hero">
     <div class="container">
@@ -283,27 +317,10 @@
         <span>Produção rápida e escalável</span>
       </div>
       
-      <div class="video-container" id="videoContainer">
-        <div id="player"></div>
-      </div>
-      
-      <!-- VSL Timer System -->
-      <div class="vsl-timer" id="vslTimer">
-        <div class="vsl-progress">
-          <div class="vsl-progress-bar" id="progressBar"></div>
-        </div>
-        <p class="vsl-message">
-          🔒 <strong>Assista o vídeo completo</strong> para liberar o acesso especial
-          <br><small id="timerText">O botão aparecerá em 3 minutos...</small>
-        </p>
-      </div>
-      
-      <div id="ctaSection" class="hidden-cta">
-        <a href="https://pay.hotmart.com/Y97038614C?checkoutMode=10" class="btn-primary">
-          🔓 ACESSO LIBERADO - QUERO COMEÇAR AGORA!
-        </a>
-        <p class="hero-info">Acesso imediato • Garantia 7 dias • Até 12x</p>
-      </div>
+      <a href="https://pay.hotmart.com/Y97038614C?checkoutMode=10" class="btn-primary">
+        QUERO APRENDER AGORA!
+      </a>
+      <p class="hero-info">Acesso imediato • Garantia 7 dias • Até 12x</p>
       
       <p class="hero-proof">⚡ <strong>+500 alunos</strong> já transformaram suas routers</p>
       
@@ -792,24 +809,24 @@
   <footer>
     <p>Letras de Acrílico Chinesas 4.0</p>
   </footer>
+  </div>
+  <!-- END PAGE CONTENT -->
 
 <script>
-// VSL Timer Configuration
+// VSL Gate Configuration
 const VSL_CONFIG = {
-  videoId: '50RIJRBztdc', // ID do vídeo do YouTube (você pode trocar)
-  timerSeconds: 180, // 3 minutos (ajuste conforme necessário)
-  showProgressBar: true,
-  messages: {
-    waiting: 'O botão aparecerá em {time}...',
-    ready: '✅ Acesso liberado! Clique no botão abaixo'
-  }
+  videoId: '50RIJRBztdc', // ID do vídeo (você pode trocar)
+  requiredWatchTime: 180, // 3 minutos em segundos
+  autoplay: true,
+  skipAllowed: false // Não permite pular
 };
 
-// YouTube Player API
-let player;
-let timerInterval;
-let secondsWatched = 0;
-let isPlaying = false;
+// Variables
+let gatePlayer;
+let watchedTime = 0;
+let totalDuration = 0;
+let isWatching = false;
+let checkInterval;
 
 // Load YouTube API
 const tag = document.createElement('script');
@@ -819,87 +836,101 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // YouTube API Ready
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
+  gatePlayer = new YT.Player('gatePlayer', {
     height: '100%',
     width: '100%',
     videoId: VSL_CONFIG.videoId,
     playerVars: {
-      'playsinline': 1,
+      'autoplay': VSL_CONFIG.autoplay ? 1 : 0,
+      'controls': 1,
+      'disablekb': 1,
       'rel': 0,
-      'modestbranding': 1
+      'modestbranding': 1,
+      'iv_load_policy': 3,
+      'playsinline': 1
     },
     events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
+      'onReady': onGatePlayerReady,
+      'onStateChange': onGatePlayerStateChange
     }
   });
 }
 
-function onPlayerReady(event) {
-  // Video is ready
+function onGatePlayerReady(event) {
+  totalDuration = gatePlayer.getDuration();
+  
+  // Auto-play if configured
+  if (VSL_CONFIG.autoplay) {
+    // Attempt autoplay
+    event.target.playVideo();
+  }
 }
 
-function onPlayerStateChange(event) {
+function onGatePlayerStateChange(event) {
   if (event.data == YT.PlayerState.PLAYING) {
-    if (!isPlaying) {
-      isPlaying = true;
-      startTimer();
+    if (!isWatching) {
+      isWatching = true;
+      startWatchTimer();
     }
-  } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-    pauseTimer();
+  } else if (event.data == YT.PlayerState.PAUSED) {
+    pauseWatchTimer();
+  } else if (event.data == YT.PlayerState.ENDED) {
+    // Video ended - check if watched enough
+    if (watchedTime >= VSL_CONFIG.requiredWatchTime) {
+      unlockContent();
+    }
   }
 }
 
-// Timer Functions
-function startTimer() {
-  if (!timerInterval) {
-    timerInterval = setInterval(updateTimer, 1000);
+function startWatchTimer() {
+  if (!checkInterval) {
+    checkInterval = setInterval(() => {
+      watchedTime++;
+      updateProgress();
+      
+      // Check if watched enough
+      if (watchedTime >= VSL_CONFIG.requiredWatchTime) {
+        unlockContent();
+      }
+    }, 1000);
   }
 }
 
-function pauseTimer() {
-  if (timerInterval) {
-    clearInterval(timerInterval);
-    timerInterval = null;
+function pauseWatchTimer() {
+  if (checkInterval) {
+    clearInterval(checkInterval);
+    checkInterval = null;
   }
 }
 
-function updateTimer() {
-  secondsWatched++;
-  
-  // Update progress bar
-  const progress = Math.min((secondsWatched / VSL_CONFIG.timerSeconds) * 100, 100);
-  document.getElementById('progressBar').style.width = progress + '%';
-  
-  // Update timer text
-  const remaining = Math.max(VSL_CONFIG.timerSeconds - secondsWatched, 0);
-  if (remaining > 0) {
-    const minutes = Math.floor(remaining / 60);
-    const seconds = remaining % 60;
-    const timeStr = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds} segundos`;
-    document.getElementById('timerText').textContent = VSL_CONFIG.messages.waiting.replace('{time}', timeStr);
-  } else {
-    // Timer completed - show CTA
-    showCTA();
-  }
+function updateProgress() {
+  const progress = Math.min((watchedTime / VSL_CONFIG.requiredWatchTime) * 100, 100);
+  document.getElementById('gateProgressBar').style.width = progress + '%';
 }
 
-function showCTA() {
-  pauseTimer();
+function unlockContent() {
+  pauseWatchTimer();
   
-  // Update message
-  document.getElementById('timerText').textContent = VSL_CONFIG.messages.ready;
-  document.querySelector('.vsl-message strong').textContent = 'Parabéns por assistir!';
+  // Fade out gate
+  const gate = document.getElementById('vslGate');
+  gate.style.transition = 'opacity 1s';
+  gate.style.opacity = '0';
   
-  // Show CTA with animation
-  const ctaSection = document.getElementById('ctaSection');
-  ctaSection.classList.remove('hidden-cta');
-  ctaSection.classList.add('show-cta');
+  // Show content
+  const content = document.getElementById('pageContent');
+  content.classList.add('revealed');
   
-  // Optional: Auto-scroll to CTA
+  // Remove gate after animation
   setTimeout(() => {
-    ctaSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 500);
+    gate.remove();
+    // Stop video to save resources
+    if (gatePlayer && gatePlayer.stopVideo) {
+      gatePlayer.stopVideo();
+    }
+  }, 1000);
+  
+  // Auto-scroll to top of content
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Toggle FAQ
