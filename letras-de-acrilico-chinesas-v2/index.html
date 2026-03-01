@@ -552,6 +552,9 @@ function onPlayerReady(event) {
   videoDuration = player.getDuration();
   console.log('Duração do vídeo:', videoDuration, 'segundos');
   
+  // Forçar velocidade normal (bloqueia aceleração)
+  player.setPlaybackRate(1.0);
+  
   // Tentar unmute (pode ser bloqueado pelo browser)
   try {
     player.unMute();
@@ -561,6 +564,14 @@ function onPlayerReady(event) {
   
   // Iniciar monitoramento de progresso
   startProgressMonitoring();
+  
+  // Monitorar e bloquear tentativas de acelerar
+  setInterval(() => {
+    if (player && player.getPlaybackRate && player.getPlaybackRate() !== 1.0) {
+      player.setPlaybackRate(1.0);
+      console.log('Velocidade resetada para 1.0x - aceleração bloqueada!');
+    }
+  }, 500);
 }
 
 function onPlayerStateChange(event) {
