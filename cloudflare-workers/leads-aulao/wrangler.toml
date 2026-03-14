@@ -1,0 +1,8 @@
+name = "leads-aulao"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "leads-aulao"
+database_id = "3973477e-1a93-4085-9887-3e66b47046b4"

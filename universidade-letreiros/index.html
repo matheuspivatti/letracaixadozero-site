@@ -274,12 +274,12 @@
         body: JSON.stringify(leadData)
       }).catch(err => console.log('Webhook error:', err));
       
-      // Salvar no Google Sheets
-      fetch('/api/leads-aulao', {
+      // Salvar no Cloudflare D1 (permanente)
+      fetch('https://leads-aulao.matheuspivatti.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(leadData)
-      }).catch(err => console.log('Sheets error:', err));
+      }).catch(err => console.log('Cloudflare error:', err));
       
       // Redirecionar direto para WhatsApp
       window.location.href='https://chat.whatsapp.com/Elhz9ucLUuPC9wQ3XHbZyP';
