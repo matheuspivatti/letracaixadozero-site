@@ -1,16 +1,43 @@
-// Vercel Serverless Function - Salvar Leads Aulão no Google Sheets
-const { google } = require('googleapis');
+// Vercel Serverless Function - Salvar Leads Aulão
+const { kv } = require('@vercel/kv');
 
 module.exports = async (req, res) => {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
+  // GET = Download CSV
+  if (req.method === 'GET') {
+    try {
+      const leads = await kv.lrange('aulao:leads', 0, -1);
+      
+      if (leads.length === 0) {
+        return res.status(200).send('Data/Hora,Nome,Email,WhatsApp,Evento,Página\n');
+      }
+
+      const csv = [
+        'Data/Hora,Nome,Email,WhatsApp,Evento,Página',
+        ...leads.map(lead => {
+          const l = JSON.parse(lead);
+          return `"${l.timestamp}","${l.nome}","${l.email}","${l.whatsapp}","${l.evento}","${l.pagina}"`;
+        })
+      ].join('\n');
+
+      res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+      res.setHeader('Content-Disposition', 'attachment; filename=leads-aulao.csv');
+      return res.status(200).send(csv);
+    } catch (error) {
+      console.error('Erro ao gerar CSV:', error);
+      return res.status(500).json({ error: 'Erro ao gerar CSV', details: error.message });
+    }
+  }
+
+  // POST = Salvar lead
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -22,40 +49,19 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Campos obrigatórios faltando' });
     }
 
-    // Validar env vars
-    if (!process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
-      return res.status(500).json({ error: 'Service Account Key não configurada' });
-    }
-
-    if (!process.env.AULAO_SPREADSHEET_ID) {
-      return res.status(500).json({ error: 'Spreadsheet ID não configurado' });
-    }
-
-    // Service Account credentials (via environment variable)
-    const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
-
-    const auth = new google.auth.GoogleAuth({
-      credentials,
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-    });
-
-    const sheets = google.sheets({ version: 'v4', auth });
-
-    // Spreadsheet ID (será configurado via env var)
-    const spreadsheetId = process.env.AULAO_SPREADSHEET_ID;
-
-    // Timestamp
     const timestamp = new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
 
-    // Append row
-    await sheets.spreadsheets.values.append({
-      spreadsheetId,
-      range: 'Leads!A:F',
-      valueInputOption: 'RAW',
-      resource: {
-        values: [[timestamp, nome, email, whatsapp, evento || 'Aulão Letreiros do Futuro', pagina || '']],
-      },
-    });
+    const lead = {
+      timestamp,
+      nome,
+      email,
+      whatsapp,
+      evento: evento || 'Aulão Letreiros do Futuro',
+      pagina: pagina || ''
+    };
+
+    // Salvar no Vercel KV (Redis)
+    await kv.lpush('aulao:leads', JSON.stringify(lead));
 
     return res.status(200).json({ success: true, message: 'Lead salvo com sucesso!' });
   } catch (error) {
