@@ -22,6 +22,15 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Campos obrigatórios faltando' });
     }
 
+    // Validar env vars
+    if (!process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+      return res.status(500).json({ error: 'Service Account Key não configurada' });
+    }
+
+    if (!process.env.AULAO_SPREADSHEET_ID) {
+      return res.status(500).json({ error: 'Spreadsheet ID não configurado' });
+    }
+
     // Service Account credentials (via environment variable)
     const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
 
