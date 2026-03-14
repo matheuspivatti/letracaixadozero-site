@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@vercel/redis": "^1.0.0",
     "googleapis": "^171.4.0"
   }
 }
