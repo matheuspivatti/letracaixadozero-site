@@ -1,5 +1,5 @@
 // Vercel Serverless Function - Salvar Leads Aulão
-const { kv } = require('@vercel/kv');
+const { createClient } = require('@vercel/redis');
 
 module.exports = async (req, res) => {
   // CORS headers
@@ -14,7 +14,9 @@ module.exports = async (req, res) => {
   // GET = Download CSV
   if (req.method === 'GET') {
     try {
-      const leads = await kv.lrange('aulao:leads', 0, -1);
+      const redis = createClient({ url: process.env.REDIS_URL });
+      const leads = await redis.lrange('aulao:leads', 0, -1);
+      redis.disconnect();
       
       if (leads.length === 0) {
         return res.status(200).send('Data/Hora,Nome,Email,WhatsApp,Evento,Página\n');
@@ -60,8 +62,10 @@ module.exports = async (req, res) => {
       pagina: pagina || ''
     };
 
-    // Salvar no Vercel KV (Redis)
-    await kv.lpush('aulao:leads', JSON.stringify(lead));
+    // Salvar no Vercel Redis
+    const redis = createClient({ url: process.env.REDIS_URL });
+    await redis.lpush('aulao:leads', JSON.stringify(lead));
+    redis.disconnect();
 
     return res.status(200).json({ success: true, message: 'Lead salvo com sucesso!' });
   } catch (error) {
