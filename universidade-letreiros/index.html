@@ -25,18 +25,18 @@
   <meta name="description" content="Aula ao vivo gratuita + sorteio de 3 kits completos de iluminação LED! Inscreva-se agora.">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#fff;background:linear-gradient(180deg,#1a0a2e 0%,#0c1445 100%);min-height:100vh;position:relative;overflow-x:hidden}
+    html,body{height:100%;overflow:hidden}
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#fff;background:linear-gradient(180deg,#1a0a2e 0%,#0c1445 100%);position:relative;display:flex;align-items:center;justify-content:center}
     
     /* Background effects */
-    body::before,body::after{content:'';position:fixed;border-radius:50%;filter:blur(100px);opacity:0.3;pointer-events:none}
+    body::before,body::after{content:'';position:fixed;border-radius:50%;filter:blur(100px);opacity:0.3;pointer-events:none;z-index:0}
     body::before{top:-100px;left:-100px;width:400px;height:400px;background:#7c3aed}
     body::after{bottom:-100px;right:-100px;width:350px;height:350px;background:#3b82f6}
     
-    .container{max-width:500px;margin:0 auto;padding:20px 20px 60px;position:relative;z-index:2}
+    .container{max-width:1000px;width:100%;padding:20px;position:relative;z-index:2;height:100vh;display:flex;flex-direction:column;justify-content:center}
     
     /* Badge */
-    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.4);padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;color:#22d3ee;margin-bottom:16px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.4);padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;color:#22d3ee;margin-bottom:12px}
     .badge .dot{width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e;animation:pulse 2s infinite}
     
     @keyframes pulse{
@@ -45,65 +45,81 @@
     }
     
     /* Typography */
-    .pretitle{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#a855f7;margin-bottom:10px;font-weight:700}
+    .pretitle{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#a855f7;margin-bottom:8px;font-weight:700}
     
-    h1{font-size:clamp(28px,8vw,40px);font-weight:900;line-height:1.1;margin-bottom:10px;text-transform:uppercase;text-align:center}
+    h1{font-size:clamp(24px,7vw,48px);font-weight:900;line-height:1;margin-bottom:8px;text-transform:uppercase;text-align:center}
     h1 .gradient{background:linear-gradient(90deg,#a855f7,#60a5fa,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     
-    .slogan{font-size:clamp(16px,5vw,22px);font-weight:700;color:#22d3ee;margin-bottom:16px;letter-spacing:2px;text-align:center}
+    .slogan{font-size:clamp(14px,4vw,20px);font-weight:700;color:#22d3ee;margin-bottom:12px;letter-spacing:2px;text-align:center}
     
-    .subtitle{font-size:14px;color:rgba(255,255,255,0.7);margin:0 auto 24px;text-align:center;line-height:1.5}
+    .subtitle{font-size:13px;color:rgba(255,255,255,0.7);margin:0 auto 20px;text-align:center;line-height:1.4;max-width:600px}
     
     /* Info Grid */
-    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
-    .info-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:12px 8px;border-radius:10px;text-align:center}
-    .info-item .icon{font-size:20px;margin-bottom:6px}
-    .info-item .label{font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:4px}
-    .info-item .value{font-size:13px;font-weight:700;color:#fff}
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+    .info-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:10px 8px;border-radius:10px;text-align:center}
+    .info-item .icon{font-size:18px;margin-bottom:4px}
+    .info-item .label{font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:3px}
+    .info-item .value{font-size:12px;font-weight:700;color:#fff}
     
     /* Sorteio Compact */
-    .sorteio-compact{background:linear-gradient(135deg,rgba(236,72,153,0.15),rgba(168,85,247,0.15));border:2px solid rgba(236,72,153,0.3);border-radius:14px;padding:16px;margin-bottom:20px;position:relative;overflow:hidden}
+    .sorteio-compact{background:linear-gradient(135deg,rgba(236,72,153,0.15),rgba(168,85,247,0.15));border:2px solid rgba(236,72,153,0.3);border-radius:12px;padding:14px;margin-bottom:20px;position:relative;overflow:hidden}
     .sorteio-compact::before{content:'';position:absolute;top:-50%;right:-50%;width:150px;height:150px;background:rgba(236,72,153,0.1);border-radius:50%;filter:blur(50px)}
-    .sorteio-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(236,72,153,0.3);border:1px solid rgba(236,72,153,0.5);padding:6px 12px;border-radius:50px;font-size:11px;font-weight:700;color:#fbbf24;margin-bottom:10px}
-    .sorteio-compact h3{font-size:16px;font-weight:800;text-transform:uppercase;margin-bottom:8px;color:#fbbf24;line-height:1.2}
-    .sorteio-compact p{font-size:12px;color:rgba(255,255,255,0.8);line-height:1.5;margin-bottom:10px}
-    .sorteio-items{font-size:11px;color:rgba(255,255,255,0.7);line-height:1.6}
-    .sorteio-note{font-size:10px;color:rgba(255,255,255,0.5);margin-top:8px;font-style:italic}
+    .sorteio-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(236,72,153,0.3);border:1px solid rgba(236,72,153,0.5);padding:5px 10px;border-radius:50px;font-size:10px;font-weight:700;color:#fbbf24;margin-bottom:8px}
+    .sorteio-compact h3{font-size:14px;font-weight:800;text-transform:uppercase;margin-bottom:6px;color:#fbbf24;line-height:1.2}
+    .sorteio-compact p{font-size:11px;color:rgba(255,255,255,0.8);line-height:1.4;margin-bottom:8px}
+    .sorteio-items{font-size:10px;color:rgba(255,255,255,0.7);line-height:1.5}
+    .sorteio-note{font-size:9px;color:rgba(255,255,255,0.5);margin-top:6px;font-style:italic}
     
-    /* Form Compact */
-    .form-section{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:20px}
-    .form-section h3{font-size:18px;font-weight:800;text-align:center;margin-bottom:6px;text-transform:uppercase}
-    .form-section .form-sub{text-align:center;color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:20px}
-    .form-group{margin-bottom:12px}
+    /* CTA Button */
+    .cta-button{display:inline-block;background:linear-gradient(135deg,#22c55e,#16a34a);border:none;color:#fff;padding:16px 48px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:transform 0.2s,box-shadow 0.2s;border:none;text-decoration:none;box-shadow:0 4px 20px rgba(34,197,94,0.3)}
+    .cta-button:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(34,197,94,0.4)}
+    .cta-wrapper{text-align:center}
+    .cta-note{font-size:10px;color:rgba(255,255,255,0.4);margin-top:10px}
+    
+    /* Modal */
+    .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:1000;align-items:center;justify-content:center;padding:20px;animation:fadeIn 0.2s ease}
+    .modal-overlay.active{display:flex}
+    
+    @keyframes fadeIn{
+      from{opacity:0}
+      to{opacity:1}
+    }
+    
+    .modal-content{background:linear-gradient(180deg,#1a0a2e,#0c1445);border:1px solid rgba(124,58,237,0.3);border-radius:20px;padding:32px;max-width:400px;width:100%;position:relative;animation:slideUp 0.3s ease}
+    
+    @keyframes slideUp{
+      from{transform:translateY(30px);opacity:0}
+      to{transform:translateY(0);opacity:1}
+    }
+    
+    .modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+    .modal-close:hover{background:rgba(255,255,255,0.2)}
+    
+    .modal-content h3{font-size:20px;font-weight:800;text-align:center;margin-bottom:8px;text-transform:uppercase}
+    .modal-content .form-sub{text-align:center;color:rgba(255,255,255,0.6);font-size:12px;margin-bottom:24px}
+    .form-group{margin-bottom:14px}
     .form-group label{display:block;font-size:11px;font-weight:600;margin-bottom:6px;color:rgba(255,255,255,0.8)}
     .form-group input{width:100%;padding:12px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);border-radius:10px;color:#fff;font-size:14px;transition:border-color 0.2s}
     .form-group input:focus{outline:none;border-color:#7c3aed}
     .form-group input::placeholder{color:rgba(255,255,255,0.3)}
-    .form-cta{width:100%;background:linear-gradient(135deg,#22c55e,#16a34a);border:none;color:#fff;padding:14px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:transform 0.2s,box-shadow 0.2s}
-    .form-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,197,94,0.3)}
+    .form-submit{width:100%;background:linear-gradient(135deg,#22c55e,#16a34a);border:none;color:#fff;padding:14px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:transform 0.2s,box-shadow 0.2s}
+    .form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,197,94,0.3)}
     .form-note{text-align:center;font-size:10px;color:rgba(255,255,255,0.4);margin-top:10px}
     
     /* Footer */
-    footer{position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:10px;color:rgba(255,255,255,0.3);padding:12px;background:linear-gradient(180deg,transparent,rgba(10,5,32,0.9));z-index:1}
+    footer{position:fixed;bottom:0;left:0;right:0;text-align:center;font-size:9px;color:rgba(255,255,255,0.3);padding:10px;z-index:1}
     
     /* Desktop adjustments */
-    @media(min-width:600px){
-      .container{max-width:900px;padding:40px 40px 80px}
-      .content-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-      .left-col{display:flex;flex-direction:column;gap:20px}
-      .form-section{position:sticky;top:40px}
-      h1{font-size:48px}
-      .slogan{font-size:24px}
-      .subtitle{font-size:15px}
-      .info-grid{grid-template-columns:1fr;gap:12px}
-      .info-item{display:flex;align-items:center;gap:12px;padding:14px 16px;text-align:left}
-      .info-item .icon{font-size:22px;width:40px;height:40px;background:linear-gradient(135deg,#7c3aed,#3b82f6);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:0}
-      .info-item .label{font-size:10px}
-      .info-item .value{font-size:14px}
-      .sorteio-compact{padding:20px}
-      .sorteio-compact h3{font-size:18px}
-      .sorteio-compact p{font-size:13px}
-      .sorteio-items{font-size:12px}
+    @media(min-width:768px){
+      .container{max-width:800px}
+      h1{font-size:52px}
+      .slogan{font-size:22px}
+      .subtitle{font-size:14px}
+      .info-grid{max-width:600px;margin:0 auto 20px}
+      .sorteio-compact{max-width:600px;margin:0 auto 24px;padding:18px}
+      .sorteio-compact h3{font-size:16px}
+      .sorteio-compact p{font-size:12px}
+      .sorteio-items{font-size:11px}
     }
   </style>
 </head>
@@ -124,72 +140,42 @@
       <p class="subtitle">Descubra as técnicas mais avançadas de produção de letreiros — do 3D às letras de aço clássicas</p>
     </div>
     
-    <div class="content-grid">
-      <div class="left-col">
-        <!-- Info Grid -->
-        <div class="info-grid">
-          <div class="info-item">
-            <div class="icon">📅</div>
-            <div>
-              <span class="label">Data</span>
-              <div class="value">7 de Abril</div>
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="icon">🕐</div>
-            <div>
-              <span class="label">Horário</span>
-              <div class="value">19h (BSB)</div>
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="icon">💻</div>
-            <div>
-              <span class="label">Formato</span>
-              <div class="value">Online</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Sorteio Compact -->
-        <div class="sorteio-compact">
-          <div class="sorteio-badge">
-            🎁 SORTEIO EXCLUSIVO
-          </div>
-          <h3>3 Kits Completos de Iluminação</h3>
-          <p><strong>Participe gratuitamente!</strong> Vamos sortear 3 kits completos durante o aulão ao vivo.</p>
-          <div class="sorteio-items">
-            ✓ LEDs profissionais<br>
-            ✓ Materiais de instalação<br>
-            ✓ Ferramentas essenciais<br>
-            ✓ Tudo para começar
-          </div>
-          <p class="sorteio-note">*Precisa estar inscrito e presente ao vivo no dia 7/04 às 19h</p>
-        </div>
+    <!-- Info Grid -->
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="icon">📅</div>
+        <span class="label">Data</span>
+        <div class="value">7 de Abril</div>
       </div>
-      
-      <!-- Form -->
-      <div class="form-section">
-        <h3>Garanta Sua Vaga</h3>
-        <p class="form-sub">Inscreva-se e concorra aos kits!</p>
-        
-        <form id="cadastroForm">
-          <div class="form-group">
-            <label>Seu nome</label>
-            <input type="text" id="nome" placeholder="Digite seu nome completo" required>
-          </div>
-          <div class="form-group">
-            <label>Seu melhor e-mail</label>
-            <input type="email" id="email" placeholder="seu@email.com" required>
-          </div>
-          <div class="form-group">
-            <label>Seu WhatsApp</label>
-            <input type="tel" id="whatsapp" placeholder="(00) 00000-0000" required>
-          </div>
-          <button type="submit" class="form-cta">Garantir Vaga + Sorteio</button>
-        </form>
-        <p class="form-note">🔒 Seus dados estão seguros. Não enviamos spam.</p>
+      <div class="info-item">
+        <div class="icon">🕐</div>
+        <span class="label">Horário</span>
+        <div class="value">19h (BSB)</div>
       </div>
+      <div class="info-item">
+        <div class="icon">💻</div>
+        <span class="label">Formato</span>
+        <div class="value">Online</div>
+      </div>
+    </div>
+    
+    <!-- Sorteio Compact -->
+    <div class="sorteio-compact">
+      <div class="sorteio-badge">
+        🎁 SORTEIO EXCLUSIVO
+      </div>
+      <h3>3 Kits Completos de Iluminação</h3>
+      <p><strong>Participe gratuitamente!</strong> Vamos sortear 3 kits completos durante o aulão ao vivo.</p>
+      <div class="sorteio-items">
+        ✓ LEDs profissionais · ✓ Materiais de instalação · ✓ Ferramentas essenciais
+      </div>
+      <p class="sorteio-note">*Precisa estar inscrito e presente ao vivo no dia 7/04 às 19h</p>
+    </div>
+    
+    <!-- CTA -->
+    <div class="cta-wrapper">
+      <button class="cta-button" onclick="openModal()">Garantir Minha Vaga Gratuita</button>
+      <p class="cta-note">🔒 Vagas limitadas · 100% online e gratuito</p>
     </div>
   </div>
   
@@ -197,7 +183,56 @@
     © 2026 Letra Caixa do Zero · Não afiliado ao Facebook/Instagram
   </footer>
   
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <h3>Garanta Sua Vaga</h3>
+      <p class="form-sub">Inscreva-se e concorra aos kits!</p>
+      
+      <form id="cadastroForm">
+        <div class="form-group">
+          <label>Seu nome</label>
+          <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+        </div>
+        <div class="form-group">
+          <label>Seu melhor e-mail</label>
+          <input type="email" id="email" placeholder="seu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Seu WhatsApp</label>
+          <input type="tel" id="whatsapp" placeholder="(00) 00000-0000" required>
+        </div>
+        <button type="submit" class="form-submit">Garantir Vaga + Sorteio</button>
+      </form>
+      <p class="form-note">🔒 Seus dados estão seguros. Não enviamos spam.</p>
+    </div>
+  </div>
+  
   <script>
+    // Modal controls
+    function openModal() {
+      document.getElementById('modalOverlay').classList.add('active');
+      document.getElementById('nome').focus();
+    }
+    
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+    
+    function closeModalOutside(e) {
+      if (e.target.id === 'modalOverlay') {
+        closeModal();
+      }
+    }
+    
+    // ESC key to close modal
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+    
     // Phone mask
     document.getElementById('whatsapp').addEventListener('input',function(e){
       let v=e.target.value.replace(/\D/g,'');
