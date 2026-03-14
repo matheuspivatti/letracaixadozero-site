@@ -259,20 +259,27 @@
         return;
       }
       
-      // Enviar dados para webhook
+      const leadData = {
+        nome: nome,
+        email: email,
+        whatsapp: whatsapp,
+        evento: 'Aulão Letreiros do Futuro',
+        pagina: window.location.href
+      };
+      
+      // Enviar dados para webhook do tráfego
       fetch('https://webhook.envious.com.br/webhook/LCXZ0426-capt', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nome: nome,
-          email: email,
-          whatsapp: whatsapp,
-          evento: 'Aulão Letreiros do Futuro',
-          pagina: window.location.href
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
       }).catch(err => console.log('Webhook error:', err));
+      
+      // Salvar no Google Sheets
+      fetch('/api/leads-aulao', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
+      }).catch(err => console.log('Sheets error:', err));
       
       // Redirecionar direto para WhatsApp
       window.location.href='https://chat.whatsapp.com/Elhz9ucLUuPC9wQ3XHbZyP';
