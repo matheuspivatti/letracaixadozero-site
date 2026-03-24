@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "generated": "2026-03-24T20:10:12.514Z",
+  "site": {
+    "title": "My Site",
+    "description": "",
+    "url": "https://example.com"
+  },
+  "documents": [],
+  "metadata": {
+    "totalDocuments": 0,
+    "generator": "aeo.js",
+    "generatorUrl": "https://aeojs.org"
+  }
+}
