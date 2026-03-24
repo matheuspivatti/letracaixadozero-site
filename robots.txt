@@ -163,11 +163,11 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://letracaixadozero.com/sitemap.xml
 
 # AEO (Answer Engine Optimization) files
 # These help LLMs understand your content better
-# https://example.com/llms.txt
-# https://example.com/llms-full.txt
-# https://example.com/docs.json
-# https://example.com/ai-index.json
+# https://letracaixadozero.com/llms.txt
+# https://letracaixadozero.com/llms-full.txt
+# https://letracaixadozero.com/docs.json
+# https://letracaixadozero.com/ai-index.json
