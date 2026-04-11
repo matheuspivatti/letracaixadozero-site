@@ -26,7 +26,10 @@
   <link rel="icon" type="image/png" href="/images/ul-favicon.png">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #e2e8f0; background: #0a0e1a; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #e2e8f0; background: #0a0e1a; position: relative; }
+    body::before { content: ''; position: fixed; top: -200px; left: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(27,79,114,0.25) 0%, transparent 70%); border-radius: 50%; pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; bottom: -200px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(46,196,182,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; z-index: 0; }
+    .navbar, .hero, .social-section, .courses-section, .author-section, .included-section, .pricing-section, .faq-section, .final-cta, .footer { position: relative; z-index: 1; }
     .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
     img { max-width: 100%; height: auto; }
     a { text-decoration: none; color: inherit; }
