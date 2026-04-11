@@ -28,12 +28,14 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #e2e8f0; background: #0b1c3a; position: relative; }
     body::before { content: ''; position: fixed; inset: 0; background-image:
-      radial-gradient(circle, rgba(46,196,182,0.07) 1px, transparent 1px);
-      background-size: 32px 32px; pointer-events: none; z-index: 0; }
+      linear-gradient(rgba(46,196,182,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,196,182,0.06) 1px, transparent 1px);
+      background-size: 80px 80px; pointer-events: none; z-index: 0; }
     body::after { content: ''; position: fixed; inset: 0; background:
-      radial-gradient(ellipse at 15% 10%, rgba(46,196,182,0.12) 0%, transparent 40%),
-      radial-gradient(ellipse at 85% 90%, rgba(27,79,114,0.2) 0%, transparent 40%),
-      radial-gradient(ellipse at 50% 40%, rgba(20,50,90,0.15) 0%, transparent 50%);
+      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(27,79,114,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 70% 50% at 80% 20%, rgba(46,196,182,0.14) 0%, transparent 70%),
+      radial-gradient(ellipse 90% 70% at 50% 80%, rgba(27,79,114,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse at center, transparent 40%, rgba(11,28,58,0.5) 100%);
       pointer-events: none; z-index: 0; }
     .navbar, .hero, .social-section, .courses-section, .author-section, .included-section, .pricing-section, .faq-section, .final-cta, .footer { position: relative; z-index: 1; }
     .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
