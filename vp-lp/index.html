@@ -5,105 +5,584 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VisualPilot — Copiloto com IA para Precificação e Gestão de Letreiros</title>
   <meta name="description" content="Orçamento profissional em 2 minutos. Precifique com seus custos reais, analise DXF e fotos, exporte orçamentos prontos pro cliente. R$97/mês.">
-  <link rel="icon" type="image/png" href="/vp-lp/vp-logo.png">
+  <link rel="icon" type="image/png" href="/vp-lp/logos/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #e2e8f0; background: #050010; position: relative; }
-    body::before { content: ''; position: fixed; inset: 0; background:
-      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(79,70,229,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 70% 50% at 80% 20%, rgba(139,92,246,0.14) 0%, transparent 70%),
-      radial-gradient(ellipse 90% 70% at 50% 80%, rgba(37,99,235,0.10) 0%, transparent 70%),
-      radial-gradient(ellipse at center, transparent 40%, rgba(5,0,16,0.5) 100%);
-      pointer-events: none; z-index: 0; }
-    .grid-overlay { position: fixed; inset: 0; background-image:
-      linear-gradient(rgba(139,92,246,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(139,92,246,0.06) 1px, transparent 1px);
-      background-size: 80px 80px; pointer-events: none; z-index: 0; }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: #e2e8f0;
+      background: #050010;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background effects */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(79,70,229,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 50% at 80% 20%, rgba(139,92,246,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 90% 70% at 50% 80%, rgba(37,99,235,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(139,92,246,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,92,246,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
     img { max-width: 100%; height: auto; }
     a { text-decoration: none; color: inherit; }
     section, nav, footer { position: relative; z-index: 1; }
 
     /* Navbar */
-    .navbar { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(5,0,16,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .navbar-inner { max-width: 960px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; }
-    .navbar-brand { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; }
-    .navbar-brand img { height: 28px; border-radius: 6px; }
-    .navbar-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 24px; background: #7c3aed; color: #fff; font-weight: 700; border-radius: 8px; font-size: 14px; transition: all 0.3s; }
-    .navbar-cta:hover { background: #6d28d9; transform: translateY(-1px); }
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(5,0,16,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(139,92,246,0.08);
+    }
+    .navbar-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .navbar-brand img { height: 32px; }
+    .navbar-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 28px;
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(124,58,237,0.25);
+    }
+    .navbar-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(124,58,237,0.35); }
 
     /* Hero */
-    .hero { padding: 100px 20px 60px; text-align: center; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.25); padding: 8px 20px; border-radius: 50px; font-size: 13px; font-weight: 600; color: #a78bfa; margin-bottom: 24px; }
-    .hero h1 { font-size: clamp(28px, 5.5vw, 48px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
-    .hero h1 em { font-style: normal; color: #a78bfa; }
-    .hero-sub { font-size: 18px; color: #94a3b8; max-width: 560px; margin: 0 auto 32px; }
-    .hero-cta { display: inline-flex; align-items: center; gap: 8px; padding: 18px 48px; background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #fff; font-size: 18px; font-weight: 700; border-radius: 12px; transition: all 0.3s; box-shadow: 0 8px 30px rgba(124,58,237,0.3); }
-    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(124,58,237,0.4); }
-    .hero-info { font-size: 13px; color: #64748b; margin-top: 12px; }
+    .hero {
+      padding: 140px 24px 80px;
+      text-align: center;
+    }
+    .hero-logo {
+      height: 56px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.2);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #a78bfa;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5.5vw, 56px);
+      font-weight: 900;
+      line-height: 1.08;
+      margin-bottom: 24px;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #a78bfa, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: #94a3b8;
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 52px;
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 14px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 32px rgba(124,58,237,0.35);
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(124,58,237,0.45);
+    }
+    .hero-info {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 16px;
+    }
+
+    /* Divider */
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #7c3aed, #4f46e5);
+      margin: 0 auto 40px;
+      border-radius: 2px;
+    }
 
     /* Section common */
-    .section-title { text-align: center; font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: #fff; margin-bottom: 8px; }
-    .section-title em { font-style: normal; color: #a78bfa; }
-    .section-sub { text-align: center; color: #94a3b8; margin-bottom: 40px; font-size: 15px; }
+    .section-title {
+      text-align: center;
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .section-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, #a78bfa, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-sub {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 48px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-    /* Dores */
-    .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 700px; margin: 0 auto; }
-    @media (max-width: 600px) { .pain-grid { grid-template-columns: 1fr; } }
-    .pain-card { background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.15); border-radius: 12px; padding: 24px; }
-    .pain-card h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .pain-card p { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+    /* Relatos carousel */
+    .relatos-section { padding: 80px 0; }
+    .relatos-track {
+      display: flex;
+      gap: 20px;
+      animation: scroll-relatos 35s linear infinite;
+      width: max-content;
+    }
+    .relatos-track:hover { animation-play-state: paused; }
+    .relato-card {
+      flex-shrink: 0;
+      width: 270px;
+      height: 370px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(139,92,246,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      background: rgba(15,10,30,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .relato-card:hover {
+      border-color: rgba(139,92,246,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    }
+    .relato-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
+    }
+    @keyframes scroll-relatos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 600px) {
+      .relato-card { width: 230px; height: 310px; }
+    }
+
+    /* Pain points */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    @media (max-width: 640px) { .pain-grid { grid-template-columns: 1fr; } }
+    .pain-card {
+      background: rgba(15,10,30,0.5);
+      border: 1px solid rgba(139,92,246,0.1);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s;
+    }
+    .pain-card:hover {
+      border-color: rgba(139,92,246,0.25);
+      background: rgba(15,10,30,0.7);
+      transform: translateY(-2px);
+    }
+    .pain-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .pain-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .pain-card p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
 
     /* Features */
-    .features-grid { display: flex; flex-direction: column; gap: 12px; max-width: 700px; margin: 0 auto; }
-    .feature-card { display: flex; align-items: flex-start; gap: 16px; background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.1); border-radius: 12px; padding: 20px; transition: all 200ms; }
-    .feature-card:hover { border-color: rgba(124,58,237,0.25); background: rgba(124,58,237,0.12); }
-    .feature-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
-    .feature-name { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .feature-desc { font-size: 13px; color: #94a3b8; line-height: 1.5; }
-
-    /* Pricing */
-    .pricing-wrap { display: flex; gap: 16px; max-width: 800px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-    .pricing-card { flex: 1; min-width: 280px; background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.15); border-radius: 20px; padding: 32px; text-align: center; }
-    .pricing-card.featured { border-color: rgba(124,58,237,0.4); position: relative; }
-    .pricing-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #fff; font-size: 12px; font-weight: 700; padding: 6px 20px; border-radius: 50px; white-space: nowrap; }
-    .pricing-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #a78bfa; margin-bottom: 12px; }
-    .pricing-amount { display: flex; align-items: flex-end; justify-content: center; gap: 4px; margin-bottom: 4px; }
-    .pricing-amount span { font-size: clamp(36px, 8vw, 48px); font-weight: 800; color: #fff; }
-    .pricing-amount small { font-size: 16px; color: #94a3b8; margin-bottom: 8px; }
-    .pricing-note { font-size: 13px; color: #64748b; margin-bottom: 20px; }
-    .pricing-features { text-align: left; margin-bottom: 24px; }
-    .pricing-feature { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 14px; color: #cbd5e1; }
-    .pricing-feature::before { content: "✓"; color: #a78bfa; font-weight: 700; }
-    .pricing-btn { display: block; width: 100%; padding: 16px; background: linear-gradient(135deg, #7c3aed, #4f46e5); color: #fff; font-size: 16px; font-weight: 700; border-radius: 12px; transition: all 0.3s; border: none; cursor: pointer; box-shadow: 0 8px 30px rgba(124,58,237,0.3); }
-    .pricing-btn:hover { transform: translateY(-2px); }
-    .pricing-btn-outline { background: rgba(124,58,237,0.1); border: 2px solid #7c3aed; color: #a78bfa; box-shadow: none; }
-    .pricing-trust { text-align: center; margin-top: 12px; font-size: 12px; color: #64748b; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 800px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .features-grid { grid-template-columns: 1fr; } }
+    .feature-card {
+      background: rgba(15,10,30,0.5);
+      border: 1px solid rgba(139,92,246,0.1);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s;
+    }
+    .feature-card:hover {
+      border-color: rgba(139,92,246,0.25);
+      background: rgba(15,10,30,0.7);
+      transform: translateY(-2px);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(79,70,229,0.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .feature-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .feature-desc {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
 
     /* How it works */
-    .steps { display: flex; flex-direction: column; gap: 24px; max-width: 600px; margin: 0 auto; }
-    .step { display: flex; align-items: flex-start; gap: 16px; }
-    .step-num { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #7c3aed, #4f46e5); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 16px; flex-shrink: 0; }
-    .step-text h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .step-text p { font-size: 14px; color: #94a3b8; }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      bottom: 24px;
+      width: 2px;
+      background: linear-gradient(180deg, #7c3aed, #4f46e5, transparent);
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      position: relative;
+    }
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+      z-index: 1;
+    }
+    .step-text h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .step-text p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    /* Pricing */
+    .pricing-wrap {
+      display: flex;
+      gap: 24px;
+      max-width: 760px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .pricing-card {
+      flex: 1;
+      min-width: 300px;
+      max-width: 360px;
+      background: rgba(15,10,30,0.6);
+      border: 1px solid rgba(139,92,246,0.12);
+      border-radius: 24px;
+      padding: 36px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139,92,246,0.25);
+    }
+    .pricing-card.featured {
+      border-color: rgba(124,58,237,0.4);
+      position: relative;
+      background: rgba(124,58,237,0.06);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 24px;
+      border-radius: 50px;
+      white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(124,58,237,0.3);
+    }
+    .pricing-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #a78bfa;
+      margin-bottom: 16px;
+    }
+    .pricing-amount {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .pricing-amount span {
+      font-size: clamp(40px, 8vw, 52px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .pricing-amount small { font-size: 16px; color: #94a3b8; margin-bottom: 10px; }
+    .pricing-note { font-size: 13px; color: #64748b; margin-bottom: 24px; }
+    .pricing-features { text-align: left; margin-bottom: 28px; }
+    .pricing-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+    .pricing-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(124,58,237,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #a78bfa;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .pricing-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 12px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(124,58,237,0.3);
+    }
+    .pricing-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(124,58,237,0.4); }
+    .pricing-btn-outline {
+      background: transparent;
+      border: 2px solid rgba(124,58,237,0.4);
+      color: #a78bfa;
+      box-shadow: none;
+    }
+    .pricing-btn-outline:hover {
+      background: rgba(124,58,237,0.1);
+      border-color: rgba(124,58,237,0.6);
+      box-shadow: none;
+    }
+    .pricing-trust {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #64748b;
+    }
 
     /* FAQ */
-    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-    .faq-item { background: rgba(124,58,237,0.06); border: 1px solid rgba(124,58,237,0.1); border-radius: 12px; padding: 20px 24px; cursor: pointer; }
-    .faq-q { font-size: 15px; font-weight: 700; color: #fff; display: flex; justify-content: space-between; align-items: center; }
-    .faq-arrow { color: #a78bfa; font-size: 18px; transition: transform 0.3s; }
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: rgba(15,10,30,0.5);
+      border: 1px solid rgba(139,92,246,0.1);
+      border-radius: 14px;
+      padding: 20px 24px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(139,92,246,0.2); }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-arrow {
+      color: #a78bfa;
+      font-size: 14px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
     .faq-item.active .faq-arrow { transform: rotate(180deg); }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
     .faq-item.active .faq-a { max-height: 200px; }
-    .faq-a-inner { padding-top: 12px; font-size: 14px; color: #94a3b8; line-height: 1.6; }
+    .faq-a-inner {
+      padding-top: 14px;
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
 
     /* CTA Final */
-    .final-cta { padding: 60px 20px; text-align: center; }
-    .final-cta h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: #fff; margin-bottom: 12px; }
-    .final-cta p { color: #94a3b8; max-width: 500px; margin: 0 auto 28px; }
+    .final-cta {
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .final-cta p {
+      color: #94a3b8;
+      max-width: 480px;
+      margin: 0 auto 32px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
 
-    .footer { padding: 24px 20px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
-    .footer p { font-size: 12px; color: #475569; }
+    /* Footer */
+    .footer {
+      padding: 32px 24px;
+      border-top: 1px solid rgba(139,92,246,0.06);
+      text-align: center;
+    }
+    .footer p { font-size: 13px; color: #475569; }
+    .footer a { color: #7c3aed; }
+
+    /* Animations */
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -113,42 +592,30 @@
 <!-- Navbar -->
 <nav class="navbar">
   <div class="navbar-inner">
-    <div class="navbar-brand">
-      <img src="/vp-lp/vp-logo.png" alt="VisualPilot">
-      VisualPilot
-    </div>
-    <a href="https://visualpilot.ai/register" class="navbar-cta">Teste grátis 5 dias →</a>
+    <a href="/vp-lp" class="navbar-brand">
+      <img src="/vp-lp/logos/completa-branco.png" alt="VisualPilot.ai">
+    </a>
+    <a href="https://visualpilot.ai/register" class="navbar-cta">Teste gratis 5 dias</a>
   </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <div class="hero-badge">⚡ Copiloto com IA para letreiros</div>
-    <h1>Orçamento profissional em 2 minutos.<br><em>Com seus custos reais. Sem chute.</em></h1>
-    <p class="hero-sub">Precifique letreiros e neon LED com os dados reais da sua empresa. Analise DXF e fotos. Exporte orçamentos prontos pro cliente.</p>
-    <a href="https://visualpilot.ai/register" class="hero-cta">Testar grátis por 5 dias →</a>
-    <p class="hero-info">Sem cartão · Sem compromisso · Acesso completo</p>
+    <div class="hero-badge">Copiloto com IA para letreiros</div>
+    <h1>Orcamento profissional<br>em 2 minutos.<br><em>Com seus custos reais.</em></h1>
+    <p class="hero-sub">Precifique letreiros e neon LED com os dados reais da sua empresa. Analise DXF e fotos. Exporte orcamentos prontos pro cliente.</p>
+    <a href="https://visualpilot.ai/register" class="hero-cta">Testar gratis por 5 dias</a>
+    <p class="hero-info">Sem cartao. Sem compromisso. Acesso completo.</p>
   </div>
 </section>
 
 <!-- Relatos -->
-<section style="padding:60px 20px;">
+<section class="relatos-section">
   <div class="container">
-    <h2 class="section-title">Quem usa, <em>aprova</em></h2>
-    <p class="section-sub">Profissionais reais usando o VisualPilot no dia a dia</p>
+    <h2 class="section-title fade-in">Quem usa, <em>aprova</em></h2>
+    <p class="section-sub fade-in">Profissionais reais usando o VisualPilot no dia a dia</p>
   </div>
-  <style>
-    .relatos-track { display: flex; gap: 16px; animation: scroll-relatos 30s linear infinite; width: max-content; }
-    .relatos-track:hover { animation-play-state: paused; }
-    .relato-card { flex-shrink: 0; width: 260px; height: 360px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(124,58,237,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: rgba(124,58,237,0.05); display: flex; align-items: center; justify-content: center; }
-    .relato-card img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
-    @keyframes scroll-relatos {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    @media (max-width: 600px) { .relato-card { width: 220px; height: 300px; } }
-  </style>
   <div style="overflow:hidden;padding:20px 0;">
     <div class="relatos-track">
       <div class="relato-card"><img src="/vp-lp/relatos/relato-1.jpeg" alt="Relato de cliente" loading="lazy"></div>
@@ -158,7 +625,6 @@
       <div class="relato-card"><img src="/vp-lp/relatos/relato-5.png" alt="Relato de cliente" loading="lazy"></div>
       <div class="relato-card"><img src="/vp-lp/relatos/relato-6.png" alt="Relato de cliente" loading="lazy"></div>
       <div class="relato-card"><img src="/vp-lp/relatos/relato-7.png" alt="Relato de cliente" loading="lazy"></div>
-      <!-- Duplicados pra loop infinito -->
       <div class="relato-card"><img src="/vp-lp/relatos/relato-1.jpeg" alt="Relato de cliente" loading="lazy"></div>
       <div class="relato-card"><img src="/vp-lp/relatos/relato-2.jpeg" alt="Relato de cliente" loading="lazy"></div>
       <div class="relato-card"><img src="/vp-lp/relatos/relato-3.jpeg" alt="Relato de cliente" loading="lazy"></div>
@@ -171,108 +637,100 @@
 </section>
 
 <!-- Dores -->
-<section style="padding:60px 20px;">
+<section style="padding:80px 24px;">
   <div class="container">
-    <h2 class="section-title">Cansado de <em>chutar preço?</em></h2>
-    <p class="section-sub">Todo letreirista enfrenta os mesmos problemas no dia a dia</p>
+    <h2 class="section-title fade-in">Cansado de <em>chutar preco?</em></h2>
+    <p class="section-sub fade-in">Todo letreirista enfrenta os mesmos problemas no dia a dia</p>
     <div class="pain-grid">
-      <div class="pain-card">
-        <h3>😰 Medo de precificar errado</h3>
-        <p>Não sabe se está cobrando certo. Cobra barato e perde margem, cobra caro e perde o cliente.</p>
+      <div class="pain-card fade-in">
+        <div class="pain-icon">😰</div>
+        <h3>Medo de precificar errado</h3>
+        <p>Nao sabe se esta cobrando certo. Cobra barato e perde margem, cobra caro e perde o cliente.</p>
       </div>
-      <div class="pain-card">
-        <h3>⏰ Horas perdidas fazendo orçamento</h3>
-        <p>Pesquisar preço de material, calcular mão de obra, montar planilha... tudo manual, toda vez.</p>
+      <div class="pain-card fade-in">
+        <div class="pain-icon">⏰</div>
+        <h3>Horas perdidas fazendo orcamento</h3>
+        <p>Pesquisar preco de material, calcular mao de obra, montar planilha... tudo manual, toda vez.</p>
       </div>
-      <div class="pain-card">
-        <h3>📉 Sem controle de margem</h3>
-        <p>Fatura no mês mas não sabe quanto sobrou. Mistura custo fixo com variável e no final não fecha a conta.</p>
+      <div class="pain-card fade-in">
+        <div class="pain-icon">📉</div>
+        <h3>Sem controle de margem</h3>
+        <p>Fatura no mes mas nao sabe quanto sobrou. Mistura custo fixo com variavel e no final nao fecha a conta.</p>
       </div>
-      <div class="pain-card">
-        <h3>📋 Orçamento amador</h3>
-        <p>Manda preço por WhatsApp sem detalhamento. O cliente não vê profissionalismo e vai buscar outro.</p>
+      <div class="pain-card fade-in">
+        <div class="pain-icon">📋</div>
+        <h3>Orcamento amador</h3>
+        <p>Manda preco por WhatsApp sem detalhamento. O cliente nao ve profissionalismo e vai buscar outro.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Features -->
-<section style="padding:60px 20px;">
+<section style="padding:80px 24px;">
   <div class="container">
-    <h2 class="section-title">O que o VisualPilot <em>faz por você</em></h2>
-    <p class="section-sub">Cada feature foi pensada pra resolver um problema real do seu dia a dia</p>
+    <h2 class="section-title fade-in">O que o VisualPilot <em>faz por voce</em></h2>
+    <p class="section-sub fade-in">Cada feature foi pensada pra resolver um problema real do seu dia a dia</p>
     <div class="features-grid">
-      <div class="feature-card">
+      <div class="feature-card fade-in">
         <div class="feature-icon">💰</div>
-        <div>
-          <div class="feature-name">Precificação com seus custos reais</div>
-          <div class="feature-desc">Calcula material + mão de obra + energia + aluguel + margem. Com os dados REAIS da sua empresa, não média genérica. Cada orçamento é calibrado pro SEU negócio.</div>
-        </div>
+        <div class="feature-name">Precificacao com custos reais</div>
+        <div class="feature-desc">Calcula material + mao de obra + energia + aluguel + margem. Com os dados REAIS da sua empresa.</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card fade-in">
         <div class="feature-icon">🌎</div>
-        <div>
-          <div class="feature-name">Preços regionais em tempo real</div>
-          <div class="feature-desc">Busca o preço de ACM, acrílico, LED, PVC na SUA região. Dados atualizados, não tabela velha. Você sabe quanto o material custa HOJE onde você está.</div>
-        </div>
+        <div class="feature-name">Precos regionais em tempo real</div>
+        <div class="feature-desc">Busca o preco de ACM, acrilico, LED, PVC na SUA regiao. Dados atualizados, nao tabela velha.</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card fade-in">
         <div class="feature-icon">📐</div>
-        <div>
-          <div class="feature-name">Análise de DXF e fotos</div>
-          <div class="feature-desc">Envia o arquivo DXF do projeto e o VP extrai dimensões, calcula área, perímetro e material automaticamente. Envia foto e recebe análise de viabilidade.</div>
-        </div>
+        <div class="feature-name">Analise de DXF e fotos</div>
+        <div class="feature-desc">Envia o arquivo DXF e o VP extrai dimensoes, calcula area, perimetro e material automaticamente.</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card fade-in">
         <div class="feature-icon">🧠</div>
-        <div>
-          <div class="feature-name">Memória contínua do seu negócio</div>
-          <div class="feature-desc">O VP lembra dos seus custos, fornecedores, materiais preferidos e tempos de produção. Quanto mais usa, mais rápido e preciso fica.</div>
-        </div>
+        <div class="feature-name">Memoria continua</div>
+        <div class="feature-desc">O VP lembra dos seus custos, fornecedores e tempos de producao. Quanto mais usa, mais preciso fica.</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card fade-in">
         <div class="feature-icon">📄</div>
-        <div>
-          <div class="feature-name">Exportar orçamento profissional</div>
-          <div class="feature-desc">Gera PDF com logo da sua empresa, dados do cliente, detalhamento de custos e preço final. Pronto pra enviar pro cliente via WhatsApp ou email.</div>
-        </div>
+        <div class="feature-name">Export de orcamento PDF</div>
+        <div class="feature-desc">Gera PDF com logo da sua empresa, dados do cliente e detalhamento completo. Pronto pra enviar.</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card fade-in">
         <div class="feature-icon">📊</div>
-        <div>
-          <div class="feature-name">Gestão de orçamentos e clientes</div>
-          <div class="feature-desc">Acompanha suas propostas do rascunho ao fechamento. Sabe quanto orçou, quanto fechou e qual sua taxa de conversão.</div>
-        </div>
+        <div class="feature-name">Gestao de orcamentos</div>
+        <div class="feature-desc">Acompanha suas propostas do rascunho ao fechamento. Sabe quanto orcou e quanto fechou.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Como funciona -->
-<section style="padding:60px 20px;">
+<section style="padding:80px 24px;">
   <div class="container">
-    <h2 class="section-title">Como funciona <em>na prática</em></h2>
-    <p class="section-sub">3 passos. 2 minutos. Orçamento pronto.</p>
-    <div class="steps">
+    <h2 class="section-title fade-in">Como funciona <em>na pratica</em></h2>
+    <p class="section-sub fade-in">3 passos. 2 minutos. Orcamento pronto.</p>
+    <div class="steps fade-in">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-text">
           <h3>Cadastre sua empresa</h3>
-          <p>Em 5 minutos o VP aprende sobre seu negócio: custos fixos, materiais, fornecedores, tempo de produção. Faz isso uma vez só.</p>
+          <p>Em 5 minutos o VP aprende sobre seu negocio: custos fixos, materiais, fornecedores, tempo de producao. Faz isso uma vez so.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-text">
-          <h3>Peça o orçamento</h3>
-          <p>Descreva a peça, envie o DXF ou uma foto. O VP calcula tudo: material, mão de obra, energia, margem. Em segundos.</p>
+          <h3>Peca o orcamento</h3>
+          <p>Descreva a peca, envie o DXF ou uma foto. O VP calcula tudo: material, mao de obra, energia, margem. Em segundos.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-text">
           <h3>Exporte e envie pro cliente</h3>
-          <p>Gera o orçamento profissional com sua logo e envia direto pro cliente. Acabou o "mando o preço por zap".</p>
+          <p>Gera o orcamento profissional com sua logo e envia direto pro cliente. Acabou o "mando o preco por zap".</p>
         </div>
       </div>
     </div>
@@ -280,70 +738,71 @@
 </section>
 
 <!-- Pricing -->
-<section style="padding:60px 20px;">
+<section style="padding:80px 24px;">
   <div class="container">
-    <h2 class="section-title">Comece <em>agora</em></h2>
-    <p class="section-sub">Menos de R$4 por dia pra nunca mais chutar preço</p>
-    <div class="pricing-wrap">
+    <h2 class="section-title fade-in">Comece <em>agora</em></h2>
+    <p class="section-sub fade-in">Menos de R$4 por dia pra nunca mais chutar preco</p>
+    <div class="pricing-wrap fade-in">
       <div class="pricing-card">
         <div class="pricing-label">MENSAL</div>
-        <div class="pricing-amount"><span>R$97</span><small>/mês</small></div>
+        <div class="pricing-amount"><span>R$97</span><small>/mes</small></div>
         <div class="pricing-note">Cancele quando quiser</div>
         <div class="pricing-features">
-          <div class="pricing-feature">Precificação com custos reais</div>
-          <div class="pricing-feature">Preços regionais em tempo real</div>
-          <div class="pricing-feature">Análise de DXF e fotos</div>
-          <div class="pricing-feature">Memória contínua</div>
-          <div class="pricing-feature">Export de orçamento profissional</div>
-          <div class="pricing-feature">Garantia de 7 dias</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Precificacao com custos reais</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Precos regionais em tempo real</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Analise de DXF e fotos</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Memoria continua</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Export de orcamento PDF</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Garantia de 7 dias</div>
         </div>
-        <a href="https://visualpilot.ai/register" class="pricing-btn pricing-btn-outline">Assinar mensal →</a>
-        <div class="pricing-trust">Cartão de crédito</div>
+        <a href="https://visualpilot.ai/register" class="pricing-btn pricing-btn-outline">Assinar mensal</a>
+        <div class="pricing-trust">Cartao de credito</div>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-badge">MAIS POPULAR — Economize R$167</div>
         <div class="pricing-label" style="margin-top:12px;">ANUAL</div>
         <div class="pricing-amount"><span>R$997</span><small>/ano</small></div>
-        <div class="pricing-note">Equivale a R$83/mês</div>
+        <div class="pricing-note">Equivale a R$83/mes</div>
         <div class="pricing-features">
-          <div class="pricing-feature">Precificação com custos reais</div>
-          <div class="pricing-feature">Preços regionais em tempo real</div>
-          <div class="pricing-feature">Análise de DXF e fotos</div>
-          <div class="pricing-feature">Memória contínua</div>
-          <div class="pricing-feature">Export de orçamento profissional</div>
-          <div class="pricing-feature">Garantia de 7 dias</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Precificacao com custos reais</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Precos regionais em tempo real</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Analise de DXF e fotos</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Memoria continua</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Export de orcamento PDF</div>
+          <div class="pricing-feature"><div class="pricing-check">✓</div> Garantia de 7 dias</div>
         </div>
-        <a href="https://visualpilot.ai/register" class="pricing-btn">Assinar anual →</a>
-        <div class="pricing-trust">Pix ou cartão</div>
+        <a href="https://visualpilot.ai/register" class="pricing-btn">Assinar anual</a>
+        <div class="pricing-trust">Pix ou cartao</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section style="padding:60px 20px;">
+<section style="padding:80px 24px;">
   <div class="container">
-    <h2 class="section-title">Dúvidas <em>frequentes</em></h2>
+    <h2 class="section-title fade-in">Duvidas <em>frequentes</em></h2>
+    <p class="section-sub fade-in"></p>
     <div class="faq-list">
-      <div class="faq-item" onclick="this.classList.toggle('active')">
-        <div class="faq-q">O que é o VisualPilot? <span class="faq-arrow">▼</span></div>
-        <div class="faq-a"><div class="faq-a-inner">É um copiloto com IA especializado em precificação e gestão de letreiros e neon LED. Você usa pra fazer orçamentos profissionais em minutos, com os custos reais da sua empresa.</div></div>
+      <div class="faq-item fade-in" onclick="this.classList.toggle('active')">
+        <div class="faq-q">O que e o VisualPilot? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">E um copiloto com IA especializado em precificacao e gestao de letreiros e neon LED. Voce usa pra fazer orcamentos profissionais em minutos, com os custos reais da sua empresa.</div></div>
       </div>
-      <div class="faq-item" onclick="this.classList.toggle('active')">
-        <div class="faq-q">É diferente do ChatGPT? <span class="faq-arrow">▼</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Sim. O ChatGPT não sabe nada sobre o mercado de comunicação visual brasileiro, não conhece preços regionais, não lê DXF e não lembra do seu negócio. O VP foi treinado especificamente pra isso.</div></div>
+      <div class="faq-item fade-in" onclick="this.classList.toggle('active')">
+        <div class="faq-q">E diferente do ChatGPT? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sim. O ChatGPT nao sabe nada sobre o mercado de comunicacao visual brasileiro, nao conhece precos regionais, nao le DXF e nao lembra do seu negocio. O VP foi treinado especificamente pra isso.</div></div>
       </div>
-      <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-item fade-in" onclick="this.classList.toggle('active')">
         <div class="faq-q">Como funciona o trial de 5 dias? <span class="faq-arrow">▼</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Você cria sua conta, cadastra sua empresa e usa o VP completo por 5 dias. Sem cartão, sem compromisso. Se gostar, assina. Se não, não paga nada.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Voce cria sua conta, cadastra sua empresa e usa o VP completo por 5 dias. Sem cartao, sem compromisso. Se gostar, assina. Se nao, nao paga nada.</div></div>
       </div>
-      <div class="faq-item" onclick="this.classList.toggle('active')">
-        <div class="faq-q">Funciona pra neon LED também? <span class="faq-arrow">▼</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Sim. Precifica letras caixa (aço, PVC, ACM, acrílico), fachadas e neon LED (1ª e 2ª geração). Com cálculo de LED, fonte e consumo incluso.</div></div>
+      <div class="faq-item fade-in" onclick="this.classList.toggle('active')">
+        <div class="faq-q">Funciona pra neon LED tambem? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Precifica letras caixa (aco, PVC, ACM, acrilico), fachadas e neon LED (1a e 2a geracao). Com calculo de LED, fonte e consumo incluso.</div></div>
       </div>
-      <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-item fade-in" onclick="this.classList.toggle('active')">
         <div class="faq-q">Posso cancelar quando quiser? <span class="faq-arrow">▼</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Sim. Sem fidelidade, sem multa. Cancela direto no app. E tem garantia de 7 dias após o pagamento — se não gostar, devolvemos 100%.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Sem fidelidade, sem multa. Cancela direto no app. E tem garantia de 7 dias apos o pagamento — se nao gostar, devolvemos 100%.</div></div>
       </div>
     </div>
   </div>
@@ -351,17 +810,32 @@
 
 <!-- CTA Final -->
 <section class="final-cta">
-  <h2>Pare de chutar preço.<br><em style="color:#a78bfa;">Comece a precificar de verdade.</em></h2>
-  <p>5 dias grátis. Sem cartão. Sem compromisso. Faça seu primeiro orçamento profissional em 2 minutos.</p>
-  <a href="https://visualpilot.ai/register" class="hero-cta">Testar grátis por 5 dias →</a>
-  <p class="hero-info" style="margin-top:12px;">Garantia de 7 dias após o pagamento</p>
+  <div class="container fade-in">
+    <h2>Pare de chutar preco.<br><em style="font-style:normal;background:linear-gradient(135deg,#a78bfa,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Comece a precificar de verdade.</em></h2>
+    <p>5 dias gratis. Sem cartao. Sem compromisso. Faca seu primeiro orcamento profissional em 2 minutos.</p>
+    <a href="https://visualpilot.ai/register" class="hero-cta">Testar gratis por 5 dias</a>
+    <p class="hero-info" style="margin-top:16px;">Garantia de 7 dias apos o pagamento</p>
+  </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
-  <p>VisualPilot.ai — Copiloto com IA para precificação e gestão de letreiros.</p>
-  <p style="margin-top:4px;">© 2026 VisualPilot. Criado por Matheus Pivatti.</p>
+  <div class="container">
+    <img src="/vp-lp/logos/completa-branco.png" alt="VisualPilot.ai" style="height:28px;opacity:0.4;margin-bottom:12px;">
+    <p>Copiloto com IA para precificacao e gestao de letreiros.</p>
+    <p style="margin-top:4px;">© 2026 VisualPilot. Criado por <a href="https://instagram.com/matheuspivatti" target="_blank">Matheus Pivatti</a>.</p>
+  </div>
 </footer>
+
+<!-- Scroll animations -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+});
+</script>
 
 </body>
 </html>
