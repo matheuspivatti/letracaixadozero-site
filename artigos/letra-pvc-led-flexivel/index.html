@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager (Lazy Load - carrega após interação) -->
+  <script>
+  (function(){
+    var gtmLoaded = false;
+    function loadGTM() {
+      if (gtmLoaded) return;
+      gtmLoaded = true;
+      var w=window,d=document,s='script',l='dataLayer',i='x=GQdRMyUnTy42LTszJV9aQwZeXlpATAYLTQ8JAAMLAQQZGw0QHhAHFx9NDxsc';
+      w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
+      j.src="https://load.stape.letracaixadozero.com/iebjqtlcp.js?"+i;f.parentNode.insertBefore(j,f);
+    }
+    ['scroll','click','mousemove','touchstart','keydown'].forEach(function(e){
+      window.addEventListener(e, loadGTM, {once:true,passive:true});
+    });
+    setTimeout(loadGTM, 4000);
+  })();
+  </script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Fazer Letra Caixa em PVC com LED Flexível: Manual Completo | Letra Caixa do Zero</title>
+  <meta name="description" content="Manual completo passo a passo de como produzir letra caixa em PVC com LED flexível embutido. Do corte CNC à instalação.">
+  <meta name="keywords" content="letra caixa PVC LED, LED flexível letreiro, PVC Serilon, fresa CNC letreiro, comunicação visual">
+  <meta name="author" content="Matheus Pivatti">
+  <link rel="canonical" href="https://letracaixadozero.com/artigos/letra-pvc-led-flexivel/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; line-height: 1.8; color: #1f2937; background: #fff; }
+    
+    header { background: #0f172a; padding: 16px 20px; position: sticky; top: 0; z-index: 100; }
+    .header-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 18px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -0.5px; }
+    .logo span { color: #fbbf24; }
+    nav { display: flex; gap: 24px; align-items: center; }
+    nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #fbbf24; }
+    .nav-social { display: flex; gap: 12px; margin-left: 24px; padding-left: 24px; border-left: 1px solid rgba(255,255,255,0.2); }
+    .nav-social a { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+    .nav-social a:hover { background: #fbbf24; }
+    .nav-social svg { width: 16px; height: 16px; fill: #fff; }
+    
+    .breadcrumb { background: #f8fafc; padding: 12px 20px; border-bottom: 1px solid #e2e8f0; }
+    .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 13px; flex-wrap: wrap; }
+    .breadcrumb a { color: #64748b; text-decoration: none; }
+    .breadcrumb a:hover { color: #2563eb; }
+    .breadcrumb span { color: #94a3b8; }
+    .breadcrumb-current { color: #1f2937; font-weight: 500; }
+    
+    .main-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 240px 1fr 300px; gap: 40px; }
+    @media (max-width: 1024px) { .main-container { grid-template-columns: 1fr; } .sidebar-left, .sidebar-right { display: none; } }
+    
+    .sidebar-left { position: sticky; top: 100px; height: fit-content; }
+    .index-title { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 16px; letter-spacing: 0.5px; }
+    .index-list { list-style: none; }
+    .index-list li { margin-bottom: 4px; }
+    .index-list a { color: #64748b; text-decoration: none; font-size: 13px; display: block; padding: 8px 12px; border-left: 2px solid transparent; transition: all 0.3s; border-radius: 0 6px 6px 0; }
+    .index-list a:hover, .index-list a.active { color: #1f2937; border-left-color: #f97316; background: #fff7ed; }
+    
+    .author-card { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; padding: 24px; margin-top: 32px; text-align: center; }
+    .author-card img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid #f97316; margin-bottom: 12px; object-fit: cover; }
+    .author-card h4 { color: #fff; font-size: 16px; margin-bottom: 4px; }
+    .author-card p { color: rgba(255,255,255,0.7); font-size: 13px; margin-bottom: 16px; }
+    .author-social { display: flex; justify-content: center; gap: 8px; }
+    .author-social a { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+    .author-social a:hover { background: #f97316; }
+    .author-social svg { width: 18px; height: 18px; fill: #fff; }
+    
+    .article { max-width: 720px; }
+    .article-badge { display: inline-block; background: #ffedd5; color: #ea580c; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
+    .article h1 { font-size: 36px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; color: #0f172a; }
+    .article-description { font-size: 18px; color: #64748b; margin-bottom: 24px; line-height: 1.6; }
+    
+    .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+    .author-inline { display: flex; align-items: center; gap: 12px; }
+    .author-inline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .author-info { font-size: 14px; }
+    .author-name { font-weight: 600; color: #1f2937; }
+    .author-links { display: flex; gap: 8px; margin-top: 4px; }
+    .author-links a { color: #2563eb; font-size: 12px; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+    .author-links a:hover { text-decoration: underline; }
+    .meta-item { font-size: 13px; color: #64748b; display: flex; align-items: center; gap: 4px; }
+    
+    .share-buttons { display: flex; gap: 8px; margin-bottom: 32px; }
+    .share-btn { width: 36px; height: 36px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+    .share-btn:hover { background: #f8fafc; border-color: #cbd5e1; }
+    
+    .article-hero { width: 100%; border-radius: 16px; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    
+    .article h2 { font-size: 26px; font-weight: 700; margin: 48px 0 16px; color: #0f172a; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+    .article h2:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+    .article h3 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; color: #1f2937; }
+    .article p { margin-bottom: 16px; color: #374151; font-size: 16px; }
+    .article ul, .article ol { margin: 16px 0; padding-left: 24px; }
+    .article li { margin-bottom: 8px; color: #374151; }
+    .article strong { color: #1f2937; }
+    
+    .highlight-box { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-left: 4px solid #f97316; padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .highlight-box strong { color: #c2410c; display: block; margin-bottom: 8px; font-size: 14px; }
+    .highlight-box p { margin: 0; color: #9a3412; font-size: 15px; }
+    
+    .warning-box { background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-left: 4px solid #ef4444; padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .warning-box strong { color: #991b1b; display: block; margin-bottom: 8px; font-size: 14px; }
+    .warning-box p { margin: 0; color: #7f1d1d; font-size: 15px; }
+    
+    .tip-box { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-left: 4px solid #10b981; padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 24px 0; }
+    .tip-box strong { color: #065f46; display: block; margin-bottom: 8px; font-size: 14px; }
+    .tip-box p { margin: 0; color: #047857; font-size: 15px; }
+    
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .comparison-table th { background: #0f172a; color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; }
+    .comparison-table td { padding: 12px 16px; border-bottom: 1px solid #e2e8f0; }
+    .comparison-table tr:hover { background: #f8fafc; }
+    
+    .step-number { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #f97316; color: #fff; border-radius: 50%; font-weight: 700; font-size: 14px; margin-right: 12px; }
+    
+    .cta-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 20px; padding: 40px; margin: 48px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-box::before { content: ""; position: absolute; top: -50%; right: -50%; width: 100%; height: 200%; background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%); }
+    .cta-box h3 { color: #fff; font-size: 28px; margin-bottom: 12px; position: relative; }
+    .cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 24px; position: relative; font-size: 16px; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: #f97316; color: #fff; padding: 16px 32px; border-radius: 10px; font-weight: 700; text-decoration: none; text-transform: uppercase; transition: all 0.3s; position: relative; }
+    .cta-btn:hover { background: #ea580c; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(249,115,22,0.3); }
+    .cta-social { display: flex; justify-content: center; gap: 16px; margin-top: 24px; position: relative; }
+    .cta-social a { color: rgba(255,255,255,0.7); font-size: 14px; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.3s; }
+    .cta-social a:hover { color: #f97316; }
+    .cta-social svg { width: 18px; height: 18px; fill: currentColor; }
+    
+    .sidebar-right { position: sticky; top: 100px; height: fit-content; }
+    .related-title { font-size: 14px; font-weight: 700; text-transform: uppercase; color: #64748b; margin-bottom: 16px; letter-spacing: 0.5px; }
+    .related-card { background: #f8fafc; border-radius: 12px; padding: 16px; margin-bottom: 16px; text-decoration: none; display: block; transition: all 0.3s; border: 1px solid transparent; }
+    .related-card:hover { background: #f1f5f9; transform: translateY(-2px); border-color: #e2e8f0; }
+    .related-badge { font-size: 11px; font-weight: 600; color: #64748b; text-transform: uppercase; margin-bottom: 8px; }
+    .related-card h4 { font-size: 14px; font-weight: 600; color: #1f2937; line-height: 1.4; margin-bottom: 8px; }
+    .related-card p { font-size: 12px; color: #64748b; line-height: 1.5; }
+    
+    .follow-box { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); border-radius: 16px; padding: 24px; margin-top: 24px; text-align: center; }
+    .follow-box h4 { color: #fff; font-size: 16px; margin-bottom: 8px; }
+    .follow-box p { color: rgba(255,255,255,0.9); font-size: 13px; margin-bottom: 16px; }
+    .follow-links { display: flex; flex-direction: column; gap: 8px; }
+    .follow-link { display: flex; align-items: center; justify-content: center; gap: 8px; background: #0f172a; color: #fff; padding: 12px 16px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.3s; }
+    .follow-link:hover { background: #1e293b; transform: translateY(-2px); }
+    .follow-link svg { width: 18px; height: 18px; fill: #fff; }
+    
+    footer { background: #0f172a; padding: 60px 20px 30px; margin-top: 60px; }
+    .footer-container { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; text-align: center; } }
+    .footer-brand p { color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 12px; line-height: 1.6; }
+    .footer-social { display: flex; gap: 12px; margin-top: 20px; }
+    @media (max-width: 768px) { .footer-social { justify-content: center; } }
+    .footer-social a { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+    .footer-social a:hover { background: #f97316; }
+    .footer-social svg { width: 20px; height: 20px; fill: #fff; }
+    .footer-title { color: #fff; font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; transition: color 0.3s; }
+    .footer-links a:hover { color: #f97316; }
+    .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 13px; }
+    
+    @media (max-width: 768px) {
+      .article h1 { font-size: 28px; }
+      .article-meta { flex-direction: column; align-items: flex-start; }
+      nav { display: none; }
+      .nav-social { display: none; }
+      .cta-box { padding: 32px 24px; }
+      .cta-box h3 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="/" class="logo">LETRA CAIXA <span>DO ZERO</span></a>
+      <nav>
+        <a href="/">Início</a>
+        <a href="/#manuais">Manuais</a>
+        <a href="/treinamento-start-neon/">Treinamentos</a>
+        <a href="https://instagram.com/letracaixadozero" target="_blank">Sobre</a>
+        <div class="nav-social">
+          <a href="https://instagram.com/letracaixadozero" target="_blank" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+          </a>
+          <a href="https://youtube.com/@letracaixadozero" target="_blank" title="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/></svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="breadcrumb">
+    <div class="breadcrumb-container">
+      <a href="/">🏠 Home</a>
+      <span>›</span>
+      <a href="/#manuais">Manuais</a>
+      <span>›</span>
+      <a href="/#manuais">PVC</a>
+      <span>›</span>
+      <span class="breadcrumb-current">Letra PVC com LED Flexível</span>
+    </div>
+  </div>
+  
+  <main class="main-container">
+    <aside class="sidebar-left">
+      <p class="index-title">📑 Índice</p>
+      <ul class="index-list">
+        <li><a href="#introducao" class="active">Introdução</a></li>
+        <li><a href="#materiais">Materiais Necessários</a></li>
+        <li><a href="#preparar-arte">Preparar a Arte</a></li>
+        <li><a href="#desbaste">Desbaste Interno</a></li>
+        <li><a href="#corte">Corte Externo</a></li>
+        <li><a href="#gabarito">Furos de Gabarito</a></li>
+        <li><a href="#led">Instalação do LED</a></li>
+        <li><a href="#fixacao">Fixação e Instalação</a></li>
+        <li><a href="#dicas">Dicas Importantes</a></li>
+      </ul>
+      
+      <div class="author-card">
+        <img src="/images/matheus-instrutor.jpg" alt="Matheus Pivatti">
+        <h4>Matheus Pivatti</h4>
+        <p>+15 anos de experiência em letras caixa</p>
+        <div class="author-social">
+          <a href="https://instagram.com/letracaixadozero" target="_blank" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+          </a>
+          <a href="https://youtube.com/@letracaixadozero" target="_blank" title="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/></svg>
+          </a>
+        </div>
+      </div>
+    </aside>
+    
+    <article class="article">
+      <span class="article-badge">PVC + LED</span>
+      <h1>Como Fazer Letra Caixa em PVC com LED Flexível: Manual Completo</h1>
+      <p class="article-description">Passo a passo detalhado de como produzir uma letra caixa em PVC com LED flexível embutido. Do corte CNC à instalação — incluindo todos os materiais e links dos fornecedores.</p>
+      
+      <div class="article-meta">
+        <div class="author-inline">
+          <img src="/images/matheus-instrutor.jpg" alt="Matheus Pivatti">
+          <div class="author-info">
+            <div class="author-name">Matheus Pivatti</div>
+            <div class="author-links">
+              <a href="https://instagram.com/letracaixadozero" target="_blank">@letracaixadozero</a>
+            </div>
+          </div>
+        </div>
+        <div class="meta-item">📅 12 de Abril de 2026</div>
+        <div class="meta-item">⏱️ 5 min de leitura</div>
+      </div>
+
+      <h2 id="introducao">Introdução</h2>
+      <p>A letra caixa em PVC com LED flexível embutido é uma das peças mais versáteis e lucrativas que você pode produzir. O acabamento impressiona qualquer cliente — a letra fica com iluminação interna uniforme, pode ser instalada em ambiente externo, e o processo é mais simples do que parece.</p>
+      <p>Neste manual completo, vou te mostrar o processo exato que uso na minha produção, com todos os materiais, fornecedores e dicas que fazem a diferença no resultado final.</p>
+
+      <h2 id="materiais">🔧 Materiais Necessários</h2>
+      
+      <h3>Chapa de PVC — Serilon</h3>
+      <p>Use PVC expandido da <strong>Serilon</strong>. É mais resistente e não fica quebradiço como outros fabricantes. Se for usar outro PVC, faça testes antes — muitos alunos sofrem com material que quebra na hora do desbaste.</p>
+      <div class="tip-box">
+        <strong>💡 Contato do fornecedor</strong>
+        <p>Fale com o Mateus (vendedor Serilon): <a href="https://wa.me/5543996602877" target="_blank" style="color:#047857;font-weight:600;">WhatsApp (43) 99660-2877</a></p>
+      </div>
+
+      <h3>Fresa 2 Cortes Paralelos — 3.175mm</h3>
+      <p>Essa fresa é essencial para criar a cava interna na letra onde o LED vai ficar embutido. Use a de 3.175mm que é compatível com a maioria das CNC.</p>
+      <p>👉 <a href="https://precisaofresas.com.br/produtos/fresa-2-cortes-retos-paralelos-3-175mm/" target="_blank" style="color:#2563eb;font-weight:600;">Comprar na Precisão Fresas</a></p>
+
+      <h3>LED Flexível — Ultra Fita 2X</h3>
+      <p>O LED flexível é fundamental porque acompanha as curvas da letra sem problema. A <strong>Ultra Fita de LED 2X</strong> é maleável, resistente à água e tem 3 anos de garantia.</p>
+      <p>👉 <a href="https://atacadaodacv.com.br/produtos/ultra-fita-de-led-2x-12v-maleavel-e-resistente-a-agua-60-leds-m-100-metros-poq56/" target="_blank" style="color:#2563eb;font-weight:600;">Comprar no Atacadão da CV</a></p>
+
+      <h3>Fio — Ultra Fio Slim 26 AWG</h3>
+      <p>Fio fino e flexível para fazer as soldas e conexões do LED.</p>
+      <p>👉 <a href="https://atacadaodacv.com.br/produtos/ultra-fio-slim-26-awg-100metros/" target="_blank" style="color:#2563eb;font-weight:600;">Comprar no Atacadão da CV</a></p>
+
+      <h3>Fixação — Easy Fix</h3>
+      <p>Para fixar a letra na parede. Pode usar o Easy Fix ou barra enroscada.</p>
+      <p>👉 <a href="https://atacadaodacv.com.br/produtos/prolongador-easy-fix/" target="_blank" style="color:#2563eb;font-weight:600;">Comprar no Atacadão da CV</a></p>
+
+      <h3>Máquina CNC Router</h3>
+      <p>Para fazer o corte e desbaste automatizado. Recomendamos as máquinas da <strong>Lídio Laser</strong>.</p>
+
+      <h2 id="preparar-arte">📐 Passo 1 — Preparar a Arte</h2>
+      <p>Abra o projeto da letra no software da sua CNC (Aspire, ArtCAM, CorelDRAW, etc). Agora você vai criar os percursos internos:</p>
+      <ol>
+        <li>Crie <strong>DOIS percursos internos</strong> na letra, com <strong>7mm de espaçamento</strong> entre eles. É entre essas duas linhas que o LED vai ficar.</li>
+        <li>Defina a <strong>margem da borda</strong> da letra:
+          <ul>
+            <li><strong>PVC preto:</strong> deixe pelo menos <strong>2mm</strong> de margem (preto não vaza tanta luz)</li>
+            <li><strong>PVC branco:</strong> deixe pelo menos <strong>6mm</strong> de margem (branco vaza mais luz e precisa de mais margem)</li>
+          </ul>
+        </li>
+      </ol>
+
+      <div class="warning-box">
+        <strong>⚠️ Atenção</strong>
+        <p>Se a margem for pequena demais, a luz vai vazar pelas bordas e o acabamento fica amador. Sempre teste em uma sobra antes de rodar a peça final.</p>
+      </div>
+
+      <h2 id="desbaste">📐 Passo 2 — Desbaste Interno</h2>
+      <p>Entre as duas linhas internas que você criou, faça um <strong>percurso de preenchimento (desbaste)</strong> afundando <strong>5mm</strong> no material. É nesse canal que o LED vai ficar embutido dentro da letra.</p>
+      <p>Use a fresa de 2 cortes paralelos de 3.175mm para esse processo.</p>
+
+      <h2 id="corte">📐 Passo 3 — Corte Externo</h2>
+      <p>Na linha de fora, faça o <strong>corte externo</strong> da letra normalmente. A máquina vai cortar o contorno da letra no PVC.</p>
+
+      <h2 id="gabarito">📐 Passo 4 — Furos de Gabarito</h2>
+      <p>Faça <strong>furinhos de 1mm</strong> nos pontos estratégicos da letra. Esses furos servem como guia na hora de posicionar os pinos de fixação (gabarito). Facilita muito a instalação depois.</p>
+
+      <h2 id="led">📐 Passo 5 — Instalação do LED</h2>
+      <p>Coloque a <strong>fita de LED flexível (Ultra 2X)</strong> no canal que você desbastou. Por ser flexível, ela acompanha as curvas da letra sem problema nenhum.</p>
+      <p>Faça a <strong>soldagem das emendas</strong> com cuidado. Use o Ultra Fio Slim 26 AWG para as conexões.</p>
+
+      <div class="tip-box">
+        <strong>💡 Dica crucial</strong>
+        <p>Depois de soldar e isolar, <strong>dê uma pequena colada no fio</strong> pra evitar que qualquer puxada estoure a emenda. Detalhe simples que salva muito retrabalho.</p>
+      </div>
+
+      <h2 id="fixacao">📐 Passo 6 — Fixação e Instalação</h2>
+      <p>Use o <strong>prolongador Easy Fix</strong> ou <strong>barra enroscada</strong> para fixar a letra na parede. Use os furos de gabarito que você fez no passo 4 para alinhar tudo perfeitamente.</p>
+      
+      <div class="highlight-box">
+        <strong>🌧️ Instalação externa</strong>
+        <p>Essa letra pode ser instalada em ambiente externo! O LED 2X é resistente à água (IP65) e o PVC Serilon aguenta intempéries.</p>
+      </div>
+
+      <h2 id="dicas">💡 Dicas Importantes</h2>
+      <ul>
+        <li><strong>Sempre use PVC Serilon</strong> — outros fabricantes podem resultar em material quebradiço</li>
+        <li><strong>Teste a profundidade do desbaste</strong> em uma sobra antes de rodar a peça final</li>
+        <li><strong>PVC preto precisa de menos margem</strong> que branco (2mm vs 6mm)</li>
+        <li><strong>LED flexível é essencial</strong> — LED rígido não acompanha as curvas</li>
+        <li><strong>Cole o fio depois da solda</strong> — protege contra puxadas acidentais</li>
+        <li><strong>Faça os furos de gabarito</strong> — parece detalhe, mas facilita muito a instalação</li>
+      </ul>
+
+      <h2>🔗 Lista Completa de Materiais</h2>
+      <p>Todos os materiais e ferramentas que usamos nesse processo estão listados com links diretos dos fornecedores:</p>
+      <p>👉 <a href="https://www.letracaixadozero.com/linksmateriais" target="_blank" style="color:#2563eb;font-weight:600;">Ver lista completa de materiais</a></p>
+
+      <div class="cta-box">
+        <h3>Quer dominar TODAS as técnicas de letreiros?</h3>
+        <p>Na Universidade dos Letreiros você tem 10 cursos completos, 200+ aulas e Chat IA que responde qualquer dúvida técnica na hora.</p>
+        <a href="https://www.letracaixadozero.com/universidade" class="cta-btn">CONHECER A UNIVERSIDADE →</a>
+      </div>
+
+    </article>
+    
+    <aside class="sidebar-right">
+      <p class="related-title">📚 Artigos Relacionados</p>
+      
+      <a href="/artigos/guia-completo-letras-caixa-acm/" class="related-card">
+        <p class="related-badge">ACM • 25 min</p>
+        <h4>Guia Completo: Como Fazer Letras Caixa em ACM</h4>
+        <p>Domine a fabricação de letras caixa em ACM com a técnica do canal V...</p>
+      </a>
+      
+      <a href="/artigos/letras-caixa-acrilico-moldado/" class="related-card">
+        <p class="related-badge">Acrílico • 22 min</p>
+        <h4>Letras Caixa em Acrílico Moldado</h4>
+        <p>Técnicas de moldagem a quente para criar letras iluminadas...</p>
+      </a>
+      
+      <a href="/artigos/neon-led-como-comecar/" class="related-card">
+        <p class="related-badge">Neon LED • 20 min</p>
+        <h4>Neon LED: Como Começar do Zero</h4>
+        <p>Guia completo para iniciar no mercado de Neon LED com baixo investimento...</p>
+      </a>
+      
+      <div class="follow-box">
+        <h4>📱 Siga o Matheus</h4>
+        <p>Conteúdo diário sobre letras caixa e comunicação visual</p>
+        <div class="follow-links">
+          <a href="https://instagram.com/letracaixadozero" target="_blank" class="follow-link">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+            Instagram
+          </a>
+          <a href="https://youtube.com/@letracaixadozero" target="_blank" class="follow-link">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/></svg>
+            YouTube
+          </a>
+        </div>
+      </div>
+    </aside>
+  </main>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" class="logo">LETRA CAIXA <span>DO ZERO</span></a>
+          <p>O maior portal sobre letras caixa do Brasil. Aprenda todos os processos de fabricação com quem mais entende do assunto.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/letracaixadozero" target="_blank" title="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+            </a>
+            <a href="https://youtube.com/@letracaixadozero" target="_blank" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-title">Navegação</p>
+          <div class="footer-links">
+            <a href="/">Início</a>
+            <a href="/#manuais">Manuais</a>
+            <a href="/treinamento-start-neon/">Treinamentos</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-title">Artigos</p>
+          <div class="footer-links">
+            <a href="/artigos/guia-completo-letras-caixa-acm/">Letras em ACM</a>
+            <a href="/artigos/letras-caixa-aco-soldagem/">Letras em Aço</a>
+            <a href="/artigos/letras-caixa-pvc-expandido/">Letras em PVC</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-title">Contato</p>
+          <div class="footer-links">
+            <a href="https://instagram.com/letracaixadozero" target="_blank">Instagram</a>
+            <a href="https://youtube.com/@letracaixadozero" target="_blank">YouTube</a>
+            <a href="mailto:contato@letracaixadozero.com">E-mail</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Letra Caixa do Zero. Todos os direitos reservados. | Desenvolvido por @letracaixadozero</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    const sections = document.querySelectorAll('h2[id]');
+    const indexLinks = document.querySelectorAll('.index-list a');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      indexLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
