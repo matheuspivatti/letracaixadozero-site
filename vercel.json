@@ -1,5 +1,8 @@
 {
   "env": {
     "AULAO_SPREADSHEET_ID": "1gcpM5eHCoz2ybXIia5p1fAsSBN1ZtZP3pHLMv2mIa_s"
-  }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "lp.visualpilot.ai" }], "destination": "/vp-lp/$1" }
+  ]
 }
