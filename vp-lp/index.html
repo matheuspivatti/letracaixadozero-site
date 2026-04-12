@@ -138,32 +138,36 @@
     <h2 class="section-title">Quem usa, <em>aprova</em></h2>
     <p class="section-sub">Profissionais reais usando o VisualPilot no dia a dia</p>
   </div>
-  <div style="overflow-x:auto;padding:20px 0;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;">
-    <div style="display:flex;justify-content:center;gap:16px;padding:0 20px;width:max-content;margin:0 auto;">
-      <div style="flex-shrink:0;width:280px;border-radius:16px;overflow:hidden;border:1px solid rgba(124,58,237,0.15);box-shadow:0 10px 30px rgba(0,0,0,0.3);scroll-snap-align:center;">
-        <img src="/vp-lp/relatos/relato-1.jpeg" alt="Relato" style="width:100%;display:block;" loading="lazy">
-      </div>
-      <div style="flex-shrink:0;width:280px;border-radius:16px;overflow:hidden;border:1px solid rgba(124,58,237,0.15);box-shadow:0 10px 30px rgba(0,0,0,0.3);scroll-snap-align:center;">
-        <img src="/vp-lp/relatos/relato-2.jpeg" alt="Relato" style="width:100%;display:block;" loading="lazy">
-      </div>
-      <div style="flex-shrink:0;width:280px;border-radius:16px;overflow:hidden;border:1px solid rgba(124,58,237,0.15);box-shadow:0 10px 30px rgba(0,0,0,0.3);scroll-snap-align:center;">
-        <img src="/vp-lp/relatos/relato-3.jpeg" alt="Relato" style="width:100%;display:block;" loading="lazy">
-      </div>
-      <div style="flex-shrink:0;width:280px;border-radius:16px;overflow:hidden;border:1px solid rgba(124,58,237,0.15);box-shadow:0 10px 30px rgba(0,0,0,0.3);scroll-snap-align:center;">
-        <img src="/vp-lp/relatos/relato-4.jpeg" alt="Relato" style="width:100%;display:block;" loading="lazy">
-      </div>
-      <div style="flex-shrink:0;width:280px;border-radius:16px;overflow:hidden;border:1px solid rgba(124,58,237,0.15);box-shadow:0 10px 30px rgba(0,0,0,0.3);scroll-snap-align:center;">
-        <img src="/vp-lp/relatos/relato-5.png" alt="Relato" style="width:100%;display:block;" loading="lazy">
-      </div>
-      <div style="flex-shrink:0;width:280px;border-radius:16px;overflow:hidden;border:1px solid rgba(124,58,237,0.15);box-shadow:0 10px 30px rgba(0,0,0,0.3);scroll-snap-align:center;">
-        <img src="/vp-lp/relatos/relato-6.png" alt="Relato" style="width:100%;display:block;" loading="lazy">
-      </div>
-      <div style="flex-shrink:0;width:280px;border-radius:16px;overflow:hidden;border:1px solid rgba(124,58,237,0.15);box-shadow:0 10px 30px rgba(0,0,0,0.3);scroll-snap-align:center;">
-        <img src="/vp-lp/relatos/relato-7.png" alt="Relato" style="width:100%;display:block;" loading="lazy">
-      </div>
+  <style>
+    .relatos-track { display: flex; gap: 16px; animation: scroll-relatos 30s linear infinite; width: max-content; }
+    .relatos-track:hover { animation-play-state: paused; }
+    .relato-card { flex-shrink: 0; width: 260px; height: 360px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(124,58,237,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.3); background: rgba(124,58,237,0.05); display: flex; align-items: center; justify-content: center; }
+    .relato-card img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+    @keyframes scroll-relatos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 600px) { .relato-card { width: 220px; height: 300px; } }
+  </style>
+  <div style="overflow:hidden;padding:20px 0;">
+    <div class="relatos-track">
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-1.jpeg" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-2.jpeg" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-3.jpeg" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-4.jpeg" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-5.png" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-6.png" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-7.png" alt="Relato de cliente" loading="lazy"></div>
+      <!-- Duplicados pra loop infinito -->
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-1.jpeg" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-2.jpeg" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-3.jpeg" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-4.jpeg" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-5.png" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-6.png" alt="Relato de cliente" loading="lazy"></div>
+      <div class="relato-card"><img src="/vp-lp/relatos/relato-7.png" alt="Relato de cliente" loading="lazy"></div>
     </div>
   </div>
-  <p style="text-align:center;color:#64748b;font-size:13px;margin-top:12px;">← Arraste para ver mais →</p>
 </section>
 
 <!-- Dores -->
