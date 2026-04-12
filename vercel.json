@@ -2,8 +2,10 @@
   "env": {
     "AULAO_SPREADSHEET_ID": "1gcpM5eHCoz2ybXIia5p1fAsSBN1ZtZP3pHLMv2mIa_s"
   },
+  "redirects": [
+    { "source": "/", "has": [{ "type": "host", "value": "lp.visualpilot.ai" }], "destination": "/vp-lp/", "permanent": false }
+  ],
   "rewrites": [
-    { "source": "/", "has": [{ "type": "host", "value": "lp.visualpilot.ai" }], "destination": "/vp-lp/index.html" },
-    { "source": "/:path*", "has": [{ "type": "host", "value": "lp.visualpilot.ai" }], "destination": "/vp-lp/:path*" }
+    { "source": "/:path((?!vp-lp).*)", "has": [{ "type": "host", "value": "lp.visualpilot.ai" }], "destination": "/vp-lp/:path" }
   ]
 }
