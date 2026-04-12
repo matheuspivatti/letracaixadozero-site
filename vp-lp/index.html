@@ -16,20 +16,21 @@
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       line-height: 1.6;
       color: #e2e8f0;
-      background: #0f0a1e;
+      background: #060E1F;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* Background effects */
+    /* Background effects — mesmo estilo UL com cores VP */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(46,74,138,0.15) 0%, transparent 70%),
-        radial-gradient(ellipse 70% 50% at 80% 20%, rgba(61,93,168,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 90% 70% at 50% 80%, rgba(37,99,235,0.08) 0%, transparent 70%);
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(61,93,168,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 50% at 80% 20%, rgba(30,58,110,0.20) 0%, transparent 70%),
+        radial-gradient(ellipse 90% 70% at 50% 80%, rgba(61,93,168,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 70% 60%, rgba(30,58,110,0.15) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
@@ -38,9 +39,17 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(61,93,168,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(61,93,168,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(61,93,168,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(61,93,168,0.05) 1px, transparent 1px);
       background-size: 80px 80px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .vignette {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(4,8,20,0.5) 100%);
       pointer-events: none;
       z-index: 0;
     }
@@ -56,7 +65,7 @@
       top: 0;
       width: 100%;
       z-index: 100;
-      background: rgba(15,10,30,0.85);
+      background: rgba(6,14,31,0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(61,93,168,0.08);
@@ -587,12 +596,14 @@
 <body>
 
 <div class="grid-overlay"></div>
+<div class="vignette"></div>
 
 <!-- Navbar -->
 <nav class="navbar">
   <div class="navbar-inner">
     <a href="/vp-lp" class="navbar-brand">
-      <img src="/vp-lp/logos/versao-clara.svg" alt="VisualPilot.ai" style="height:32px;">
+      <img src="/vp-lp/logos/final-simbolo-claro.svg" alt="VP" style="height:28px;">
+      <img src="/vp-lp/logos/final-escrito-claro.svg" alt="VisualPilot.ai" style="height:16px;">
     </a>
     <a href="https://visualpilot.ai/register" class="navbar-cta">Teste gratis 5 dias</a>
   </div>
@@ -601,7 +612,7 @@
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <img src="/vp-lp/logos/versao-clara.svg" alt="VisualPilot.ai" style="max-height:80px;margin:0 auto 28px;display:block;">
+    <img src="/vp-lp/logos/final-logo-clara.svg" alt="VisualPilot.ai" style="max-height:90px;margin:0 auto 28px;display:block;">
     <div class="hero-badge">Copiloto com IA para letreiros</div>
     <h1>Orcamento profissional<br>em 2 minutos.<br><em>Com seus custos reais.</em></h1>
     <p class="hero-sub">Precifique letreiros e neon LED com os dados reais da sua empresa. Analise DXF e fotos. Exporte orcamentos prontos pro cliente.</p>
@@ -821,7 +832,7 @@
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
-    <img src="/vp-lp/logos/versao-clara.svg" alt="VisualPilot.ai" style="height:28px;opacity:0.4;margin-bottom:12px;">
+    <img src="/vp-lp/logos/final-logo-clara.svg" alt="VisualPilot.ai" style="height:28px;opacity:0.4;margin-bottom:12px;">
     <p>Copiloto com IA para precificacao e gestao de letreiros.</p>
     <p style="margin-top:4px;">© 2026 VisualPilot. Criado por <a href="https://instagram.com/matheuspivatti" target="_blank">Matheus Pivatti</a>.</p>
   </div>
