@@ -59,6 +59,15 @@
     .hero h1 { font-size: clamp(28px, 5.5vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
     .hero h1 em { font-style: normal; background: linear-gradient(135deg, #2EC4B6, #1B4F72); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .hero-sub { font-size: 18px; color: #94a3b8; max-width: 600px; margin: 0 auto 32px; }
+    .hero-video { position: relative; max-width: 720px; margin: 0 auto 32px; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; cursor: pointer; border: 1px solid rgba(46,196,182,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(46,196,182,0.1); background: #000; }
+    .hero-video::before { content: ''; position: absolute; inset: 0; background-image: url('https://i.ytimg.com/vi/1RGxnIMG48E/maxresdefault.jpg'); background-size: cover; background-position: center; transition: transform 0.4s, filter 0.3s; }
+    .hero-video:hover::before { transform: scale(1.03); filter: brightness(1.08); }
+    .hero-video::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%); pointer-events: none; }
+    .hero-video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 88px; height: 88px; border-radius: 50%; background: rgba(46,196,182,0.95); display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 10px 40px rgba(46,196,182,0.6); transition: transform 0.3s, background 0.3s; }
+    .hero-video:hover .hero-video-play { transform: translate(-50%, -50%) scale(1.1); background: #2EC4B6; }
+    .hero-video-play::after { content: ''; width: 0; height: 0; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid #0a0e1a; margin-left: 6px; }
+    .hero-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 3; }
+    @media (max-width: 500px) { .hero-video-play { width: 64px; height: 64px; } .hero-video-play::after { border-top-width: 10px; border-bottom-width: 10px; border-left-width: 16px; margin-left: 4px; } }
     .hero-cta { display: inline-flex; align-items: center; gap: 8px; padding: 18px 48px; background: linear-gradient(135deg, #2EC4B6, #1B4F72); color: #fff; font-size: 18px; font-weight: 700; border-radius: 12px; transition: all 0.3s; box-shadow: 0 8px 30px rgba(46,196,182,0.3); }
     .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(46,196,182,0.4); }
     .hero-info { font-size: 13px; color: #64748b; margin-top: 12px; }
@@ -193,6 +202,9 @@
     <div class="hero-badge">⭐ +4.000 alunos formados no Brasil e no mundo</div>
     <h1>Do 3D ao Aço, do projeto à precificação.<br><em>Aprenda a produzir e lucrar com letreiros profissionais.</em></h1>
     <p class="hero-sub">10 cursos e +200 aulas para você sair do zero ao especialista.</p>
+    <div class="hero-video" id="hero-video" role="button" aria-label="Reproduzir video de boas-vindas" tabindex="0">
+      <div class="hero-video-play"></div>
+    </div>
     <a href="https://uni.letracaixadozero.com/register" class="hero-cta">Assinar por R$97/mês →</a>
     <p class="hero-info">Garantia de 7 dias · Cancele quando quiser</p>
     <div class="hero-stats">
@@ -560,6 +572,26 @@
   <p>Universidade dos Letreiros · Criado por <a href="https://www.instagram.com/letracaixadozero" target="_blank">Matheus Pivatti</a> · 15 anos de comunicação visual · 4.000+ alunos formados</p>
   <p style="margin-top:4px;">© 2026 Letra Caixa do Zero. Todos os direitos reservados.</p>
 </footer>
+
+<script>
+  (function(){
+    var v = document.getElementById('hero-video');
+    if (!v) return;
+    function load(){
+      if (v.dataset.loaded) return;
+      v.dataset.loaded = '1';
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/1RGxnIMG48E?autoplay=1&rel=0';
+      iframe.title = 'Bem-vindo à Universidade dos Letreiros';
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', '');
+      v.innerHTML = '';
+      v.appendChild(iframe);
+    }
+    v.addEventListener('click', load);
+    v.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); }});
+  })();
+</script>
 
 </body>
 </html>
