@@ -442,18 +442,34 @@
       background: #fff;
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      padding: 28px;
-      transition: all 200ms;
+      overflow: hidden;
+      transition: all 250ms;
       display: flex; flex-direction: column;
     }
-    .article-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--text-primary); }
-    .article-cat {
-      font-size: 11px; font-weight: 700; color: var(--accent);
-      text-transform: uppercase; letter-spacing: 0.1em;
-      margin-bottom: 14px;
+    .article-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--text-primary); }
+    .article-cover {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: var(--bg-tertiary);
     }
-    .article-card h4 { margin-bottom: 12px; font-size: 18px; line-height: 1.35; }
-    .article-card p { font-size: 14px; line-height: 1.6; margin-bottom: 18px; flex: 1; }
+    .article-cover img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 600ms;
+    }
+    .article-card:hover .article-cover img { transform: scale(1.05); }
+    .article-cover-cat {
+      position: absolute; top: 16px; left: 16px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      color: var(--accent);
+      font-size: 11px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 6px 12px; border-radius: 50px;
+    }
+    .article-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .article-card h4 { margin-bottom: 12px; font-size: 17px; line-height: 1.35; }
+    .article-card p { font-size: 14px; line-height: 1.55; margin-bottom: 16px; flex: 1; }
     .article-link { font-size: 13px; font-weight: 700; color: var(--text-primary); display: inline-flex; align-items: center; gap: 4px; }
     .article-link:hover { color: var(--accent); }
 
@@ -869,94 +885,169 @@
     </div>
     <div class="articles-grid">
       <a href="/artigos/neon-led-como-comecar" class="article-card reveal">
-        <div class="article-cat">Neon LED</div>
-        <h4>Neon LED: Como Começar do Zero — Guia Completo</h4>
-        <p>Aprenda a produzir letreiros em Neon LED do zero. Técnicas manuais, materiais necessários e como começar a lucrar sem máquinas caras.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/neon-led.jpg" alt="Neon LED" loading="lazy">
+          <span class="article-cover-cat">Neon LED</span>
+        </div>
+        <div class="article-body">
+          <h4>Neon LED: Como Começar do Zero — Guia Completo</h4>
+          <p>Aprenda a produzir letreiros em Neon LED do zero. Técnicas manuais, materiais necessários e como começar a lucrar sem máquinas caras.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/como-calcular-fonte-fita-led" class="article-card reveal">
-        <div class="article-cat">Iluminação</div>
-        <h4>Como calcular a fonte certa para fita de LED</h4>
-        <p>Fórmula, tabela rápida, margem de segurança. Pra fonte nunca queimar nem subdimensionar.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/iluminacao-led.jpg" alt="Iluminação LED" loading="lazy">
+          <span class="article-cover-cat">Iluminação</span>
+        </div>
+        <div class="article-body">
+          <h4>Como calcular a fonte certa para fita de LED</h4>
+          <p>Fórmula, tabela rápida, margem de segurança. Pra fonte nunca queimar nem subdimensionar.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/iluminacao-led-letras-caixa" class="article-card reveal">
-        <div class="article-cat">Iluminação</div>
-        <h4>Iluminação LED para Letras Caixa — Guia Completo</h4>
-        <p>Cálculo de carga, queda de tensão, distribuição. Tudo sobre iluminação interna de letreiros.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/iluminacao-led.jpg" alt="Iluminação LED" loading="lazy">
+          <span class="article-cover-cat">Iluminação</span>
+        </div>
+        <div class="article-body">
+          <h4>Iluminação LED para Letras Caixa — Guia Completo</h4>
+          <p>Cálculo de carga, queda de tensão, distribuição. Tudo sobre iluminação interna de letreiros.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/led-12v-vs-24v-comunicacao-visual" class="article-card reveal">
-        <div class="article-cat">Iluminação</div>
-        <h4>LED 12V vs 24V — Qual escolher?</h4>
-        <p>Comparativo completo. Quando faz sentido cada tensão, vantagens reais e onde o 24V salva o projeto.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/iluminacao-led.jpg" alt="LED 12V vs 24V" loading="lazy">
+          <span class="article-cover-cat">Iluminação</span>
+        </div>
+        <div class="article-body">
+          <h4>LED 12V vs 24V — Qual escolher?</h4>
+          <p>Comparativo completo. Quando faz sentido cada tensão, vantagens reais e onde o 24V salva o projeto.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/melhor-fita-led-letra-caixa" class="article-card reveal">
-        <div class="article-cat">Iluminação</div>
-        <h4>Qual a melhor fita de LED para letra caixa?</h4>
-        <p>5050, 5630, COB, RGB. Comparativo prático com dimensionamento por aplicação.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/iluminacao-led.jpg" alt="Fita LED" loading="lazy">
+          <span class="article-cover-cat">Iluminação</span>
+        </div>
+        <div class="article-body">
+          <h4>Qual a melhor fita de LED para letra caixa?</h4>
+          <p>5050, 5630, COB, RGB. Comparativo prático com dimensionamento por aplicação.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/modulos-vs-fita-led" class="article-card reveal">
-        <div class="article-cat">Iluminação</div>
-        <h4>Módulos vs Fita LED — Qual usar?</h4>
-        <p>Cada tecnologia tem sua aplicação. Veja qual brilha em cada tipo de letreiro.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/artigos/modulos-vs-fita-led/hero.png" alt="Módulos vs Fita LED" loading="lazy">
+          <span class="article-cover-cat">Iluminação</span>
+        </div>
+        <div class="article-body">
+          <h4>Módulos vs Fita LED — Qual usar?</h4>
+          <p>Cada tecnologia tem sua aplicação. Veja qual brilha em cada tipo de letreiro.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/letras-caixa-aco-soldagem" class="article-card reveal">
-        <div class="article-cat">Aço</div>
-        <h4>Como fazer letras caixa de Aço com soldagem</h4>
-        <p>Galvanizado, inox, latão. Solda de estanho, MIG, ferro machadinha. Processo completo.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/letras-aco-soldagem.jpg" alt="Letras de Aço" loading="lazy">
+          <span class="article-cover-cat">Aço</span>
+        </div>
+        <div class="article-body">
+          <h4>Como fazer letras caixa de Aço com soldagem</h4>
+          <p>Galvanizado, inox, latão. Solda de estanho, MIG, ferro machadinha. Processo completo.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/guia-completo-letras-caixa-acm" class="article-card reveal">
-        <div class="article-cat">ACM</div>
-        <h4>Guia Completo: Letras Caixa em ACM</h4>
-        <p>Técnica do canal V, escolha de chapa, fitas estruturais, iluminação. Letra de fachada premium.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/letras-acm.jpg" alt="Letras ACM" loading="lazy">
+          <span class="article-cover-cat">ACM</span>
+        </div>
+        <div class="article-body">
+          <h4>Guia Completo: Letras Caixa em ACM</h4>
+          <p>Técnica do canal V, escolha de chapa, fitas estruturais, iluminação. Letra de fachada premium.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/letra-pvc-led-flexivel" class="article-card reveal">
-        <div class="article-cat">PVC</div>
-        <h4>Letra Caixa em PVC com LED flexível</h4>
-        <p>Cava interna, fresa, LED embutido. Peça versátil, lucrativa, acabamento premium.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/letras-pvc.jpg" alt="Letra PVC" loading="lazy">
+          <span class="article-cover-cat">PVC</span>
+        </div>
+        <div class="article-body">
+          <h4>Letra Caixa em PVC com LED flexível</h4>
+          <p>Cava interna, fresa, LED embutido. Peça versátil, lucrativa, acabamento premium.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/letras-caixa-pvc-expandido" class="article-card reveal">
-        <div class="article-cat">PVC</div>
-        <h4>Letras Caixa em PVC Expandido — Guia Completo</h4>
-        <p>Material acessível, ferramentas simples, resultado profissional. Porta de entrada perfeita.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/letras-pvc.jpg" alt="PVC Expandido" loading="lazy">
+          <span class="article-cover-cat">PVC</span>
+        </div>
+        <div class="article-body">
+          <h4>Letras Caixa em PVC Expandido — Guia Completo</h4>
+          <p>Material acessível, ferramentas simples, resultado profissional. Porta de entrada perfeita.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/letras-caixa-acrilico-moldado" class="article-card reveal">
-        <div class="article-cat">Acrílico</div>
-        <h4>Letras Caixa em Acrílico Moldado</h4>
-        <p>Técnica chinesa 4.0. Acabamento premium, brilho perfeito, alta margem.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/images/artigos/letras-acrilico-moldado.jpg" alt="Acrílico Moldado" loading="lazy">
+          <span class="article-cover-cat">Acrílico</span>
+        </div>
+        <div class="article-body">
+          <h4>Letras Caixa em Acrílico Moldado</h4>
+          <p>Técnica chinesa 4.0. Acabamento premium, brilho perfeito, alta margem.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/acrilico-fundido-vs-extrudado" class="article-card reveal">
-        <div class="article-cat">Acrílico</div>
-        <h4>Acrílico Fundido vs Extrudado — Qual usar?</h4>
-        <p>Diferença crítica de qualidade. Quando vale a pena pagar mais pelo fundido.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/artigos/acrilico-fundido-vs-extrudado/hero.png" alt="Acrílico Fundido vs Extrudado" loading="lazy">
+          <span class="article-cover-cat">Acrílico</span>
+        </div>
+        <div class="article-body">
+          <h4>Acrílico Fundido vs Extrudado — Qual usar?</h4>
+          <p>Diferença crítica de qualidade. Quando vale a pena pagar mais pelo fundido.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/impressao-3d-letra-caixa" class="article-card reveal">
-        <div class="article-cat">3D</div>
-        <h4>Impressão 3D para Letra Caixa — Quando vale?</h4>
-        <p>Modelagem, fatiamento, orientação. Onde a impressão 3D realmente brilha.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/artigos/impressao-3d-letra-caixa/hero.png" alt="Impressão 3D" loading="lazy">
+          <span class="article-cover-cat">3D</span>
+        </div>
+        <div class="article-body">
+          <h4>Impressão 3D para Letra Caixa — Quando vale?</h4>
+          <p>Modelagem, fatiamento, orientação. Onde a impressão 3D realmente brilha.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/efeito-fundo-infinito" class="article-card reveal">
-        <div class="article-cat">Acabamento</div>
-        <h4>Efeito Fundo Infinito na Letra Caixa</h4>
-        <p>Halo de luz por trás. Visual moderno, premium, muito procurado em fachadas corporativas.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/artigos/efeito-fundo-infinito/hero.png" alt="Efeito Fundo Infinito" loading="lazy">
+          <span class="article-cover-cat">Acabamento</span>
+        </div>
+        <div class="article-body">
+          <h4>Efeito Fundo Infinito na Letra Caixa</h4>
+          <p>Halo de luz por trás. Visual moderno, premium, muito procurado em fachadas corporativas.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
       <a href="/artigos/como-precificar-letreiros" class="article-card reveal">
-        <div class="article-cat">Negócio</div>
-        <h4>Como Precificar Letreiros Corretamente</h4>
-        <p>Fórmula completa. Erro #1 do iniciante é vender barato. Aqui tu aprende a cobrar o valor real.</p>
-        <span class="article-link">Ler artigo →</span>
+        <div class="article-cover">
+          <img src="/artigos/como-precificar-letreiros/hero.png" alt="Precificação" loading="lazy">
+          <span class="article-cover-cat">Negócio</span>
+        </div>
+        <div class="article-body">
+          <h4>Como Precificar Letreiros Corretamente</h4>
+          <p>Fórmula completa. Erro #1 do iniciante é vender barato. Aqui tu aprende a cobrar o valor real.</p>
+          <span class="article-link">Ler artigo →</span>
+        </div>
       </a>
     </div>
   </div>
