@@ -337,17 +337,33 @@
       position: relative;
       display: flex; align-items: center; justify-content: center;
     }
-    .ul-symbol-wrap {
-      width: 100%; max-width: 380px; aspect-ratio: 1;
-      background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    .ul-photo-wrap {
+      position: relative; width: 100%; max-width: 460px;
+      aspect-ratio: 4/5; border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-xl);
-      padding: 60px;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      backdrop-filter: blur(20px);
     }
-    .ul-symbol-wrap img { width: 100%; height: auto; filter: drop-shadow(0 16px 40px rgba(37,99,235,0.4)); }
+    .ul-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .ul-photo-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(13,28,67,0.75) 100%);
+    }
+    .ul-photo-badge {
+      position: absolute; bottom: 24px; left: 24px; right: 24px; z-index: 2;
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.08); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 16px;
+      color: #fff;
+    }
+    .ul-photo-badge img {
+      width: 48px; height: 48px; object-fit: contain; flex-shrink: 0;
+      filter: drop-shadow(0 4px 12px rgba(37,99,235,0.5));
+    }
+    .ul-photo-badge-text strong { display: block; font-size: 15px; font-weight: 800; }
+    .ul-photo-badge-text span { font-size: 12px; opacity: 0.7; }
 
     /* === TRAININGS GRID === */
     .trainings-grid {
@@ -356,20 +372,26 @@
     @media (max-width: 1000px) { .trainings-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) { .trainings-grid { grid-template-columns: 1fr; } }
     .training-card {
-      padding: 32px;
       border-radius: var(--radius-lg);
       background: #fff; border: 1px solid var(--border);
       transition: all 300ms;
       display: flex; flex-direction: column;
+      overflow: hidden;
     }
     .training-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--text-primary); }
+    .training-cover {
+      position: relative; aspect-ratio: 16/10; overflow: hidden; background: #0a0a0f;
+    }
+    .training-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms; }
+    .training-card:hover .training-cover img { transform: scale(1.05); }
+    .training-body { padding: 28px 32px 32px; display: flex; flex-direction: column; flex: 1; }
     .training-tag {
       display: inline-flex; align-items: center;
       padding: 4px 10px; border-radius: 6px;
       background: #f3f4f6; color: var(--text-secondary);
       font-size: 11px; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.08em;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       align-self: flex-start;
     }
     .training-tag.start { background: #dcfce7; color: #166534; }
@@ -387,6 +409,31 @@
     /* === PRESENCIAL === */
     .presencial {
       background: var(--bg-secondary);
+    }
+    .presencial-hero {
+      position: relative; height: 360px; border-radius: var(--radius-lg);
+      overflow: hidden; margin-bottom: 56px;
+    }
+    .presencial-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .presencial-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);
+    }
+    .presencial-hero-overlay {
+      position: absolute; bottom: 32px; left: 32px; right: 32px;
+      color: #fff; z-index: 2;
+    }
+    .presencial-hero-overlay .eyebrow {
+      background: rgba(245,158,11,0.18); color: #fbbf24;
+    }
+    .presencial-hero-overlay h3 {
+      color: #fff; font-size: 28px; margin-top: 16px;
+      font-weight: 800; letter-spacing: -0.01em;
+    }
+    @media (max-width: 700px) {
+      .presencial-hero { height: 240px; }
+      .presencial-hero-overlay { bottom: 20px; left: 20px; right: 20px; }
+      .presencial-hero-overlay h3 { font-size: 20px; }
     }
     .presencial-inner {
       display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
@@ -482,16 +529,22 @@
     }
     @media (max-width: 900px) { .ecosystem-grid { grid-template-columns: 1fr; } }
     .ecosystem-card {
-      padding: 36px;
       background: #fff; border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      text-align: center;
       transition: all 300ms;
+      overflow: hidden;
+      display: flex; flex-direction: column;
     }
     .ecosystem-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .ecosystem-cover {
+      position: relative; aspect-ratio: 16/10; overflow: hidden; background: #0a0a0f;
+    }
+    .ecosystem-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms; }
+    .ecosystem-card:hover .ecosystem-cover img { transform: scale(1.05); }
+    .ecosystem-body { padding: 32px 32px 36px; text-align: center; flex: 1; display: flex; flex-direction: column; }
     .ecosystem-card h3 { margin-bottom: 8px; font-size: 22px; }
     .ecosystem-tag { font-size: 12px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
-    .ecosystem-card p { font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+    .ecosystem-card p { font-size: 15px; line-height: 1.6; margin-bottom: 24px; flex: 1; }
     .ecosystem-card .btn { width: 100%; justify-content: center; padding: 14px 24px; }
 
     /* === MATHEUS === */
@@ -773,8 +826,15 @@
       </div>
     </div>
     <div class="ul-visual">
-      <div class="ul-symbol-wrap">
-        <img src="/universidade/assets/ul-symbol.png" alt="Universidade dos Letreiros">
+      <div class="ul-photo-wrap">
+        <img src="/images/covers/ul-banner.jpg" alt="Aluno acessando a Universidade dos Letreiros">
+        <div class="ul-photo-badge">
+          <img src="/universidade/assets/ul-symbol.png" alt="UL">
+          <div class="ul-photo-badge-text">
+            <strong>Universidade dos Letreiros</strong>
+            <span>Acesso 24/7 · IA tutora · Aula nova/semana</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -790,40 +850,58 @@
     </div>
     <div class="trainings-grid">
       <a href="https://letracaixadozero.com/treinamento-start-neon" class="training-card reveal">
-        <span class="training-tag start">Iniciante</span>
-        <h3>Start Neon</h3>
-        <p>Neon LED 1ª geração, 100% manual, sem máquina. R$ 200 de investimento total. Primeira venda paga tudo. Ideal pra quem começa do zero.</p>
-        <span class="training-link">Conhecer Start Neon →</span>
+        <div class="training-cover"><img src="/images/covers/training-start-neon.jpg" alt="Start Neon" loading="lazy"></div>
+        <div class="training-body">
+          <span class="training-tag start">Iniciante</span>
+          <h3>Start Neon</h3>
+          <p>Neon LED 1ª geração, 100% manual, sem máquina. R$ 200 de investimento total. Primeira venda paga tudo. Ideal pra quem começa do zero.</p>
+          <span class="training-link">Conhecer Start Neon →</span>
+        </div>
       </a>
       <a href="https://letracaixadozero.com/treinamento-pro-neon" class="training-card reveal">
-        <span class="training-tag pro">Premium</span>
-        <h3>Pro Neon</h3>
-        <p>Neon LED 2ª geração com Router CNC. Margem de 400% a 600%. Produto premium, visual de neon clássico, fidelidade alta de letreiro.</p>
-        <span class="training-link">Conhecer Pro Neon →</span>
+        <div class="training-cover"><img src="/images/covers/training-pro-neon.jpg" alt="Pro Neon" loading="lazy"></div>
+        <div class="training-body">
+          <span class="training-tag pro">Premium</span>
+          <h3>Pro Neon</h3>
+          <p>Neon LED 2ª geração com Router CNC. Margem de 400% a 600%. Produto premium, visual de neon clássico, fidelidade alta de letreiro.</p>
+          <span class="training-link">Conhecer Pro Neon →</span>
+        </div>
       </a>
       <a href="https://letracaixadozero.com/letras-de-acrilico-chinesas" class="training-card reveal">
-        <span class="training-tag premium">Exclusivo</span>
-        <h3>Letras Chinesas 4.0</h3>
-        <p>Técnica exclusiva LCXZero. Acrílico moldado com acabamento premium. Visual sofisticado, alta margem, segmento de luxo.</p>
-        <span class="training-link">Conhecer Chinesas 4.0 →</span>
+        <div class="training-cover"><img src="/images/covers/training-letras-chinesas.jpg" alt="Letras Chinesas 4.0" loading="lazy"></div>
+        <div class="training-body">
+          <span class="training-tag premium">Exclusivo</span>
+          <h3>Letras Chinesas 4.0</h3>
+          <p>Técnica exclusiva LCXZero. Acrílico moldado com acabamento premium. Visual sofisticado, alta margem, segmento de luxo.</p>
+          <span class="training-link">Conhecer Chinesas 4.0 →</span>
+        </div>
       </a>
       <a href="https://letracaixadozero.com/treinamento-lcz-letras-de-aco" class="training-card reveal">
-        <span class="training-tag pro">Profissional</span>
-        <h3>Letras de Aço</h3>
-        <p>Aço galvanizado, inox e latão. Corte, soldagem, pintura automotiva, iluminação. Acabamento durável de fachada premium.</p>
-        <span class="training-link">Conhecer Aços →</span>
+        <div class="training-cover"><img src="/images/covers/training-letras-aco.jpg" alt="Letras de Aço" loading="lazy"></div>
+        <div class="training-body">
+          <span class="training-tag pro">Profissional</span>
+          <h3>Letras de Aço</h3>
+          <p>Aço galvanizado, inox e latão. Corte, soldagem, pintura automotiva, iluminação. Acabamento durável de fachada premium.</p>
+          <span class="training-link">Conhecer Aços →</span>
+        </div>
       </a>
       <a href="https://letracaixadozero.com/pintura-automotiva" class="training-card reveal">
-        <span class="training-tag">Acabamento</span>
-        <h3>Pintura Automotiva</h3>
-        <p>Brilho automotivo nas letras. Preparação, primer, aplicação correta. Acabamento que faz a peça parecer joia.</p>
-        <span class="training-link">Conhecer Pintura →</span>
+        <div class="training-cover"><img src="/images/covers/training-pintura-automotiva.jpg" alt="Pintura Automotiva" loading="lazy"></div>
+        <div class="training-body">
+          <span class="training-tag">Acabamento</span>
+          <h3>Pintura Automotiva</h3>
+          <p>Brilho automotivo nas letras. Preparação, primer, aplicação correta. Acabamento que faz a peça parecer joia.</p>
+          <span class="training-link">Conhecer Pintura →</span>
+        </div>
       </a>
       <a href="https://letracaixadozero.com/combo-acm-acrilico-pvc" class="training-card reveal">
-        <span class="training-tag start">Combo</span>
-        <h3>Super Combo ACM + Acrílico + PVC</h3>
-        <p>3 treinamentos em pacote único com 71% de desconto. ACM (canal V), acrílico moldado e PVC com LED retroverso.</p>
-        <span class="training-link">Conhecer Combo →</span>
+        <div class="training-cover"><img src="/images/covers/training-combo.jpg" alt="Super Combo" loading="lazy"></div>
+        <div class="training-body">
+          <span class="training-tag start">Combo</span>
+          <h3>Super Combo ACM + Acrílico + PVC</h3>
+          <p>3 treinamentos em pacote único com 71% de desconto. ACM (canal V), acrílico moldado e PVC com LED retroverso.</p>
+          <span class="training-link">Conhecer Combo →</span>
+        </div>
       </a>
     </div>
   </div>
@@ -831,9 +909,17 @@
 
 <!-- ============== PRESENCIAL ============== -->
 <section class="presencial" id="presencial">
+  <div class="container">
+    <div class="presencial-hero reveal">
+      <img src="/images/covers/presencial-workshop.jpg" alt="Treinamento presencial na fábrica LCXZero" loading="lazy">
+      <div class="presencial-hero-overlay">
+        <span class="eyebrow amber">Imersão · 3 dias · Mogi Guaçu</span>
+        <h3>Dentro da fábrica, produzindo junto com o Matheus.</h3>
+      </div>
+    </div>
+  </div>
   <div class="container presencial-inner">
     <div>
-      <span class="eyebrow amber">Imersão 3 dias · Mogi Guaçu</span>
       <h2>Treinamento Presencial — mão na massa de verdade</h2>
       <p>3 dias dentro da fábrica real produzindo peças junto com o Matheus. Letra de aço completa (do corte à pintura auto), Neon LED 2ª geração, PVC com LED retroverso, iluminação completa e precificação real.</p>
       <ul class="presencial-features">
@@ -1063,22 +1149,31 @@
     </div>
     <div class="ecosystem-grid">
       <div class="ecosystem-card reveal">
-        <div class="ecosystem-tag">Plataforma IA</div>
-        <h3>VisualPilot</h3>
-        <p>IA especializada em comunicação visual. Análise de imagem, precificação automática, assistente que aponta trecho exato da aula. Um sócio técnico 24/7.</p>
-        <a href="https://visualpilot.ai" class="btn btn-outline">Conhecer VisualPilot</a>
+        <div class="ecosystem-cover"><img src="/images/covers/eco-visualpilot.jpg" alt="VisualPilot" loading="lazy"></div>
+        <div class="ecosystem-body">
+          <div class="ecosystem-tag">Plataforma IA</div>
+          <h3>VisualPilot</h3>
+          <p>IA especializada em comunicação visual. Análise de imagem, precificação automática, assistente que aponta trecho exato da aula. Um sócio técnico 24/7.</p>
+          <a href="https://visualpilot.ai" class="btn btn-outline">Conhecer VisualPilot</a>
+        </div>
       </div>
       <div class="ecosystem-card reveal">
-        <div class="ecosystem-tag">CRM</div>
-        <h3>CRM PROVendas</h3>
-        <p>CRM construído especificamente pro segmento. WhatsApp integrado, kanban do funil de letreiro, IA de atendimento. 10% do lucro pra causas sociais.</p>
-        <a href="https://crmprovendas.com" class="btn btn-outline">Conhecer CRM</a>
+        <div class="ecosystem-cover"><img src="/images/covers/eco-crmprovendas.jpg" alt="CRM PROVendas" loading="lazy"></div>
+        <div class="ecosystem-body">
+          <div class="ecosystem-tag">CRM</div>
+          <h3>CRM PROVendas</h3>
+          <p>CRM construído especificamente pro segmento. WhatsApp integrado, kanban do funil de letreiro, IA de atendimento. 10% do lucro pra causas sociais.</p>
+          <a href="https://crmprovendas.com" class="btn btn-outline">Conhecer CRM</a>
+        </div>
       </div>
       <div class="ecosystem-card reveal">
-        <div class="ecosystem-tag">E-commerce</div>
-        <h3>Atacadão da CV</h3>
-        <p>Insumos pra comunicação visual: LED, fonte, fixação, ferramentas. Marca própria 2X LED's (24V, garantia 3 anos). Envia BR e internacional.</p>
-        <a href="https://atacadaodacv.com.br" class="btn btn-outline">Acessar Atacadão</a>
+        <div class="ecosystem-cover"><img src="/images/covers/eco-atacadao.jpg" alt="Atacadão da CV" loading="lazy"></div>
+        <div class="ecosystem-body">
+          <div class="ecosystem-tag">E-commerce</div>
+          <h3>Atacadão da CV</h3>
+          <p>Insumos pra comunicação visual: LED, fonte, fixação, ferramentas. Marca própria 2X LED's (24V, garantia 3 anos). Envia BR e internacional.</p>
+          <a href="https://atacadaodacv.com.br" class="btn btn-outline">Acessar Atacadão</a>
+        </div>
       </div>
     </div>
   </div>
