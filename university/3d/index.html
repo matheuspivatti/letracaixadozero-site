@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager (Lazy Load) -->
+  <script>
+  (function(){
+    var gtmLoaded = false;
+    function loadGTM() {
+      if (gtmLoaded) return;
+      gtmLoaded = true;
+      var w=window,d=document,s='script',l='dataLayer',i='x=GQdRMyUnTy42LTszJV9aQwZeXlpATAYLTQ8JAAMLAQQZGw0QHhAHFx9NDxsc';
+      w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
+      j.src="https://load.stape.letracaixadozero.com/iebjqtlcp.js?"+i;f.parentNode.insertBefore(j,f);
+    }
+    ['scroll','click','mousemove','touchstart','keydown'].forEach(function(e){
+      window.addEventListener(e, loadGTM, {once:true,passive:true});
+    });
+    setTimeout(loadGTM, 4000);
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D from Scratch | 3D Printing for Signs & Channel Letters — Lifetime Access</title>
+  <meta name="description" content="Learn 3D printing for signs and channel letters, from modeling to installation. 41 lessons. Pay once, get lifetime access for $27.">
+  <meta property="og:title" content="3D from Scratch | 3D Printing for Signs — Lifetime Access">
+  <meta property="og:description" content="3D printing for channel letters and signage, from modeling to installation. Pay once, lifetime access. $27.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://letracaixadozero.com/university/3d">
+  <link rel="icon" type="image/png" href="/universidade/assets/ul-symbol.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #e2e8f0; background: #060E1F; position: relative; }
+    body::before { content: ''; position: fixed; inset: 0; background:
+      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(25, 194, 209, 0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 70% 50% at 80% 20%, rgba(15, 43, 91, 0.20) 0%, transparent 70%),
+      radial-gradient(ellipse 90% 70% at 50% 80%, rgba(25, 194, 209, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 70% 60%, rgba(11, 28, 58, 0.15) 0%, transparent 70%);
+      pointer-events: none; z-index: 0; }
+    body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .grid-overlay { position: fixed; inset: 0; background-image:
+      linear-gradient(rgba(25, 194, 209, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25, 194, 209, 0.05) 1px, transparent 1px);
+      background-size: 80px 80px; pointer-events: none; z-index: 0; }
+    .vignette { position: fixed; inset: 0; background: radial-gradient(ellipse at center, transparent 40%, rgba(4, 8, 20, 0.5) 100%); pointer-events: none; z-index: 0; }
+    .navbar, .hero, .social-section, .courses-section, .author-section, .included-section, .pricing-section, .faq-section, .final-cta, .footer { position: relative; z-index: 1; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+    img { max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Hero ── */
+    .hero { padding: 40px 20px 60px; text-align: center; background: transparent; }
+    .brand-word { font-size: 15px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #cbd5e1; margin: 0 auto 18px; }
+    .brand-word span { color: #2EC4B6; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(46,196,182,0.1); border: 1px solid rgba(46,196,182,0.25); padding: 8px 20px; border-radius: 50px; font-size: 13px; font-weight: 600; color: #2EC4B6; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(28px, 5.5vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #fff; }
+    .hero h1 em { font-style: normal; background: linear-gradient(135deg, #2EC4B6, #1B4F72); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 18px; color: #94a3b8; max-width: 600px; margin: 0 auto 32px; }
+    .hero-img { max-width: 720px; width: 100%; margin: 0 auto 32px; display: block; border-radius: 16px; border: 1px solid rgba(46,196,182,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.45); }
+    .hero-cta { display: inline-flex; align-items: center; gap: 8px; padding: 18px 48px; background: linear-gradient(135deg, #2EC4B6, #1B4F72); color: #fff; font-size: 18px; font-weight: 700; border-radius: 12px; transition: all 0.3s; box-shadow: 0 8px 30px rgba(46,196,182,0.3); }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(46,196,182,0.4); }
+    .hero-info { font-size: 13px; color: #64748b; margin-top: 12px; }
+    .hero-stats { display: flex; justify-content: center; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat-num { font-size: 14px; font-weight: 700; color: #2EC4B6; }
+    .hero-stat-label { font-size: 11px; color: #64748b; }
+
+    .section-title { text-align: center; font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .section-title em { font-style: normal; color: #2EC4B6; }
+    .section-sub { text-align: center; color: #94a3b8; margin-bottom: 40px; font-size: 15px; }
+
+    /* ── Author ── */
+    .author-section { padding: 60px 20px; background: transparent; }
+    .author-card { background: rgba(8,18,40,0.7); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 32px; display: flex; gap: 24px; align-items: flex-start; }
+    @media (max-width: 600px) { .author-card { flex-direction: column; align-items: center; text-align: center; } }
+    .author-avatar { width: 80px; height: 80px; border-radius: 16px; background: linear-gradient(135deg, #1B4F72, #2EC4B6); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 32px; color: #fff; font-weight: 800; }
+    .author-name { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .author-role { font-size: 13px; color: #2EC4B6; margin-bottom: 12px; }
+    .author-bio { font-size: 14px; color: #94a3b8; line-height: 1.7; }
+
+    /* ── Included ── */
+    .included-section { padding: 60px 20px; background: #060E1F; }
+    .included-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 700px; margin: 0 auto; }
+    @media (max-width: 500px) { .included-grid { grid-template-columns: 1fr; } }
+    .included-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
+    .check-icon { width: 24px; height: 24px; background: rgba(46,196,182,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #2EC4B6; font-size: 12px; font-weight: 700; }
+    .included-text { font-size: 14px; color: #cbd5e1; }
+
+    /* ── Pricing ── */
+    .pricing-section { padding: 60px 20px; background: transparent; }
+    .pricing-card { background: linear-gradient(135deg, #141830, #1a1f3d); border: 2px solid rgba(46,196,182,0.3); border-radius: 20px; padding: 40px 32px; max-width: 440px; margin: 0 auto; text-align: center; }
+    .pricing-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #2EC4B6; margin-bottom: 16px; }
+    .pricing-amount { display: flex; align-items: flex-end; justify-content: center; gap: 4px; margin-bottom: 4px; }
+    .pricing-amount span { font-size: clamp(42px, 10vw, 56px); font-weight: 800; color: #fff; }
+    .pricing-amount small { font-size: 16px; color: #94a3b8; margin-bottom: 12px; }
+    .pricing-note { font-size: 13px; color: #64748b; margin-bottom: 24px; }
+    .pricing-features { text-align: left; margin-bottom: 28px; }
+    .pricing-feature { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 14px; color: #cbd5e1; }
+    .pricing-feature::before { content: "✓"; color: #2EC4B6; font-weight: 700; font-size: 14px; }
+    .pricing-btn { display: block; width: 100%; padding: 18px; background: linear-gradient(135deg, #2EC4B6, #1B4F72); color: #fff; font-size: 17px; font-weight: 700; border-radius: 12px; transition: all 0.3s; box-shadow: 0 8px 30px rgba(46,196,182,0.3); border: none; cursor: pointer; }
+    .pricing-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(46,196,182,0.4); }
+    .pricing-trust { display: flex; justify-content: center; gap: 6px; margin-top: 16px; font-size: 12px; color: #64748b; align-items: center; }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 60px 20px; background: #060E1F; }
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: rgba(8,18,40,0.7); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px 24px; cursor: pointer; }
+    .faq-q { font-size: 15px; font-weight: 700; color: #fff; display: flex; justify-content: space-between; align-items: center; }
+    .faq-arrow { color: #2EC4B6; font-size: 18px; transition: transform 0.3s; }
+    .faq-item.active .faq-arrow { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s, padding 0.3s; }
+    .faq-item.active .faq-a { max-height: 240px; }
+    .faq-a-inner { padding-top: 12px; font-size: 14px; color: #94a3b8; line-height: 1.6; }
+
+    /* ── Upsell ── */
+    .upsell { max-width: 700px; margin: 0 auto; background: rgba(8,18,40,0.7); border: 1px solid rgba(46,196,182,0.2); border-radius: 16px; padding: 28px 32px; text-align: center; }
+    .upsell h3 { color: #fff; font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .upsell p { color: #94a3b8; font-size: 14px; margin-bottom: 16px; }
+    .upsell a { display: inline-flex; align-items: center; gap: 6px; padding: 12px 28px; border: 1px solid rgba(46,196,182,0.4); color: #2EC4B6; font-weight: 700; border-radius: 10px; font-size: 14px; transition: all 0.3s; }
+    .upsell a:hover { background: rgba(46,196,182,0.1); }
+
+    /* ── Final CTA ── */
+    .final-cta { padding: 60px 20px; background: transparent; text-align: center; }
+    .final-cta h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .final-cta p { color: #94a3b8; max-width: 500px; margin: 0 auto 28px; }
+    .final-cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 18px 48px; background: linear-gradient(135deg, #2EC4B6, #1B4F72); color: #fff; font-size: 18px; font-weight: 700; border-radius: 12px; transition: all 0.3s; box-shadow: 0 8px 30px rgba(46,196,182,0.3); }
+    .final-cta-btn:hover { transform: translateY(-2px); }
+    .final-note { font-size: 13px; color: #64748b; margin-top: 12px; }
+
+    /* ── Footer ── */
+    .footer { padding: 24px 20px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
+    .footer p { font-size: 12px; color: #475569; }
+    .footer a { color: #2EC4B6; }
+  </style>
+</head>
+<body>
+
+<!-- Background layers -->
+<div class="grid-overlay"></div>
+<div class="vignette"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <img src="/universidade/assets/ul-symbol.png" alt="University of Letters" style="max-width:64px;margin:0 auto 10px;display:block;border-radius:12px;">
+    <p class="brand-word">University of <span>Letters</span></p>
+    <div class="hero-badge">🖨️ 3D printing for signage</div>
+    <h1>3D Printing <em>from Scratch</em><br>for signs and channel letters</h1>
+    <p class="hero-sub">From modeling to installation: produce letters and parts with a 3D printer, finishing and LED lighting. Pay once and get lifetime access.</p>
+    <img class="hero-img" src="/universidade/assets/thumb-3d-sign.png" alt="3D-printed channel letters" fetchpriority="high">
+    <a href="https://uni.letracaixadozero.com/en/comprar/3d" class="hero-cta">Get lifetime access →</a>
+    <p class="hero-info">One-time payment · Lifetime access · 7-day guarantee</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">📚 41</div><div class="hero-stat-label">Lessons</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">⏱️ 10h+</div><div class="hero-stat-label">Of content</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">♾️ Lifetime</div><div class="hero-stat-label">Pay once</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">🛡️ Guarantee</div><div class="hero-stat-label">7 days</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- What you learn -->
+<section class="included-section">
+  <div class="container">
+    <h2 class="section-title">What you <em>learn</em></h2>
+    <p class="section-sub">Step by step, from modeling to a finished piece installed for your client</p>
+
+    <div class="included-grid">
+      <div class="included-item"><div class="check-icon">✓</div><div class="included-text">Modeling letters and parts in SketchUp</div></div>
+      <div class="included-item"><div class="check-icon">✓</div><div class="included-text">Slicing and 3D printer setup</div></div>
+      <div class="included-item"><div class="check-icon">✓</div><div class="included-text">Choosing filament and print parameters</div></div>
+      <div class="included-item"><div class="check-icon">✓</div><div class="included-text">Finishing: filler, sanding and painting</div></div>
+      <div class="included-item"><div class="check-icon">✓</div><div class="included-text">LED lighting and electrical assembly</div></div>
+      <div class="included-item"><div class="check-icon">✓</div><div class="included-text">Final installation and pricing your service</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Author -->
+<section class="author-section">
+  <div class="container">
+    <h2 class="section-title">Built by someone who <em>lives the trade</em></h2>
+    <p class="section-sub">Not theory from someone who never set foot in a workshop</p>
+
+    <div class="author-card">
+      <div class="author-avatar"><img src="/images/matheus-instrutor.jpg" alt="Matheus Pivatti" style="width:80px;height:80px;border-radius:16px;object-fit:cover;"></div>
+      <div>
+        <div class="author-name">Matheus Pivatti</div>
+        <div class="author-role">Founder of Letra Caixa do Zero · 15+ years in sign making</div>
+        <p class="author-bio">15 years producing signs. Over 5,000 pieces delivered. He built Steel Letras alongside his father — a benchmark for channel letters in Brazil. He has trained more than 4,000 professionals. Everything in these courses came from the workbench, not from a book.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing-section">
+  <div class="container">
+    <h2 class="section-title">Lifetime <em>access</em></h2>
+    <p class="section-sub">One payment. Yours forever. No subscription.</p>
+
+    <div class="pricing-card" style="position:relative;">
+      <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#2EC4B6,#1B4F72);color:#fff;font-size:12px;font-weight:700;padding:6px 20px;border-radius:50px;white-space:nowrap;">♾️ LIFETIME ACCESS</div>
+      <div class="pricing-label" style="margin-top:12px;">3D FROM SCRATCH</div>
+      <div class="pricing-amount"><span>$27</span><small>one-time</small></div>
+      <div class="pricing-note">One-time payment · yours forever, no subscription</div>
+
+      <div class="pricing-features">
+        <div class="pricing-feature">Complete 3D printing course for signs (41 lessons)</div>
+        <div class="pricing-feature">Lifetime access — no monthly fees, no renewals</div>
+        <div class="pricing-feature">From modeling to installation and pricing</div>
+        <div class="pricing-feature">Updates included at no extra cost</div>
+        <div class="pricing-feature">7-day unconditional guarantee</div>
+      </div>
+
+      <a href="https://uni.letracaixadozero.com/en/comprar/3d" class="pricing-btn">Get lifetime access →</a>
+      <div class="pricing-trust">🔒 Secure checkout · 🛡️ 7-day guarantee</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title">Frequently asked <em>questions</em></h2>
+    <p class="section-sub"></p>
+
+    <div class="faq-list">
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-q">Is it really lifetime access? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. You pay once and the access is yours forever — no monthly fees, no renewals.</div></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-q">Do I need a 3D printer to start? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">You learn the whole process even before buying a machine. The course shows which printer and materials to use, so you invest with confidence in the right gear.</div></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-q">I'm a beginner. Can I keep up? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. The course starts from zero, without skipping steps — from modeling to the finished piece installed for your client.</div></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-q">What if I don't like it? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">You have a 7-day unconditional guarantee. If you don't like it for any reason, we refund 100% of your payment. No questions asked.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Upsell to Complete -->
+<section class="pricing-section" style="padding-top:0;">
+  <div class="container">
+    <div class="upsell">
+      <h3>Want the full library?</h3>
+      <p>UNI Complete gives you all 10 courses — channel letters in acrylic, ACM, steel, PVC, neon and 3D printing — with lifetime access for $147.</p>
+      <a href="/university">See UNI Complete →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <h2>Start producing with 3D printing</h2>
+  <p>Learn from scratch how to make letters and parts with 3D printing for signage. Pay once and get access forever.</p>
+  <a href="https://uni.letracaixadozero.com/en/comprar/3d" class="final-cta-btn">Get lifetime access →</a>
+  <p class="final-note">One-time payment · Lifetime access · 7-day unconditional guarantee</p>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>3D from Scratch · University of Letters · Created by <a href="https://www.instagram.com/letracaixadozero" target="_blank" rel="noopener">Matheus Pivatti</a> · 15 years in sign making</p>
+  <p style="margin-top:4px;">© 2026 Letra Caixa do Zero. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
