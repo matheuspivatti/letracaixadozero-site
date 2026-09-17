@@ -5,3 +5,6 @@ package-lock.json
 .vercel
 create-sheet.js
 *-backup-*.html
+
+# Memória/índice de sessão do agente — NUNCA publicar (repo é público)
+.memsearch/
